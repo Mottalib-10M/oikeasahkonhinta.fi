@@ -1,0 +1,90 @@
+{
+ "haettu": "2026-10-15",
+ "kulutusprofiili": {
+  "lahde": "Tilastokeskus 12su, sähkön kokonaiskulutus",
+  "vuodet": [
+   2023,
+   2024,
+   2025
+  ],
+  "osuudet": [
+   0.1029,
+   0.092,
+   0.0929,
+   0.0813,
+   0.0751,
+   0.0676,
+   0.0693,
+   0.0722,
+   0.0706,
+   0.0841,
+   0.0915,
+   0.1004
+  ]
+ },
+ "kotitalousD": {
+  "lahde": "Tilastokeskus 13rb, kotitalousasiakas 5 000–15 000 kWh/v",
+  "kuukaudet": [
+   {
+    "kk": "2025-07",
+    "energiaVeroton": 5.92,
+    "kokonais": 16.877
+   },
+   {
+    "kk": "2025-08",
+    "energiaVeroton": 7.18,
+    "kokonais": 18.463
+   },
+   {
+    "kk": "2025-09",
+    "energiaVeroton": 6.46,
+    "kokonais": 17.57
+   },
+   {
+    "kk": "2025-10",
+    "energiaVeroton": 6.57,
+    "kokonais": 17.743
+   },
+   {
+    "kk": "2025-11",
+    "energiaVeroton": 6.75,
+    "kokonais": 17.984
+   },
+   {
+    "kk": "2025-12",
+    "energiaVeroton": 6.1,
+    "kokonais": 17.168
+   },
+   {
+    "kk": "2026-01",
+    "energiaVeroton": 8.93,
+    "kokonais": 20.877
+   },
+   {
+    "kk": "2026-02",
+    "energiaVeroton": 9.66,
+    "kokonais": 21.795
+   },
+   {
+    "kk": "2026-03",
+    "energiaVeroton": 5.94,
+    "kokonais": 17.137
+   },
+   {
+    "kk": "2026-04",
+    "energiaVeroton": 6.41,
+    "kokonais": 17.837
+   },
+   {
+    "kk": "2026-05",
+    "energiaVeroton": 6.65,
+    "kokonais": 18.134
+   },
+   {
+    "kk": "2026-06",
+    "energiaVeroton": 6.48,
+    "kokonais": 17.91
+   }
+  ]
+ }
+}

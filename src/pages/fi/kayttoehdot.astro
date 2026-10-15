@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'fi';
+---
+<PageLayout title={`Käyttöehdot ja julkaisija – ${SITE_NAMES[lang]}`} description="Kokosähkön julkaisija, palvelin, vastuu, tekijänoikeus ja sovellettava laki. Sivusto laskee pörssisähkön hinnan siirtomaksun, sähköveron ja alv:n kanssa." lang={lang} noindex={true} breadcrumbs={[{ label: 'Käyttöehdot' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Käyttöehdot ja julkaisijan tiedot</h1>
+    <h2>Julkaisija</h2>
+    <LegalIdentity lang={lang} />
+    <p>Sivuston {SITE_URL} sisällöstä vastaa {AUTHOR_NAME}.</p>
+    <h2>Palvelin</h2>
+    <LegalIdentity mode="hosting" lang={lang} />
+    <h2>Mitä sivusto tekee</h2>
+    <p>Kokosähkö muuntaa Suomen tarjousalueen pörssihinnan kilowattitunnin kokonaishinnaksi: myyjän marginaali tai kiinteä hinta, verkkoyhtiön siirtomaksu sen omasta hinnastosta, sähkövero ja huoltovarmuusmaksu Verohallinnon taulukosta sekä arvonlisävero. Tulokset ovat <strong>arvioita</strong>. Ratkaisevia ovat sähkönmyyjän ja verkkoyhtiön laskut. Sivusto on riippumaton, ei myy sähkösopimuksia eikä sillä ole yhteyttä sähköyhtiöihin, verkkoyhtiöihin, sähköpörssiin tai viranomaisiin. Menetelmä ja rajoitukset: <a href={route('method', lang)}>menetelmä ja lähteet</a>.</p>
+    <h2>Vastuu</h2>
+    <p>Hinnat ja verot tarkistetaan lähteistä ja moottori testataan automaattisesti, mutta verkkoyhtiöt voivat muuttaa hintojaan kesken vuoden, eikä virheettömyyttä voida taata. Kun päivän pörssihintoja ei ole saatavilla, näytetään merkitty keskihinta-arvio. Julkaisija ei vastaa päätöksistä, jotka tehdään pelkän arvion perusteella. Virheistä voi ilmoittaa <a href={route('contact', lang)}>yhteystietosivun</a> kautta.</p>
+    <h2>Tekijänoikeus ja tiedot</h2>
+    <p>Tekstit, grafiikka ja koodi kuuluvat julkaisijalle. Tilastokeskuksen tilastot julkaistaan CC BY 4.0 -lisenssillä lähde mainiten. Pörssihinnat ovat sähköpörssin ja ENTSO-E:n julkaisemia; niiden käyttöehdot koskevat edelleen käyttöä. Lakiteksti on julkista.</p>
+    <h2>Upottaminen</h2><p>Laskurin saa upottaa maksutta näkyvän linkin kanssa: katso <a href={route('widget', lang)}>Upota laskuri</a>.</p>
+    <h2>Henkilötiedot ja evästeet</h2><p>Syöttämäsi tiedot pysyvät selaimessasi. Katso <a href={route('privacy', lang)}>tietosuojaseloste</a> ja <a href={route('cookies', lang)}>evästeet</a>.</p>
+    <h2>Sisällöstä ilmoittaminen</h2><p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, sivun osoitteen ja syyn kanssa.</p>
+    <h2>Sovellettava laki</h2><p>Ranskan laki, jossa julkaisija on sijoittautunut. Riidat pyritään ratkaisemaan ensin sovinnollisesti, muuten toimivaltaisessa tuomioistuimessa ({LEGAL.jurisdiction}); kuluttaja säilyttää kotimaansa lain antaman suojan. Päivitetty {displayDate(LAST_UPDATED, 'fi-FI')}.</p>
+  </div>
+</PageLayout>

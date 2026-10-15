@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { P } from '../../lib/engine/params';
+import { displayDate } from '../../lib/format';
+const lang = 'fi';
+---
+<PageLayout title={`Yhteystiedot – ${SITE_NAMES[lang]}`} description="Ota yhteyttä Kokosähköön: ilmoita muuttunut siirtohinta, väärä verokanta tai laskuvirhe. Vastaamme sähköpostiin ja korjaamme luvut päivämäärän kanssa." lang={lang} noindex={true} breadcrumbs={[{ label: 'Yhteystiedot' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Yhteystiedot</h1>
+    <p>Kirjoita osoitteeseen <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Luemme kaikki laskentaa koskevat viestit.</p>
+    <h2>Ilmoita virheestä</h2>
+    <p>Onko verkkoyhtiösi muuttanut hinnastoaan tai eikö siirtomaksu vastaa laskuasi? Lähetä verkkoyhtiön nimi, siirtotuote, pääsulakkeen koko ja mieluiten linkki hinnastoon. Jos kyse on verosta, mainitse lähde. Korjaukset tehdään tietotiedostoon päivämäärän kanssa, ja ne näkyvät kaikilla sivuilla samaan aikaan.</p>
+    <h2>Toivotko uutta verkkoyhtiötä laskuriin?</h2>
+    <p>Laskurissa on nyt kolmetoista verkkoyhtiötä. Kerro, minkä alueen siirtohinnat puuttuvat, niin lisäämme ne yhtiön oman hinnaston perusteella.</p>
+    <h2>Mihin emme voi auttaa</h2>
+    <p>Emme näe kulutustasi, sopimustasi tai laskuasi emmekä välitä sähkösopimuksia. Laskua koskevat kysymykset kuuluvat sähkönmyyjälle tai verkkoyhtiölle. Riitatilanteissa voit kääntyä kuluttajaneuvonnan ja kuluttajariitalautakunnan puoleen.</p>
+    <h2>Upota laskuri</h2><p>Upotuskoodi on <a href={route('widget', lang)}>upotussivulla</a>. Julkaisija ja palvelin: <a href={route('terms', lang)}>käyttöehdot</a>.</p>
+  </div>
+</PageLayout>

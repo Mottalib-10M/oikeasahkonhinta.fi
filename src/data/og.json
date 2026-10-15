@@ -1,0 +1,13 @@
+{
+ "accent": "#0B5D4B",
+ "symbol": "eclair",
+ "variants": [
+  {
+   "file": "og-fi.png",
+   "title": "Kokosähkö",
+   "subtitle": "",
+   "badge": "2026",
+   "brand": "Kokosähkö"
+  }
+ ]
+}

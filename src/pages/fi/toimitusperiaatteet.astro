@@ -1,0 +1,18 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { P } from '../../lib/engine/params';
+import { displayDate } from '../../lib/format';
+const lang = 'fi';
+---
+<PageLayout title={`Toimituksen periaatteet – ${SITE_NAMES[lang]}`} description="Miten Kokosähkö tarkistaa pörssihinnat, siirtomaksut ja verot: vain viralliset lähteet, päivämäärä jokaiselle luvulle, automaattiset testit ja avoimet korjaukset." lang={lang} noindex={true} breadcrumbs={[{ label: 'Toimituksen periaatteet' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Toimituksen periaatteet</h1>
+    <h2>Lähteet</h2><p>Käytämme vain ensisijaisia lähteitä: pörssihinnat sähköpörssin ja ENTSO-E:n julkaisemina, siirtohinnat kunkin verkkoyhtiön omasta hinnastosta, sähköveron ja arvonlisäveron Verohallinnolta ja sähköverolaista, postinumeroiden verkkoyhtiöt ja sopimusten vertailutiedot Energiavirastolta sekä kulutus- ja hintatilastot Tilastokeskukselta. Blogi, vertailusivu tai sähköyhtiön kampanjasivu ei ole koskaan lähde. Jokainen arvo on tietotiedostossa lähteen ja päivämäärän ({displayDate(P.retrieved_at, 'fi-FI')}) kanssa.</p>
+    <h2>Mitä emme julkaise</h2><p>Arvoa, jota emme ole lukeneet virallisesta lähteestä, ei julkaista. Kun päivän pörssihintoja ei ole saatavilla, emme arvaa niitä: näytämme keskihinta-arvion, joka on merkitty selvästi arvioksi ja jonka laskentatapa ja jakso kerrotaan. Emme aseta sähkönmyyjiä paremmuusjärjestykseen emmekä ota maksua kenenkään mainitsemisesta.</p>
+    <h2>Tarkistukset</h2><p>Laskentamoottori testataan automaattisesti jokaisessa päivityksessä käsin lasketuilla tapauksilla. Siirtohinnat tarkistetaan ohjelmalla, joka lataa jokaisen verkkoyhtiön hinnaston ja varmistaa, että jokainen laskurin hinta löytyy siitä. Verot tarkistetaan verotaulukon jokaisen muutoksen yhteydessä.</p>
+    <h2>Korjaukset</h2><p>Virheet korjataan heti, kun ne on varmistettu, ja sivun päivämäärä muuttuu. Kirjoita osoitteeseen <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Lisää <a href={route('method', lang)}>menetelmäsivulla</a> ja <a href={route('about', lang)}>tietoa meistä</a> -sivulla.</p>
+  </div>
+</PageLayout>

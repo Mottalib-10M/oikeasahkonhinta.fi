@@ -1,0 +1,25 @@
+---
+/** Page embarquable (iframe) : calculateur sans navigation. noindex, hors sitemap (astro.config). ?lang=en bascule en anglais. */
+import '../../styles/global.css';
+import HintaCalc from '../../components/calc/HintaCalc';
+import { SITE_URL } from '../../data/site-config';
+import { STANDARD_VERKKO } from '../../lib/verktyg';
+---
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pörssisähkön hinta siirron ja verojen kanssa – Kokosähkö</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={`${SITE_URL}/fi/`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>if (new URLSearchParams(location.search).get('lang') === 'en') document.documentElement.classList.add('emb-en');</script>
+    <style is:inline>.emb-en [data-l="fi"]{display:none}html:not(.emb-en) [data-l="en"]{display:none}</style>
+  </head>
+  <body class="bg-white p-2 text-navy-900">
+    <div data-l="fi"><HintaCalc client:visible lang="fi" verkko={STANDARD_VERKKO} />
+      <p class="mt-2 text-center text-xs text-navy-600"><a href={`${SITE_URL}/fi/`} target="_blank" rel="noopener" class="underline">Kokosähkö · pörssisähkö siirron ja verojen kanssa</a></p></div>
+    <div data-l="en"><HintaCalc client:visible lang="en" verkko={STANDARD_VERKKO} />
+      <p class="mt-2 text-center text-xs text-navy-600"><a href={`${SITE_URL}/en/`} target="_blank" rel="noopener" class="underline">Kokosähkö · Finnish spot price with transfer and tax</a></p></div>
+  </body>
+</html>

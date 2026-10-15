@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { P } from '../../lib/engine/params';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title={`Privacy policy – ${SITE_NAMES[lang]}`} description="Kokosähkö calculates in your browser: your postcode, consumption and contract details are never sent to us. How data is handled under the GDPR, and your rights." lang={lang} noindex={true} breadcrumbs={[{ label: 'Privacy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Privacy policy</h1>
+    <h2>Controller</h2>
+    <LegalIdentity lang={lang} />
+    <h2>What you type</h2>
+    <p>Postcode, network operator, consumption, margin and every other value you enter are processed only in your browser. Nothing is sent to us or to anyone else. Your browser loads two public files from the same server: the day’s exchange prices and the postcode list of network operators; loading them does not tell us what you typed. If you use the share link, your values appear in the address, visible to whoever receives it.</p>
+    <h2>No cookies</h2>
+    <p>The site sets no cookies and stores nothing in your browser’s local storage. See also the <a href={route('cookies', lang)}>cookies</a> page.</p>
+    <h2>Anonymous stability check (Microsoft Clarity)</h2>
+    <p>To check that the site works (errors, load times, clicks that do nothing) we may use Microsoft Clarity in cookie-free mode: no cookie is set, visits are not linked and page content is masked. Provider: Microsoft Ireland Operations Limited. Retention: 30 days, aggregates up to 13 months. Legal basis: our legitimate interest in a working site (GDPR art. 6(1)(f)). You can object by blocking clarity.ms in your browser or by writing to us.</p>
+    <h2>Technical logs at the host</h2>
+    <p>Like any web server, the host may briefly record IP address and time to serve pages and prevent abuse. We have no access to those logs to identify visitors. Host details: see the <a href={route('terms', lang)}>legal notice</a>.</p>
+    <h2>Email</h2>
+    <p>If you write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, your address is used only to reply and is deleted once the matter is closed, within twelve months at most.</p>
+    <h2>Your rights</h2>
+    <p>You have the right of access, rectification, erasure and objection; write to the address above. You may also complain to the Finnish Data Protection Ombudsman or to the {LEGAL.supervisoryAuthority}, where the publisher is established.</p>
+    <p>Updated {displayDate(LAST_UPDATED, 'en-GB')}.</p>
+  </div>
+</PageLayout>

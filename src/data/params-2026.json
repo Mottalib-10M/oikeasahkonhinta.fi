@@ -1,0 +1,66 @@
+{
+ "_lisezmoi": "Tous les paramètres du site, jamais en dur dans le code (RECETTE §4). Taxes relues le 2026-10-15 sur vero.fi (verotaulukko 1.4.2026–31.12.2026, arvonlisäveroprosentit). Tarifs de réseau : src/data/verkot-2026.json, vérifiés par scripts/data/tarkista-verkot.py. Prix spot : data/spot (scripts/data/hae-spot.mjs). Millésime suivant : copier en params-2027.json et relire chaque valeur.",
+ "year": 2026,
+ "retrieved_at": "2026-10-15",
+ "valid_from": "2026-04-01",
+ "valid_to": "2026-12-31",
+ "vero": {
+  "sahkovero_I_c": 2.24,
+  "huoltovarmuus_c": 0.085,
+  "sahkovero_II_c": 0.05,
+  "alv": 0.255,
+  "voimassa": "2026-04-01",
+  "aiempi_I_yhteensa_c": 2.253,
+  "aiempi_huoltovarmuus_c": 0.013,
+  "aiempi_voimassa": "2026-03-31",
+  "datakeskukset_I_alkaen": "2026-07-01"
+ },
+ "markkina": {
+  "vartti_alkaen": "2025-10-01",
+  "julkaisu_fi_klo": "13:45",
+  "huutokauppa_cet_klo": "12:00",
+  "tarjousalue": "FI",
+  "eic": "10YFI-1--------U"
+ },
+ "kulutus": {
+  "kerrostalo": 2000,
+  "omakotitalo": 5000,
+  "sahkolammitys": 18000
+ },
+ "laitteet": {
+  "sauna": { "kw": 6, "h": 1.5, "nimi_fi": "Sähkökiuas", "nimi_en": "Electric sauna stove", "apu_fi": "Kiukaan teho lukee arvokilvessä. Oletus: 6 kW, puolitoista tuntia lämmitystä ja saunomista.", "apu_en": "The stove’s power is on its rating plate. Default: 6 kW for an hour and a half of heating and bathing." },
+  "auto": { "kw": 11, "kwh": 40, "nimi_fi": "Sähköauto", "nimi_en": "Electric car", "apu_fi": "Kolmivaiheinen 16 A kotilaturi lataa 11 kW (3 × 230 V × 16 A). Oletus: 40 kWh akkuun.", "apu_en": "A three-phase 16 A home charger delivers 11 kW (3 × 230 V × 16 A). Default: 40 kWh into the battery." },
+  "pesukone": { "kwh": 0.8, "h": 3, "nimi_fi": "Pyykinpesukone", "nimi_en": "Washing machine", "apu_fi": "Koneen energiamerkki kertoo eco 40–60 -ohjelman kulutuksen sadalle pesulle; jaa sadalla. Oletus: 0,8 kWh pesulta.", "apu_en": "The energy label gives the eco 40–60 programme’s use per 100 cycles; divide by 100. Default: 0.8 kWh per cycle." },
+  "kuivausrumpu": { "kwh": 2, "h": 2.5, "nimi_fi": "Kuivausrumpu", "nimi_en": "Tumble dryer", "apu_fi": "Energiamerkki kertoo kulutuksen sadalle kuivaukselle; Motivan mukaan lämpöpumppurumpu on energiatehokas, vanha kondenssirumpu voi kuluttaa runsaasti. Oletus: 2 kWh kuivaukselta.", "apu_en": "The energy label gives use per 100 cycles; Motiva notes heat-pump dryers are efficient while old condenser models can use a lot. Default: 2 kWh per cycle." }
+ },
+ "sources": {
+  "veroTaulukko": { "url": "https://www.vero.fi/yritykset-ja-yhteisot/tietoa-yritysverotuksesta/valmisteverotus/sahko_ja_eraat_polttoaineet/sahkon_ja_eraiden_polttoaineiden_verota/", "label": { "fi": "Verohallinto: sähkön ja eräiden polttoaineiden verotaulukot (voimassa 1.4.2026 alkaen)", "en": "Finnish Tax Administration: excise tax tables for electricity (from 1 April 2026)" } },
+  "veroSahko": { "url": "https://vero.fi/yritykset-ja-yhteisot/verot-ja-maksut/valmisteverotus/sahkovero/", "label": { "fi": "Verohallinto: sähkövero ja veroluokat I ja II", "en": "Finnish Tax Administration: electricity tax and tax classes I and II" } },
+  "veroAlv": { "url": "https://www.vero.fi/yritykset-ja-yhteisot/verot-ja-maksut/arvonlisaverotus/arvonlisaveroprosentit/", "label": { "fi": "Verohallinto: arvonlisäveroprosentit (yleinen verokanta 25,5 %)", "en": "Finnish Tax Administration: VAT rates (standard rate 25.5%)" } },
+  "finlexSahkovero": { "url": "https://www.finlex.fi/fi/lainsaadanto/1996/1260", "label": { "fi": "Finlex: laki sähkön ja eräiden polttoaineiden valmisteverosta 1260/1996", "en": "Finlex: Act on excise duty on electricity and certain fuels 1260/1996" } },
+  "nordpool": { "url": "https://data.nordpoolgroup.com/auction/day-ahead/prices?deliveryArea=FI", "label": { "fi": "Nord Pool: day-ahead-hinnat, tarjousalue FI", "en": "Nord Pool: day-ahead prices, FI bidding zone" } },
+  "entsoe": { "url": "https://transparency.entsoe.eu/", "label": { "fi": "ENTSO-E Transparency Platform: day-ahead-hinnat", "en": "ENTSO-E Transparency Platform: day-ahead prices" } },
+  "evHintavertailu": { "url": "https://www.sahkonhinta.fi/", "label": { "fi": "Energiavirasto: sähkön hintavertailu (sahkonhinta.fi)", "en": "Energy Authority: electricity price comparison (sahkonhinta.fi)" } },
+  "tkHinta": { "url": "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/ehi/13rb.px", "label": { "fi": "Tilastokeskus: sähkön hinta kuluttajatyypeittäin (taulukko 13rb)", "en": "Statistics Finland: electricity price by type of consumer (table 13rb)" } },
+  "tkKulutus": { "url": "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/ehk/12su.px", "label": { "fi": "Tilastokeskus: sähkön hankinta ja kokonaiskulutus kuukausittain (taulukko 12su)", "en": "Statistics Finland: monthly electricity supply and total consumption (table 12su)" } },
+  "motivaSiirto": { "url": "https://www.motiva.fi/tietopankki/mika-on-sahkon-siirtomaksu-ja-mista-se-muodostuu/", "label": { "fi": "Motiva: mikä on sähkön siirtomaksu ja mistä se muodostuu", "en": "Motiva: what the electricity transfer fee is made of" } },
+  "motivaSopimus": { "url": "https://www.motiva.fi/tietopankki/mika-sahkosopimus-kotiin-kannattaa-valita/", "label": { "fi": "Motiva: mikä sähkösopimus kotiin kannattaa valita", "en": "Motiva: which electricity contract to choose for your home" } },
+  "motivaJousto": { "url": "https://www.motiva.fi/tietopankki/kulutusjousto-nain-hyodynnat-sahkon-hintavaihtelut-kotonasi/", "label": { "fi": "Motiva: kulutusjousto, näin hyödynnät sähkön hintavaihtelut", "en": "Motiva: demand flexibility, using price swings at home" } },
+  "motivaSauna": { "url": "https://www.motiva.fi/tietopankki/energiatehokas-kodin-sauna/", "label": { "fi": "Motiva: energiatehokas kodin sauna", "en": "Motiva: an energy-efficient home sauna" } },
+  "motivaKoneet": { "url": "https://www.motiva.fi/tietopankki/energiatehokkaat-kodinkoneet-ja-laitteet/", "label": { "fi": "Motiva: energiatehokkaat kodinkoneet ja laitteet", "en": "Motiva: energy-efficient household appliances" } },
+  "evPostinumerot": { "url": "https://ev-shv-prod-app-wa-consumerapi1.azurewebsites.net/api/getdsocollection", "label": { "fi": "Energiavirasto: jakeluverkkoyhtiöt postinumeroittain (hintavertailun rajapinta)", "en": "Energy Authority: distribution operators by postcode (comparison service API)" } },
+  "caruna": { "url": "https://caruna.fi/tuotteet-ja-palvelut/kotiin-ja-kiinteistoon/verkkopalveluhinnastot/verkkopalveluhinnasto-caruna-oy", "label": { "fi": "Caruna Oy: verkkopalveluhinnasto 1.9.2024", "en": "Caruna Oy: network service price list 1 Sept 2024" } },
+  "caruna-espoo": { "url": "https://caruna.fi/tuotteet-ja-palvelut/kotiin-ja-kiinteistoon/verkkopalveluhinnastot/verkkopalveluhinnasto-caruna-0", "label": { "fi": "Caruna Espoo Oy: verkkopalveluhinnasto 1.1.2026", "en": "Caruna Espoo Oy: network service price list 1 Jan 2026" } },
+  "elenia": { "url": "https://www.elenia.fi/files/3368404e95e6e87870c3efd831994c0a6bf8b693/elenia-pienasiakkaat-hinnasto-4-2026-www-a4-fi-v2.pdf", "label": { "fi": "Elenia: verkkopalveluhinnasto, pienasiakkaat 1.4.2026", "en": "Elenia: network service price list for small customers, 1 Apr 2026" } },
+  "helen": { "url": "https://www.helensahkoverkko.fi/henkiloasiakkaat/tietoa-sahkonkulutuksesta/Verkkopalvelutuotteet-ja-hinnat", "label": { "fi": "Helen Sähköverkko: verkkopalvelutuotteet ja hinnat", "en": "Helen Sähköverkko: network service products and prices" } },
+  "tampere": { "url": "https://www.tampereensahkoverkko.fi/wp-content/uploads/sites/3/2026/03/taes_hinnasto_2026_hvm_01042026.pdf", "label": { "fi": "Tampereen Sähköverkko: verkkopalveluhinnasto 1.1.2026", "en": "Tampereen Sähköverkko: network service price list 1 Jan 2026" } },
+  "oulu": { "url": "https://production.oulunenergia.fi/globalassets/tiedostot/sahkoverkot/oes_hinnasto_01012026.pdf", "label": { "fi": "Oulun Energia Sähköverkko: verkkopalveluhinnasto 1.1.2026", "en": "Oulun Energia Sähköverkko: network service price list 1 Jan 2026" } },
+  "ksoy": { "url": "https://www.ksoy.fi/wp-content/uploads/2026/07/Pienasiakkaat-hinnasto-2026.pdf", "label": { "fi": "Kymenlaakson Sähköverkko: verkkopalveluhinnasto, pienasiakkaat 1.4.2026", "en": "Kymenlaakson Sähköverkko: small-customer price list 1 Apr 2026" } },
+  "jse": { "url": "https://www.jseoy.fi/wp-content/uploads/2026/05/verkkopalveluhinnasto-1.7.2026.pdf", "label": { "fi": "Järvi-Suomen Energia: verkkopalveluhinnasto 1.7.2026", "en": "Järvi-Suomen Energia: network service price list 1 Jul 2026" } },
+  "pks": { "url": "https://pkssahkonsiirto.fi/wp-content/uploads/pkss_verkkopalveluhinnasto_01082026.pdf", "label": { "fi": "PKS Sähkönsiirto: verkkopalveluhinnasto 1.8.2026", "en": "PKS Sähkönsiirto: network service price list 1 Aug 2026" } },
+  "kuopio": { "url": "https://www.kuopionenergia.fi/wp-content/uploads/2026/08/ke_sahkoverkon_verkkopalveluhinnasto_20260814.pdf", "label": { "fi": "Kuopion Sähköverkko: verkkopalvelumaksut 1.7.2026", "en": "Kuopion Sähköverkko: network service fees 1 Jul 2026" } },
+  "lahti": { "url": "https://www.lahtienergia.fi/lahti-energia-sahkoverkko/sahkoverkon-hinnastot/sahkon-verkkopalvelumaksut/", "label": { "fi": "Lahti Energia: sähkön verkkopalvelumaksut 1.1.2026", "en": "Lahti Energia: electricity network service fees 1 Jan 2026" } },
+  "savon-voima": { "url": "https://savonvoima.fi/hinnastot-ja-sopimusehdot/verkkopalveluhinnasto/", "label": { "fi": "Savon Voima Verkko: verkkopalveluhinnasto 1.6.2026", "en": "Savon Voima Verkko: network service price list 1 Jun 2026" } },
+  "seiverkot": { "url": "https://www.seiverkot.fi/hinnastot-ja-ehdot/verkkopalveluhinnastot/", "label": { "fi": "Seiverkot: verkkopalveluhinnasto 1.9.2024", "en": "Seiverkot: network service price list 1 Sept 2024" } }
+ }
+}

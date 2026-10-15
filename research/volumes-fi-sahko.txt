@@ -1,0 +1,13 @@
+# FI-SAHKO, Keyword Planner Objet Tech, 2026-10-15, zone Finlande, langue finnois.
+# Fourchettes relevées dans reports/etude-niches-2026-10-15-volumes-KP.txt (ligne FI-SAHKO, ~1,8 M).
+# Seules les cinq requêtes notées 100 k – 1 M sont reprises ; les 7 requêtes 10 k – 100 k ne sont pas nommées dans le relevé : minimum.
+pörssisähkö
+100 k – 1 M
+pörssisähkön hinta
+100 k – 1 M
+pörssisähkö hinta
+100 k – 1 M
+sähkön hinta
+100 k – 1 M
+sähkön hinta nyt
+100 k – 1 M

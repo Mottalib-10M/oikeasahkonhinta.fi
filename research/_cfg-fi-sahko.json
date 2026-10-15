@@ -1,0 +1,77 @@
+{
+ "legalCountry": "France",
+ "registerLabel": "SIREN",
+ "vatLabel": "VAT",
+ "jurisdiction": "France",
+ "supervisoryAuthority": "Commission nationale de l'informatique et des libertés (CNIL)",
+ "supervisoryAuthorityUrl": "https://www.cnil.fr",
+ "consentMode": "notice",
+ "year": 2026,
+ "founded": "2026",
+ "volumes": "/private/tmp/claude-501/-Users-mottalib/dee0c9f8-666c-41dc-a337-ed95eb787ee7/scratchpad/volumes-fi-sahko.txt",
+ "folder": "porssisahko",
+ "outDir": "a-publier/Mottalib-10M",
+ "url": "https://kokosahko.fi",
+ "locales": [
+  "fi",
+  "en"
+ ],
+ "names": {
+  "fi": "Kokosähkö",
+  "en": "Kokosähkö"
+ },
+ "langTags": {
+  "fi": "fi-FI",
+  "en": "en-FI"
+ },
+ "ogLocales": {
+  "fi": "fi_FI",
+  "en": "en_GB"
+ },
+ "localeTag": "fi-FI",
+ "currency": "EUR",
+ "flag": "fi",
+ "symbol": "eclair",
+ "accent": "#0B5D4B",
+ "authorRole": {
+  "fi": "Radif Partners",
+  "en": "Radif Partners"
+ },
+ "authorDesc": {
+  "fi": "Radif Partners laskee pörssisähkön todellisen hinnan Suomessa: Suomen tarjousalueen vartti- ja tuntihinnat, paikallisen verkkoyhtiön siirtomaksu ja perusmaksu verkkoyhtiöiden omista hinnastoista, sähkövero ja huoltovarmuusmaksu Verohallinnon verotaulukosta sekä arvonlisävero 25,5 %. Hinnat päivittyvät joka päivä automaattisesti.",
+  "en": "Radif Partners computes the real price of exchange electricity in Finland: quarter-hour and hourly prices for the Finnish bidding zone, the local network operator's transfer and basic fees taken from each operator's own price list, the electricity tax and security-of-supply fee from the Finnish Tax Administration's table, and 25.5% VAT. Prices refresh automatically every day."
+ },
+ "email": "contact@kokosahko.fi",
+ "indexnow": "6c564391933ccbd2a8662a33e411347c",
+ "shortName": "Kokosähkö",
+ "description": "Pörssisähkön hinta tänään ja huomenna vartin tarkkuudella siirtomaksun, sähköveron ja arvonlisäveron kanssa: todellinen hinta oman verkkoyhtiön mukaan.",
+ "port": 5540,
+ "og": [
+  {
+   "file": "og-fi.png",
+   "title": "Kokosähkö",
+   "subtitle": "",
+   "badge": "2026",
+   "brand": "Kokosähkö"
+  }
+ ],
+ "lastUpdated": "2026-10-15",
+ "knowsAbout": {
+  "fi": [
+   "Pörssisähkön spot-hinta",
+   "Sähkön varttihinta",
+   "Sähkönsiirron hinnat verkkoyhtiöittäin",
+   "Sähkövero ja huoltovarmuusmaksu",
+   "Pörssisähkö vai kiinteä sopimus",
+   "Sähkölaitteiden käyttökustannus"
+  ],
+  "en": [
+   "Finnish exchange electricity spot price",
+   "Quarter-hour electricity prices",
+   "Electricity distribution tariffs by network operator",
+   "Finnish electricity tax",
+   "Spot versus fixed-price contracts",
+   "Running cost of household appliances"
+  ]
+ }
+}

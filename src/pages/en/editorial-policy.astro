@@ -1,0 +1,18 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { P } from '../../lib/engine/params';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy – ${SITE_NAMES[lang]}`} description="How Kokosähkö checks exchange prices, transfer fees and taxes: official sources only, a date for every value, automatic tests and open corrections on every page." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial policy</h1>
+    <h2>Sources</h2><p>We use primary sources only: exchange prices as published by the power exchange and ENTSO-E, transfer fees from each network operator’s own price list, electricity tax and VAT from the Finnish Tax Administration and the Electricity Tax Act, postcode-to-operator data and contract comparisons from the Energy Authority, and consumption and price statistics from Statistics Finland. A blog, a comparison site or an energy company’s campaign page is never a source. Every value sits in the data file with its source and date ({displayDate(P.retrieved_at, 'en-GB')}).</p>
+    <h2>What we do not publish</h2><p>A value we have not read in an official source is not published. When the day’s exchange prices are unavailable we do not guess them: we show an average-price estimate, clearly marked as such, with its method and period. We rank no retailers and take no money to mention anyone.</p>
+    <h2>Checks</h2><p>The calculation engine is tested automatically on every update against hand-computed cases. Transfer fees are checked by a script that downloads each operator’s price list and confirms that every price used by the calculator appears in it. Taxes are reviewed whenever the tax table changes.</p>
+    <h2>Corrections</h2><p>Errors are fixed as soon as confirmed and the page date changes. Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. More on the <a href={route('method', lang)}>method page</a> and <a href={route('about', lang)}>about us</a>.</p>
+  </div>
+</PageLayout>

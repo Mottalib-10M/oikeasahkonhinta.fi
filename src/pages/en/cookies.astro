@@ -1,0 +1,17 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="Kokosähkö sets no cookies and stores nothing on your device. The spot electricity price, transfer fees and appliance running costs are worked out in your browser." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookies</h1>
+    <p>The site sets no cookies and does not use your browser’s local storage. The price calculator, the transfer fee comparison and the appliance calculators need nothing stored: everything is recalculated when you change a value.</p>
+    <h2>No tracking, no ads</h2><p>There are no ads, no social buttons and no trackers, so there is no cookie banner. To check that pages work, Microsoft Clarity may be used without cookies and with page content masked: nothing is stored on your device.</p>
+    <h2>Embedded calculator</h2><p>The calculator embedded on other sites sets no cookies either. More in the <a href={route('privacy', lang)}>privacy policy</a>.</p>
+    <p>Questions: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Updated {displayDate(LAST_UPDATED, 'en-GB')}.</p>
+  </div>
+</PageLayout>

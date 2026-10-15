@@ -1,0 +1,17 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'fi';
+---
+<PageLayout title={`Evästeet – ${SITE_NAMES[lang]}`} description="Kokosähkö ei aseta evästeitä eikä tallenna mitään laitteellesi. Pörssisähkön hinta, siirtomaksu ja laitteiden käyttökustannus lasketaan selaimessa ilman seurantaa." lang={lang} noindex={true} breadcrumbs={[{ label: 'Evästeet' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Evästeet</h1>
+    <p>Sivusto ei aseta evästeitä eikä käytä selaimen paikallista tallennustilaa. Hintalaskuri, siirtohintojen vertailu ja laitelaskurit eivät tarvitse mitään tallennettua: kaikki lasketaan uudelleen, kun muutat arvoa.</p>
+    <h2>Ei seurantaa, ei mainoksia</h2><p>Sivustolla ei ole mainoksia, sosiaalisen median painikkeita eikä seurantaa, joten evästebanneria ei tarvita. Sivujen toimivuuden tarkistamiseen voidaan käyttää Microsoft Clarityä ilman evästeitä ja sivun sisältö peitettynä: laitteellesi ei tallenneta mitään.</p>
+    <h2>Upotettu laskuri</h2><p>Muille sivustoille upotettu laskuri ei myöskään aseta evästeitä. Lisää <a href={route('privacy', lang)}>tietosuojaselosteessa</a>.</p>
+    <p>Kysymykset: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Päivitetty {displayDate(LAST_UPDATED, 'fi-FI')}.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { P } from '../../lib/engine/params';
+import { displayDate } from '../../lib/format';
+const lang = 'fi';
+---
+<PageLayout title={`Tietosuojaseloste – ${SITE_NAMES[lang]}`} description="Kokosähkö laskee selaimessasi: postinumeroa, kulutusta tai sopimustietoja ei lähetetä meille. Miten tietoja käsitellään tietosuoja-asetuksen mukaan ja oikeutesi." lang={lang} noindex={true} breadcrumbs={[{ label: 'Tietosuoja' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Tietosuojaseloste</h1>
+    <h2>Rekisterinpitäjä</h2>
+    <LegalIdentity lang={lang} />
+    <h2>Syöttämäsi tiedot</h2>
+    <p>Postinumero, verkkoyhtiö, kulutus, marginaali ja muut syöttämäsi arvot käsitellään vain selaimessasi. Mitään ei lähetetä meille eikä kenellekään muulle. Selain lataa samalta palvelimelta kaksi julkista tiedostoa: päivän pörssihinnat ja postinumeroiden verkkoyhtiöluettelon; niiden lataaminen ei kerro meille, mitä kirjoitit. Jos käytät jakolinkkiä, arvosi näkyvät osoitteessa ja sen vastaanottajalle.</p>
+    <h2>Ei evästeitä</h2>
+    <p>Sivusto ei aseta evästeitä eikä tallenna mitään selaimen paikalliseen tallennustilaan. Katso myös <a href={route('cookies', lang)}>evästeet</a>.</p>
+    <h2>Nimetön toimivuuden seuranta (Microsoft Clarity)</h2>
+    <p>Sivuston toimivuuden tarkistamiseen (virheet, latausajat, toimimattomat napsautukset) voidaan käyttää Microsoft Clarityä evästeettömässä tilassa: evästettä ei aseteta, käynnit eivät yhdisty toisiinsa ja sivun sisältö peitetään. Palveluntarjoaja: Microsoft Ireland Operations Limited. Säilytys 30 päivää, koosteet enintään 13 kuukautta. Peruste: oikeutettu etu toimivaan sivustoon (tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta). Voit vastustaa estämällä clarity.ms-osoitteen selaimessasi tai kirjoittamalla meille.</p>
+    <h2>Palvelimen tekniset lokit</h2>
+    <p>Kuten mikä tahansa verkkopalvelin, palveluntarjoaja voi tallentaa hetkeksi IP-osoitteen ja ajan sivujen toimittamiseksi ja väärinkäytön estämiseksi. Meillä ei ole pääsyä näihin lokeihin kävijöiden tunnistamiseksi. Palvelimen tiedot: <a href={route('terms', lang)}>käyttöehdot</a>.</p>
+    <h2>Sähköposti</h2>
+    <p>Jos kirjoitat osoitteeseen <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, osoitettasi käytetään vain vastaamiseen, ja se poistetaan, kun asia on käsitelty, viimeistään kahdentoista kuukauden kuluttua.</p>
+    <h2>Oikeutesi</h2>
+    <p>Sinulla on oikeus saada pääsy tietoihisi, oikaista ja poistaa ne sekä vastustaa käsittelyä; kirjoita yllä olevaan osoitteeseen. Voit myös tehdä valituksen tietosuojavaltuutetun toimistolle tai julkaisijan sijaintimaan valvontaviranomaiselle ({LEGAL.supervisoryAuthority}).</p>
+    <p>Päivitetty {displayDate(LAST_UPDATED, 'fi-FI')}.</p>
+  </div>
+</PageLayout>

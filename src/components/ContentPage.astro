@@ -1,0 +1,74 @@
+---
+/**
+ * Rendu d'un guide ou d'une page outil défini dans `src/content/`. Ordre (RECETTE §9.3, §21) :
+ * H1 et chapeau ; page outil : l'outil, puis le bloc citable replié ; guide : le bloc citable, puis
+ * le mini-simulateur, puis le corps. FAQ, pages associées, sources et encart auteur viennent du
+ * PageLayout, avec la FAQ affichée et balisée depuis la même liste (§7).
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import MiniSim from './calc/MiniSim';
+import Clamp from './Clamp.astro';
+import HintaCalc from './calc/HintaCalc';
+import LaiteCalc from './calc/LaiteCalc';
+import VertailuCalc from './calc/VertailuCalc';
+import VerkotCalc from './calc/VerkotCalc';
+import KuukausiCalc from './calc/KuukausiCalc';
+import { verktygProps } from '../lib/verktyg';
+import { route, ROUTES, type Locale } from '../i18n/routes';
+import { label } from '../i18n/nav';
+import { t } from '../i18n/ui';
+import { pageById } from '../lib/guides';
+import { helpers } from '../lib/helpers';
+import { P } from '../lib/engine/params';
+import { articleSchema, faqSchema, breadcrumbSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+import { AUTHOR_NAME } from '../data/site-config';
+import type { PageDef } from '../lib/guide-types';
+interface Props { page: PageDef; lang: Locale }
+const { page, lang } = Astro.props;
+const x = page[lang];
+const ui = t(lang);
+const path = route(page.id, lang);
+const H = helpers(lang);
+const parts = x.body(H).split(/<!--mini:([A-Za-z0-9_]+)-->/);
+const resume = x.resume(H);
+const faqs = x.faqs(H);
+const jsonLd = [articleSchema({ title: x.h1, description: x.description, path, lang }), webPageSchema({ name: x.h1, description: x.description, path, lang }), breadcrumbSchema([{ name: ui.breadcrumbHome, path: route('home', lang) }, { name: x.nav, path }])];
+if (page.tool) jsonLd.push(webApplicationSchema({ name: x.h1, description: x.description, path, lang }));
+if (faqs.length) jsonLd.push(faqSchema(faqs, lang));
+const related = page.related.filter((id) => ROUTES.some((r) => r.id === id)).map((id) => ({ href: route(id, lang), name: label(id, lang), description: pageById(id)?.[lang].card ?? '' }));
+const sources = page.sources.map((k) => ({ name: P.sources[k].label[lang], url: P.sources[k].url }));
+const methodHref = route('method', lang);
+/** Outil de référence de chaque groupe : cible par défaut du bouton des mini-simulateurs. */
+const cible = page.miniHref ?? 'home';
+const miniHref = route(cible, lang);
+const tp = verktygProps(page.toolProps);
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} related={related} sources={sources} breadcrumbs={[{ label: x.nav }]}>
+  <article>
+    <header class="mb-3">
+      <h1 class="text-2xl font-bold text-navy-900 md:text-3xl">{x.h1}</h1>
+      <p class="mt-1 text-base text-navy-700 md:text-lg">{x.intro}</p>
+      <p class="mt-1 text-sm text-navy-600">{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('editorial', lang)} class="underline hover:text-navy-900">{ui.editorialPolicy}</a> · <a href={methodHref} class="underline hover:text-navy-900">{label('method', lang)}</a></p>
+    </header>
+    {page.tool ? (
+      <>
+        <Clamp text={resume} lang={lang} id={`clamp-${page.id}`} class="mb-3" />
+        <div data-outil>
+          {(page.tool === 'tanaan' || page.tool === 'huomenna') && <HintaCalc client:load lang={lang} methodHref={methodHref} verkko={tp.verkko} tuote={tp.tuote} sulake={tp.sulake} paiva={page.tool === 'huomenna' ? 1 : 0} />}
+          {page.tool === 'laite' && <LaiteCalc client:load lang={lang} methodHref={methodHref} laite={tp.laite} verkko={tp.verkko} tuote={tp.tuote} />}
+          {page.tool === 'vertailu' && <VertailuCalc client:load lang={lang} methodHref={methodHref} verkko={tp.verkko} kwh={Number(page.toolProps?.kwh ?? 5000)} profiili={Number(page.toolProps?.profiili ?? 0)} />}
+          {page.tool === 'verkot' && <VerkotCalc client:load lang={lang} methodHref={methodHref} verkko={tp.verkko} kwh={Number(page.toolProps?.kwh ?? 5000)} sulake={Number(page.toolProps?.sulakeI ?? 1)} />}
+          {(page.tool === 'kuukaudet' || page.tool === 'lasku') && <KuukausiCalc client:load lang={lang} methodHref={methodHref} verkko={tp.verkko} tila={page.tool} />}
+        </div>
+      </>
+    ) : (
+      <>
+        <Clamp text={resume} lang={lang} id={`clamp-${page.id}`} class="mb-3" />
+        {page.mini && <MiniSim client:load kind={page.mini} lang={lang} href={miniHref} />}
+      </>
+    )}
+    <div class="prose prose-slate max-w-none">
+      {parts.map((p, i) => i % 2 === 0 ? <Fragment set:html={p} /> : <MiniSim client:load kind={p} lang={lang} href={miniHref} />)}
+    </div>
+  </article>
+</PageLayout>

@@ -1,0 +1,79 @@
+---
+/** Méthode et sources (page de confiance, RECETTE §8.2) : formules, données, mises à jour, estimation de secours, limites. */
+import PageLayout from '../layouts/PageLayout.astro';
+import { route, type Locale } from '../i18n/routes';
+import { P } from '../lib/engine/params';
+import { VERKOT, VERO_C, VERO_VEROTON, kwhHinta, TARIFFI_HAETTU, tuote, verkko } from '../lib/engine/index';
+import { SPOT } from '../lib/spot-data';
+import { MARG, SOP_N, KIINTEA_OLETUS, TK_KK } from '../lib/arvot';
+import { formatNumber, displayDate } from '../lib/format';
+import { breadcrumbSchema, webPageSchema, faqSchema } from '../lib/seo';
+import { CONTACT_EMAIL } from '../data/site-config';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const fi = lang === 'fi';
+const tag = fi ? 'fi-FI' : 'en-GB';
+const n = (x: number, d = 2) => formatNumber(x, d, lang);
+const d = (iso: string) => displayDate(iso, tag);
+const title = fi ? 'Menetelmä 2026: näin Kokosähkö laskee sähkön kokonaishinnan' : 'Kokosähkö method 2026: how the all-in price is worked out';
+const description = fi ? 'Menetelmä 2026: kilowattitunnin kokonaishinnan kaava, mistä pörssihinnat, siirtomaksut ja verot tulevat, miten sivu päivittyy ja mitä laskelma ei sisällä.' : 'Method 2026: the formula for the all-in price per kWh, where exchange prices, transfer fees and taxes come from, how the page updates and what is left out.';
+const h1 = fi ? 'Menetelmä ja lähteet' : 'Method and sources';
+const path = route('method', lang);
+const helen = tuote(verkko('helen')!, 'yleis')!;
+const ex = kwhHinta(50, helen.energia.kaikki!, { tyyppi: 'porssi', marginaali: MARG, kiintea: 0 });
+const jakso = SPOT.arvio.jakso;
+const sources = Object.values(P.sources);
+const faqs = fi ? [
+  { q: 'Miksi laskurin hinta poikkeaa laskustani?', a: 'Tavallisesti kolmesta syystä: sopimuksesi hinnoitellaan tunti- eikä varttihinnalla tai kuukauden keskihinnalla, myyjäsi marginaali tai perusmaksu on eri kuin laskurissa, tai verkkoyhtiösi on muuttanut hinnastoaan. Vertaa laskua rivi riviltä ja vaihda laskuriin omat lukusi. Jos siirtomaksu on mielestäsi väärin, kirjoita meille.' },
+  { q: 'Kuinka usein siirtohinnat päivitetään?', a: 'Verkkoyhtiöt muuttavat hintojaan yleensä vuoden alussa tai kesällä, ja niiden on ilmoitettava muutoksista etukäteen. Tarkistusohjelma lataa jokaisen hinnaston ja ilmoittaa, jos jokin laskurin hinta puuttuu siitä. Korjattu hinta näkyy kaikilla sivuilla samaan aikaan, ja sivun päivämäärä muuttuu. Muutokset kirjataan tietotiedostoon päivämäärän kanssa.' },
+  { q: 'Mitä tapahtuu, jos päivän hintoja ei saada?', a: 'Laskuri näyttää keskihinta-arvion ja kertoo sen keltaisella tekstillä. Arvio on saman kuukauden ja viikonpäivätyypin toteutuneiden hintojen keskiarvo vartti kerrallaan, tai jos niitä ei vielä ole tarpeeksi, kuukauden virallinen keskihinta ja vuorokausiprofiili. Oikeat hinnat korvaavat arvion automaattisesti. Arvion laskentatapa ja jakso kerrotaan laskurissa.' },
+] : [
+  { q: 'Why does the calculator differ from my bill?', a: 'Usually for one of three reasons: your contract is priced by the hour or by the monthly average rather than by the quarter hour, your retailer’s margin or monthly fee differs from the calculator’s, or your network operator has changed its price list. Compare the bill line by line and enter your own figures. If you think a transfer fee is wrong, write to us.' },
+  { q: 'How often are transfer fees updated?', a: 'Operators usually change prices at the start of the year or in summer, and must announce changes in advance. The check script downloads every price list and flags any calculator price missing from it. A corrected price appears on every page at once and the page date changes.' },
+  { q: 'What happens if the day’s prices cannot be fetched?', a: 'The calculator shows an average-price estimate and says so in amber. The estimate is the quarter-by-quarter average of actual prices for the same month and type of day, or, until there are enough of those, the official monthly average plus the daily profile. Real prices replace the estimate automatically.' },
+];
+---
+<PageLayout title={title} description={description} lang={lang} faqs={faqs} jsonLd={[webPageSchema({ name: h1, description, path, lang }), breadcrumbSchema([{ name: fi ? 'Etusivu' : 'Home', path: route('home', lang) }, { name: h1, path }]), faqSchema(faqs, lang)]} breadcrumbs={[{ label: h1 }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{h1}</h1></header>
+  {fi ? (
+  <div class="prose prose-slate max-w-none">
+    <h2>Kaava</h2>
+    <p>Pörssisopimuksella kilowattitunnin kokonaishinta on (pörssihinta × 1,255) + marginaali + siirtomaksu + sähkövero. Pörssihinta muunnetaan euroista megawattitunnilta senteiksi kilowattitunnilta jakamalla kymmenellä, ja siihen lisätään arvonlisävero 25,5 %, myös kun hinta on negatiivinen. Marginaali, siirtomaksu ja vero ovat valmiiksi verollisia. Kiinteällä sopimuksella pörssihinnan ja marginaalin tilalla on sopimuksen kiinteä hinta. Esimerkki: pörssihinta 50 €/MWh on {n(50 * 0.1255, 4)} c/kWh alv:n kanssa; marginaali {n(MARG)} c, Helenin yleissiirto {n(helen.energia.kaikki!)} c ja sähkövero {n(VERO_C, 4)} c antavat yhteensä {n(ex.yhteensa)} c/kWh.</p>
+    <h2>Pörssihinnat</h2>
+    <p>Suomen tarjousalueen (FI) day-ahead-hinnat vartin tarkkuudella haetaan Nord Poolin julkisesta hintarajapinnasta. Päivitysohjelma käyttää ensisijaisesti ENTSO-E:n läpinäkyvyysalustaa, kun sille on annettu käyttöavain. Hinnat tallennetaan päivittäin arkistoon Suomen ajan vuorokausittain. Päivitys ajetaan automaattisesti kolmesti vuorokaudessa: iltapäivällä huomisen hintojen julkaisun jälkeen, tuntia myöhemmin ja keskiyöllä. Selain lukee lisäksi uusimman hintatiedoston aina sivun avautuessa.</p>
+    <h2>Keskihinta-arvio, kun päivän hintoja ei ole</h2>
+    <p>Jos päivän hintoja ei ole saatavilla, laskuri näyttää arvion ja merkitsee sen selvästi. Kun arkistossa on vähintään kahdeksan saman kuukauden ja saman päivätyypin (arki tai viikonloppu) päivää viimeisen vuoden ajalta, arvio on niiden vartittainen keskiarvo. Muuten arvio on saman kalenterikuukauden virallinen keskihinta viimeisen 12 kuukauden ajalta (Nord Poolin kuukausikoosteet) lisättynä päivätyypin vuorokausiprofiililla, eli kunkin vartin keskimääräisellä poikkeamalla päivän keskiarvosta arkiston päivinä{jakso ? ` (${d(jakso.alku)} – ${d(jakso.loppu)}, ${jakso.paivia} päivää)` : ''}. Arkisto kasvaa joka päivä, joten arvio tarkentuu ajan myötä.</p>
+    <h2>Siirtomaksut</h2>
+    <p>Laskurissa on {VERKOT.length} verkkoyhtiön kotitaloustuotteet: yleissiirto, aika- tai yösiirto (päivä klo 7–22) ja kausi- tai vuodenaikasiirto (talviarkipäivä 1.11.–31.3. ma–la klo 7–22), perusmaksut pääsulakkeen mukaan ja Helenin sekä Kuopion aikasiirron tehomaksu. Hinnat on luettu {d(TARIFFI_HAETTU)} kunkin yhtiön omasta hinnastosta, ja ohjelma scripts/data/tarkista-verkot.py tarkistaa jokaisen hinnan lähteestä. Arkipyhiä ei eroteta talviarkipäivistä. Postinumeron verkkoyhtiö haetaan Energiaviraston hintavertailun rajapinnasta.</p>
+    <h2>Verot ja oletusarvot</h2>
+    <p>Sähkövero on {n(P.vero.sahkovero_I_c)} c ja huoltovarmuusmaksu {n(P.vero.huoltovarmuus_c, 3)} c kilowattitunnilta ilman arvonlisäveroa {d(P.vero.voimassa)} alkaen, yhteensä {n(VERO_VEROTON, 3)} c ja alv:n kanssa {n(VERO_C, 4)} c. Arvonlisävero on 25,5 %. Oletusmarginaali {n(MARG)} c/kWh on Energiaviraston hintavertailun {SOP_N} kuluttajien pörssisopimuksen mediaani, ja kiinteän hinnan oletus {n(KIINTEA_OLETUS)} c/kWh on Tilastokeskuksen kotitalouksien (5 000–15 000 kWh/v) keskimääräinen energian hinta ({TK_KK}) alv:n kanssa. Ne ovat lähtöarvoja, jotka kannattaa vaihtaa oman sopimuksen lukuihin.</p>
+    <h2>Mitä laskelma ei sisällä</h2>
+    <p>Laskelma ei tunne omaa kulutusprofiiliasi vartteittain, myyjien erikoisehtoja (esimerkiksi hintakattoja tai alennuksia), aurinkosähkön myyntiä eikä verkkoyhtiöiden määräaikaisia hyvityksiä. Vuosivertailussa kuukauden sisäinen kulutus oletetaan tasaiseksi. Tulokset ovat arvioita; laskut ratkaisevat.</p>
+    <h2>Testit</h2>
+    <p>Moottorin testit laskevat käsin tarkistettuja tapauksia: veron ja alv:n yhdistelmä, varttien määrä kellojen siirtopäivinä, päivä- ja talviaikojen rajat, halvin jakso, arvio ja vuosivertailu. Testit ajetaan jokaisessa päivityksessä ennen julkaisua.</p>
+    <h2>Lähteet</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} target="_blank" rel="nofollow noopener noreferrer">{s.label.fi}</a></li>)}</ul>
+    <p>Kysymykset ja korjaukset: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </div>
+  ) : (
+  <div class="prose prose-slate max-w-none">
+    <h2>The formula</h2>
+    <p>On a spot contract the all-in price per kilowatt-hour is (exchange price × 1.255) + margin + transfer fee + electricity tax. The exchange price is converted from euros per megawatt-hour to cents per kilowatt-hour by dividing by ten, and 25.5% VAT is added, including when the price is negative. Margin, transfer fee and tax are already VAT-inclusive. On a fixed contract the contract’s fixed price replaces the exchange price and margin. Example: 50 €/MWh is {n(50 * 0.1255, 4)} c/kWh with VAT; a margin of {n(MARG)} c, Helen’s general transfer of {n(helen.energia.kaikki!)} c and electricity tax of {n(VERO_C, 4)} c give {n(ex.yhteensa)} c/kWh in total.</p>
+    <h2>Exchange prices</h2>
+    <p>Day-ahead prices for the Finnish bidding zone (FI), quarter by quarter, are fetched from Nord Pool’s public price interface. The updater uses the ENTSO-E Transparency Platform first once it has an access key. Prices are archived daily by Finnish calendar day. The update runs automatically three times a day: in the afternoon after tomorrow’s prices are published, an hour later and at midnight. Your browser also reads the latest price file whenever the page opens.</p>
+    <h2>Average-price estimate when the day’s prices are missing</h2>
+    <p>If the day’s prices are unavailable, the calculator shows an estimate and marks it clearly. When the archive holds at least eight days of the same month and type of day (weekday or weekend) from the past year, the estimate is their quarter-by-quarter average. Otherwise it is the official average for the same calendar month over the last 12 months (Nord Pool monthly aggregates) plus the daily profile for that type of day, i.e. each quarter’s average deviation from the daily mean on archived days{jakso ? ` (${d(jakso.alku)} – ${d(jakso.loppu)}, ${jakso.paivia} days)` : ''}. The archive grows every day, so the estimate sharpens over time.</p>
+    <h2>Transfer fees</h2>
+    <p>The calculator covers the household products of {VERKOT.length} network operators: general transfer, time-of-day or night transfer (day 07–22) and seasonal transfer (winter weekdays 1 Nov – 31 Mar, Mon–Sat 07–22), basic fees by main fuse, and the power fee on Helen’s and Kuopio’s time-of-day products. Prices were read on {d(TARIFFI_HAETTU)} from each operator’s own price list, and scripts/data/tarkista-verkot.py checks every price against its source. Public holidays are not separated from winter weekdays. The operator for a postcode comes from the Energy Authority comparison service API.</p>
+    <h2>Taxes and defaults</h2>
+    <p>Electricity tax is {n(P.vero.sahkovero_I_c)} c and the security-of-supply fee {n(P.vero.huoltovarmuus_c, 3)} c per kilowatt-hour before VAT from {d(P.vero.voimassa)}, {n(VERO_VEROTON, 3)} c in total and {n(VERO_C, 4)} c with VAT. VAT is 25.5%. The default margin of {n(MARG)} c/kWh is the median of {SOP_N} consumer spot contracts in the Energy Authority comparison, and the default fixed price of {n(KIINTEA_OLETUS)} c/kWh is Statistics Finland’s average household energy price (5,000–15,000 kWh a year, {TK_KK}) with VAT. They are starting values to replace with your own contract’s figures.</p>
+    <h2>What the calculation leaves out</h2>
+    <p>The calculation does not know your own quarter-hour load profile, retailers’ special terms (price caps, discounts), solar export or operators’ temporary refunds. The annual comparison assumes even use within each month. Results are estimates; your bills decide.</p>
+    <h2>Tests</h2>
+    <p>The engine tests compute hand-checked cases: the tax-and-VAT combination, the number of quarters on clock-change days, day and winter window boundaries, the cheapest window, the estimate and the annual comparison. They run at every update before publication.</p>
+    <h2>Sources</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} target="_blank" rel="nofollow noopener noreferrer">{s.label.en}</a></li>)}</ul>
+    <p>Questions and corrections: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </div>
+  )}
+</PageLayout>

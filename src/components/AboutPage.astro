@@ -1,0 +1,47 @@
+---
+/** À propos (page de confiance, RECETTE §8.2) : qui publie, pourquoi ce site, comment il est financé. */
+import PageLayout from '../layouts/PageLayout.astro';
+import LegalIdentity from './LegalIdentity.astro';
+import { route, type Locale } from '../i18n/routes';
+import { VERKOT } from '../lib/engine/index';
+import { breadcrumbSchema, profilePageSchema } from '../lib/seo';
+import { CONTACT_EMAIL } from '../data/site-config';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const fi = lang === 'fi';
+const n = VERKOT.length;
+const title = fi ? 'Kokosähkö 2026: kuka laskee sähkön oikean hinnan ja miksi' : 'Kokosähkö 2026: who works out the real power price, and why';
+const description = fi ? 'Tietoa Kokosähköstä 2026: julkaisija Radif Partners, miksi näytämme pörssisähkön koko hinnan siirron ja verojen kanssa, rahoitus ja virheiden korjaaminen.' : 'About Kokosähkö 2026: the publisher Radif Partners, why we show the full spot electricity price with transfer and tax, how the site is funded and corrected.';
+const h1 = fi ? 'Tietoa Kokosähköstä' : 'About Kokosähkö';
+const path = route('about', lang);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: fi ? 'Etusivu' : 'Home', path: route('home', lang) }, { name: h1, path }])]} breadcrumbs={[{ label: h1 }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{h1}</h1></header>
+  {fi ? (
+  <div class="prose prose-slate max-w-none">
+    <p>Kokosähkön julkaisee Radif Partners, riippumaton laskurien kustantaja. Sivusto on olemassa yhden kysymyksen vuoksi, johon suositut pörssisähkösivut eivät vastaa: paljonko kilowattitunti maksaa minulle, kun siirto, verot ja oma verkkoyhtiöni ovat mukana? Pörssisähkön hinnan hakeva saa yleensä pelkän pörssihinnan, joskus arvonlisäveron kanssa, joskus ilman. Me laskemme kokonaishinnan ja näytämme jokaisen osan erikseen.</p>
+    <h2>Mitä teemme paremmin</h2>
+    <p>Suosituimmat hintasivut näyttävät vain pörssihinnan, ja uutissivujen päivittäiset hintajutut toteavat erikseen, etteivät hinnat sisällä siirtomaksua tai myyjän marginaalia. Kokosähkö lisää jokaiseen varttiin oman verkkoyhtiösi siirtomaksun sen omasta hinnastosta ({n} verkkoyhtiötä, yleis-, aika- ja kausisiirto), sähköveron Verohallinnon taulukosta ja arvonlisäveron. Se kertoo halvimman aloitusajan saunalle, sähköautolle ja pesukoneelle euroina ja laskee, olisiko pörssi- vai kiinteähintainen sopimus ollut omalla kulutuksellasi halvempi.</p>
+    <h2>Rahoitus ja riippumattomuus</h2>
+    <p>Sivusto ei myy sähkösopimuksia, ei saa provisioita sähkönmyyjiltä eikä välitä yhteystietoja. Jos mainoksia lisätään, niitä on enintään kolme sivulla, ei koskaan laskurin yläpuolella eikä sähköyhtiöltä, joka voisi vaikuttaa lukuihin. Kukaan sähkönmyyjä tai verkkoyhtiö ei voi maksaa mainitsemisesta.</p>
+    <h2>Näin työskentelemme</h2>
+    <p>Jokainen vero, maksu ja hinta on tietotiedostossa lähteen ja päivämäärän kanssa. Pörssihinnat päivittyvät automaattisesti joka päivä, siirtohinnat tarkistetaan ohjelmallisesti kunkin verkkoyhtiön hinnastosta, ja laskenta testataan jokaisessa päivityksessä. Lue <a href={route('method', lang)}>menetelmä</a> ja <a href={route('editorial', lang)}>toimituksen periaatteet</a>.</p>
+    <h2>Julkaisija</h2>
+    <LegalIdentity lang={lang} />
+    <p>Virheet ja ehdotukset: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </div>
+  ) : (
+  <div class="prose prose-slate max-w-none">
+    <p>Kokosähkö is published by Radif Partners, an independent publisher of calculators. The site exists for one question the popular Finnish spot-price sites leave unanswered: what does a kilowatt-hour cost me once transfer, taxes and my own network operator are included? Search for the spot price and you usually get the exchange price alone, sometimes with VAT, sometimes without. We work out the all-in price and show every part separately.</p>
+    <h2>What we do better</h2>
+    <p>The most visited price sites show only the exchange price, and the daily price stories in the news state separately that the prices exclude transfer fees and retailer margins. Kokosähkö adds to every quarter hour your own operator’s transfer fee from its own price list ({n} operators, general, time-of-day and seasonal products), electricity tax from the Tax Administration’s table and VAT. It tells you the cheapest start time for a sauna, an electric car or a washing machine in euros, and works out whether a spot or a fixed-price contract would have been cheaper on your consumption.</p>
+    <h2>Funding and independence</h2>
+    <p>The site sells no contracts, takes no commission from retailers and passes on no contact details. If ads are added there will be at most three per page, never above the calculator and never from an energy company that could sway the figures. No retailer or network operator can pay to be mentioned.</p>
+    <h2>How we work</h2>
+    <p>Every tax, fee and price sits in a data file with its source and date. Exchange prices update automatically every day, transfer fees are checked by script against each operator’s price list, and the calculations are tested at every update. Read the <a href={route('method', lang)}>method</a> and the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>Errors and suggestions: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </div>
+  )}
+</PageLayout>

@@ -1,0 +1,636 @@
+{
+ "retrieved_at": "2026-10-15",
+ "note": "Hinnat sis. alv 25,5 %, sellaisina kuin verkkoyhtiö ne julkaisee omassa hinnastossaan. Sähkövero lisätään erikseen (params-2026.json). perus = perusmaksu €/kk pääsulakkeen mukaan; perusVuosi = yhtiö ilmoittaa perusmaksun €/vuosi. Ajat Suomen aikaa.",
+ "verkot": [
+  {
+   "id": "caruna",
+   "nimi": "Caruna Oy",
+   "lyhyt": "Caruna",
+   "alue": {
+    "fi": "Länsi-Suomi, Keski- ja Länsi-Uusimaa, Lounais-Suomi, Satakunta, Etelä-, Keski- ja Pohjois-Pohjanmaa sekä Koillismaa",
+    "en": "Western Finland, Central and Western Uusimaa, Southwest Finland, Satakunta, Ostrobothnia regions and Koillismaa"
+   },
+   "voimassa": "2024-09-01",
+   "lahde": "https://caruna.fi/tuotteet-ja-palvelut/kotiin-ja-kiinteistoon/verkkopalveluhinnastot/verkkopalveluhinnasto-caruna-oy",
+   "ev": [
+    "Caruna Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 14.81,
+      "1x25": 22.25,
+      "3x25": 29.71,
+      "3x35": 51.68
+     },
+     "energia": {
+      "kaikki": 5.26
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "kt": 21.89,
+      "1x25": 29.88,
+      "3x25": 38.03,
+      "3x35": 69.94
+     },
+     "energia": {
+      "paiva": 5.11,
+      "yo": 3.12
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "kt": 21.89,
+      "1x25": 29.88,
+      "3x25": 38.03,
+      "3x35": 69.94
+     },
+     "energia": {
+      "talvipaiva": 6.73,
+      "muu": 3.23
+     }
+    }
+   ]
+  },
+  {
+   "id": "caruna-espoo",
+   "nimi": "Caruna Espoo Oy",
+   "lyhyt": "Caruna Espoo",
+   "alue": {
+    "fi": "Espoo, Kauniainen, Kirkkonummi ja Joensuun keskusta",
+    "en": "Espoo, Kauniainen, Kirkkonummi and central Joensuu"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://caruna.fi/tuotteet-ja-palvelut/kotiin-ja-kiinteistoon/verkkopalveluhinnastot/verkkopalveluhinnasto-caruna-0",
+   "ev": [
+    "Caruna Espoo Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 6.95,
+      "3x25": 8.18,
+      "3x35": 8.18
+     },
+     "energia": {
+      "kaikki": 2.77
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "kt": 13.83,
+      "3x25": 16.0,
+      "3x35": 16.0
+     },
+     "energia": {
+      "paiva": 2.64,
+      "yo": 1.15
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "kt": 13.83,
+      "3x25": 16.0,
+      "3x35": 16.0
+     },
+     "energia": {
+      "talvipaiva": 3.77,
+      "muu": 1.34
+     }
+    }
+   ]
+  },
+  {
+   "id": "elenia",
+   "nimi": "Elenia Verkko Oyj",
+   "lyhyt": "Elenia",
+   "alue": {
+    "fi": "Pirkanmaa, Kanta- ja Päijät-Häme, Keski-Suomi, Pohjois-Pohjanmaa, Kainuu ja Lappi",
+    "en": "Pirkanmaa, Kanta- and Päijät-Häme, Central Finland, Northern Ostrobothnia, Kainuu and Lapland"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.elenia.fi/files/3368404e95e6e87870c3efd831994c0a6bf8b693/elenia-pienasiakkaat-hinnasto-4-2026-www-a4-fi-v2.pdf",
+   "ev": [
+    "Elenia Verkko Oyj",
+    "Elenia Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 12.83,
+      "3x25": 22.79,
+      "3x35": 39.34
+     },
+     "energia": {
+      "kaikki": 5.89
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "3x25": 39.58,
+      "3x35": 66.11
+     },
+     "energia": {
+      "paiva": 4.53,
+      "yo": 2.76
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikasiirto",
+     "perus": {
+      "3x25": 47.1,
+      "3x35": 85.93
+     },
+     "energia": {
+      "talvipaiva": 5.56,
+      "muu": 2.76
+     }
+    }
+   ]
+  },
+  {
+   "id": "helen",
+   "nimi": "Helen Sähköverkko Oy",
+   "lyhyt": "Helen Sähköverkko",
+   "alue": {
+    "fi": "Helsinki",
+    "en": "Helsinki"
+   },
+   "voimassa": null,
+   "lahde": "https://www.helensahkoverkko.fi/henkiloasiakkaat/tietoa-sahkonkulutuksesta/Verkkopalvelutuotteet-ja-hinnat",
+   "ev": [
+    "Helen Sähköverkko Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 6.53,
+      "3x25": 6.53,
+      "3x35": 6.53
+     },
+     "energia": {
+      "kaikki": 4.72
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 20.46,
+      "3x35": 20.46
+     },
+     "energia": {
+      "paiva": 2.96,
+      "yo": 1.56
+     },
+     "teho": {
+      "eurKwKk": 1.97,
+      "fi": "kuukauden kolmanneksi suurin tunnin keskiteho; yöajan tehosta lasketaan 80 %",
+      "en": "third-highest hourly average power of the month; night-time power counted at 80%"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tampere",
+   "nimi": "Tampereen Energia Sähköverkko Oy",
+   "lyhyt": "Tampereen Sähköverkko",
+   "alue": {
+    "fi": "Tampere",
+    "en": "Tampere"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://www.tampereensahkoverkko.fi/wp-content/uploads/sites/3/2026/03/taes_hinnasto_2026_hvm_01042026.pdf",
+   "ev": [
+    "Tampereen Sähköverkko Oy",
+    "Tampereen Energia Sähköverkko Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 6.02,
+      "3x25": 6.02,
+      "3x35": 7.78
+     },
+     "energia": {
+      "kaikki": 3.26
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 14.61,
+      "3x35": 20.46
+     },
+     "energia": {
+      "paiva": 3.48,
+      "yo": 1.41
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 26.3,
+      "3x35": 48.48
+     },
+     "energia": {
+      "talvipaiva": 5.57,
+      "muu": 2.41
+     }
+    }
+   ]
+  },
+  {
+   "id": "oulu",
+   "nimi": "Oulun Energia Sähköverkko Oy",
+   "lyhyt": "Oulun Energia",
+   "alue": {
+    "fi": "Oulu",
+    "en": "Oulu"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://production.oulunenergia.fi/globalassets/tiedostot/sahkoverkot/oes_hinnasto_01012026.pdf",
+   "ev": [
+    "Oulun Energia Sähköverkko Oy",
+    "Oulun Energia Siirto ja Jakelu Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perusVuosi": {
+      "kt": 71.69,
+      "3x25": 83.88,
+      "3x35": 83.88
+     },
+     "energia": {
+      "kaikki": 3.18
+     }
+    }
+   ]
+  },
+  {
+   "id": "ksoy",
+   "nimi": "Kymenlaakson Sähköverkko Oy",
+   "lyhyt": "Kymenlaakson Sähköverkko",
+   "alue": {
+    "fi": "Kymenlaakso ja itäinen Uusimaa",
+    "en": "Kymenlaakso and eastern Uusimaa"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.ksoy.fi/wp-content/uploads/2026/07/Pienasiakkaat-hinnasto-2026.pdf",
+   "ev": [
+    "Kymenlaakson Sähköverkko Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 15.89,
+      "3x25": 23.87,
+      "3x35": 49.05
+     },
+     "energia": {
+      "kaikki": 2.845
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "kt": 31.86,
+      "3x25": 47.6,
+      "3x35": 77.23
+     },
+     "energia": {
+      "paiva": 2.821,
+      "yo": 0.968
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikasiirto",
+     "perus": {
+      "kt": 31.86,
+      "3x25": 47.6,
+      "3x35": 77.23
+     },
+     "energia": {
+      "talvipaiva": 3.919,
+      "muu": 1.263
+     }
+    }
+   ]
+  },
+  {
+   "id": "jse",
+   "nimi": "Järvi-Suomen Energia Oy",
+   "lyhyt": "Järvi-Suomen Energia",
+   "alue": {
+    "fi": "Etelä-Savo ja Järvi-Suomen maaseutu",
+    "en": "South Savo and rural Lakeland Finland"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://www.jseoy.fi/wp-content/uploads/2026/05/verkkopalveluhinnasto-1.7.2026.pdf",
+   "ev": [
+    "Järvi-Suomen Energia Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkön siirto",
+     "perus": {
+      "kt": 36.97,
+      "3x25": 47.55,
+      "3x35": 84.54
+     },
+     "energia": {
+      "kaikki": 5.49
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösähkön siirto",
+     "perus": {
+      "3x25": 81.21,
+      "3x35": 140.66
+     },
+     "energia": {
+      "paiva": 4.68,
+      "yo": 3.06
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikasähkön siirto",
+     "perus": {
+      "3x25": 81.21,
+      "3x35": 140.66
+     },
+     "energia": {
+      "talvipaiva": 6.06,
+      "muu": 3.58
+     }
+    }
+   ]
+  },
+  {
+   "id": "pks",
+   "nimi": "PKS Sähkönsiirto Oy",
+   "lyhyt": "PKS Sähkönsiirto",
+   "alue": {
+    "fi": "Pohjois-Karjala ja ympäristö",
+    "en": "North Karelia and surroundings"
+   },
+   "voimassa": "2026-08-01",
+   "lahde": "https://pkssahkonsiirto.fi/wp-content/uploads/pkss_verkkopalveluhinnasto_01082026.pdf",
+   "ev": [
+    "PKS Sähkönsiirto Oy",
+    "PKS Sähkösiirto Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto Yksiaika",
+     "perus": {
+      "kt": 34.58,
+      "3x25": 42.0,
+      "3x35": 65.62
+     },
+     "energia": {
+      "kaikki": 5.463
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yleissiirto Päivä-yö",
+     "perus": {
+      "3x25": 61.84,
+      "3x35": 90.42
+     },
+     "energia": {
+      "paiva": 5.837,
+      "yo": 2.279
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Yleissiirto Vuodenaika",
+     "perus": {
+      "3x25": 61.84,
+      "3x35": 90.42
+     },
+     "energia": {
+      "talvipaiva": 7.491,
+      "muu": 2.323
+     }
+    }
+   ]
+  },
+  {
+   "id": "kuopio",
+   "nimi": "Kuopion Sähköverkko Oy",
+   "lyhyt": "Kuopion Sähköverkko",
+   "alue": {
+    "fi": "Kuopio",
+    "en": "Kuopio"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://www.kuopionenergia.fi/wp-content/uploads/2026/08/ke_sahkoverkon_verkkopalveluhinnasto_20260814.pdf",
+   "ev": [
+    "Kuopion Sähköverkko Oy",
+    "Kuopion Energia Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 6.78,
+      "3x25": 6.78,
+      "3x35": 6.78
+     },
+     "energia": {
+      "kaikki": 3.21
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 12.32,
+      "3x35": 12.32
+     },
+     "energia": {
+      "paiva": 2.27,
+      "yo": 1.36
+     },
+     "teho": {
+      "eurKwKk": 1.32,
+      "fi": "laskutuskuukauden korkein tunnin keskiteho",
+      "en": "highest hourly average power of the billing month"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lahti",
+   "nimi": "Lahti Energia Sähköverkko",
+   "lyhyt": "Lahti Energia",
+   "alue": {
+    "fi": "Lahti",
+    "en": "Lahti"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://www.lahtienergia.fi/lahti-energia-sahkoverkko/sahkoverkon-hinnastot/sahkon-verkkopalvelumaksut/",
+   "ev": [
+    "LE-Sähköverkko Oy",
+    "Lahti Energia Sähköverkko Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 6.53,
+      "3x25": 6.53,
+      "3x35": 6.53
+     },
+     "energia": {
+      "kaikki": 3.79
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "3x25": 13.18,
+      "3x35": 13.18
+     },
+     "energia": {
+      "paiva": 4.39,
+      "yo": 1.88
+     }
+    }
+   ]
+  },
+  {
+   "id": "savon-voima",
+   "nimi": "Savon Voima Verkko Oy",
+   "lyhyt": "Savon Voima",
+   "alue": {
+    "fi": "Pohjois-Savo ja ympäristö",
+    "en": "North Savo and surroundings"
+   },
+   "voimassa": "2026-06-01",
+   "lahde": "https://savonvoima.fi/hinnastot-ja-sopimusehdot/verkkopalveluhinnasto/",
+   "ev": [
+    "Savon Voima Verkko Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 22.2,
+      "1x25": 36.4,
+      "3x25": 36.8,
+      "3x35": 56.2
+     },
+     "energia": {
+      "kaikki": 5.2
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 39.6,
+      "3x35": 65.2
+     },
+     "energia": {
+      "talvipaiva": 9.1,
+      "muu": 3.1
+     }
+    }
+   ]
+  },
+  {
+   "id": "seiverkot",
+   "nimi": "Seiverkot Oy",
+   "lyhyt": "Seiverkot",
+   "alue": {
+    "fi": "Seinäjoki ja ympäristö",
+    "en": "Seinäjoki area"
+   },
+   "voimassa": "2024-09-01",
+   "lahde": "https://www.seiverkot.fi/hinnastot-ja-ehdot/verkkopalveluhinnastot/",
+   "ev": [
+    "Seiverkot Oy"
+   ],
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Verkkopalvelu, yksiaikainen",
+     "perus": {
+      "kt": 4.44,
+      "3x25": 6.75,
+      "3x35": 9.33
+     },
+     "energia": {
+      "kaikki": 3.25
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Verkkopalvelu, kaksiaikainen",
+     "perus": {
+      "3x25": 13.33,
+      "3x35": 17.77
+     },
+     "energia": {
+      "paiva": 2.72,
+      "yo": 1.71
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Verkkopalvelu, vuodenaika",
+     "perus": {
+      "3x25": 13.33,
+      "3x35": 17.77
+     },
+     "energia": {
+      "talvipaiva": 3.58,
+      "muu": 1.71
+     }
+    }
+   ]
+  }
+ ]
+}

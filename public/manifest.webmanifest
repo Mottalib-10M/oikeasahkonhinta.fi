@@ -1,0 +1,21 @@
+{
+ "name": "Kokosähkö",
+ "short_name": "Kokosähkö",
+ "description": "Pörssisähkön hinta tänään ja huomenna vartin tarkkuudella siirtomaksun, sähköveron ja arvonlisäveron kanssa: todellinen hinta oman verkkoyhtiön mukaan.",
+ "start_url": "/fi/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#0B5D4B",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { P } from '../../lib/engine/params';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title={`Contact – ${SITE_NAMES[lang]}`} description="Contact Kokosähkö: report a changed transfer fee, a wrong tax rate or a calculation error. We reply by email and correct figures with a date on every page." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We read every message about the calculations.</p>
+    <h2>Report an error</h2>
+    <p>Has your network operator changed its price list, or does the transfer fee not match your bill? Send the operator’s name, transfer product, main fuse size and ideally a link to the price list. For a tax question, give the source. Corrections go into the data file with a date and appear on every page at once.</p>
+    <h2>Want another operator in the calculator?</h2>
+    <p>The calculator currently covers thirteen operators. Tell us which area is missing and we will add it from the operator’s own price list.</p>
+    <h2>What we cannot help with</h2>
+    <p>We cannot see your consumption, contract or bill and we do not broker contracts. Questions about a bill go to the retailer or the network operator. In a dispute, Finnish consumer advice services and the Consumer Disputes Board can help.</p>
+    <h2>Embed</h2><p>The embed code is on the <a href={route('widget', lang)}>embed page</a>. Publisher and host: <a href={route('terms', lang)}>legal notice</a>.</p>
+  </div>
+</PageLayout>
