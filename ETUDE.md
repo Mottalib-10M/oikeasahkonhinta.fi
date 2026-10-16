@@ -27,8 +27,9 @@ Aucun concurrent ne nomme un seul gestionnaire de réseau (0 occurrence de Carun
 ## Ce que Kokosähkö fait mieux
 
 1. **Le prix réel au quart d'heure** : spot + marge (ou prix fixe) + siirtomaksu du réseau local + sähkövero + ALV,
-   pour 13 gestionnaires (Caruna, Caruna Espoo, Elenia, Helen, Tampere, Oulu, Kymenlaakso, Järvi-Suomen Energia,
-   PKS, Kuopio, Lahti, Savon Voima, Seiverkot), produits yleis / aika / kausi, tehomaksu de Helen et Kuopio.
+   pour tous les gestionnaires dont le hinnasto est publié et lisible (voir `src/data/verkot-2026.json`, liste `puuttuu`
+   pour les autres), produits yleis / aika / kausi avec la plage horaire propre à chaque produit (heures, jours, mois,
+   heure normale), jours fériés officiels traités selon le hinnasto, produits avec tehomaksu (Helen, Kuopio, Lahti…).
 2. **Le code postal donne le réseau** (liste Energiavirasto, 3 365 codes, 76 gestionnaires).
 3. **Le coût d'un usage** (sauna, voiture électrique, lave-linge, sèche-linge) au départ le moins cher, le plus cher, maintenant.
 4. **Pörssi vai kiinteä sur sa propre consommation** avec les 12 derniers mois réels et le prix fixe d'équilibre.
@@ -43,7 +44,8 @@ Aucun concurrent ne nomme un seul gestionnaire de réseau (0 occurrence de Carun
 | Spot FI au quart d'heure | ENTSO-E (si `ENTSOE_TOKEN`), sinon Nord Pool Data Portal (public) | `scripts/data/hae-spot.mjs` | Action 4×/jour |
 | Moyennes mensuelles FI | Nord Pool, agrégats officiels | `hae-spot.mjs --kuukaudet` | Action |
 | Estimation de secours | archive `data/spot` + agrégats | `scripts/data/rakenna-spot.mjs` | Action |
-| Tarifs de transport | prix publiés par chaque verkkoyhtiö (page ou PDF) | `src/data/verkot-2026.json`, vérifiés par `scripts/data/tarkista-verkot.py` (13/13 OK le 2026-10-15) | à chaque changement de tarif |
+| Tarifs de transport | prix publiés par chaque verkkoyhtiö (page ou PDF), plages horaires citées mot pour mot (`ajat.lainaus`), clients (`asiakkaat`) | `src/data/verkot-2026.json`, vérifiés par `scripts/data/tarkista-verkot.py` (prix, citations, structure) | à chaque changement de tarif |
+| Jours fériés | calendrier officiel (Pohjoismaiden ministerineuvosto, « Suomen pyhäpäivät »), calculé | `src/lib/engine/pyhat.ts` | — |
 | Code postal → réseau | Energiavirasto, API du comparateur sahkonhinta.fi | `scripts/data/hae-postinumerot.mjs` | hebdo |
 | Marge et abonnement médians | Energiavirasto, comparateur (produits pörssi consommateurs) | `scripts/data/hae-sopimukset.mjs` | hebdo |
 | Profil mensuel de consommation, prix moyen ménage | Tilastokeskus 12su, 13rb | `scripts/data/hae-tilastokeskus.mjs` | hebdo |
@@ -55,8 +57,30 @@ viennent donc des hinnastot des gestionnaires eux-mêmes, source primaire.
 
 ## Limites
 
+Passe qualité du 2026-10-16 (brief `BRIEF-QUALITE-2026-10-16.md`) :
+
+- Réseaux : 13 → **72 sur 76** gestionnaires de la liste Energiavirasto, chacun avec l'URL de son hinnasto, sa date
+  d'entrée en vigueur, sa date de lecture, la citation mot pour mot de chaque plage horaire et, pour 38, le nombre de clients
+  publié ; `tarkista-verkot.py` : 72/72 OK. Manquent (liste `puuttuu` du JSON, affichée sur la page méthode) : Paneliankosken
+  Voima (PDF sans texte), Muonion Sähköosuuskunta et Tornion Energia (siirtomaksu publié seulement hors TVA ou avec sähkövero),
+  Rantakairan Sähkö (hinnasto du 1.11.2026 pas encore en vigueur, l'actuel sans prix TTC seul).
+- Pages réseau : une page seulement à partir de 30 000 clients publiés (`SIVU_KYNNYS`, testé) : 12 pages gardées + 9 nouvelles
+  (Vantaa, Turku, Vaasa, Kajave, Pori, KSS, Porvoo, Herrfors, Rovakaira) ; Seiverkot (28 280 clients) passe dans l'outil et
+  le comparatif. 80 pages indexables fi + en.
+- Lahti : Yleissiirto teho et Yösiirto teho modélisés (tehomaksu sur la pointe des 12 derniers mois) ; les produits sans
+  tehomaksu réservés aux logements collectifs (`kohde`). Oulu : aikasähkö et kausisähkö ajoutés, heures publiées sur la page
+  hinnasto officielle.
+- Jours fériés : calendrier officiel calculé (`pyhat.ts`) ; traitement par produit selon le hinnasto (`ajat.pyhat`) : Oulu
+  (arkipyhät = muu aika), Tampere et Keminmaa (arkipyhät = talviarkipäivä) ; ailleurs le hinnasto ne cite que des jours de
+  semaine et le calcul les suit tels quels. Heure normale toute l'année gérée (KSS Verkko, Raahe).
+- Repli « keskihinta-arvio » : logique extraite dans `scripts/data/spot-arvio.mjs` et testée de bout en bout
+  (`tests/spot-arvio.test.ts` : moyenne directe, niveau + profil, jour publié prioritaire, changement d'heure, rien d'inventé
+  sans données, source coupée sur les données réelles).
+
+Restent :
 - Licences : les prix day-ahead appartiennent aux NEMO ; Nord Pool réserve la redistribution commerciale à une licence,
-  et la liste ENTSO-E de réutilisation libre ne couvre pas les prix day-ahead. À régler avant mise en ligne (voir compte rendu).
-- 13 réseaux sur 76 ; les autres passent par « Muu verkkoyhtiö ».
-- Jours fériés non distingués des talviarkipäivä ; produits teho de Lahti non modélisés.
+  et la liste ENTSO-E de réutilisation libre ne couvre pas les prix day-ahead. Décision de l'éditeur (choix actuel inchangé).
+- Clients non publiés pour 34 réseaux (dont Lappeenranta, Imatra) : pas de page tant qu'aucun chiffre officiel n'existe.
+- Produits non modélisés, décrits dans `huom` : plages à trois tarifs, horaires de samedi particuliers (Kajave), heures non
+  publiées (Keuruu, Herrfors vuodenaikasähkö), Yleissähkö de Haukiputaan (prix illisibles par extraction PDF).
 - Pas de suédois (fi + en seulement).

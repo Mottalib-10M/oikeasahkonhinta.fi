@@ -103,3 +103,60 @@ describe('année pörssi / kiinteä', () => {
   });
   it('profil chauffage : les 12 parts Tilastokeskus somment à 1', () => expect(M.KULUTUSPROFIILI.reduce((a, b) => a + b, 0)).toBeCloseTo(1, 3));
 });
+
+describe('jours fériés et plages propres à chaque réseau', () => {
+  it('pyhäpäivät 2026 : pâques 5.4., pitkäperjantai 3.4., helatorstai 14.5., juhannuspäivä 20.6., pyhäinpäivä 31.10.', () => {
+    expect(M.paasiainen(2026)).toEqual([4, 5]);
+    for (const p of ['2026-01-01', '2026-01-06', '2026-04-03', '2026-04-06', '2026-05-01', '2026-05-14', '2026-06-20', '2026-10-31', '2026-12-06', '2026-12-25', '2026-12-26']) expect(M.onPyha(p)).toBe(true);
+    expect(M.onPyha('2026-12-24')).toBe(false); // jouluaatto n'est pas un jour férié officiel
+    expect(M.pyhanNimi('2027-01-06')).toBe('loppiainen');
+    expect(M.paasiainen(2027)).toEqual([3, 28]);
+  });
+  const oulu = M.verkko('oulu')!, tampere = M.verkko('tampere')!;
+  const loppiainen10 = utc('2026-01-06T08:00:00Z'); // mardi 6.1.2026, 10:00 à Helsinki
+  it('Oulun Energia kausisähkö : talviarkipäivä « arkipäivisin » → loppiainen au tarif muu (1,95), mercredi 7.1. au tarif talvi (2,91)', () => {
+    const k = M.tuote(oulu, 'kausi')!;
+    expect(M.siirtoC(k, loppiainen10)).toBe(1.95);
+    expect(M.siirtoC(k, utc('2026-01-07T08:00:00Z'))).toBe(2.91);
+  });
+  it('Tampere kausisiirto : « mukaan lukien arkipyhien päiväaika » → loppiainen au tarif talviarkipäivä (5,57)', () => {
+    expect(M.siirtoC(M.tuote(tampere, 'kausi')!, loppiainen10)).toBe(5.57);
+  });
+  it('Oulun Energia aikasähkö : jour 07–22 (2,69), nuit (1,63)', () => {
+    const a = M.tuote(oulu, 'aika')!;
+    expect(M.siirtoC(a, utc('2026-10-16T05:00:00Z'))).toBe(2.69);
+    expect(M.siirtoC(a, utc('2026-10-16T20:00:00Z'))).toBe(1.63);
+  });
+  it('part talviarkipäivä de janvier 2026 chez Oulu : 27 jours ma–la moins 2 fériés (1.1., 6.1.) = 25 × 15 h', () => {
+    const k = M.tuote(oulu, 'kausi')!;
+    const d = 25 * 15 / (31 * 24);
+    expect(M.siirtoKuukausi(k, '2026-01')).toBeCloseTo(d * 2.91 + (1 - d) * 1.95, 6);
+  });
+  it('plage ma–pe et début à 6 h : un produit fictif', () => {
+    const tu: M.Tuote = { tyyppi: 'kausi', nimi: 'x', perus: { kt: 1 }, energia: { talvipaiva: 9, muu: 1 }, ajat: { kuukaudet: [12, 1, 2], paivat: 'ma-pe', tunnit: [6, 21], lainaus: 'x' } };
+    expect(M.siirtoC(tu, utc('2026-12-05T08:00:00Z'))).toBe(1); // samedi
+    expect(M.siirtoC(tu, utc('2026-12-07T04:30:00Z'))).toBe(9); // lundi 06:30
+    expect(M.siirtoC(tu, utc('2026-12-07T19:00:00Z'))).toBe(1); // lundi 21:00
+    expect(M.siirtoC(tu, utc('2026-11-09T08:00:00Z'))).toBe(1); // novembre hors saison
+  });
+  it('Lahti : en maison (3 × 25 A) seuls les produits teho sont proposés ; en appartement les quatre', () => {
+    const l = M.verkko('lahti')!;
+    expect(M.tuotteetSulakkeelle(l, '3x25').map((t) => t.nimi)).toEqual(['Yleissiirto teho', 'Yösiirto teho']);
+    expect(M.tuotteetSulakkeelle(l, 'kt')).toHaveLength(4);
+    const t = M.tuotteetSulakkeelle(l, '3x25')[0];
+    expect(M.verkkoVuosi(t, '3x25', 5000, 'tasainen', Array.from({ length: 12 }, (_, i) => `2026-${String(i + 1).padStart(2, '0')}`), 5)).toBeCloseTo(5000 * 2.95 / 100 + 7.22 * 12 + 1 * 5 * 12, 6);
+  });
+});
+
+describe('données réseau', () => {
+  it('chaque réseau a sa source, sa date de lecture et au moins un produit', () => {
+    for (const v of M.VERKOT) { expect(v.lahde).toMatch(/^https:\/\//); expect(v.haettu).toMatch(/^\d{4}-\d{2}-\d{2}$/); expect(v.tuotteet.length).toBeGreaterThan(0); }
+  });
+  it('chaque produit aika / kausi porte sa plage horaire citée', () => {
+    for (const v of M.VERKOT) for (const t of v.tuotteet) if (t.tyyppi !== 'yleis') expect(t.ajat?.lainaus?.length ?? 0).toBeGreaterThan(11);
+  });
+  it(`une page réseau seulement pour ≥ ${M.SIVU_KYNNYS} clients publiés`, () => {
+    for (const v of M.VERKOT.filter((x) => x.sivu)) expect(v.asiakkaat?.maara ?? 0).toBeGreaterThanOrEqual(M.SIVU_KYNNYS);
+  });
+  it('ids uniques', () => expect(new Set(M.VERKOT.map((v) => v.id)).size).toBe(M.VERKOT.length));
+});

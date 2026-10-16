@@ -1,6 +1,6 @@
 {
- "retrieved_at": "2026-10-15",
- "note": "Hinnat sis. alv 25,5 %, sellaisina kuin verkkoyhtiö ne julkaisee omassa hinnastossaan. Sähkövero lisätään erikseen (params-2026.json). perus = perusmaksu €/kk pääsulakkeen mukaan; perusVuosi = yhtiö ilmoittaa perusmaksun €/vuosi. Ajat Suomen aikaa.",
+ "retrieved_at": "2026-10-16",
+ "note": "Hinnat sis. alv 25,5 %, sellaisina kuin verkkoyhtiö ne julkaisee omassa hinnastossaan. Sähkövero lisätään erikseen (params-2026.json). perus = perusmaksu €/kk pääsulakkeen mukaan; perusVuosi = yhtiö ilmoittaa perusmaksun €/vuosi. Ajat Suomen aikaa. ajat = plages horaires copiées du hinnasto (lainaus), pyhat = traitement des jours fériés selon la source (null : non précisé). kohde \"kt\" = produit réservé aux logements collectifs (rivi-/pari-/kerrostalo).",
  "verkot": [
   {
    "id": "caruna",
@@ -41,6 +41,15 @@
      "energia": {
       "paiva": 5.11,
       "yo": 3.12
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväsiirto on käytössä ma-su klo 7–22, Yösiirto ma-su klo 22–7"
      }
     },
     {
@@ -55,9 +64,34 @@
      "energia": {
       "talvipaiva": 6.73,
       "muu": 3.23
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Päiväsiirto, talvi on käytössä 1.11.–31.3. välillä ma-la klo 7–22"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 494000,
+    "vuosi": 2025,
+    "lahde": "https://caruna.fi/sites/default/files/docs/Caruna%20Group%20Operating%20and%20Financial%20Review%20and%20Financial%20Statements%202025%20in%20Finnish_0.pdf",
+    "lainaus": "Raportointikauden lopun asiakasmäärät (tuhatta asiakasta): Yhtiö 2025 2024 2023 Caruna Oy 494 493 492 Caruna Espoo Oy 250 247 245",
+    "yksikko": 1000
+   },
+   "sivu": "siirto-caruna"
   },
   {
    "id": "caruna-espoo",
@@ -96,6 +130,15 @@
      "energia": {
       "paiva": 2.64,
       "yo": 1.15
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväsiirto on käytössä ma-su klo 7–22, Yösiirto ma-su klo 22–7"
      }
     },
     {
@@ -109,9 +152,34 @@
      "energia": {
       "talvipaiva": 3.77,
       "muu": 1.34
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Päiväsiirto, talvi on käytössä 1.11.–31.3. välillä ma-la klo 7–22"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 250000,
+    "vuosi": 2025,
+    "lahde": "https://caruna.fi/sites/default/files/docs/Caruna%20Group%20Operating%20and%20Financial%20Review%20and%20Financial%20Statements%202025%20in%20Finnish_0.pdf",
+    "lainaus": "Raportointikauden lopun asiakasmäärät (tuhatta asiakasta): Yhtiö 2025 2024 2023 Caruna Oy 494 493 492 Caruna Espoo Oy 250 247 245",
+    "yksikko": 1000
+   },
+   "sivu": "siirto-caruna-espoo"
   },
   {
    "id": "elenia",
@@ -150,6 +218,15 @@
      "energia": {
       "paiva": 4.53,
       "yo": 2.76
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Siirto päivä (klo 07-22)"
      }
     },
     {
@@ -162,9 +239,33 @@
      "energia": {
       "talvipaiva": 5.56,
       "muu": 2.76
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Siirto talviarki (1.11.-31.3. ma-la klo 07-22)"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 443200,
+    "vuosi": 2025,
+    "lahde": "https://www.elenia.fi/files/8cb1f37af49fdaa9b2c72d6ac2ce6127f049b201/elenia-verkko-oyj-konsernitilinpaatos-2025.pdf",
+    "lainaus": "yhtiö toimittaa sähköä 443 200 loppukäyttäjälle"
+   },
+   "sivu": "siirto-elenia"
   },
   {
    "id": "helen",
@@ -207,9 +308,26 @@
       "eurKwKk": 1.97,
       "fi": "kuukauden kolmanneksi suurin tunnin keskiteho; yöajan tehosta lasketaan 80 %",
       "en": "third-highest hourly average power of the month; night-time power counted at 80%"
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväsiirron hinta on voimassa kaikkina päivinä klo 7–22"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 430000,
+    "vuosi": 2025,
+    "lahde": "https://www.helen.fi/globalassets/tietoa-meist%C3%A4/raportit-ja-julkaisut/helen_vuosikatsaus_2025.pdf",
+    "lainaus": "Helen Sähköverkko varmistaa, että sen yli 430 000 asiakasta saa sähköä luotettavasti"
+   },
+   "sivu": "siirto-helen"
   },
   {
    "id": "tampere",
@@ -248,6 +366,15 @@
      "energia": {
       "paiva": 3.48,
       "yo": 1.41
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväaikaa on kello 7.00–22.00 välinen aika"
      }
     },
     {
@@ -260,9 +387,33 @@
      "energia": {
       "talvipaiva": 5.57,
       "muu": 2.41
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": "talvipaiva",
+      "lainaus": "Talviarkipäiviä ovat arkipäivät maanantaista lauantaihin 1.11.–31.3. välisenä aikana kello 07.00– 22.00 mukaan lukien arkipyhien päiväaika"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 180000,
+    "vuosi": 2025,
+    "lahde": "https://www.tampereensahkoverkko.fi/tutustu-meihin/tampereen-sahkoverkko-oy/",
+    "lainaus": "Palvelemme lähes 160 000 sähkönsiirron asiakasta noin 180 000 käyttöpaikalla Tampereen seudulla."
+   },
+   "sivu": "siirto-tampere"
   },
   {
    "id": "oulu",
@@ -290,8 +441,71 @@
      "energia": {
       "kaikki": 3.18
      }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perusVuosi": {
+      "3x25": 243.97,
+      "3x35": 311.89
+     },
+     "energia": {
+      "paiva": 2.69,
+      "yo": 1.63
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lahde": "https://www.oulunenergia.fi/sahkoverkko/tuotteet-ja-hinnastot/verkkopalveluhinnasto/",
+      "lainaus": "siirrolla on kaksi hintaa: päiväenergia klo 7-22 ja edullisempi yöenergia klo 22-7"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perusVuosi": {
+      "3x25": 311.89,
+      "3x35": 425.75
+     },
+     "energia": {
+      "talvipaiva": 2.91,
+      "muu": 1.95
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": "muu",
+      "lahde": "https://www.oulunenergia.fi/sahkoverkko/tuotteet-ja-hinnastot/verkkopalveluhinnasto/",
+      "lainaus": "talviarkipäivä 1.11.-31.3. klo 7-22 arkipäivisin mukaan luettuna lauantait ja aattopäivät"
+     }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "huom": {
+    "fi": "Aika- ja kausisähkön aikajaot on julkaistu Oulun Energian verkkopalveluhinnastosivulla. Kausisähkön talviarkipäivä koskee arkipäiviä ja lauantaita, joten arkipyhät lasketaan muuksi ajaksi.",
+    "en": "The time bands of the time-of-day and seasonal products are published on Oulun Energia’s price list page. The seasonal winter-weekday rate covers working days and Saturdays, so public holidays count as other time."
+   },
+   "asiakkaat": {
+    "maara": 120612,
+    "vuosi": 2025,
+    "lahde": "https://www.oulunenergia.fi/globalassets/images/06.-oulun-energia/oe_vuosi-ja-vastuullisuus_2025_valmis-2.pdf",
+    "lainaus": "ASIAKKAAT Sähköverkko, käyttöpaikat 120 612"
+   },
+   "sivu": "siirto-oulu"
   },
   {
    "id": "ksoy",
@@ -330,6 +544,15 @@
      "energia": {
       "paiva": 2.821,
       "yo": 0.968
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväsähköaika klo 07–22, yösähköaika klo 22–07"
      }
     },
     {
@@ -343,9 +566,33 @@
      "energia": {
       "talvipaiva": 3.919,
       "muu": 1.263
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä 1.11.–31.3. ma-la klo 07–22"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 103541,
+    "vuosi": 2025,
+    "lahde": "https://www.ksoy.fi/wp-content/uploads/2026/05/vk2025_suomi_saavutettava.pdf",
+    "lainaus": "Asiakasmäärä (kä yttöpaikat) 103 541 kpl"
+   },
+   "sivu": "siirto-ksoy"
   },
   {
    "id": "jse",
@@ -383,6 +630,15 @@
      "energia": {
       "paiva": 4.68,
       "yo": 3.06
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Yösähkön siirto snt/kWh klo 7–22"
      }
     },
     {
@@ -395,9 +651,33 @@
      "energia": {
       "talvipaiva": 6.06,
       "muu": 3.58
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Vuodenaikasähkön siirto 1.11.–31.3. ma–la klo 7–22"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 101893,
+    "vuosi": 2025,
+    "lahde": "https://www.sssoy.fi/wp-content/uploads/2026/03/suur-savon-sahko-tilinpaatos-2025-valmis.pdf",
+    "lainaus": "Käyttöpaikkojen määrä verkossa oli 101 893 kpl (102 095 kpl)."
+   },
+   "sivu": "siirto-jse"
   },
   {
    "id": "pks",
@@ -436,6 +716,15 @@
      "energia": {
       "paiva": 5.837,
       "yo": 2.279
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päivä-yösähkön päiväaika on maanantaista sunnuntaihin klo 7–22"
      }
     },
     {
@@ -448,9 +737,33 @@
      "energia": {
       "talvipaiva": 7.491,
       "muu": 2.323
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä on 1.11.–31.3. klo 7–22 maanantaista lauantaihin"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 86625,
+    "vuosi": 2025,
+    "lahde": "https://vuosikertomus.pks.fi/wp-content/uploads/2026/03/Tilinpaatos-2025.pdf",
+    "lainaus": "Sähkönkäyttöpaikkojen lu- kumäärä oli vuoden lopussa 86 625."
+   },
+   "sivu": "siirto-pks"
   },
   {
    "id": "kuopio",
@@ -494,9 +807,26 @@
       "eurKwKk": 1.32,
       "fi": "laskutuskuukauden korkein tunnin keskiteho",
       "en": "highest hourly average power of the billing month"
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Siirtomaksu päivä (klo 07–22)"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 63481,
+    "vuosi": 2024,
+    "lahde": "https://www.kuopionenergia.fi/wp-content/uploads/2025/06/KuopionEnergia_vastuullisuusraportti_2024.pdf",
+    "lainaus": "Siirron huipputeho MW 110,55 121,17 verkkopalveluasiakkaiden määrä kpl 65230 63481"
+   },
+   "sivu": "siirto-kuopio"
   },
   {
    "id": "lahti",
@@ -516,10 +846,9 @@
     {
      "tyyppi": "yleis",
      "nimi": "Yleissiirto",
+     "kohde": "kt",
      "perus": {
-      "kt": 6.53,
-      "3x25": 6.53,
-      "3x35": 6.53
+      "kt": 6.53
      },
      "energia": {
       "kaikki": 3.79
@@ -528,16 +857,83 @@
     {
      "tyyppi": "aika",
      "nimi": "Yösiirto",
+     "kohde": "kt",
      "perus": {
-      "3x25": 13.18,
-      "3x35": 13.18
+      "kt": 13.18
      },
      "energia": {
       "paiva": 4.39,
       "yo": 1.88
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "siirtomaksu päivällä klo 7–22 4,39"
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto teho",
+     "perus": {
+      "kt": 7.22,
+      "1x25": 7.22,
+      "3x25": 7.22,
+      "3x35": 7.22
+     },
+     "energia": {
+      "kaikki": 2.95
+     },
+     "teho": {
+      "eurKwKk": 1.0,
+      "fi": "edellisen 12 kuukauden aikana mitattu suurin tunnin keskiteho",
+      "en": "highest hourly average power measured over the previous 12 months"
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto teho",
+     "perus": {
+      "kt": 13.18,
+      "1x25": 13.18,
+      "3x25": 13.18,
+      "3x35": 13.18
+     },
+     "energia": {
+      "paiva": 3.44,
+      "yo": 1.42
+     },
+     "teho": {
+      "eurKwKk": 1.0,
+      "fi": "edellisen 12 kuukauden aikana mitattu suurin tunnin keskiteho",
+      "en": "highest hourly average power measured over the previous 12 months"
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "siirtomaksu päivällä klo 7-22 3,44"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "huom": {
+    "fi": "Lahti Energia Sähköverkon mukaan tehomaksu on käytössä kaikilla liittymillä, joissa on yksi käyttöpaikka, mutta ei rivitalo-, paritalo- tai kerrostaloasunnoissa. Omakotitalossa laskuri käyttää siksi teho-tuotteita; kerrostalossa myös tehomaksuttomat.",
+    "en": "According to Lahti Energia Sähköverkko, the power fee applies to every connection with a single metering point, but not to terraced, semi-detached or apartment homes. For a house the calculator therefore uses the power-fee products; for a flat the products without one are available too."
+   },
+   "asiakkaat": {
+    "maara": 94421,
+    "vuosi": 2025,
+    "lahde": "https://www.lahtienergia.fi/wp-content/uploads/2026/02/Lahti-Energian-vuosikertomus-2025.pdf",
+    "lainaus": "Sähköverkko 2025 2024 2023 Käyttöpaikkoja (kpl) 94 421 93 606 93 015"
+   },
+   "sivu": "siirto-lahti"
   },
   {
    "id": "savon-voima",
@@ -576,9 +972,33 @@
      "energia": {
       "talvipaiva": 9.1,
       "muu": 3.1
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "1.11.–31.3. ma–la klo 7–22"
      }
     }
-   ]
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 121533,
+    "vuosi": 2025,
+    "lahde": "https://savonvoima.fi/wp-content/uploads/2025/11/SV_Vuosi-ja_vastuullisuuskatsaus_2025_web.pdf",
+    "lainaus": "Asiakasmäärät 5 831 Kaukolämpö 121 533 Sähköverkko"
+   },
+   "sivu": "siirto-savon-voima"
   },
   {
    "id": "seiverkot",
@@ -616,6 +1036,15 @@
      "energia": {
       "paiva": 2.72,
       "yo": 1.71
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Kaksiaikaisen- ja tehoverkkopalveluiden yöaika on kello 22–07 ja päiväaika kello 07–22"
      }
     },
     {
@@ -628,8 +1057,4901 @@
      "energia": {
       "talvipaiva": 3.58,
       "muu": 1.71
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Vuodenaikaverkkopalvelun talviarkipäiväaika on 1.11.–31.03. maanantaista lauantaihin kello 7-22"
      }
     }
+   ],
+   "haettu": "2026-10-16",
+   "asiakkaat": {
+    "maara": 28280,
+    "vuosi": 2025,
+    "lahde": "https://www.seiverkot.fi/tietoa-meista/tietoa-seiverkoista/",
+    "lainaus": "Seiverkkojen avainluvut 2025 Asiakkaita 28 280"
+   }
+  },
+  {
+   "id": "vantaa",
+   "nimi": "Vantaan Energia Sähköverkot Oy",
+   "lyhyt": "Vantaan Energia",
+   "alue": {
+    "fi": "Vantaa",
+    "en": "Vantaa"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.vantaanenergiasahkoverkot.fi/app/uploads/2026/04/VES_verkkopalveluhinnasto_010426.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Vantaan Energia Sähköverkot Oy"
+   ],
+   "asiakkaat": {
+    "maara": 140000,
+    "vuosi": 2026,
+    "lahde": "https://www.vantaanenergiasahkoverkot.fi/tietoa-meista/",
+    "lainaus": "yli 140 000 vantaalaiselle sähkönsiirtoasiakkaallemme"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Kerrostalosiirto",
+     "perus": {
+      "kt": 5.7
+     },
+     "energia": {
+      "kaikki": 3.1
+     },
+     "kohde": "kt"
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "1x25": 6.0,
+      "3x25": 6.0,
+      "3x35": 6.0
+     },
+     "energia": {
+      "kaikki": 3.3
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 12.0,
+      "3x35": 12.0
+     },
+     "energia": {
+      "paiva": 3.8,
+      "yo": 1.61
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Aikasiirron päivähinta on voimassa kaikkina viikonpäivinä klo 7–22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 12.0,
+      "3x35": 12.0
+     },
+     "energia": {
+      "talvipaiva": 4.3,
+      "muu": 2.7
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Kausisiirron talvipäivähinta on voimassa marras–maaliskuussa ma–la klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalosiirto koskee enintään 3×25 A käyttöpaikkoja vähintään kymmenen kulutuskäyttöpaikan liittymissä. Yleis-, aika- ja kausisiirron perusmaksu on sama kaikille 25–63 A sulakkeille (80–100 A erikseen).",
+    "en": "Kerrostalosiirto (apartment-building tariff) applies to metering points up to 3×25 A in connections with at least ten consumption points. The general, time-of-day and seasonal basic fee is the same for all 25–63 A fuses (80–100 A priced separately)."
+   },
+   "sivu": "siirto-vantaa"
+  },
+  {
+   "id": "turku",
+   "nimi": "Turku Energia Sähköverkot Oy",
+   "lyhyt": "Turku Energia",
+   "alue": {
+    "fi": "Turku (pl. Paattinen)",
+    "en": "Turku (excl. Paattinen)"
+   },
+   "voimassa": "2024-09-01",
+   "lahde": "https://www.turkuenergia.fi/sahkoverkot/hinnastot/verkkopalveluhinnasto",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Turku Energia Sähköverkot Oy"
+   ],
+   "asiakkaat": {
+    "maara": 96000,
+    "vuosi": 2023,
+    "lahde": "https://www.sttinfo.fi/tiedote/70001298/turku-energia-sahkoverkot-on-varautunut-mahdollisiin-ukkoskuuroihin-ja-puuskatuuliin-?lang=fi",
+    "lainaus": "Turku Energia Sähköverkot Oy:llä on yli 96 000 käyttöpaikkaa"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 7.63,
+      "1x25": 7.63,
+      "3x25": 7.63,
+      "3x35": 14.31
+     },
+     "energia": {
+      "kaikki": 1.91
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "kt": 20.57,
+      "1x25": 20.57,
+      "3x25": 20.57,
+      "3x35": 30.03
+     },
+     "energia": {
+      "paiva": 1.87,
+      "yo": 0.89
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "yöaika on klo 22–07 (virallista aikaa)"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "kt": 20.57,
+      "1x25": 20.57,
+      "3x25": 20.57,
+      "3x35": 30.03
+     },
+     "energia": {
+      "talvipaiva": 4.25,
+      "muu": 1.71
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäiviä ovat arkipäivät maanantaista lauantaihin 1.11.–31.3. välisenä aikana klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnasto 1.9.2024 alkaen on yhä voimassa; perusmaksu on sama kaikille 1×10 A … 3×25 A sulakkeille. Kausisiirron perusmaksu on sama kuin yösiirrossa.",
+    "en": "The price list effective 1 Sept 2024 is still in force; the basic fee is the same for all fuses from 1×10 A to 3×25 A. The seasonal tariff uses the night tariff's basic fee."
+   },
+   "sivu": "siirto-turku"
+  },
+  {
+   "id": "kajave",
+   "nimi": "Kajave Oy",
+   "lyhyt": "Kajave",
+   "alue": {
+    "fi": "Kainuu ja osa Pohjois-Pohjanmaata",
+    "en": "Kainuu and part of North Ostrobothnia"
+   },
+   "voimassa": "2026-10-01",
+   "lahde": "https://www.kajave.fi/app/uploads/sites/3/2026/10/kajave_hinnasto_verkkopalvelu_011026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Kajave Oy"
+   ],
+   "asiakkaat": {
+    "maara": 59400,
+    "vuosi": 2026,
+    "lahde": "https://www.kajave.fi/app/uploads/sites/3/2026/10/kajave_hinnasto_verkkopalvelu_011026.pdf",
+    "lainaus": "59 400 käyttöpaikkaa"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 25.7,
+      "1x25": 41.8,
+      "3x25": 41.8,
+      "3x35": 79.5
+     },
+     "energia": {
+      "kaikki": 5.75
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Kaksiaikasähkö",
+     "perus": {
+      "kt": 39.4,
+      "1x25": 61.4,
+      "3x25": 61.4,
+      "3x35": 102.0
+     },
+     "energia": {
+      "paiva": 5.21,
+      "yo": 3.21
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Kaksiaikasähkössä perus- ja siirtomaksut ovat samat kuin yösähkössä, mutta yöhinta on käytössä ma-su klo 22–7"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausiaikasähkö",
+     "perus": {
+      "kt": 39.4,
+      "1x25": 61.4,
+      "3x25": 61.4,
+      "3x35": 102.0
+     },
+     "energia": {
+      "talvipaiva": 7.15,
+      "muu": 3.29
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäivähinta on käytössä 1.11.–31.3. ma-la klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kt = 3×25 A, vähintään 3 käyttöpaikkaa/liittymä; 1×25 A ja 1–2 käyttöpaikan 3×25 A maksavat saman. Yösähkö (yöhinta klo 22–7, lauantaisin klo 20 alkaen ja sunnuntaisin) ja vuodenaikasähkö (talviarkipäivä ma–pe klo 7–22 ja la klo 7–20) sekä säästötuotteet käyttävät samoja hintoja paikallisella aikajaolla, jota ei mallinneta. Lisäksi käyttämättömästä liittymästä peritään erillinen ylläpitomaksu.",
+    "en": "Kt = 3×25 A with at least 3 metering points per connection; 1×25 A and 3×25 A with 1–2 metering points pay the same higher fee. Yösähkö (night price 22–7, Saturdays from 20 and all Sunday) and Vuodenaikasähkö (winter weekday Mon–Fri 7–22 and Sat 7–20), plus the 'säästö' variants, use the same prices with a local time split that is not modelled here."
+   },
+   "sivu": "siirto-kajave"
+  },
+  {
+   "id": "vaasa",
+   "nimi": "Vaasan Sähköverkko Oy",
+   "lyhyt": "Vaasan Sähköverkko",
+   "alue": {
+    "fi": "Vaasa ja ympäristö (mm. Mustasaari, Laihia, Korsnäs)",
+    "en": "Vaasa region (incl. Korsholm, Laihia, Korsnäs)"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.vaasansahkoverkko.fi/sahkonsiirto/siirtohinnat/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Vaasan Sähköverkko Oy"
+   ],
+   "asiakkaat": {
+    "maara": 78284,
+    "vuosi": 2025,
+    "lahde": "https://www.vaasansahkoverkko.fi/tietoa-meista/",
+    "lainaus": "Käyttöpaikkojen määrä 78 284 kpl"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 7.32,
+      "1x25": 7.32,
+      "3x25": 11.51,
+      "3x35": 16.11
+     },
+     "energia": {
+      "kaikki": 4.83
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösähkö",
+     "perus": {
+      "3x25": 31.91,
+      "3x35": 50.54
+     },
+     "energia": {
+      "paiva": 4.32,
+      "yo": 1.46
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lahde": "https://www.vaasansahkoverkko.fi/sahkonsiirto/sahkonsiirtotuotteet/",
+      "lainaus": "päiväsähkö: klo 7–22 ​yösähkö: ​klo 22–7"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 31.91,
+      "3x35": 50.54
+     },
+     "energia": {
+      "talvipaiva": 6.06,
+      "muu": 1.63
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "1.11.–31.3. ma–la klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yö- ja kausisähkö vain kolmivaiheisille (3×16–25 A ja suuremmat).",
+    "en": "Night and seasonal tariffs are only for three-phase connections (3×16–25 A and up)."
+   },
+   "sivu": "siirto-vaasa"
+  },
+  {
+   "id": "pori",
+   "nimi": "Pori Energia Sähköverkot Oy",
+   "lyhyt": "Pori Energia",
+   "alue": {
+    "fi": "Pori",
+    "en": "Pori"
+   },
+   "voimassa": "2026-10-01",
+   "lahde": "https://porienergia.fi/wp-content/uploads/pdf/fixed/10294.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Pori Energia Sähköverkot Oy"
+   ],
+   "asiakkaat": {
+    "maara": 54000,
+    "vuosi": 2025,
+    "lahde": "https://porienergia.fi/tietoa-meista/",
+    "lainaus": "Keskeiset energialuvut 2025 54 000+ sähkönkäyttöpaikkaa"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 8.31,
+      "1x25": 8.31,
+      "3x25": 15.55,
+      "3x35": 21.76
+     },
+     "energia": {
+      "kaikki": 3.87
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 27.15,
+      "3x35": 38.67
+     },
+     "energia": {
+      "paiva": 3.87,
+      "yo": 1.97
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päiväsiirron hinta on voimassa kaikkina päivinä klo 7–22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 27.15,
+      "3x35": 38.67
+     },
+     "energia": {
+      "talvipaiva": 7.34,
+      "muu": 2.21
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivän hinta on voimassa 1.11. – 31.3. välisenä aikana maanantaista lauantaihin klo 7 – 22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kt-hinta = yksivaiheinen liittymä (esim. 1×35 A).",
+    "en": "The kt price is for single-phase connections (e.g. 1×35 A)."
+   },
+   "sivu": "siirto-pori"
+  },
+  {
+   "id": "lappeenranta",
+   "nimi": "Lappeenrannan Energiaverkot Oy",
+   "lyhyt": "Lappeenrannan Energia",
+   "alue": {
+    "fi": "Lappeenranta, Lemi, Taipalsaari, Savitaipale",
+    "en": "Lappeenranta, Lemi, Taipalsaari, Savitaipale"
+   },
+   "voimassa": "2025-11-01",
+   "lahde": "https://www.lappeenrannanenergia.fi/asiointi/hinnastot-ja-ehdot/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Lappeenrannan Energiaverkot Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 7.82,
+      "1x25": 7.82,
+      "3x25": 10.2,
+      "3x35": 16.35
+     },
+     "energia": {
+      "kaikki": 4.47
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 24.63,
+      "3x35": 29.0
+     },
+     "energia": {
+      "paiva": 3.76,
+      "yo": 2.44
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päiväaika on klo 07–22 välinen aika."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 24.63,
+      "3x35": 29.0
+     },
+     "energia": {
+      "talvipaiva": 5.51,
+      "muu": 2.58
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lahde": "https://www.lappeenrannanenergia.fi/sahko/sahkon-verkkopalvelu/",
+      "lainaus": "Talviarkihinta voimassa marras–maaliskuussa maanantaista lauantaihin klo 7.00–22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kt-hinta = 1 × 25–35 A.",
+    "en": "The kt price is for 1 × 25–35 A connections."
+   }
+  },
+  {
+   "id": "porvoo",
+   "nimi": "Porvoon Sähköverkko Oy",
+   "lyhyt": "Porvoon Sähköverkko",
+   "alue": {
+    "fi": "Porvoo",
+    "en": "Porvoo"
+   },
+   "voimassa": "2026-09-01",
+   "lahde": "https://pbe.fi/fi/yritys/hinnasto-ja-sopimusehdot/siirtohinnat/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Porvoon Sähköverkko Oy"
+   ],
+   "asiakkaat": {
+    "maara": 38500,
+    "vuosi": 2025,
+    "lahde": "https://pbe.fi/fi/yritys/porvoon-energia/vuosikertomukset/vuosikertomus-2025/toimintakertomus/",
+    "lainaus": "Porvoon Sähköverkolla on sähköverkkoa yhteensä noin 3 850 kilometriä ja asiakkaita 38 500 kappaletta"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 11.4,
+      "1x25": 17.3,
+      "3x25": 17.3,
+      "3x35": 34.4
+     },
+     "energia": {
+      "kaikki": 3.34
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 28.6,
+      "3x35": 45.9
+     },
+     "energia": {
+      "paiva": 3.34,
+      "yo": 1.96
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivällä (klo 07 – 22)"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 28.6,
+      "3x35": 45.9
+     },
+     "energia": {
+      "talvipaiva": 4.17,
+      "muu": 2.07
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäivä 1.11.-31.3. ma-la klo 7-22, muina aikoina muu aika"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kt-hinta = rivi- ja kerrostalot, vähintään 5 asunnon kiinteistö.",
+    "en": "The kt price applies to terraced and apartment buildings with at least 5 dwellings."
+   },
+   "sivu": "siirto-porvoo"
+  },
+  {
+   "id": "kerava",
+   "nimi": "Keravan Energia Oy",
+   "lyhyt": "Keravan Energia",
+   "alue": {
+    "fi": "Kerava",
+    "en": "Kerava"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.keravanenergia.fi/asiakaspalvelu/hinnasto/sahkonsiirron-hinnasto-kerava/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Keravan Energia Oy"
+   ],
+   "asiakkaat": {
+    "maara": 23474,
+    "vuosi": 2025,
+    "lahde": "https://www.keravanenergia.fi/yrityksestamme/tietoa-keravan-energiasta/",
+    "lainaus": "Kerava Sipoo Yhteensä Sähkön siirto, GWh 274,8 313,6 588,4 Asiakasmäärä, kpl 23 474"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 4.3,
+      "1x25": 4.3,
+      "3x25": 5.4,
+      "3x35": 6.0
+     },
+     "energia": {
+      "kaikki": 2.9
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 14.5,
+      "3x35": 16.0
+     },
+     "energia": {
+      "paiva": 2.85,
+      "yo": 1.7
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Aikasähkössä päiväenergiamaksu on voimassa ma – su klo 07.00 – 22.00"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 14.5,
+      "3x35": 16.0
+     },
+     "energia": {
+      "talvipaiva": 2.7,
+      "muu": 1.5
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-pe",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäivän energiamaksu on voimassa 1.11. – 31.3. ma – pe klo 07.00 – 22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerava-hinnasto; Sipoon Energian alueella on oma hinnasto. Kausisähkön talviarkipäivä on ma–pe (ei lauantaita). Asiakasmäärä = Keravan sarake.",
+    "en": "Kerava price list; the Sipoo area has its own. The seasonal winter-weekday period is Mon–Fri (Saturday excluded). Customer count = Kerava column."
+   }
+  },
+  {
+   "id": "rauma",
+   "nimi": "Rauman Energia Sähköverkko Oy",
+   "lyhyt": "Rauman Energia",
+   "alue": {
+    "fi": "Rauma",
+    "en": "Rauma"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://raumanenergia.fi/files/sites/1780/res-verkkopalveluhinnasto-1-4-2026-eac51817-d062-4b0c-a9b2-5fcaa0859f88.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Rauman Energia Oy"
+   ],
+   "asiakkaat": {
+    "maara": 21000,
+    "vuosi": 2026,
+    "lahde": "https://raumanenergia.fi/sahkoverkko",
+    "lainaus": "Rauman Energia Sähköverkko huolehtii sähkönjakelusta 21 000 sähkönkäyttöpaikkaan Rauman kaupungin alueella"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 7.6,
+      "1x25": 7.6,
+      "3x25": 12.0,
+      "3x35": 18.7
+     },
+     "energia": {
+      "kaikki": 3.04
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yöpäiväsiirto",
+     "perus": {
+      "3x25": 38.0,
+      "3x35": 51.0
+     },
+     "energia": {
+      "paiva": 4.45,
+      "yo": 1.99
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "4,45 (päivä 07–22)"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 34.8,
+      "3x35": 48.1
+     },
+     "energia": {
+      "talvipaiva": 3.22,
+      "muu": 1.18
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivän sähköä käytät 1.11.–31.3. ma–la klo 7.00–22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kt-hinta = kerros- ja rivitaloasunnot, joissa vähintään kolme asiakasta saman liittymän kautta (3×25 A), sekä 1×25/1×35 A. Yöpäiväsiirron jaksoa (päivä 07–22, yö 22–07) ei rajata viikonpäiviin hinnastossa.",
+    "en": "The kt price covers apartments/terraced houses with at least three customers on the same connection (3×25 A) and 1×25/1×35 A. The price list gives the day/night split (day 07–22, night 22–07) without weekday restrictions."
+   }
+  },
+  {
+   "id": "rovakaira",
+   "nimi": "Rovakaira Oy",
+   "lyhyt": "Rovakaira",
+   "alue": {
+    "fi": "Rovaniemi (ympäristö), Kittilä ja Sodankylä",
+    "en": "Rovaniemi (surrounding area), Kittilä and Sodankylä"
+   },
+   "voimassa": "2026-05-01",
+   "lahde": "https://rovakaira.fi/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Rovakaira Oy"
+   ],
+   "asiakkaat": {
+    "maara": 32000,
+    "vuosi": 2026,
+    "lahde": "https://rovakaira.fi/tietoa_rovakairasta/",
+    "lainaus": "Asiakkaita yli 32 000"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkön siirto",
+     "perus": {
+      "kt": 18.54,
+      "3x25": 24.56,
+      "3x35": 49.31
+     },
+     "energia": {
+      "kaikki": 1.71
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkön siirto",
+     "perus": {
+      "3x25": 38.17,
+      "3x35": 88.58
+     },
+     "energia": {
+      "paiva": 1.74,
+      "yo": 0.61
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päivä klo 7.00–22.00"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkön siirto",
+     "perus": {
+      "3x25": 33.06,
+      "3x35": 83.57
+     },
+     "energia": {
+      "talvipaiva": 3.62,
+      "muu": 0.74
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä, 1.11.-31.3. ma-la, klo 7.00-22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (18,54 €/kk) koskee kerros- tai rivitaloja, enintään 3×25 A, joiden liittymässä on vähintään 5 käyttöpaikkaa. Tehosähkön siirto (tehomaksu 5,67 €/kW/kk) on yrityksille, ei mallinnettu.",
+    "en": "The apartment price (€18.54/month) applies to blocks of flats or terraced houses up to 3×25 A with at least 5 metering points per connection. The power-based product (€5.67/kW/month) is for businesses and is not modelled."
+   },
+   "sivu": "siirto-rovakaira"
+  },
+  {
+   "id": "ksat",
+   "nimi": "Koillis-Satakunnan Sähkö Oy",
+   "lyhyt": "KSAT",
+   "alue": {
+    "fi": "Virrat, Ähtäri ja ympäristö (Pirkanmaa, Etelä-Pohjanmaa, Keski-Suomi)",
+    "en": "Virrat, Ähtäri and surroundings (Pirkanmaa, South Ostrobothnia, Central Finland)"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://ksat.fi/wp-content/uploads/2026/04/Verkkopalveluhinnasto.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Koillis-Satakunnan Sähkö Oy"
+   ],
+   "asiakkaat": {
+    "maara": 15928,
+    "vuosi": 2026,
+    "lahde": "https://ksat.fi/yritys/",
+    "lainaus": "Käyttöpaikkoja noin 15 928"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 15.94,
+      "1x25": 15.94,
+      "3x25": 21.12,
+      "3x35": 38.28
+     },
+     "energia": {
+      "kaikki": 5.12
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 40.62,
+      "3x35": 64.46
+     },
+     "energia": {
+      "paiva": 6.3,
+      "yo": 3.12
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "päivä klo 07–22 ja yö klo 22–07"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 40.62,
+      "3x35": 64.46
+     },
+     "energia": {
+      "talvipaiva": 6.3,
+      "muu": 3.12
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäivä 1.11.–31.3. ma-la klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Aika- ja kausisiirrolla on sama perusmaksu ja samat energiahinnat. Tehopohjaiset tuotteet (PJ/KJ) on tarkoitettu yrityksille.",
+    "en": "Time-of-day and seasonal products have the same basic fee and energy prices. Power-based products (LV/MV) are for businesses."
+   }
+  },
+  {
+   "id": "koillis-lappi",
+   "nimi": "Koillis-Lapin Sähkö Oy",
+   "lyhyt": "Koillis-Lapin Sähkö",
+   "alue": {
+    "fi": "Kemijärvi, Salla, Pelkosenniemi ja Savukoski",
+    "en": "Kemijärvi, Salla, Pelkosenniemi and Savukoski"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.koillislapinsahko.fi/application/files/4317/7426/9869/1_VerkkopalveluHinnasto_01042026_alkaen.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Koillis-Lapin Sähkö Oy"
+   ],
+   "asiakkaat": {
+    "maara": 12566,
+    "vuosi": 2024,
+    "lahde": "https://www.koillislapinsahko.fi/application/files/8117/6856/8844/KLS_vuosikertomus_2024.pdf",
+    "lainaus": "Asiakkaat (käyttöpaikat) kpl 12566"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkön verkkopalvelu",
+     "perus": {
+      "kt": 18.2,
+      "1x25": 18.2,
+      "3x25": 18.2,
+      "3x35": 43.75
+     },
+     "energia": {
+      "kaikki": 4.15
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkön verkkopalvelu",
+     "perus": {
+      "3x25": 37.78,
+      "3x35": 54.23
+     },
+     "energia": {
+      "paiva": 3.94,
+      "yo": 2.1
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lahde": "https://www.koillislapinsahko.fi/asiakaspalvelu/sahkonsiirtotuotteet",
+      "lainaus": "Päiväenergialla tarkoitetaan kaikkina viikonpäivinä klo 7-22 välisenä aikana kulutettua energiaa"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkön verkkopalvelu",
+     "perus": {
+      "3x25": 37.78,
+      "3x35": 54.23
+     },
+     "energia": {
+      "talvipaiva": 4.66,
+      "muu": 1.79
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lahde": "https://www.koillislapinsahko.fi/asiakaspalvelu/sahkonsiirtotuotteet",
+      "lainaus": "Talviarkipäiväenergialla tarkoitetaan 1.11.-31.3. maanantaista lauantaihin klo 7-22 välisenä aikana kulutettua energiaa"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kausisähkön perusmaksut ovat hinnaston mukaan samat kuin aikasähkössä. Yleissähkön 1-vaiheinen ja 25 A perusmaksu on sama (18,20 €/kk). Tehosähkö (0,4 kV ja 20 kV) on yrityksille.",
+    "en": "Per the tariff, seasonal basic fees equal the time-of-day ones. The general product has the same fee for single-phase and 25 A (€18.20/month). Power-based products (0.4 kV, 20 kV) are for businesses."
+   }
+  },
+  {
+   "id": "tornionlaakso",
+   "nimi": "TLS Verkko Oy",
+   "lyhyt": "Tornionlaakson Sähköverkko",
+   "alue": {
+    "fi": "Tornionlaakso (Pello ja ympäristö)",
+    "en": "Torne Valley (Pello and surroundings)"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://www.tornionlaaksonsahkoverkko.fi/palvelut/hinnastot/siirtohinnat/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Tornionlaakson Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkönsiirto",
+     "perus": {
+      "3x25": 23.53,
+      "3x35": 50.44
+     },
+     "energia": {
+      "kaikki": 3.35
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkönsiirto",
+     "perus": {
+      "3x25": 35.04,
+      "3x35": 84.45
+     },
+     "energia": {
+      "paiva": 4.14,
+      "yo": 1.86
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Tämä siirtomaksu pätee päivisin kello 07:00-22:00."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkönsiirto",
+     "perus": {
+      "3x25": 33.09,
+      "3x35": 78.16
+     },
+     "energia": {
+      "talvipaiva": 4.35,
+      "muu": 2.02
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Tämä siirtomaksu pätee 1.11.-31.3., maanantaista lauantaihin, kello 07:00-22:00."
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Verkkoyhtiö toimii nimellä Tornionlaakson Sähköverkko (TLS Verkko Oy, Y-tunnus 3167394-5). Hinnasto ei julkaise erillistä 1-vaiheista tai kerrostalohintaa. Tehotuotteet ovat yrityksille.",
+    "en": "The grid operator trades as Tornionlaakson Sähköverkko (TLS Verkko Oy). The tariff has no separate single-phase or apartment price. Power-based products are for businesses."
+   }
+  },
+  {
+   "id": "leppakoski",
+   "nimi": "Leppäkosken Sähkö Oy",
+   "lyhyt": "Leppäkoski",
+   "alue": {
+    "fi": "Ylöjärvi, Hämeenkyrö, Ikaalinen, Jämijärvi, Kihniö ja Parkano",
+    "en": "Ylöjärvi, Hämeenkyrö, Ikaalinen, Jämijärvi, Kihniö and Parkano"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://leppakoski.fi/wp-content/uploads/2026/03/Verkkopalveluhinnasto-1.4.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Leppäkoski Group Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 14.27,
+      "3x25": 21.56,
+      "3x35": 30.16
+     },
+     "energia": {
+      "kaikki": 4.86
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Kaksiaikasiirto",
+     "perus": {
+      "3x25": 37.65,
+      "3x35": 62.35
+     },
+     "energia": {
+      "paiva": 5.16,
+      "yo": 3.04
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "klo 07-22 5,16 snt/kWh klo 22-07 3,04 snt/kWh"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 37.65,
+      "3x35": 62.35
+     },
+     "energia": {
+      "talvipaiva": 5.67,
+      "muu": 3.24
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä (ma-la) 1.11.-31.3. klo 07.00-22.00."
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (14,27 €/kk) koskee monimittauskeskusten 1-vaiheisia käyttöpaikkoja rivi- ja kerrostaloissa; muut 1-vaiheiset maksavat 3×25 A hinnan. 1.11.2026 alkaen voimaan tuleva hinnasto pitää kotitalouksien sulaketuotteiden hinnat ennallaan (vain tehotuotteet muuttuvat). Pori Energia ostaa Leppäkosken Sähkö Oy:n (kauppa vuoden 2026 loppuun mennessä).",
+    "en": "The apartment price (€14.27/month) applies to single-phase metering points in multi-meter centres of terraced houses and blocks of flats; other single-phase sites pay the 3×25 A price. The tariff effective 1 Nov 2026 keeps household fuse-based prices unchanged (only power products change). Pori Energia is acquiring Leppäkosken Sähkö Oy (closing by end of 2026)."
+   }
+  },
+  {
+   "id": "herrfors",
+   "nimi": "Herrfors Nät-Verkko Oy Ab",
+   "lyhyt": "Herrfors",
+   "alue": {
+    "fi": "Pietarsaari ja lähikunnat sekä Ylivieskan seutu",
+    "en": "Jakobstad (Pietarsaari) region and the Ylivieska area"
+   },
+   "voimassa": "2025-01-01",
+   "lahde": "https://www.herrforsnat.fi/fi/kotitaloudet/hinnastot/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Herrfors Nät-Verkko Oy Ab"
+   ],
+   "asiakkaat": {
+    "maara": 34000,
+    "vuosi": 2024,
+    "lahde": "https://www.herrforsnat.fi/fi/tietoa-meista/",
+    "lainaus": "34 000 Käyttöpaikkojen määrä 2024"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleistariffi",
+     "perus": {
+      "kt": 9.16,
+      "1x25": 12.14,
+      "3x25": 13.57,
+      "3x35": 20.8
+     },
+     "energia": {
+      "kaikki": 3.93
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleistariffi B",
+     "perus": {
+      "3x25": 28.98,
+      "3x35": 46.43
+     },
+     "energia": {
+      "kaikki": 2.97
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikatariffi",
+     "perus": {
+      "3x25": 27.61,
+      "3x35": 46.0
+     },
+     "energia": {
+      "paiva": 3.08,
+      "yo": 1.92
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Siirtomaksu yö, klo 22-07"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (9,16 €/kk) on tuote Kerrostalosähkö (huoneistot rivi- ja kerrostaloissa, 1×25/35 A), samalla siirtomaksulla 3,93 snt/kWh. Vuodenaikasähkö (3×25 A 27,74 €/kk; talviarkipäivä 3,61, muu aika 1,92 snt/kWh) jätetty pois: talviarkipäivän kuukausia, päiviä ja kellonaikoja ei julkaista Herrforsin hinnastossa eikä muilla sen sivuilla. Tehosähkötuotteet ovat yrityksille.",
+    "en": "The apartment price (€9.16/month) is the Kerrostalosähkö product (flats in terraced houses and blocks, 1×25/35 A) with the same 3.93 c/kWh. The seasonal product (3×25 A €27.74/month; winter weekday 3.61, other 1.92 c/kWh) is omitted: Herrfors does not publish the winter-weekday months, days or hours in its tariff or elsewhere on its site. Power products are for businesses."
+   },
+   "sivu": "siirto-herrfors"
+  },
+  {
+   "id": "kss",
+   "nimi": "KSS Verkko Oy",
+   "lyhyt": "KSS Verkko",
+   "alue": {
+    "fi": "Kouvola ja Iitti",
+    "en": "Kouvola and Iitti"
+   },
+   "voimassa": "2025-01-01",
+   "lahde": "https://assets.ctfassets.net/79vzmppdwnqd/7xQtG04ItekUgevuVcWmB4/7ee463fc815f9a252e236dfd3ad4fb81/KSS_V_Verkkopalvelumaksut_1.1.2025_kk-hinnat_p%C3%83_ivitetty_huoltovarmuusmaksu_01042026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "KSS Verkko Oy"
+   ],
+   "asiakkaat": {
+    "maara": 50000,
+    "vuosi": 2026,
+    "lahde": "https://www.kssenergia.fi/sahkonsiirtoasiakkaalle",
+    "lainaus": "palvelee yli 50 000 asiakasta Kouvolan ja Iitin seudulla"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 7.3,
+      "1x25": 7.3,
+      "3x25": 13.4,
+      "3x35": 26.3
+     },
+     "energia": {
+      "kaikki": 4.09
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 31.7,
+      "3x35": 49.9
+     },
+     "energia": {
+      "paiva": 3.32,
+      "yo": 1.49
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväaika klo 7.00 - 22.00, ei sovelleta kesäaikaan siirtymistä",
+      "normaaliaika": true
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 31.7,
+      "3x35": 49.9
+     },
+     "energia": {
+      "talvipaiva": 4.97,
+      "muu": 1.49
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä 1.11. - 31.3. ma - la klo 7.00 - 22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Aikasiirron päivä- ja yöaika eivät seuraa kesäaikaa: kesäaikana päiväaika on paikallista aikaa klo 8–23. Hinnastossa on myös 1×16 A (enintään 500 W) yleissiirto 3,20 €/kk. Tehosiirto on erillinen yrityshinnasto.",
+    "en": "Time-of-day periods do not follow daylight saving time: in summer the day period is 08:00–23:00 local time. The tariff also lists a 1×16 A (max 500 W) general product at €3.20/month. Power-based transfer is a separate business tariff."
+   },
+   "sivu": "siirto-kss"
+  },
+  {
+   "id": "korpela",
+   "nimi": "Verkko Korpela Oy",
+   "lyhyt": "Verkko Korpela",
+   "alue": {
+    "fi": "Kannus, Toholampi ja ympäristö (Keski-Pohjanmaa)",
+    "en": "Kannus, Toholampi and surroundings (Central Ostrobothnia)"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.korpelanvoima.fi/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Verkko Korpela Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 5.35,
+      "3x25": 12.78,
+      "3x35": 25.45
+     },
+     "energia": {
+      "kaikki": 4.15
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösähkö",
+     "perus": {
+      "3x25": 43.0,
+      "3x35": 65.0
+     },
+     "energia": {
+      "paiva": 3.74,
+      "yo": 1.98
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päivä (klo 7-22) 2,98 snt/kWh 3,74 snt/kWh Yö (klo 22-7)"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 35.95,
+      "3x35": 60.4
+     },
+     "energia": {
+      "talvipaiva": 3.77,
+      "muu": 2.01
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talvipäivä (1.11.-31.3. ma-la klo 7-22)"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (5,35 €/kk, 1×25 A) koskee vähintään kolmen asunnon taloja, joissa on kolmivaiheliittymä. Yrittäjä Korpela (neliaikatuote) ja Teho Korpela ovat yrityksille, ei mallinnettu.",
+    "en": "The apartment price (€5.35/month, 1×25 A) applies to buildings with at least three dwellings and a three-phase connection. Yrittäjä Korpela (four-period) and Teho Korpela are for businesses and not modelled."
+   }
+  },
+  {
+   "id": "imatra",
+   "nimi": "Imatran Seudun Sähkönsiirto Oy",
+   "lyhyt": "Imatran Seudun Sähkönsiirto",
+   "alue": {
+    "fi": "Imatran seutu",
+    "en": "Imatra region"
+   },
+   "voimassa": "2025-09-01",
+   "lahde": "https://www.issoy.fi/wp-content/uploads/2026/03/Verkkopalvelumaksut-1.9.2025-alkaen2.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Imatran Seudun Sähkönsiirto Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 11.8,
+      "1x25": 17.82,
+      "3x25": 17.82,
+      "3x35": 33.23
+     },
+     "energia": {
+      "kaikki": 3.99
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 30.6,
+      "3x35": 53.16
+     },
+     "energia": {
+      "paiva": 4.35,
+      "yo": 1.46
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "päiväenergia klo 07 – 22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 30.6,
+      "3x35": 53.16
+     },
+     "energia": {
+      "talvipaiva": 5.4,
+      "muu": 1.52
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talvi 1.11. - 31.3., päiväenergia klo 07 – 22, talviarkipäiväenergia ma-la klo 07 - 22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (11,80 €/kk) koskee kerros- ja rivitalojen 1×25 A käyttöpaikkoja. Yleis-, aika- ja kausisähkö ovat valittavissa enintään 100 A pääsulakkeille; tehotuotteet ovat yli 100 A liittymille.",
+    "en": "The apartment price (€11.80/month) applies to 1×25 A sites in blocks of flats and terraced houses. General, time-of-day and seasonal products are for main fuses up to 100 A; power products are for larger connections."
+   }
+  },
+  {
+   "id": "vatajankoski",
+   "nimi": "Vatajankoski Sähköverkko Oy",
+   "lyhyt": "Vatajankoski",
+   "alue": {
+    "fi": "Pohjois-Satakunta (Kankaanpää ja ympäristö)",
+    "en": "Northern Satakunta (Kankaanpää area)"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://www.vatajankoskisahkoverkko.fi/wp-content/uploads/sites/2/jul-verkkopalveluhinnasto-sulake-01072026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Vatajankoski Oy"
+   ],
+   "asiakkaat": {
+    "maara": 18000,
+    "vuosi": 2025,
+    "lahde": "https://www.vatajankoski.fi/wp-content/uploads/vatajankoski-toimintakertomus-ja-tilinpaatos-2025-valmis.pdf",
+    "lainaus": "Yhtiöllä on noin 18000 sähkönsiirtoasiakasta"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 13.86,
+      "1x25": 13.86,
+      "3x25": 21.65,
+      "3x35": 36.95
+     },
+     "energia": {
+      "kaikki": 5.42
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösähkö",
+     "perus": {
+      "3x25": 35.47,
+      "3x35": 60.99
+     },
+     "energia": {
+      "paiva": 5.78,
+      "yo": 3.28
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivä (klo 7 - 22)"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 33.83,
+      "3x35": 55.01
+     },
+     "energia": {
+      "talvipaiva": 6.87,
+      "muu": 3.24
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä on: 1.11. - 31.3. ma - la klo 07 - 22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleissähkön 1×25 A -perusmaksu koskee myös 1×35 A. Yö- ja kausisähkö eivät ole mahdollisia 1-vaiheisille liittymille.",
+    "en": "The General 1×25 A basic fee also applies to 1×35 A. Night and seasonal products are not available for single-phase connections."
+   }
+  },
+  {
+   "id": "oss",
+   "nimi": "Oulun Seudun Sähkö Verkkopalvelut Oy",
+   "lyhyt": "Oulun Seudun Sähkö",
+   "alue": {
+    "fi": "Kempele, Liminka, Lumijoki, Tyrnävä, Muhos, Utajärvi, Oulunsalo ja Vaalan keskusta",
+    "en": "Kempele, Liminka, Lumijoki, Tyrnävä, Muhos, Utajärvi, Oulunsalo and central Vaala"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.oulunseudunsahko.fi/wp-content/uploads/2026/03/Sahkon_verkkopalveluhinnasto_1.4.2026_alkaen_WWW.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Oulun Seudun Sähkö Verkkopalvelut Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "3x25": 13.66,
+      "3x35": 19.19
+     },
+     "energia": {
+      "kaikki": 2.92
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 27.71,
+      "3x35": 38.74
+     },
+     "energia": {
+      "talvipaiva": 3.2,
+      "muu": 1.9
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä 1.11.–31.3. maanantaista lauantaihin klo 7.00–22.00."
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnastossa ei ole aikasähkö- eikä 1-vaiheista tuotetta; pienin pääsulake 3×25 A. Yleissähkön siirtomaksu 2,92 snt/kWh on sattumalta sama kuin sähkövero.",
+    "en": "No time-of-day or single-phase product in the tariff; smallest main fuse 3×25 A. The General transfer fee 2.92 c/kWh happens to equal the electricity tax."
+   }
+  },
+  {
+   "id": "vsv",
+   "nimi": "VSV Sähköverkko Oy",
+   "lyhyt": "VSV",
+   "alue": {
+    "fi": "Vakka-Suomi (Uusikaupunki, Laitila ym.), yhdeksän kuntaa Varsinais-Suomessa ja Satakunnassa",
+    "en": "Vakka-Suomi (Uusikaupunki, Laitila etc.), nine municipalities in Southwest Finland and Satakunta"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://vsv.fi/sahkoverkko/hinnastot-ja-sopimusehdot",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Vakka-Suomen Voima Oy"
+   ],
+   "asiakkaat": {
+    "maara": 25000,
+    "vuosi": 2026,
+    "lahde": "https://vsv.fi/vsv-konserni/tietoa-meista",
+    "lainaus": "Vastaamme sähkönsiirrosta noin 25 000 asiakkaalle."
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 9.8,
+      "1x25": 17.8,
+      "3x25": 17.8,
+      "3x35": 30.0
+     },
+     "energia": {
+      "kaikki": 4.3
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yöpäiväsiirto",
+     "perus": {
+      "3x25": 35.0,
+      "3x35": 60.0
+     },
+     "energia": {
+      "paiva": 4.3,
+      "yo": 2.2
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivä klo 7–22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 35.0,
+      "3x35": 60.0
+     },
+     "energia": {
+      "talvipaiva": 4.3,
+      "muu": 2.2
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä: 1.11. - 31.3. ma - la klo 07 - 22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Sähköverkkoliiketoiminta siirtyi Vakka-Suomen Voima Oy:ltä VSV Sähköverkko Oy:lle 1.6.2025. Kerros- ja rivitalohuoneistoissa (liittymässä vähintään kolme käyttöpaikkaa) 3×25 A -perusmaksu on yleissiirrossa 9,80 €/kk ja kausi- ja yöpäiväsiirrossa 30,00 €/kk.",
+    "en": "Network business moved from Vakka-Suomen Voima Oy to VSV Sähköverkko Oy on 1 June 2025. In apartment and terraced-house units (connection with at least three metering points) the 3×25 A basic fee is €9.80/month for General and €30.00/month for Seasonal/Day-night."
+   }
+  },
+  {
+   "id": "sallila",
+   "nimi": "Sallila Sähkönsiirto Oy",
+   "lyhyt": "Sallila",
+   "alue": {
+    "fi": "Loimaan seutu, Huittinen ja Punkalaidun",
+    "en": "Loimaa region, Huittinen and Punkalaidun"
+   },
+   "voimassa": "2026-03-01",
+   "lahde": "https://sallila.fi/sahkoverkko/tuotteet-ja-hinnasto/verkkopalveluhinnat/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Sallila Sähkönsiirto Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 11.4,
+      "1x25": 22.3,
+      "3x25": 22.3,
+      "3x35": 39.0
+     },
+     "energia": {
+      "kaikki": 4.48
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "1x25": 39.0,
+      "3x25": 39.0,
+      "3x35": 67.0
+     },
+     "energia": {
+      "talvipaiva": 4.9,
+      "muu": 1.9
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä: 1.11.–31.3. maanantai-lauantai klo 7.00–22.00."
+     }
+    }
+   ],
+   "huom": {
+    "fi": "1×25 A -perusmaksu 11,40 €/kk vain kerrostaloissa; muut enintään 25 A pääsulakkeet (ja kerrostalojen 1×35 A) maksavat 3×25 A -hinnan. Aikasähkötuotetta ei ole.",
+    "en": "The 1×25 A fee of €11.40/month applies only in apartment buildings; other fuses up to 25 A (and 1×35 A in apartments) pay the 3×25 A fee. No time-of-day product."
+   }
+  },
+  {
+   "id": "nivos",
+   "nimi": "Nivos Energia Oy",
+   "lyhyt": "Nivos",
+   "alue": {
+    "fi": "Mäntsälä",
+    "en": "Mäntsälä"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://nivos.fi/sahko/tuotteet-ja-palvelut/verkkopalvelutuotteet-ja-hinnastot/sahkoverkon-verkkopalveluhinnasto-yleistuotteet/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Nivos Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 11.19,
+      "1x25": 11.19,
+      "3x25": 20.24,
+      "3x35": 35.98
+     },
+     "energia": {
+      "kaikki": 4.99
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 29.58,
+      "3x35": 50.09
+     },
+     "energia": {
+      "paiva": 4.99,
+      "yo": 3.26
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "päivä 1.1.-31.12. ma-su klo 07-22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 29.58,
+      "3x35": 50.09
+     },
+     "energia": {
+      "talvipaiva": 6.27,
+      "muu": 3.11
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäivä 1.11.-31.3. ma-la klo 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleissiirron 3×25 A -perusmaksu koskee myös 1×35 A.",
+    "en": "The General 3×25 A basic fee also applies to 1×35 A."
+   }
+  },
+  {
+   "id": "nurmijarvi",
+   "nimi": "Nurmijärven Sähköverkko Oy",
+   "lyhyt": "Nurmijärven Sähkö",
+   "alue": {
+    "fi": "Nurmijärvi sekä osia Hyvinkäästä, Tuusulasta, Vantaasta, Espoosta ja Vihdistä",
+    "en": "Nurmijärvi and parts of Hyvinkää, Tuusula, Vantaa, Espoo and Vihti"
+   },
+   "voimassa": "2026-08-01",
+   "lahde": "https://nurmijarvensahko.fi/sahkoverkko/sahkonsiirtohinnastot/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Nurmijärven Sähköverkko Oy"
+   ],
+   "asiakkaat": {
+    "maara": 28000,
+    "vuosi": 2026,
+    "lahde": "https://nurmijarvensahko.fi/sahkoverkko/",
+    "lainaus": "Nurmijärven Sähköverkko toimittaa sähköä noin 28 000 verkkopalveluasiakkaalle."
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 7.35,
+      "1x25": 7.35,
+      "3x25": 12.97,
+      "3x35": 22.57
+     },
+     "energia": {
+      "kaikki": 3.15
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 29.93,
+      "3x35": 45.15
+     },
+     "energia": {
+      "paiva": 2.72,
+      "yo": 1.9
+     },
+     "ajat": {
+      "tunnit": [
+       6,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivä 1.1.-31.12. ma-su klo 06-22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 29.93,
+      "3x35": 45.15
+     },
+     "energia": {
+      "talvipaiva": 3.09,
+      "muu": 1.9
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       6,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä 1.11.-31.3. välisenä aikana lukuun ottamatta talvisunnuntaita ma-la klo 06-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Päivä- ja talviarkipäiväjakso alkaa klo 6 (ei klo 7). Yleissiirron 1×25 A -perusmaksu koskee myös 1×35 A.",
+    "en": "Day and winter-weekday periods start at 06:00 (not 07:00). The General 1×25 A fee also applies to 1×35 A."
+   }
+  },
+  {
+   "id": "koylion-sakylan",
+   "nimi": "Köyliön-Säkylän Sähkö Oy",
+   "lyhyt": "Köyliön-Säkylän Sähkö",
+   "alue": {
+    "fi": "Säkylä, Köyliö ja osa Euran Kauttuaa",
+    "en": "Säkylä, Köyliö and part of Kauttua (Eura)"
+   },
+   "voimassa": "2026-02-01",
+   "lahde": "https://koylionsakylansahko.fi/hinnastot/verkkopalveluhinnat/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Köyliön-Säkylän Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Lallin Perusvoima",
+     "perus": {
+      "kt": 17.9,
+      "1x25": 17.9,
+      "3x25": 25.25,
+      "3x35": 33.35
+     },
+     "energia": {
+      "kaikki": 5.14
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Lallin Yösähkö",
+     "perus": {
+      "3x25": 30.0,
+      "3x35": 33.2
+     },
+     "energia": {
+      "paiva": 5.18,
+      "yo": 3.33
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivä, klo 7-22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Lallin Lämpö",
+     "perus": {
+      "3x25": 31.45,
+      "3x35": 35.15
+     },
+     "energia": {
+      "talvipaiva": 6.87,
+      "muu": 3.15
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "kaikki",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talvipäivä, 1.11. - 31.3. klo 7-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kausisähkön talvipäivä koskee kaikkia viikonpäiviä (myös sunnuntaita). Lallin Lämpö -tariffissa osa lämpöpattereista voidaan ohjata jännitteettömäksi enintään 1,5 h kerrallaan ja 5 h vuorokaudessa.",
+    "en": "The seasonal winter-day rate applies every day of the week (Sundays included). Under Lallin Lämpö part of the heaters may be switched off for up to 1.5 h at a time and 5 h per day."
+   }
+  },
+  {
+   "id": "alajarvi",
+   "nimi": "Alajärven Sähkö Oy",
+   "lyhyt": "Alajärven Sähkö",
+   "alue": {
+    "fi": "Alajärvi",
+    "en": "Alajärvi"
+   },
+   "voimassa": "2026-08-01",
+   "lahde": "https://www.alajarvensahko.fi/wp-content/uploads/2026/06/Verkkopalveluhinnasto-1.8.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Alajärven Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "3x25": 15.15,
+      "3x35": 25.47
+     },
+     "energia": {
+      "kaikki": 5.95
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 26.85,
+      "3x35": 40.25
+     },
+     "energia": {
+      "paiva": 5.45,
+      "yo": 3.45
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivä (07.00 – 22.00)"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Ei kausisähkötuotetta. Hinnastosivun HTML-taulukossa on pieniä pyöristyseroja (25,48 / 5,44 / 3,46); tässä käytetään virallista PDF-hinnastoa 1.8.2026.",
+    "en": "No seasonal product. The HTML table on the price page shows small rounding differences (25.48 / 5.44 / 3.46); the official PDF tariff of 1 Aug 2026 is used here."
+   }
+  },
+  {
+   "id": "sipoo",
+   "nimi": "Sipoon Energia Oy",
+   "lyhyt": "Sipoon Energia",
+   "alue": {
+    "fi": "Sipoo",
+    "en": "Sipoo"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.keravanenergia.fi/asiakaspalvelu/hinnasto/sahkonsiirron-hinnasto-sipoo/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Sipoon Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 10.5,
+      "1x25": 14.0,
+      "3x25": 14.0,
+      "3x35": 21.0
+     },
+     "energia": {
+      "kaikki": 3.05
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 21.0,
+      "3x35": 28.0
+     },
+     "energia": {
+      "paiva": 2.8,
+      "yo": 1.8
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "päiväenergiamaksu on voimassa ma–su klo 07.00–22.00"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 21.0,
+      "3x35": 28.0
+     },
+     "energia": {
+      "talvipaiva": 3.2,
+      "muu": 1.9
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-pe",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäivän energiamaksu on voimassa 1.11.–31.3. ma–pe klo 07.00–22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kausisähkön talviarkipäivä on vain ma–pe. 1×25 A -perusmaksu 10,50 €/kk koskee kerrostaloja; omakotitalot ja vapaa-ajan asunnot, joissa on 1×25 A -pääsulake, laskutetaan 3×25 A:n mukaan. Sivut julkaisee Keravan Energia -konserni.",
+    "en": "Seasonal winter weekdays are Mon–Fri only. The 1×25 A fee of €10.50/month applies to apartments; detached houses and holiday homes with a 1×25 A fuse are billed at the 3×25 A rate. Pages published by the Keravan Energia group."
+   }
+  },
+  {
+   "id": "parikkalan-valo",
+   "nimi": "Parikkalan Valo Oy",
+   "lyhyt": "Parikkalan Valo",
+   "alue": {
+    "fi": "Parikkala sekä osia Savonlinnasta, Rautjärvestä, Ruokolahdesta ja Kiteestä",
+    "en": "Parikkala and parts of Savonlinna, Rautjärvi, Ruokolahti and Kitee"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://parikkalanvalo.fi/wp-content/uploads/2025/12/ParikkalanValo_siirtohinnasto_1.1.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Parikkalan Valo Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 25.0,
+      "1x25": 41.0,
+      "3x25": 41.0,
+      "3x35": 75.0
+     },
+     "energia": {
+      "kaikki": 3.44
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 93.0,
+      "3x35": 163.0
+     },
+     "energia": {
+      "paiva": 3.44,
+      "yo": 2.02
+     },
+     "ajat": {
+      "tunnit": [
+       6,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Siirtomaksu: klo 6-22:"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 93.0,
+      "3x35": 163.0
+     },
+     "energia": {
+      "talvipaiva": 3.95,
+      "muu": 2.02
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "kaikki",
+      "tunnit": [
+       6,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "1.11.-31.3. klo 6-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (25,00 €/kk) koskee yksivaiheisia kerrostaloasuntoja taloissa, joissa on vähintään kolme asuntoa.",
+    "en": "The apartment price (€25.00/month) applies to single-phase flats in buildings with at least three dwellings."
+   }
+  },
+  {
+   "id": "esse-elektro-kraft",
+   "nimi": "Esse Elektro-Kraft Ab",
+   "lyhyt": "Esse Elektro-Kraft",
+   "alue": {
+    "fi": "Pedersöre sekä osia Kortesjärvestä, Alahärmästä, Kruunupyystä (Jeussen) ja Uudestakaarlepyystä (Markby)",
+    "en": "Pedersöre and parts of Kortesjärvi, Alahärmä, Kronoby (Jeussen) and Nykarleby (Markby)"
+   },
+   "voimassa": "2026-10-01",
+   "lahde": "https://eekab.fi/wp-content/uploads/2026/10/Tariffer-Tariffit-1.10.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Esse Elektro-Kraft Ab"
+   ],
+   "asiakkaat": {
+    "maara": 3800,
+    "vuosi": 2023,
+    "lahde": "https://eekab.fi/fi/yritys/",
+    "lainaus": "Meillä on 3800 verkkoasiakasta"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "A-tariffi",
+     "perus": {
+      "kt": 11.08,
+      "1x25": 11.08,
+      "3x25": 11.08,
+      "3x35": 14.81
+     },
+     "energia": {
+      "kaikki": 5.69
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "B-tariffi",
+     "perus": {
+      "kt": 14.72,
+      "1x25": 14.72,
+      "3x25": 14.72,
+      "3x35": 21.7
+     },
+     "energia": {
+      "kaikki": 5.27
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Kaksiaikatariffi",
+     "perus": {
+      "3x25": 22.74,
+      "3x35": 28.3
+     },
+     "energia": {
+      "paiva": 5.27,
+      "yo": 4.13
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Dag/Päivä 07.00 - 22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kausisiirtoa ei ole. Hinnasto on kaksikielinen (sv/fi); siirron hinnat ovat taulukon ensimmäiset sarakkeet, myynnin hinnat erikseen.",
+    "en": "No seasonal product. The price list is bilingual (sv/fi); distribution prices are the first columns, retail prices are listed separately."
+   }
+  },
+  {
+   "id": "keminmaan-energia",
+   "nimi": "Keminmaan Energia ja Vesi Oy",
+   "lyhyt": "Keminmaan Energia ja Vesi",
+   "alue": {
+    "fi": "Keminmaa sekä osa Torniota (Ruottala) ja Tervolaa (Pahtaoja)",
+    "en": "Keminmaa and parts of Tornio (Ruottala) and Tervola (Pahtaoja)"
+   },
+   "voimassa": null,
+   "lahde": "https://kmev.fi/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Keminmaan Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto 1",
+     "perus": {
+      "kt": 9.2,
+      "1x25": 9.2,
+      "3x25": 12.7,
+      "3x35": 24.0
+     },
+     "energia": {
+      "kaikki": 3.1
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto 2",
+     "perus": {
+      "kt": 21.0,
+      "1x25": 21.0,
+      "3x25": 25.4,
+      "3x35": 50.8
+     },
+     "energia": {
+      "kaikki": 2.43
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Mökkisiirto",
+     "perus": {
+      "kt": 7.2,
+      "1x25": 7.2,
+      "3x25": 8.0
+     },
+     "energia": {
+      "kaikki": 4.79
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 25.4,
+      "3x35": 50.8
+     },
+     "energia": {
+      "paiva": 3.29,
+      "yo": 1.81
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päiväsiirron hinta on voimassa kaikkina päivinä klo 7–22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 25.4,
+      "3x35": 50.8
+     },
+     "energia": {
+      "talvipaiva": 4.09,
+      "muu": 1.81
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": "talvipaiva",
+      "lainaus": "Talviarkipäiviä ovat arkipäivät maanantaista lauantaihin 1.11. – 31.3. välisenä aikana kello 07.00 – 22.00 mukaan lukien arkipyhien päiväaika"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Mökkisiirto on tarkoitettu kesäasunnoille, joissa ei ole sähkölämmitystä.",
+    "en": "Mökkisiirto is for holiday homes without electric heating."
+   }
+  },
+  {
+   "id": "tervola",
+   "nimi": "Tervolan Energia ja Vesi Oy",
+   "lyhyt": "Tervolan Energia ja Vesi",
+   "alue": {
+    "fi": "Tervola",
+    "en": "Tervola"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://tenve.fi/wp-content/uploads/2026/06/sahko-siirtohinnasto-01072026-alkaen.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Tenergia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perusVuosi": {
+      "kt": 140.57,
+      "1x25": 140.57,
+      "3x25": 140.57,
+      "3x35": 196.82
+     },
+     "energia": {
+      "kaikki": 4.66
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö 2",
+     "perusVuosi": {
+      "kt": 419.67,
+      "1x25": 419.67,
+      "3x25": 419.67,
+      "3x35": 587.54
+     },
+     "energia": {
+      "kaikki": 2.8
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perusVuosi": {
+      "kt": 313.39,
+      "1x25": 313.39,
+      "3x25": 313.39,
+      "3x35": 438.74
+     },
+     "energia": {
+      "talvipaiva": 4.66,
+      "muu": 2.1
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäiväenergian mittausjakso on 1.11. - 31.3. ma-la klo 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Perusmaksut ovat hinnastossa euroa vuodessa ja määräytyvät pääsulakkeen ampeerikoon mukaan (25 A, 35 A). Aikasiirtoa ei ole.",
+    "en": "Basic fees are listed per year and depend on the main fuse rating (25 A, 35 A). No day/night product."
+   }
+  },
+  {
+   "id": "keuruun-sahko",
+   "nimi": "Keuruun Sähkö Oy",
+   "lyhyt": "Keuruun Energia",
+   "alue": {
+    "fi": "Keuruu",
+    "en": "Keuruu"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.keuruunenergia.fi/wp-content/uploads/2026/03/Keuruun_Energia_verkkopalvelumaksut_1.4.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Keuruun Sähkö Oy"
+   ],
+   "asiakkaat": {
+    "maara": 8817,
+    "vuosi": 2023,
+    "lahde": "https://www.keuruunenergia.fi/yritys/",
+    "lainaus": "Henkilöstö 45 Käyttöpaikat 8 817"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 15.5,
+      "1x25": 15.5,
+      "3x25": 24.0,
+      "3x35": 41.0
+     },
+     "energia": {
+      "kaikki": 5.66
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnastossa on myös Yösiirto (3×25 A 39,00 €/kk, päivä 5,73 / yö 2,95 snt/kWh) ja Kausisiirto (3×25 A 44,50 €/kk, talviarkipäivä 6,50 / muu 2,97 snt/kWh), mutta Keuruun Sähkö ei julkaise siirtotuotteiden aikajakoa, joten niitä ei ole mallinnettu.",
+    "en": "The price list also has Yösiirto (day/night) and Kausisiirto (seasonal), but Keuruun Sähkö does not publish the time bands for its distribution products, so they are not modelled."
+   }
+  },
+  {
+   "id": "alva-sahkoverkko",
+   "nimi": "Alva Sähköverkko Oy",
+   "lyhyt": "Alva Sähköverkko",
+   "alue": {
+    "fi": "Jyväskylä",
+    "en": "Jyväskylä"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.alva.fi/sahkoverkko/tuotteet-palvelut-hinnastot/hinnastot-ja-sopimusehdot/verkkopalveluhinnastot/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "JE-Siirto Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 6.97,
+      "1x25": 6.97,
+      "3x25": 12.11,
+      "3x35": 21.59
+     },
+     "energia": {
+      "kaikki": 2.26
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto 5",
+     "perus": {
+      "kt": 4.02,
+      "1x25": 4.02,
+      "3x25": 5.99
+     },
+     "energia": {
+      "kaikki": 2.26
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 12.11,
+      "3x35": 21.59
+     },
+     "energia": {
+      "talvipaiva": 3.16,
+      "muu": 1.92
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä on 1.11.-31.3. ma-la klo 7-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleissiirto 5 koskee vain 1×25/35 A ja 3×25 A käyttöpaikkoja liittymässä, jossa on vähintään viisi käyttöpaikkaa. Aikasiirtoa ei ole.",
+    "en": "Yleissiirto 5 only applies to 1×25/35 A and 3×25 A metering points in connections with at least five metering points. No day/night product."
+   }
+  },
+  {
+   "id": "lankosken-sahko",
+   "nimi": "Lankosken Sähkö Oy",
+   "lyhyt": "Lankosken Sähkö",
+   "alue": {
+    "fi": "Siikainen sekä osia Merikarviasta ja reuna-alueita Isojoelta, Pomarkusta, Kristiinankaupungista, Porista ja Kankaanpäästä",
+    "en": "Siikainen, parts of Merikarvia and edge areas of Isojoki, Pomarkku, Kristinestad, Pori and Kankaanpää"
+   },
+   "voimassa": "2026-10-01",
+   "lahde": "https://lankoski.fi/site/assets/files/1505/verkkopalveluhinnasto-2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Lankosken Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 8.0,
+      "1x25": 30.0,
+      "3x25": 30.0,
+      "3x35": 51.0
+     },
+     "energia": {
+      "kaikki": 5.26
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 59.5,
+      "3x35": 81.0
+     },
+     "energia": {
+      "paiva": 4.94,
+      "yo": 2.75
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Aikasähkö: Päivä klo: 07 - 22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 42.0,
+      "3x35": 62.0
+     },
+     "energia": {
+      "talvipaiva": 6.33,
+      "muu": 2.77
+     },
+     "ajat": {
+      "kuukaudet": [
+       10,
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Kausisähkö: Talvipäivä 1.10. - 31.3. ma-la klo 07 - 22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalo- tai rivitalohinta (8,00 €/kk) edellyttää, että liittymällä on vähintään kolme mitattua käyttöpaikkaa. Talvipäiväkausi alkaa jo 1.10.",
+    "en": "The apartment/terraced-house price (€8.00/month) requires at least three metered points on the connection. The winter-day season starts on 1 October."
+   }
+  },
+  {
+   "id": "tunturiverkko",
+   "nimi": "Tunturiverkko Oy",
+   "lyhyt": "Tunturiverkko (Inergia)",
+   "alue": {
+    "fi": "Inari, Utsjoki ja Sodankylän pohjoisosa",
+    "en": "Inari, Utsjoki and northern Sodankylä"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.inergia.fi/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Tunturiverkko Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 13.83,
+      "1x25": 13.83,
+      "3x25": 24.96,
+      "3x35": 34.57
+     },
+     "energia": {
+      "kaikki": 3.3
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 26.48,
+      "3x35": 38.37
+     },
+     "energia": {
+      "talvipaiva": 3.73,
+      "muu": 2.61
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "marraskuusta maaliskuuhun maanantaista lauantaihin klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Aikasiirtoa ei ole. PJ-yleisteho ja PJ-kausiteho on tarkoitettu 3×63 A ja suuremmille liittymille.",
+    "en": "No day/night product. The PJ power products are for 3×63 A and larger connections."
+   }
+  },
+  {
+   "id": "lehtimaen-sahko",
+   "nimi": "Lehtimäen Sähkö Oy",
+   "lyhyt": "Lehtimäen Sähkö",
+   "alue": {
+    "fi": "Lehtimäki (Alajärvi)",
+    "en": "Lehtimäki (Alajärvi)"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.lehtimaensahko.fi/wp-content/uploads/2026/09/Verkkopalveluhinnasto-1.4.2026-4.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Lehtimäen Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleistariffi",
+     "perus": {
+      "kt": 15.0,
+      "3x25": 18.92,
+      "3x35": 33.0
+     },
+     "energia": {
+      "kaikki": 5.3
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikatariffi",
+     "perus": {
+      "3x25": 53.0,
+      "3x35": 53.0
+     },
+     "energia": {
+      "paiva": 4.6,
+      "yo": 3.1
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päiväaika on ajalla 07 -22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Aikatariffi (kausi)",
+     "perus": {
+      "3x25": 53.0,
+      "3x35": 53.0
+     },
+     "energia": {
+      "talvipaiva": 5.9,
+      "muu": 3.1
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "kaikki",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talvipäivä on 1.11.–31.3. 15 tuntia/vrk ajalla 07–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleistariffin pienin sulake on 1×35 A (15,00 €/kk). Aikatariffin energiamaksun voi vaihtoehtoisesti valita talvipäivä/muu aika -jaolla samalla perusmaksulla.",
+    "en": "The smallest general-tariff fuse is 1×35 A (€15.00/month). The time tariff can alternatively be billed winter-day/other time with the same basic fee."
+   }
+  },
+  {
+   "id": "ese-verkko",
+   "nimi": "ESE-Verkko Oy",
+   "lyhyt": "ESE-Verkko",
+   "alue": {
+    "fi": "Mikkeli",
+    "en": "Mikkeli"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://ese.fi/shared/files/Hinnastot/2026/Verkkopalvelumaksut%201.4.2026%20alkaen.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "ESE-Verkko Oy"
+   ],
+   "asiakkaat": {
+    "maara": 25000,
+    "vuosi": 2026,
+    "lahde": "https://ese.fi/fi-fi/sahkoverkko/ese-verkko-oy/144/",
+    "lainaus": "Käyttöpaikkoja noin 25 000 kpl"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yksiaikasähkö",
+     "perus": {
+      "kt": 7.8,
+      "1x25": 7.8,
+      "3x25": 9.9,
+      "3x35": 9.9
+     },
+     "energia": {
+      "kaikki": 3.86
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösähkö",
+     "perus": {
+      "3x25": 18.3,
+      "3x35": 26.7
+     },
+     "energia": {
+      "paiva": 4.84,
+      "yo": 1.51
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päivä klo 7-22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 18.3,
+      "3x35": 26.7
+     },
+     "energia": {
+      "talvipaiva": 5.68,
+      "muu": 1.65
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä 1.11. - 31.3. ma-la klo 7-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Pienjännitetehosähkö on tarkoitettu yli 3x200 A kohteille, eikä sitä ole mallinnettu.",
+    "en": "Low-voltage power tariff (for sites above 3x200 A) is not modelled."
+   }
+  },
+  {
+   "id": "nkab",
+   "nimi": "Nykarleby Kraftverk Ab",
+   "lyhyt": "Nykarleby Kraftverk",
+   "alue": {
+    "fi": "Uusikaarlepyy",
+    "en": "Nykarleby"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://nkab.fi/wp-content/uploads/2026/05/nattjanstavgifter-1-7-2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Nykarleby Kraftverk Ab"
+   ],
+   "asiakkaat": {
+    "maara": 4600,
+    "vuosi": 2026,
+    "lahde": "https://nkab.fi/el/elproduktion-och-distribution/",
+    "lainaus": "har vi ca 4 600 kunder"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Entidstariff",
+     "perus": {
+      "kt": 12.13,
+      "1x25": 12.13,
+      "3x25": 18.02,
+      "3x35": 29.19
+     },
+     "energia": {
+      "kaikki": 4.98
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Tidstariff",
+     "perus": {
+      "3x25": 34.81,
+      "3x35": 53.53
+     },
+     "energia": {
+      "paiva": 4.39,
+      "yo": 3.19
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "överföringsavgift dag 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kausisiirtoa ei ole. Tehotariffit (0,4 kV ja 20 kV) eivät ole mallinnettu.",
+    "en": "No seasonal tariff. Power tariffs (0.4 kV and 20 kV) are not modelled."
+   }
+  },
+  {
+   "id": "kuorevesi",
+   "nimi": "Kuoreveden Sähkö Oy",
+   "lyhyt": "Kuoreveden Sähkö",
+   "alue": {
+    "fi": "Jämsä (Kuorevesi)",
+    "en": "Jämsä (Kuorevesi)"
+   },
+   "voimassa": "2026-10-01",
+   "lahde": "https://www.kuorevedensahko.fi/wp-content/uploads/2026/08/20261001-verkkopalveluhinnasto.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Kuoreveden Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 14.53,
+      "1x25": 43.6,
+      "3x25": 43.6,
+      "3x35": 74.4
+     },
+     "energia": {
+      "kaikki": 3.64
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "kt": 20.61,
+      "1x25": 61.82,
+      "3x25": 61.82,
+      "3x35": 101.91
+     },
+     "energia": {
+      "paiva": 3.64,
+      "yo": 1.52
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "yösähkötariffin päiväaika on klo 07-22 välinen aika"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikasiirto",
+     "perus": {
+      "kt": 20.61,
+      "1x25": 61.82,
+      "3x25": 61.82,
+      "3x35": 101.91
+     },
+     "energia": {
+      "talvipaiva": 5.04,
+      "muu": 2.43
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "vuodenaikasähkötariffin talviarkipäivä on 1.11.-31.3. välinen aika maanantaista lauantaihin klo 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "1 x 25–35 A -hinta koskee vain 1-vaiheisia käyttöpaikkoja, joissa yhden liittymän takana on vähintään kolme käyttöpaikkaa (rivi- ja kerrostalot); muut 1-vaiheiset kohteet kuuluvat 3x25 A:n ryhmään.",
+    "en": "The 1 x 25–35 A price applies only to single-phase sites with at least three sites behind one connection (terraced houses, flats); other single-phase sites are billed as 3x25 A."
+   }
+  },
+  {
+   "id": "kokemaki",
+   "nimi": "Kokemäen Sähkö Oy",
+   "lyhyt": "Kokemäen Sähkö",
+   "alue": {
+    "fi": "Kokemäki",
+    "en": "Kokemäki"
+   },
+   "voimassa": "2024-09-01",
+   "lahde": "https://kokemaensahko.fi/siirtohinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Kokemäen Sähkö Oy"
+   ],
+   "asiakkaat": {
+    "maara": 5800,
+    "vuosi": 2026,
+    "lahde": "https://kokemaensahko.fi/yritys/",
+    "lainaus": "Asiakkaita yhtiöllämme on noin 5 800"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "1x25": 14.81,
+      "3x25": 23.23,
+      "3x35": 47.76
+     },
+     "energia": {
+      "kaikki": 5.11
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 36.67,
+      "3x35": 69.58
+     },
+     "energia": {
+      "talvipaiva": 6.02,
+      "muu": 2.95
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "kaikki",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "1.11.-31.3. klo 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Aikasiirtoa (päivä/yö) ei ole. Kausisähkön talvihinta koskee hinnaston mukaan kaikkia päiviä 1.11.–31.3. klo 07–22. Kausitehosähkö (alv 0 %) ei ole mallinnettu.",
+    "en": "No day/night tariff. Per the price list the seasonal winter rate applies every day 1 Nov–31 Mar 07–22. The seasonal power tariff (VAT 0%) is not modelled."
+   }
+  },
+  {
+   "id": "jylha",
+   "nimi": "Jylhän Sähköosuuskunta",
+   "lyhyt": "Jylhän Sähkö",
+   "alue": {
+    "fi": "Kauhava (vanha Kauhava ja osa Kortesjärveä)",
+    "en": "Kauhava (former Kauhava and part of Kortesjärvi)"
+   },
+   "voimassa": null,
+   "lahde": "https://jylhaos.fi/muuttajalle/hinnastot/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Jylhän Sähköosuuskunta"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleistariffi",
+     "perusVuosi": {
+      "3x25": 115.86,
+      "3x35": 263.43
+     },
+     "energia": {
+      "kaikki": 5.35
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikatariffi 1",
+     "perusVuosi": {
+      "3x25": 445.97,
+      "3x35": 671.14
+     },
+     "energia": {
+      "paiva": 4.91,
+      "yo": 4.26
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päiväsähkön hinta on voimassa joka päivä kello 7.00–22.00"
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikatariffi 2",
+     "perusVuosi": {
+      "3x25": 301.68,
+      "3x35": 448.15
+     },
+     "energia": {
+      "paiva": 5.35,
+      "yo": 4.26
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Päiväsähkön hinta on voimassa joka päivä kello 7.00–22.00"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikatariffi",
+     "perusVuosi": {
+      "3x25": 445.97,
+      "3x35": 671.14
+     },
+     "energia": {
+      "talvipaiva": 5.35,
+      "muu": 4.26
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talvipäivän hinta on voimassa 1.11.−31.3. ma−la klo 7.00−22.00"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnastosivulla ei ole erillistä siirtohintojen voimaantulopäivää (myyntihinnat 1.1.2026 alkaen). Vuodenaikatariffi edellyttää vähintään vuoden sopimusjaksoa. Tehotariffit eivät ole mallinnettu.",
+    "en": "The price page gives no separate effective date for network prices (sales prices from 1 Jan 2026). The seasonal tariff requires a contract of at least one year. Power tariffs are not modelled."
+   }
+  },
+  {
+   "id": "rovaniemi",
+   "nimi": "Rovaniemen Verkko Oy",
+   "lyhyt": "Rovaniemen Verkko",
+   "alue": {
+    "fi": "Rovaniemen kantakaupunki",
+    "en": "Rovaniemi city area"
+   },
+   "voimassa": "2024-08-01",
+   "lahde": "https://neve.fi/sahko/hinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Rovaniemen Verkko Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "kt": 8.16,
+      "1x25": 8.16,
+      "3x25": 8.16,
+      "3x35": 16.53
+     },
+     "energia": {
+      "kaikki": 2.45
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 24.0,
+      "3x35": 33.59
+     },
+     "energia": {
+      "paiva": 2.14,
+      "yo": 1.06
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "lainaus": "Yökäytöksi mitataan klo 22.00 alkava yhdeksän tunnin yhtämittainen ajanjakso"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 24.52,
+      "3x35": 34.34
+     },
+     "energia": {
+      "talvipaiva": 2.57,
+      "muu": 1.29
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Muu aika on kaikki yöt klo 22.00 – 7.00 välillä ja kaikki sunnuntait sekä kesäaika välillä 1.4 – 31.10"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Tehotuotteet (yli 3x63 A) eivät ole mallinnettu.",
+    "en": "Power products (above 3x63 A) are not modelled."
+   }
+  },
+  {
+   "id": "hso",
+   "nimi": "Haukiputaan Sähköosuuskunta",
+   "lyhyt": "HSO",
+   "alue": {
+    "fi": "Oulu (Haukipudas ja Kello)",
+    "en": "Oulu (Haukipudas and Kello)"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.hso.fi/tiedostot/Siirtohinnasto1.4.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Haukiputaan Sähköosuuskunta"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perusVuosi": {
+      "3x25": 186.78,
+      "3x35": 279.29
+     },
+     "energia": {
+      "paiva": 3.08,
+      "yo": 2.16
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Aikasähkössä päiväaika on klo 07-22 ja yöaika on klo 22-07."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perusVuosi": {
+      "3x25": 186.78,
+      "3x35": 279.29
+     },
+     "energia": {
+      "talvipaiva": 3.13,
+      "muu": 2.37
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Kausisähkössä talviarkipäiväaika on 01.11.-31.03. välisenä aikana ma-la klo 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleissähkö 1 ja Yleissähkö 2 -tuotteita ei ole mallinnettu: niiden hinnat ovat HSO:n siirtohinnastossa 1.4.2026. Perusmaksut ilmoitetaan euroina vuodessa.",
+    "en": "The Yleissähkö 1 and Yleissähkö 2 products are not modelled: see HSO's network price list of 1 April 2026. Basic fees are quoted in euros per year."
+   }
+  },
+  {
+   "id": "lammaisten",
+   "nimi": "Lammaisten Energia Oy",
+   "lyhyt": "Lammaisten Energia",
+   "alue": {
+    "fi": "Harjavalta, Nakkila",
+    "en": "Harjavalta, Nakkila"
+   },
+   "voimassa": "2026-10-01",
+   "lahde": "https://lammaistenenergia.fi/shared/files/Verkkopalveluhinnasto%201.10.2026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Lammaisten Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "1x25": 9.22,
+      "3x25": 17.26,
+      "3x35": 30.76
+     },
+     "energia": {
+      "kaikki": 4.49
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösähkö",
+     "perus": {
+      "3x25": 31.87,
+      "3x35": 45.49
+     },
+     "energia": {
+      "paiva": 4.77,
+      "yo": 2.58
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lahde": "https://lammaistenenergia.fi/fi-fi/asiakaspalvelu/usein-kysyttya/31/",
+      "lainaus": "yösähkötariffissa päiväajan alkaessa mittausrekisteriä vaihdetaan aamulla klo 7 ja päiväajan päättyessä illalla klo 22. Tätä rekisterien ohjausta toteutetaan vuoden jokaisena päivänä."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 31.87,
+      "3x35": 45.49
+     },
+     "energia": {
+      "talvipaiva": 5.07,
+      "muu": 2.65
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä: 1.11.-31.3. klo 7.00-22.00 välinen aika. Pois lukien sunnuntait."
+     }
+    }
+   ]
+  },
+  {
+   "id": "kokkola",
+   "nimi": "Kokkolan Energiaverkot Oy",
+   "lyhyt": "Kokkolan Energiaverkot",
+   "alue": {
+    "fi": "Kokkola",
+    "en": "Kokkola"
+   },
+   "voimassa": null,
+   "lahde": "https://kokkolanenergiaverkot.fi/fi/palvelut/sahkon-siirto-ja-jakelu",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Kokkolan Energiaverkot Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "3x25": 9.11,
+      "3x35": 12.75
+     },
+     "energia": {
+      "kaikki": 4.35
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 19.23,
+      "3x35": 26.92
+     },
+     "energia": {
+      "paiva": 4.35,
+      "yo": 1.94
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväaika tuotteessa on klo 7–22, yöaika klo 22–7."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 19.23,
+      "3x35": 26.92
+     },
+     "energia": {
+      "talvipaiva": 5.26,
+      "muu": 2.58
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Sunnuntai kausituotteessa: 1.1.-31.12. klo 00-24 Talvipäivä: 1.11.-31.3. klo 7-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleissiirron perusmaksu 1×35 A: 6,58 €/kk.",
+    "en": "General transmission basic fee for 1×35 A: €6.58/month."
+   }
+  },
+  {
+   "id": "valkeakoski",
+   "nimi": "Valkeakosken Energia Oy",
+   "lyhyt": "Valkeakosken Energia",
+   "alue": {
+    "fi": "Valkeakoski",
+    "en": "Valkeakoski"
+   },
+   "voimassa": "2026-08-01",
+   "lahde": "https://valkeakoskenenergia.fi/wp-content/uploads/VLK_Energia_Siirron_Hinnasto-1.8.2026_sta.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Valkeakosken Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Perussiirto",
+     "perus": {
+      "3x25": 11.95,
+      "3x35": 32.49
+     },
+     "energia": {
+      "kaikki": 4.11
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Yösiirto",
+     "perus": {
+      "3x25": 26.62,
+      "3x35": 43.72
+     },
+     "energia": {
+      "paiva": 4.0,
+      "yo": 1.88
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lahde": "https://valkeakoskenenergia.fi/sahko/siirtotuotteet-tarpeisiisi/",
+      "lainaus": "Päiväaika tuotteessa on klo 7–22, yöaika klo 22–7."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 28.44,
+      "3x35": 58.19
+     },
+     "energia": {
+      "talvipaiva": 5.08,
+      "muu": 1.67
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lahde": "https://valkeakoskenenergia.fi/sahko/siirtotuotteet-tarpeisiisi/",
+      "lainaus": "Tuotteessa talviarkipäivät ovat 1.11.–31.3. maanantai–lauantai, klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Perussiirron perusmaksu 1×35 A: 10,80 €/kk. Vuosisiirtoa (loma-asunnot, ei vapaasti valittavissa) ei ole mallinnettu.",
+    "en": "Basic transmission fee for 1×35 A: €10.80/month. The Vuosisiirto product (not freely selectable) is not modelled."
+   }
+  },
+  {
+   "id": "enontekio",
+   "nimi": "Enontekiön Sähkö Oy",
+   "lyhyt": "Enontekiön Sähkö",
+   "alue": {
+    "fi": "Enontekiö",
+    "en": "Enontekiö"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://neve.fi/sahko/hinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Enontekiön Sähkö Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "3x25": 14.59,
+      "3x35": 20.24
+     },
+     "energia": {
+      "kaikki": 7.19
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 17.19,
+      "3x35": 22.72
+     },
+     "energia": {
+      "paiva": 7.19,
+      "yo": 5.85
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lahde": "https://neve.fi/palvelut/sahkonsiirtotuotteet/",
+      "lainaus": "Päiväenergian käyttöaika on klo 7–22, yöenergian käyttöaika klo 22–7."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 20.5,
+      "3x35": 30.2
+     },
+     "energia": {
+      "talvipaiva": 7.71,
+      "muu": 5.24
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäiväksi mitataan 1.11 – 31.3 väliset arkipäivät klo 07.00 – 22.00 välillä. Muu aika on kaikki yöt klo 22.00 – 7.00 välillä ja kaikki sunnuntait"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Yleissähkön perusmaksu 1×35 A: 7,99 €/kk. Täyssähköä (yksi siirtomaksu, korkeampi perusmaksu) ei ole mallinnettu.",
+    "en": "General product basic fee for 1×35 A: €7.99/month. The Täyssähkö product is not modelled."
+   }
+  },
+  {
+   "id": "kenve",
+   "nimi": "Oulun Energia Kenve Oy",
+   "lyhyt": "Kenve",
+   "alue": {
+    "fi": "Kemi",
+    "en": "Kemi"
+   },
+   "voimassa": "2026-04-01",
+   "lahde": "https://www.kenve.fi/wp-content/uploads/2026/03/Sahkon-verkkopalveluhinnasto-01042026.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Kemin Energia ja Vesi Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto",
+     "perus": {
+      "kt": 7.71,
+      "1x25": 7.71,
+      "3x25": 10.1,
+      "3x35": 18.26
+     },
+     "energia": {
+      "kaikki": 3.73
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissiirto 2",
+     "perus": {
+      "3x25": 31.27,
+      "3x35": 47.09
+     },
+     "energia": {
+      "kaikki": 2.85
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 31.27,
+      "3x35": 47.09
+     },
+     "energia": {
+      "paiva": 3.26,
+      "yo": 1.46
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväsiirto mitataan klo 7–22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 31.27,
+      "3x35": 47.09
+     },
+     "energia": {
+      "talvipaiva": 3.5,
+      "muu": 1.72
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "talviarkipäiväsiirto mitataan 1.11.–31.3. välisenä aikana maanantaista lauantaihin klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kemin Energia ja Vesi Oy on nykyään Oulun Energia Kenve Oy. Päiväsiirto mitataan paikallisen ajan mukaan (\"ohjauslaite käy aina rannekello ajassa\").",
+    "en": "Kemin Energia ja Vesi Oy is now Oulun Energia Kenve Oy. Day/night periods follow local clock time."
+   }
+  },
+  {
+   "id": "forssa",
+   "nimi": "Forssan Verkkopalvelut Oy",
+   "lyhyt": "Forssan Verkkopalvelut",
+   "alue": {
+    "fi": "Forssa",
+    "en": "Forssa"
+   },
+   "voimassa": "2024-09-01",
+   "lahde": "https://www.fvp.fi/hinnastot/siirtohinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Forssan Verkkopalvelut Oy"
+   ],
+   "asiakkaat": {
+    "maara": 10300,
+    "vuosi": 2026,
+    "lahde": "https://www.fvp.fi/yritys/esittely/",
+    "lainaus": "Yhtiön sähkönsiirtomäärä on 200-250 GWh, liikevaihto noin 7 milj. euroa ja käyttöpaikkoja 10300."
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Perussiirto",
+     "perus": {
+      "kt": 7.87,
+      "1x25": 7.87,
+      "3x25": 13.86,
+      "3x35": 22.11
+     },
+     "energia": {
+      "kaikki": 3.32
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasiirto",
+     "perus": {
+      "3x25": 21.46,
+      "3x35": 34.1
+     },
+     "energia": {
+      "paiva": 3.29,
+      "yo": 1.58
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväaikaa on ma-su klo 7-22, yöaikaa klo 22-7. Kellot käyvät aina talviaikaa."
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisiirto",
+     "perus": {
+      "3x25": 21.46,
+      "3x35": 34.1
+     },
+     "energia": {
+      "talvipaiva": 3.62,
+      "muu": 1.72
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä 1.11-31.3 ma-la klo 7-22, muu aika 1.4-31.10 ja 1.11-31.3 klo 22-7 sekä sunnuntait."
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnaston mukaan aika- ja kausisiirron kellot käyvät aina talviaikaa.",
+    "en": "Per the price list, time-of-use meter clocks always run on winter time."
+   }
+  },
+  {
+   "id": "aanekoski",
+   "nimi": "Äänekosken Energia Oy",
+   "lyhyt": "Äänekosken Energia",
+   "alue": {
+    "fi": "Äänekoski",
+    "en": "Äänekoski"
+   },
+   "voimassa": "2025-04-01",
+   "lahde": "https://www.aanekoskenenergia.fi/wp-content/uploads/2026/06/Sahkon-verkkopalveluhinnasto_20260701.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Äänekosken Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "3x25": 12.96,
+      "3x35": 27.51
+     },
+     "energia": {
+      "kaikki": 4.53
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 28.5,
+      "3x35": 43.35
+     },
+     "energia": {
+      "paiva": 4.2,
+      "yo": 2.0
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päivä klo 07–22 4,20 Yö klo 22–07"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 28.5,
+      "3x35": 43.35
+     },
+     "energia": {
+      "talvipaiva": 4.3,
+      "muu": 2.04
+     },
+     "ajat": {
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "paivat": "ma-la",
+      "tunnit": [
+       7,
+       22
+      ],
+      "pyhat": null,
+      "lainaus": "Talvipäivä: 1.11. – 31.3. välisenä aikana ma – la klo 07-22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnaston PDF on julkaistu tiedostonimellä 20260701, mutta siinä lukee \"Voimassa 1.4.2025 alkaen\".",
+    "en": "The price list PDF is published under the file name 20260701 but states \"valid from 1 April 2025\"."
+   }
+  },
+  {
+   "id": "vetelin",
+   "nimi": "Vetelin Energia Oy",
+   "lyhyt": "Vetelin Energia",
+   "alue": {
+    "fi": "Veteli (paitsi Polson, Kivikankaan ja Nykäsen kylät)",
+    "en": "Veteli (except the villages of Polso, Kivikangas and Nykänen)"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://venergia.fi/wp-content/uploads/2026/09/Siirtotariffit-2026-0701-julkinen.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Vetelin Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "3x25": 17.91,
+      "3x35": 28.97
+     },
+     "energia": {
+      "kaikki": 6.21
+     }
+    },
+    {
+     "tyyppi": "yleis",
+     "nimi": "Täyssähkö 1",
+     "perus": {
+      "3x25": 40.06,
+      "3x35": 60.79
+     },
+     "energia": {
+      "kaikki": 4.33
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 40.06,
+      "3x35": 60.79
+     },
+     "energia": {
+      "paiva": 5.15,
+      "yo": 3.28
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Aikasähkö, klo 07-22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 40.7,
+      "3x35": 61.58
+     },
+     "energia": {
+      "talvipaiva": 7.0,
+      "muu": 3.29
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "ma-la",
+      "pyhat": null,
+      "lainaus": "1.11-31.3, ma-la, klo 07-22",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ]
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Täyssähkö 1 on yksiaikainen siirto Aikasähkön perusmaksulla. Pienjännitetehotariffeja ei ole mallinnettu.",
+    "en": "Täyssähkö 1 is a single-rate product billed with the Aikasähkö basic fee. Low-voltage power tariffs are not modelled."
+   }
+  },
+  {
+   "id": "vimpelin-voima",
+   "nimi": "Vimpelin Voima Oy",
+   "lyhyt": "Vimpelin Voima",
+   "alue": {
+    "fi": "Vimpeli",
+    "en": "Vimpeli"
+   },
+   "voimassa": "2026-03-01",
+   "lahde": "https://www.vimpelinvoima.fi/hinnasto-ehdot/verkkopalveluhinnasto-pienkayttajat-1-3-2026-alkaen/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Vimpelin Voima Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Sulaketariffi",
+     "perus": {
+      "kt": 12.2,
+      "1x25": 14.9,
+      "3x25": 14.9,
+      "3x35": 22.4
+     },
+     "energia": {
+      "kaikki": 5.49
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Päivä- ja yötariffi",
+     "perus": {
+      "3x25": 29.0,
+      "3x35": 41.2
+     },
+     "energia": {
+      "paiva": 4.99,
+      "yo": 2.99
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväenergia snt/kWh (07:00-22:00)",
+      "lahde": "https://www.vimpelinvoima.fi/hinnasto-ehdot/myyntihinnasto/"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikatariffi",
+     "perus": {
+      "3x25": 35.3,
+      "3x35": 47.5
+     },
+     "energia": {
+      "talvipaiva": 5.49,
+      "muu": 3.28
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Talvipäiväenergia snt/kWh 1.11-31.3 (07:00-22:00)",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "lahde": "https://www.vimpelinvoima.fi/hinnasto-ehdot/myyntihinnasto/"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Kerrostalohinta (12,20 €/kk) koskee käyttöpaikkoja, joiden liittymän takana on vähintään 7 käyttöpaikkaa; muut 1- ja 3-vaiheiset kuuluvat 3×25 A -ryhmään. Verkkopalveluhinnasto ei määrittele aikoja: ne ovat Vimpelin Voiman samannimisten tariffien myyntihinnastosta, jossa talvipäivää ei rajata viikonpäiviin.",
+    "en": "The apartment rate (12.20 €/month) applies where at least 7 metering points share one connection; other single- and three-phase points belong to the 3×25 A group. The network price list does not define the time bands: they come from Vimpelin Voima's sales price list for the same tariffs, which does not restrict winter daytime to particular weekdays."
+   }
+  },
+  {
+   "id": "raasepori",
+   "nimi": "Raseborgs Energi Ab - Raaseporin Energia Oy",
+   "lyhyt": "Raaseporin Energia",
+   "alue": {
+    "fi": "Tammisaari (Raasepori)",
+    "en": "Ekenäs (Raseborg)"
+   },
+   "voimassa": "2026-02-01",
+   "lahde": "https://re.fi/fi/sahko/sahkoverkko/sahkosiirtymismaksut/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Raseborgs Energi Ab - Raaseporin Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleistariffi",
+     "perus": {
+      "1x25": 12.49,
+      "3x25": 17.72,
+      "3x35": 34.59
+     },
+     "energia": {
+      "kaikki": 4.74
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikatariffi, ryhmä 1A (päivä / yö)",
+     "perus": {
+      "3x25": 27.33,
+      "3x35": 47.68
+     },
+     "energia": {
+      "paiva": 4.74,
+      "yo": 2.87
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Kello 07.00-22.00 3,78 4,74 Kello 22.00-07.00"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Aikatariffi, ryhmä 2A (vuosisähkö)",
+     "perus": {
+      "3x25": 27.33,
+      "3x35": 47.68
+     },
+     "energia": {
+      "talvipaiva": 5.35,
+      "muu": 3.05
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "01.11-31.03 kl. 07-22",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ]
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Hinnasto ei rajaa talvipäivää viikonpäiviin (01.11–31.03 klo 07–22). Pienjännite- ja suurjännitetehotariffeja ei ole mallinnettu.",
+    "en": "The price list does not restrict winter daytime to weekdays (1 Nov–31 Mar, 07–22). Low- and high-voltage power tariffs are not modelled."
+   }
+  },
+  {
+   "id": "raahe",
+   "nimi": "Raahen Energia Oy",
+   "lyhyt": "Raahen Energia",
+   "alue": {
+    "fi": "Raahe",
+    "en": "Raahe"
+   },
+   "voimassa": "2026-07-01",
+   "lahde": "https://www.raahenenergia.fi/wp-content/uploads/2026/05/Verkkopalveluhinnasto_01072026_Raahe.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Raahen Energia Oy"
+   ],
+   "asiakkaat": {
+    "maara": 8581,
+    "vuosi": 2026,
+    "lahde": "https://www.raahenenergia.fi/wp-content/uploads/2026/06/Jakeluverkon-kehittamissuunnitelma_Raahen-Energia-2026_1.6.2026.pdf",
+    "lainaus": "Käyttöpaikkojen määrä: 8581"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "1x25": 4.47,
+      "3x25": 6.39,
+      "3x35": 8.3
+     },
+     "energia": {
+      "kaikki": 6.19
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkö",
+     "perus": {
+      "3x25": 15.34,
+      "3x35": 20.44
+     },
+     "energia": {
+      "paiva": 5.69,
+      "yo": 2.85
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "PÄIVÄENERGIA MITATAAN KLO 07-22 (TARIFFIKELLO KÄY AINA TALVIAJASSA)",
+      "normaaliaika": true
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 15.34,
+      "3x35": 20.44
+     },
+     "energia": {
+      "talvipaiva": 6.85,
+      "muu": 2.5
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "ma-la",
+      "pyhat": null,
+      "lainaus": "PÄIVÄENERGIA MITATAAN KLO 07-22 (TARIFFIKELLO KÄY AINA TALVIAJASSA), KAUSISÄHKÖN TALVIARKIPÄIVÄENERGIA MA-LA 1.11-31.3.",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ],
+      "normaaliaika": true
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Tariffikello käy aina talviajassa: kesäaikana päiväaika on siis klo 8–23. Kausisähkön perusmaksu on sama kuin aikasähkön. Pienjännite- ja keskijännitetehosähköä ei ole mallinnettu.",
+    "en": "The tariff clock always runs on winter time, so during summer time the day band is 08–23 local time. Kausisähkö has the same basic fee as Aikasähkö. Low- and medium-voltage power products are not modelled."
+   }
+  },
+  {
+   "id": "kruunupyy",
+   "nimi": "Kronoby Elverk Ab",
+   "lyhyt": "Kronoby Elverk",
+   "alue": {
+    "fi": "Kruunupyy",
+    "en": "Kronoby"
+   },
+   "voimassa": "2025-10-01",
+   "lahde": "https://kronobyelverk.fi/wp-content/uploads/2025/09/tariff-t1-t3-t8-1-10-2025.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Kronoby Elverk Ab"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleistariffi T1",
+     "perusVuosi": {
+      "1x25": 69.52,
+      "3x25": 144.28,
+      "3x35": 211.84
+     },
+     "energia": {
+      "kaikki": 5.21
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Kaksiaikatariffi T3",
+     "perusVuosi": {
+      "3x25": 361.76,
+      "3x35": 535.95
+     },
+     "energia": {
+      "paiva": 4.48,
+      "yo": 2.97
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Aikaerittely: Natt/Yö 22.00 - 07.00"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuosiaikatariffi T8",
+     "perusVuosi": {
+      "3x25": 361.76,
+      "3x35": 535.95
+     },
+     "energia": {
+      "talvipaiva": 6.43,
+      "muu": 3.39
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "ma-la",
+      "pyhat": null,
+      "lainaus": "Vinter dag/Talvipäivä 5,12 / 6,43 8,79 / 11,03 20,28 / 17,54 Må-Lö / Ma-La",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ]
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Perusmaksut ovat euroa vuodessa (siirto-osuus). Hinnaston aikaerittelytaulukko: päivä 07.00–22.00, yö 22.00–07.00, talvikausi 1.11–31.3, muu aika 1.4–31.10; talvipäivä ma–la. T4-tehotariffia ei ole mallinnettu.",
+    "en": "Basic fees are euros per year (network share). The price list's time table: day 07.00–22.00, night 22.00–07.00, winter season 1 Nov–31 Mar, other time 1 Apr–31 Oct; winter daytime Mon–Sat. The T4 power tariff is not modelled."
+   }
+  },
+  {
+   "id": "hamina",
+   "nimi": "Haminan Sähköverkko Oy",
+   "lyhyt": "Haminan Energia",
+   "alue": {
+    "fi": "Hamina (kantakaupunki)",
+    "en": "Hamina (city centre area)"
+   },
+   "voimassa": "2026-03-01",
+   "lahde": "https://haminanenergia.fi/wp-content/uploads/2026/02/Verkkopalveluhinnasto-1.3.2026_draft_1.1-1.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Haminan Energia Oy"
+   ],
+   "asiakkaat": {
+    "maara": 7577,
+    "vuosi": 2026,
+    "lahde": "https://haminanenergia.fi/wp-content/uploads/2026/04/Kehitta%CC%88missuunnitelma-2026_29.4.2026-Final56-1.pdf",
+    "lainaus": "b. Käyttöpaikkojen määrä, kpl 7 577 7 650"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "1x25": 11.67,
+      "3x25": 21.34,
+      "3x35": 29.49
+     },
+     "energia": {
+      "kaikki": 3.06
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Kaksiaikasähkö",
+     "perus": {
+      "1x25": 21.77,
+      "3x25": 39.33,
+      "3x35": 55.06
+     },
+     "energia": {
+      "paiva": 2.97,
+      "yo": 1.49
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päivä: 1.1. - 31.12. ma-su klo 7-22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Vuodenaikasähkö",
+     "perus": {
+      "3x25": 39.34,
+      "3x35": 55.06
+     },
+     "energia": {
+      "talvipaiva": 3.63,
+      "muu": 1.64
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "ma-la",
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä: 1.11. - 31.3. ma-la klo 7-22",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ]
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Lähteenä 1.3.2026 hinnasto, koska voimassa olevan 1.4.2026 PDF:n (https://haminanenergia.fi/wp-content/uploads/2026/04/Verkkopalveluhinnasto_01.04.2026.pdf) teksti ei ole koneluettavaa; siirtohinnat ovat siinä samat, vain sähkövero muuttui. Tehotuotteita ei ole mallinnettu.",
+    "en": "Source is the 1 March 2026 price list because the text of the current 1 April 2026 PDF (https://haminanenergia.fi/wp-content/uploads/2026/04/Verkkopalveluhinnasto_01.04.2026.pdf) is not machine-readable; its network prices are identical, only electricity tax changed. Power products are not modelled."
+   }
+  },
+  {
+   "id": "naantali",
+   "nimi": "Naantalin Energia Oy",
+   "lyhyt": "Naantalin Energia",
+   "alue": {
+    "fi": "Naantali (manner ja Luonnonmaa)",
+    "en": "Naantali (mainland and Luonnonmaa)"
+   },
+   "voimassa": "2025-07-01",
+   "lahde": "https://naantalinenergia.fi/hinnastot-ja-sopimusehdot/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Naantalin Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "1x25": 7.46,
+      "3x25": 11.79,
+      "3x35": 15.68
+     },
+     "energia": {
+      "kaikki": 4.42
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkö",
+     "perus": {
+      "3x25": 22.5,
+      "3x35": 30.68
+     },
+     "energia": {
+      "talvipaiva": 5.41,
+      "muu": 2.05
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "ma-la",
+      "pyhat": null,
+      "lainaus": "Talviarkipäivä on ajalla 1.11.–31.3. arkipäivisin (maanantai-lauantai) klo 7.00–22.00.",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ]
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Naantalin Energialla ei ole päivä/yö-siirtotuotetta kuluttajille. Tehosähkötuotteita ei ole mallinnettu.",
+    "en": "Naantalin Energia has no day/night product for consumers. Power products are not modelled."
+   }
+  },
+  {
+   "id": "outokumpu",
+   "nimi": "Okun Energia Oy",
+   "lyhyt": "Outokummun Energia",
+   "alue": {
+    "fi": "Outokumpu",
+    "en": "Outokumpu"
+   },
+   "voimassa": "2026-01-01",
+   "lahde": "https://outokummunenergia.fi/wp-content/uploads/2026/07/Verkkopalveluhinnasto-20260701_BESS.pdf",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Outokummun Energia Oy"
+   ],
+   "asiakkaat": {
+    "maara": 5292,
+    "vuosi": 2024,
+    "lahde": "https://outokummunenergia.fi/wp-content/uploads/2026/02/Jakeluverkon-kehittamissuunnitelma_Okun-energia_20250103.pdf",
+    "lainaus": "b. Käyttöpaikkojen määrä: 5 292"
+   },
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkön siirto",
+     "perus": {
+      "kt": 24.59,
+      "1x25": 42.4,
+      "3x25": 42.4,
+      "3x35": 70.96
+     },
+     "energia": {
+      "kaikki": 4.99
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Aikasähkön siirto",
+     "perus": {
+      "3x25": 65.55,
+      "3x35": 103.09
+     },
+     "energia": {
+      "paiva": 5.11,
+      "yo": 2.34
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Päiväenergia, voimassa ma–su klo 7–22"
+     }
+    },
+    {
+     "tyyppi": "kausi",
+     "nimi": "Kausisähkön siirto",
+     "perus": {
+      "3x25": 65.55,
+      "3x35": 103.09
+     },
+     "energia": {
+      "talvipaiva": 7.4,
+      "muu": 2.37
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "ma-la",
+      "pyhat": null,
+      "lainaus": "Talvipäivän energia, voimassa ma–la 1.11.–31.3. klo 7–22",
+      "kuukaudet": [
+       11,
+       12,
+       1,
+       2,
+       3
+      ]
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Verkonhaltija on Outokummun Energia Oy:n tytäryhtiö Okun Energia Oy. Kerrostalo-/rivitalohinta (kt, rt) koskee 1×25–1×35 A käyttöpaikkoja taajamassa. Tehosähköjä ei ole mallinnettu.",
+    "en": "The network operator is Okun Energia Oy, a subsidiary of Outokummun Energia Oy. The apartment/terraced-house rate (kt, rt) applies to 1×25–1×35 A points in built-up areas. Power products are not modelled."
+   }
+  },
+  {
+   "id": "ii",
+   "nimi": "Iin Energia Oy",
+   "lyhyt": "Iin Energia",
+   "alue": {
+    "fi": "Ii",
+    "en": "Ii"
+   },
+   "voimassa": "2026-03-01",
+   "lahde": "https://www.iinenergia.fi/sahkoverkko/verkkopalveluhinnasto/",
+   "haettu": "2026-10-16",
+   "ev": [
+    "Iin Energia Oy"
+   ],
+   "asiakkaat": null,
+   "tuotteet": [
+    {
+     "tyyppi": "yleis",
+     "nimi": "Yleissähkö",
+     "perus": {
+      "3x25": 6.85,
+      "3x35": 12.81
+     },
+     "energia": {
+      "kaikki": 3.97
+     }
+    },
+    {
+     "tyyppi": "aika",
+     "nimi": "Kaksiaikasähkö",
+     "perus": {
+      "3x25": 15.87,
+      "3x35": 21.05
+     },
+     "energia": {
+      "paiva": 3.76,
+      "yo": 2.44
+     },
+     "ajat": {
+      "tunnit": [
+       7,
+       22
+      ],
+      "paivat": "kaikki",
+      "pyhat": null,
+      "lainaus": "Siirtomaksu, päivisin klo 7–22"
+     }
+    }
+   ],
+   "huom": {
+    "fi": "Iin Energialla ei ole kausisiirtotuotetta pienasiakkaille. Teho- ja keskijännitetuotteita ei ole mallinnettu.",
+    "en": "Iin Energia has no seasonal product for small customers. Power and medium-voltage products are not modelled."
+   }
+  }
+ ],
+ "puuttuu": [
+  {
+   "ev": "Rantakairan Sähkö Oy",
+   "syy": "hinnasto 1.11.2026 ei vielä voimassa; voimassa olevassa hinnastossa siirtomaksu vain alv 0 % tai sähköveron kanssa",
+   "url": [
+    "https://rantakaira.fi/wp-content/uploads/2026/10/RKS_Verkkopalveluhinnasto_20261101.pdf"
+   ]
+  },
+  {
+   "ev": "Paneliankosken Voima Oy",
+   "syy": "Voimassa oleva verkkopalveluhinnasto 1.9.2026 on PDF, jonka teksti on muunnettu vektorikuvioiksi (ei tekstikerrosta, ei luettavissa eikä tarkistettavissa); verkkosivuilla ei ole hintoja tekstinä.",
+   "url": [
+    "https://paneliankoskenvoima.fi/fi-fi/tuotteet-ja-palvelut/hinnastot/20/",
+    "https://paneliankoskenvoima.fi/shared/files/pdf/Hinnastot/PKV000_Verkkopalveluhinnasto_01092026.pdf",
+    "http://paneliankoskenvoima.fi/fi-fi/article/etusivu/sahkotuotteet/16/"
+   ]
+  },
+  {
+   "ev": "Muonion Sähköosuuskunta",
+   "syy": "Hinnasto 1.1.2026 julkaisee siirtomaksut vain sähköverollisina (sis. sähköveron ja alv 25,5 %); pelkkää siirtomaksua ei ole painettu, eikä sitä lasketa.",
+   "url": [
+    "https://www.muonionsahkoosuuskunta.fi/sahkonsiirtopalvelut"
+   ]
+  },
+  {
+   "ev": "Tornion Energia Oy",
+   "syy": "Hinnasto 1.1.2026 antaa siirtomaksun vain alv 0 % (esim. yleissiirto 3,05 snt/kWh) ja kokonaishintana sähköveroineen (6,66 snt/kWh); pelkkää alv 25,5 % siirtomaksua ilman sähköveroa ei ole julkaistu. Perusmaksut (€/vuosi, sis. alv) olisivat saatavilla. Kausisiirron talviarkipäivän kellonaikoja ja viikonpäiviä ei myöskään määritellä (vain 1.11.–31.3.).",
+   "url": [
+    "https://www.tornionenergia.fi/verkkopalveluhinnasto/",
+    "https://www.tornionenergia.fi/wp-content/uploads/2025/11/Hinnasto_sahkoverkko-01-01-2026.pdf",
+    "https://www.tornionenergia.fi/sahkonsiirto/"
    ]
   }
  ]

@@ -8,8 +8,8 @@
 import tk from '../../data/tilastokeskus.json';
 import { spotC, eur } from './hinta';
 import { VERO_C } from './params';
-import { perusKk, type Sulake, type Tuote } from './verkot';
-import { keskiyo, onPaiva, onTalvipaiva } from './aika';
+import { perusKk, kalliiAika, ajatOf, type Sulake, type Tuote } from './verkot';
+import { keskiyo } from './aika';
 
 export const KULUTUSPROFIILI = tk.kulutusprofiili.osuudet as number[];
 export type Profiili = 'tasainen' | 'lammitys';
@@ -21,22 +21,23 @@ export function viimeiset12(kuukaudet: Record<string, { keskiarvo: number }>, en
   const kk = Object.keys(kuukaudet).filter((k) => k < ennen.slice(0, 7)).sort().slice(-12);
   return { kk, spot: kk.map((k) => kuukaudet[k].keskiarvo) };
 }
-/** Part jour (07–22) d'un mois pour le tarif aika, et part talvipäivä pour kausi, si la consommation est uniforme. */
+/** Part de la plage chère (päivä pour aika, talvipäivä pour kausi) d'un mois si la consommation est uniforme, jours fériés compris. */
 const OSUUS = new Map<string, number>();
-function osuusAjassa(kk: string, f: (t: number) => boolean): number {
-  const key = `${kk}|${f === onPaiva ? 'p' : 't'}`;
+function osuusAjassa(kk: string, tu: Tuote): number {
+  const key = `${kk}|${tu.tyyppi}|${JSON.stringify(ajatOf(tu))}`;
   const c = OSUUS.get(key); if (c !== undefined) return c;
   const [y, m] = kk.split('-').map(Number);
   const a = keskiyo(`${kk}-01`), b = keskiyo(m === 12 ? `${y + 1}-01-01` : `${y}-${String(m + 1).padStart(2, '0')}-01`);
-  let n = 0, k = 0; for (let t = a; t < b; t += 900_000) { n++; if (f(t)) k++; }
+  let n = 0, k = 0; for (let t = a; t < b; t += 900_000) { n++; if (kalliiAika(tu, t)) k++; }
   OSUUS.set(key, k / n);
   return k / n;
 }
 /** Siirtomaksu moyen du mois (c/kWh TVA comprise) pour une consommation uniforme dans le temps. */
 export function siirtoKuukausi(tu: Tuote, kk: string): number {
   if (tu.tyyppi === 'yleis') return tu.energia.kaikki!;
-  if (tu.tyyppi === 'aika') { const d = osuusAjassa(kk, onPaiva); return d * tu.energia.paiva! + (1 - d) * tu.energia.yo!; }
-  const d = osuusAjassa(kk, onTalvipaiva); return d * tu.energia.talvipaiva! + (1 - d) * tu.energia.muu!;
+  const d = osuusAjassa(kk, tu);
+  if (tu.tyyppi === 'aika') return d * tu.energia.paiva! + (1 - d) * tu.energia.yo!;
+  return d * tu.energia.talvipaiva! + (1 - d) * tu.energia.muu!;
 }
 export interface VuosiTulos { porssi: number; kiintea: number; siirto: number; vero: number; perusVerkko: number; perusMyyja: number; spotKa: number; erotus: number; kuukaudet: Array<{ kk: string; kwh: number; porssi: number; kiintea: number }> }
 /**

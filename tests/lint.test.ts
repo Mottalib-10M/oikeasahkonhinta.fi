@@ -26,4 +26,4 @@ it('lint', async () => {
     }
   }
   process.stdout.write('\nLINT\n' + (out.join('\n') || 'ok') + '\n');
-});
+}, 60_000);

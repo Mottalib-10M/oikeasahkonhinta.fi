@@ -4,7 +4,10 @@ import type { Helpers } from '../../lib/guide-types';
 const V = (h: Helpers) => {
   const helen = h.M.tuote(h.M.verkko('helen')!, 'aika')!, kuopio = h.M.tuote(h.M.verkko('kuopio')!, 'aika')!;
   const k = (t: typeof helen, kw: number) => t.teho!.eurKwKk * kw * 12;
-  return { helen, kuopio, k };
+  /** Tous les produits grand public avec tehomaksu, dans tous les réseaux du simulateur. */
+  const kaikki = h.M.VERKOT.flatMap((v) => v.tuotteet.filter((t) => t.teho).map((t) => ({ v, t })));
+  const verkot = [...new Set(kaikki.map((x) => x.v.lyhyt))];
+  return { helen, kuopio, k, kaikki, verkot };
 };
 
 export default defineGuide({
@@ -17,21 +20,21 @@ export default defineGuide({
   fi: {
     slug: 'tehomaksu',
     nav: 'Tehomaksu',
-    card: 'Mikä sähkön tehomaksu on, miten se lasketaan Helsingissä ja Kuopiossa ja miten sitä pienennetään.',
+    card: 'Mikä sähkön tehomaksu on, miten eri verkkoyhtiöt sen laskevat ja miten sitä pienennetään.',
     title: 'Tehomaksu 2026: miten sähkön tehomaksu lasketaan kotona',
-    description: 'Sähkön tehomaksu 2026: miten tehomaksu lasketaan huipputehon mukaan, mitä se maksaa Helenin ja Kuopion aikasiirrossa ja miten huippua pienennetään kotona.',
+    description: 'Sähkön tehomaksu 2026: miten tehomaksu lasketaan huipputehon mukaan, mitä se maksaa Helenillä, Kuopiossa, Lahdessa ja muualla ja miten huippua pienennetään.',
     h1: 'Tehomaksu: kun huipputeho maksaa',
     intro: 'Tehomaksu perustuu siihen, kuinka paljon sähköä käytät samaan aikaan. Se palkitsee kuormien porrastamisesta.',
     resume: (h) => {
       const v = V(h);
-      return `Tehomaksu on verkkopalvelumaksun osa, joka määräytyy käyttöpaikan suurimman tehon eli samanaikaisen sähkönkäytön mukaan, ei pelkän kulutetun energian. Laskurin verkoista kotitalouksien tuotteissa tehomaksu on Helen Sähköverkon ja Kuopion Sähköverkon aikasiirrossa. Helenillä maksu on ${h.num(v.helen.teho!.eurKwKk, 2)} euroa kilowatilta kuukaudessa, ja sen peruste on kuukauden kolmanneksi suurin tunnin keskiteho; yöajan tehosta otetaan huomioon 80 prosenttia. Kuopiossa maksu on ${h.num(v.kuopio.teho!.eurKwKk, 2)} euroa kilowatilta kuukaudessa laskutuskuukauden korkeimman tunnin mukaan. Viiden kilowatin huipulla tehomaksu on Helenillä noin ${h.eur(v.k(v.helen, 5), 0)} ja Kuopiossa ${h.eur(v.k(v.kuopio, 5), 0)} vuodessa. Lahti Energian tehomaksullisissa tuotteissa peruste on edellisen 12 kuukauden suurin tunti. Huippua pienennetään porrastamalla suuret laitteet eri tunneille: sähköauton lataus, sähkökiuas, lämminvesivaraaja ja suora sähkölämmitys ovat tyypillisimmät huipun nostajat. Alla olevalla laskurilla näet, paljonko tehomaksu maksaa kuukaudessa ja vuodessa omalla huipputehollasi, ja kuinka paljon jokainen pienennetty kilowatti säästää vuodessa.`;
+      return `Tehomaksu on verkkopalvelumaksun osa, joka määräytyy käyttöpaikan suurimman tehon eli samanaikaisen sähkönkäytön mukaan, ei pelkän kulutetun energian. Laskurin ${h.M.VERKOT.length} verkosta kotitalouksien tuotteissa tehomaksu on ${v.verkot.length} verkossa (${v.verkot.join(', ')}). Helenillä maksu on ${h.num(v.helen.teho!.eurKwKk, 2)} euroa kilowatilta kuukaudessa, ja sen peruste on kuukauden kolmanneksi suurin tunnin keskiteho; yöajan tehosta otetaan huomioon 80 prosenttia. Kuopiossa maksu on ${h.num(v.kuopio.teho!.eurKwKk, 2)} euroa kilowatilta kuukaudessa laskutuskuukauden korkeimman tunnin mukaan. Viiden kilowatin huipulla tehomaksu on Helenillä noin ${h.eur(v.k(v.helen, 5), 0)} ja Kuopiossa ${h.eur(v.k(v.kuopio, 5), 0)} vuodessa. Lahti Energian tehotuotteissa peruste on edellisen 12 kuukauden suurin tunti, ja omakotitaloissa ne ovat siellä ainoa vaihtoehto. Huippua pienennetään porrastamalla suuret laitteet eri tunneille: sähköauton lataus, sähkökiuas, lämminvesivaraaja ja suora sähkölämmitys ovat tyypillisimmät huipun nostajat. Alla olevalla laskurilla näet, paljonko tehomaksu maksaa kuukaudessa ja vuodessa omalla huipputehollasi, ja kuinka paljon jokainen pienennetty kilowatti säästää vuodessa.`;
     },
     faqs: (h) => {
       const v = V(h);
       return [
         { q: 'Mitä tunnin keskiteho tarkoittaa?', a: 'Tunnin keskiteho on tunnin aikana kulutettu energia kilowattitunteina jaettuna yhdellä tunnilla. Jos käytät tunnin aikana 6 kilowattituntia, keskiteho on 6 kilowattia. Lyhyt huippu, esimerkiksi vedenkeittimen käynnistys, vaikuttaa siis vain vähän, mutta tunnin kestävä suuri kuorma, kuten kiuas tai auton lataus, näkyy kokonaan.' },
         { q: 'Miksi Helen laskee kolmanneksi suurimman tunnin?', a: `Helenin aikasiirrossa peruste on kuukauden kolmanneksi suurin tunnin keskiteho, joten yksittäinen poikkeuksellinen tunti ei ratkaise maksua. Lisäksi yöllä mitatusta tehosta lasketaan 80 prosenttia, mikä kannustaa siirtämään suuria kuormia yöhön. Hinta on ${h.num(v.helen.teho!.eurKwKk, 2)} euroa kilowatilta kuukaudessa. Maksu lasketaan joka kuukausi uudelleen.` },
-        { q: 'Onko minulla tehomaksu?', a: 'Tarkista verkkoyhtiösi hinnasto ja oma siirtotuotteesi. Laskurin verkoista kotitalouksien perustuotteissa tehomaksu on Helenin ja Kuopion aikasiirrossa sekä Lahti Energian erillisissä tehoversioissa. Yleissiirrossa ei näissä verkoissa ole tehomaksua. Suurempien kohteiden tehosiirtotuotteissa tehomaksu on käytössä lähes kaikissa verkoissa. Laskusta näet tehomaksun omana rivinään.' },
+        { q: 'Onko minulla tehomaksu?', a: `Tarkista verkkoyhtiösi hinnasto ja oma siirtotuotteesi. Laskurin verkoista kotitalouksien tuotteissa tehomaksu on ${v.verkot.join(', ')}. Lahdessa se koskee kaikkia omakotitaloja, muualla vain valittua tuotetta. Suurempien kohteiden tehosiirtotuotteissa tehomaksu on käytössä lähes kaikissa verkoissa. Laskusta näet tehomaksun omana rivinään.` },
         { q: 'Kannattaako tehomaksullinen tuote?', a: 'Se voi kannattaa, jos kulutus on suurta mutta tasaista, koska tehomaksullisissa tuotteissa siirtomaksu tai perusmaksu on usein pienempi. Jos kotona käytetään usein monta suurta laitetta yhtä aikaa, tehomaksu voi nostaa kustannuksia. Laske molemmat vaihtoehdot omilla kulutustiedoillasi, jotka näet verkkoyhtiön palvelusta tunneittain.' },
       { q: 'Näkyykö tehomaksu sähkölaskussa?', a: 'Näkyy. Tehomaksu on verkkoyhtiön laskulla oma rivinsä, ja siinä kerrotaan laskutettu teho kilowatteina ja hinta kilowatilta. Verkkoyhtiön sähköisessä palvelussa näet tunnittaisen kulutuksesi, jonka perusteella voit tarkistaa, mikä tunti määräsi laskutetun tehon. Jos teho vaikuttaa liian suurelta, tunnin kulutustiedot kertovat syyn.' },
       ];
@@ -39,11 +42,8 @@ export default defineGuide({
     body: (h) => {
       const v = V(h);
       return `<h2>Tehomaksu laskurin verkoissa</h2>
-${h.table(['Verkko ja tuote', 'Tehomaksu', 'Peruste', '5 kW vuodessa', '10 kW vuodessa'], [
-        ['Helen, aikasiirto', `${h.num(v.helen.teho!.eurKwKk, 2)} €/kW/kk`, v.helen.teho!.fi, h.eur(v.k(v.helen, 5), 0), h.eur(v.k(v.helen, 10), 0)],
-        ['Kuopion Sähköverkko, aikasiirto', `${h.num(v.kuopio.teho!.eurKwKk, 2)} €/kW/kk`, v.kuopio.teho!.fi, h.eur(v.k(v.kuopio, 5), 0), h.eur(v.k(v.kuopio, 10), 0)],
-      ], 'Hinnat verkkoyhtiöiden hinnastoista, sis. alv 25,5 %.', ['l', 'r', 'l', 'r', 'r'])}
-<p>Lahti Energialla on lisäksi yleis- ja yösiirron tehomaksulliset versiot, joissa ${h.src('lahti', 'yhtiön mukaan')} tehomaksu perustuu edellisen 12 kuukauden suurimpaan tunnin keskitehoon. Niitä ei ole laskurissa, koska maksu riippuu koko vuoden huipusta.</p>
+${h.table(['Verkko ja tuote', 'Tehomaksu', 'Peruste', '5 kW vuodessa', '10 kW vuodessa'], v.kaikki.map((x) => [`${x.v.lyhyt}, ${x.t.nimi}`, `${h.num(x.t.teho!.eurKwKk, 2)} €/kW/kk`, x.t.teho!.fi, h.eur(v.k(x.t, 5), 0), h.eur(v.k(x.t, 10), 0)]), 'Hinnat verkkoyhtiöiden hinnastoista, sis. alv 25,5 %. Peruste on kunkin yhtiön hinnaston mukainen.', ['l', 'r', 'l', 'r', 'r'])}
+<p>Peruste vaihtelee: osa yhtiöistä laskee kuukauden suurimman tai kolmanneksi suurimman tunnin, ${h.src('lahti', 'Lahti Energia')} edellisen 12 kuukauden suurimman tunnin. Vuoden huippuun perustuva maksu rankaisee yksittäisestä suuresta tunnista pidempään, joten sellaisessa verkossa huipun hallinta kannattaa erityisesti.</p>
 <h2>Mikä nostaa huippua</h2>
 <ul>
 <li><strong>Sähkökiuas</strong>: 6–9 kilowatin kiuas nostaa tunnin keskitehoa lähes kiukaan tehon verran koko lämmityksen ajan. Ks. ${h.a('saunan-hinta', 'saunan hinta')}.</li>
@@ -80,21 +80,21 @@ ${h.table(['Verkko ja tuote', 'Tehomaksu', 'Peruste', '5 kW vuodessa', '10 kW vu
   en: {
     slug: 'power-fee-finland',
     nav: 'Power fee',
-    card: 'What the Finnish electricity power fee is, how Helsinki and Kuopio calculate it and how to cut it.',
+    card: 'What the Finnish electricity power fee is, how different network operators calculate it and how to cut it.',
     title: 'Electricity Power Fee Finland 2026: How It Is Calculated',
-    description: 'Finnish electricity power fee 2026: how the fee follows your peak power, what it costs on Helen’s and Kuopio’s time-of-day transfer and how to lower your peak.',
+    description: 'Finnish electricity power fee 2026: how the fee follows your peak power, what it costs with Helen, Kuopio, Lahti and others, and how to lower your peak.',
     h1: 'The power fee: when your peak costs money',
     intro: 'A power fee is based on how much electricity you use at the same time. It rewards spreading loads out.',
     resume: (h) => {
       const v = V(h);
-      return `A power fee is the part of the network fee set by a site’s highest power, meaning simultaneous use, not just the energy consumed. Among the calculator’s networks, household products with a power fee are Helen Sähköverkko’s and Kuopion Sähköverkko’s time-of-day transfer. Helen charges ${h.num(v.helen.teho!.eurKwKk, 2)} euros per kilowatt per month, based on the month’s third-highest hourly average power, with 80% of night-time power counted. Kuopio charges ${h.num(v.kuopio.teho!.eurKwKk, 2)} euros per kilowatt per month on the billing month’s highest hour. At a 5 kW peak the power fee is about ${h.eur(v.k(v.helen, 5), 0)} a year with Helen and ${h.eur(v.k(v.kuopio, 5), 0)} in Kuopio. Lahti Energia’s power-fee products use the highest hour of the previous 12 months. You lower the peak by staggering large appliances across hours: car charging, the sauna stove, the water heater and direct electric heating are the usual culprits.`;
+      return `A power fee is the part of the network fee set by a site’s highest power, meaning simultaneous use, not just the energy consumed. Of the calculator’s ${h.M.VERKOT.length} networks, ${v.verkot.length} have household products with a power fee (${v.verkot.join(', ')}). Helen charges ${h.num(v.helen.teho!.eurKwKk, 2)} euros per kilowatt per month, based on the month’s third-highest hourly average power, with 80% of night-time power counted. Kuopio charges ${h.num(v.kuopio.teho!.eurKwKk, 2)} euros per kilowatt per month on the billing month’s highest hour. At a 5 kW peak the power fee is about ${h.eur(v.k(v.helen, 5), 0)} a year with Helen and ${h.eur(v.k(v.kuopio, 5), 0)} in Kuopio. Lahti Energia’s power products use the highest hour of the previous 12 months and are the only choice there for a detached house. You lower the peak by staggering large appliances across hours: car charging, the sauna stove, the water heater and direct electric heating are the usual culprits.`;
     },
     faqs: (h) => {
       const v = V(h);
       return [
         { q: 'What does hourly average power mean?', a: 'Hourly average power is the energy used in an hour, in kilowatt-hours, divided by one hour. Use 6 kWh in an hour and the average is 6 kW. A brief spike, such as a kettle starting, barely matters, but an hour-long large load such as the sauna or car charging counts in full.' },
         { q: 'Why does Helen use the third-highest hour?', a: `On Helen’s time-of-day transfer the basis is the month’s third-highest hourly average power, so one exceptional hour does not decide the fee. Night-time power is also counted at 80%, encouraging large loads to move to the night. The rate is ${h.num(v.helen.teho!.eurKwKk, 2)} euros per kilowatt per month.` },
-        { q: 'Do I have a power fee?', a: 'Check your operator’s price list and your transfer product. Among the calculator’s networks, household products with a power fee are Helen’s and Kuopio’s time-of-day transfer and Lahti Energia’s separate power versions. General transfer has no power fee in these networks. Power-based products for larger sites use one almost everywhere.' },
+        { q: 'Do I have a power fee?', a: `Check your operator’s price list and your transfer product. Among the calculator’s networks, household products with a power fee exist at ${v.verkot.join(', ')}. In Lahti it applies to every detached house, elsewhere only to the chosen product. Power-based products for larger sites use one almost everywhere.` },
         { q: 'Is a power-fee product worth it?', a: 'It can be if use is high but steady, since power-fee products often have a lower transfer or basic fee. If several large appliances often run together at home, the power fee can raise costs. Work out both options with your own consumption data, available hour by hour from your operator.' },
       { q: 'Does the power fee show on my bill?', a: 'Yes. It is a separate line on the network bill, showing the billed power in kilowatts and the price per kilowatt. The operator’s online service shows your hourly use, so you can check which hour set the billed power. If it looks too high, the hourly data shows why.' },
       ];
@@ -102,11 +102,8 @@ ${h.table(['Verkko ja tuote', 'Tehomaksu', 'Peruste', '5 kW vuodessa', '10 kW vu
     body: (h) => {
       const v = V(h);
       return `<h2>Power fees in the calculator’s networks</h2>
-${h.table(['Network and product', 'Power fee', 'Basis', '5 kW per year', '10 kW per year'], [
-        ['Helen, time-of-day', `${h.num(v.helen.teho!.eurKwKk, 2)} €/kW/month`, v.helen.teho!.en, h.eur(v.k(v.helen, 5), 0), h.eur(v.k(v.helen, 10), 0)],
-        ['Kuopion Sähköverkko, time-of-day', `${h.num(v.kuopio.teho!.eurKwKk, 2)} €/kW/month`, v.kuopio.teho!.en, h.eur(v.k(v.kuopio, 5), 0), h.eur(v.k(v.kuopio, 10), 0)],
-      ], 'Prices from the operators’ price lists, incl. 25.5% VAT.', ['l', 'r', 'l', 'r', 'r'])}
-<p>Lahti Energia also has power-fee versions of general and night transfer, where ${h.src('lahti', 'the company says')} the fee follows the highest hourly average power of the previous 12 months. They are not in the calculator because the fee depends on the whole year’s peak.</p>
+${h.table(['Network and product', 'Power fee', 'Basis', '5 kW per year', '10 kW per year'], v.kaikki.map((x) => [`${x.v.lyhyt}, ${x.t.nimi}`, `${h.num(x.t.teho!.eurKwKk, 2)} €/kW/month`, x.t.teho!.en, h.eur(v.k(x.t, 5), 0), h.eur(v.k(x.t, 10), 0)]), 'Prices from the operators’ price lists, incl. 25.5% VAT. The basis follows each operator’s price list.', ['l', 'r', 'l', 'r', 'r'])}
+<p>The basis varies: some operators use the month’s highest or third-highest hour, ${h.src('lahti', 'Lahti Energia')} the highest hour of the previous 12 months. A fee based on the annual peak punishes a single large hour for longer, so managing the peak pays especially in such a network.</p>
 <h2>What drives the peak up</h2>
 <ul>
 <li><strong>Sauna stove</strong>: a 6–9 kW stove lifts the hourly average almost by its full power while heating. See ${h.a('saunan-hinta', 'sauna cost')}.</li>

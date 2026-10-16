@@ -9,7 +9,7 @@ import SelectField from '../ui/SelectField';
 import NumberField from '../ui/NumberField';
 import Toggle from '../ui/Toggle';
 import { SPOT } from '../../lib/spot-data';
-import { VERKOT, tuote as tuoteOf, omaTuote, perusKk, type Tuote, type Sulake, type Tyyppi } from '../../lib/engine/verkot';
+import { VERKOT, omaTuote, perusKk, tuotteetSulakkeelle, type Tuote, type Sulake, type Tyyppi } from '../../lib/engine/verkot';
 import { hkiPvm, lisaaPaivia } from '../../lib/engine/aika';
 import { sarja, type SpotData, type Sarja } from '../../lib/engine/spot';
 import { formatNumber, displayDate } from '../../lib/format';
@@ -19,7 +19,6 @@ import { P } from '../../lib/engine/params';
 import { T, type L } from './kit';
 
 export const MUU = VERKOT.length; // index de « autre réseau »
-export const TYYPIT: Tyyppi[] = ['yleis', 'aika', 'kausi'];
 export const SULAKKEET: Sulake[] = ['kt', '3x25', '3x35'];
 export const MARGINAALI = sop.marginaaliMediaani ?? 0;
 export const PERUS_MYYJA = sop.perusmaksuMediaani ?? 0;
@@ -43,17 +42,17 @@ export function useSpot() {
   return { data, tanaan, nyt, huomenna: lisaaPaivia(tanaan, 1) };
 }
 
-export interface Val { verkko: number; tuote: number; sulake: number; sop: number; marg: number; kiint: number; perusM: number; omaC: number; omaKk: number }
-/** Produit de transport choisi (ou saisi pour « autre réseau »). */
-export function valittuTuote(v: Val): { tuote: Tuote; tyypit: Tyyppi[] } {
-  if (v.verkko >= MUU) return { tuote: omaTuote(v.omaC, v.omaKk), tyypit: ['yleis'] };
+export interface Val { verkko: number; tuote: number; sulake: number; sop: number; marg: number; kiint: number; perusM: number; omaC: number; omaKk: number; teho: number }
+/** Produit de transport choisi parmi ceux proposés pour le calibre (ou saisi pour « autre réseau »). */
+export function valittuTuote(v: Val): { tuote: Tuote; tuotteet: Tuote[] } {
+  if (v.verkko >= MUU) { const t = omaTuote(v.omaC, v.omaKk); return { tuote: t, tuotteet: [t] }; }
   const vk = VERKOT[v.verkko] ?? VERKOT[0];
-  const tyypit = TYYPIT.filter((t) => tuoteOf(vk, t));
-  const t = tuoteOf(vk, tyypit[Math.min(v.tuote, tyypit.length - 1)] ?? 'yleis')!;
-  return { tuote: t, tyypit };
+  const tuotteet = tuotteetSulakkeelle(vk, SULAKKEET[v.sulake] ?? 'kt');
+  return { tuote: tuotteet[Math.min(v.tuote, tuotteet.length - 1)], tuotteet };
 }
 export const sopimus = (v: Val) => ({ tyyppi: (v.sop ? 'kiintea' : 'porssi') as 'porssi' | 'kiintea', marginaali: v.marg, kiintea: v.kiint });
-export const perusYhteensa = (v: Val, t: Tuote) => perusKk(t, SULAKKEET[v.sulake] ?? 'kt') + (v.sop ? 0 : v.perusM);
+/** Abonnements du mois : perusmaksu du réseau + tehomaksu éventuel (huippu saisi) + abonnement du contrat pörssi. */
+export const perusYhteensa = (v: Val, t: Tuote) => perusKk(t, SULAKKEET[v.sulake] ?? 'kt') + (t.teho ? t.teho.eurKwKk * (v.teho ?? 0) : 0) + (v.sop ? 0 : v.perusM);
 
 export const tyyppiNimi = (l: L, t: Tyyppi, nimi?: string) => nimi ?? T(l, { yleis: 'Yleissiirto', aika: 'Aikasiirto (yö halvempi)', kausi: 'Kausisiirto (talviarki kalliimpi)' }[t], { yleis: 'General transfer', aika: 'Time-of-day (cheaper nights)', kausi: 'Seasonal (winter weekdays dearer)' }[t]);
 export const sulakeNimi = (l: L, s: Sulake) => T(l, { kt: 'Kerrostalo tai 1-vaiheinen', '1x25': '1 × 25 A', '3x25': 'Omakotitalo 3 × 25 A', '3x35': 'Omakotitalo 3 × 35 A' }[s], { kt: 'Flat or single-phase', '1x25': '1 × 25 A', '3x25': 'House, 3 × 25 A', '3x35': 'House, 3 × 35 A' }[s]);
@@ -90,9 +89,8 @@ function PostinumeroHaku({ lang, idp, onVerkko }: { lang: L; idp: string; onVerk
 interface FProps { lang: L; v: Val; set: (k: keyof Val) => (x: number) => void; idp: string; sopimusKentat?: boolean; sulakeKentta?: boolean }
 /** Réseau, produit, calibre, puis contrat. */
 export function VerkkoKentat({ lang, v, set, idp, sopimusKentat = true, sulakeKentta = true }: FProps) {
-  const { tyypit } = valittuTuote(v);
-  const vk = VERKOT[v.verkko];
-  const verkot = [...VERKOT.map((x, i) => ({ value: String(i), label: x.lyhyt })), { value: String(MUU), label: T(lang, 'Muu verkkoyhtiö (syötän hinnan)', 'Other operator (enter price)') }];
+  const { tuote: tu, tuotteet } = valittuTuote(v);
+  const verkot = [...VERKOT.map((x, i) => ({ value: String(i), label: x.lyhyt })).sort((a, b) => a.label.localeCompare(b.label, 'fi')), { value: String(MUU), label: T(lang, 'Muu verkkoyhtiö (syötän hinnan)', 'Other operator (enter price)') }];
   return (
     <>
       <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
@@ -106,8 +104,14 @@ export function VerkkoKentat({ lang, v, set, idp, sopimusKentat = true, sulakeKe
         </div>
       ) : (
         <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
-          <SelectField id={`${idp}-tuote`} label={T(lang, 'Siirtotuote', 'Transfer product')} value={String(Math.min(v.tuote, tyypit.length - 1))} onChange={(x) => set('tuote')(Number(x))} options={tyypit.map((t, i) => ({ value: String(i), label: tuoteOf(vk, t)!.nimi }))} />
-          {sulakeKentta && <SelectField id={`${idp}-sulake`} label={T(lang, 'Asunto ja pääsulake', 'Home and main fuse')} value={String(v.sulake)} onChange={(x) => set('sulake')(Number(x))} options={SULAKKEET.map((s, i) => ({ value: String(i), label: sulakeNimi(lang, s) }))} />}
+          <SelectField id={`${idp}-tuote`} label={T(lang, 'Siirtotuote', 'Transfer product')} value={String(Math.min(v.tuote, tuotteet.length - 1))} onChange={(x) => set('tuote')(Number(x))} options={tuotteet.map((t, i) => ({ value: String(i), label: t.nimi }))} />
+          {sulakeKentta && <SelectField id={`${idp}-sulake`} label={T(lang, 'Asunto ja pääsulake', 'Home and main fuse')} value={String(v.sulake)} onChange={(x) => { set('sulake')(Number(x)); set('tuote')(0); }} options={SULAKKEET.map((s, i) => ({ value: String(i), label: sulakeNimi(lang, s) }))} />}
+        </div>
+      )}
+      {v.verkko < MUU && tu.teho && (
+        <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
+          <NumberField id={`${idp}-teho`} label={T(lang, 'Huipputeho, kW (tehomaksu)', 'Peak power, kW (power fee)')} value={v.teho} onChange={set('teho')} unit="kW" max={60} decimals={1} lang={lang}
+            help={T(lang, `Tehomaksu ${formatNumber(tu.teho.eurKwKk, 2, lang)} €/kW/kk: ${tu.teho.fi}. Näet oman huippusi verkkoyhtiön palvelusta.`, `Power fee €${formatNumber(tu.teho.eurKwKk, 2, lang)}/kW/month: ${tu.teho.en}. See your peak in the operator’s portal.`)} />
         </div>
       )}
       {sopimusKentat && <SopimusKentat lang={lang} v={v} set={set} idp={idp} />}
@@ -128,7 +132,7 @@ export function SopimusKentat({ lang, v, set, idp }: FProps) {
   );
 }
 
-export const oletusVal = (verkko = 'helen', tuote = 0, sulake = 0): Val => ({ verkko: verkkoIndex(verkko), tuote, sulake, sop: 0, marg: MARGINAALI, kiint: KIINTEA, perusM: PERUS_MYYJA, omaC: 4, omaKk: 10 });
+export const oletusVal = (verkko = 'helen', tuote = 0, sulake = 0): Val => ({ verkko: verkkoIndex(verkko), tuote, sulake, sop: 0, marg: MARGINAALI, kiint: KIINTEA, perusM: PERUS_MYYJA, omaC: 4, omaKk: 10, teho: 5 });
 
 /** Libellé de l'état des prix : publiés (source) ou estimation moyenne (méthode, période). */
 export function Tila({ s, data, lang }: { s: Sarja; data: SpotData; lang: L }) {

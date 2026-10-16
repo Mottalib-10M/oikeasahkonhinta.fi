@@ -48,7 +48,7 @@ export function tuntiProfiili(w: 'arki' | 'vkl' = 'arki') {
 export function verkkoVuodessa(verkko: string, kwh: number, sulake: M.Sulake, profiili: M.Profiili = 'tasainen') {
   const kk = M.viimeiset12(SPOT.kuukaudet, `${PAIVA.slice(0, 7)}-01`).kk;
   const vk = M.verkko(verkko)!;
-  const t = vk.tuotteet.map((tu) => ({ tu, e: M.verkkoVuosi(tu, sulake, kwh, profiili, kk) }));
+  const t = M.tuotteetSulakkeelle(vk, sulake).map((tu) => ({ tu, e: M.verkkoVuosi(tu, sulake, kwh, profiili, kk, 5) }));
   return { kaikki: t, paras: t.reduce((a, b) => (b.e < a.e ? b : a)) };
 }
 /** Classement des réseaux par coût annuel du transport (meilleur produit). */
@@ -67,4 +67,9 @@ export function laiteHinta(E: number, D: number, verkko = 'helen', tyyppi: M.Tyy
   let maxI = 0; for (let i = 0; i + n <= tot.length; i++) if (kerta(i) > kerta(maxI)) maxI = i;
   const ka = M.tilasto(tot).ka;
   return { halvin: kerta(ik.i), halvinKlo: M.kello(q[ik.i].t), kallein: kerta(maxI), kalleinKlo: M.kello(q[maxI].t), keski: (E * ka) / 100, kaC: ka, siirtoVero: ((tu.energia.kaikki ?? 0) + M.VERO_C) * E / 100 };
+}
+/** Produit « yleis » de référence d'un réseau pour un calibre (sans tehomaksu si possible), ou le premier produit proposé. */
+export function yleisTuote(v: M.Verkko, s: M.Sulake = '3x25') {
+  const t = M.tuotteetSulakkeelle(v, s);
+  return t.find((x) => x.tyyppi === 'yleis' && !x.teho) ?? t.find((x) => x.tyyppi === 'yleis') ?? t[0];
 }

@@ -22,7 +22,7 @@ export default function VertailuCalc({ lang, methodHref, kwh = 5000, profiili = 
   const l = lang;
   const r = useMemo(() => {
     const vuosi = viimeiset12(data.kuukaudet, `${tanaan.slice(0, 7)}-01`);
-    const t = vuosikustannus({ kwh: v.kwh, profiili: v.prof ? 'lammitys' : 'tasainen', vuosi, marginaali: v.marg, kiintea: v.kiint, perusMyyjaPorssi: v.perusM, perusMyyjaKiintea: v.perusK, tuote: tu, sulake: SULAKKEET[v.sulake] });
+    const t = vuosikustannus({ kwh: v.kwh, profiili: v.prof ? 'lammitys' : 'tasainen', vuosi, marginaali: v.marg, kiintea: v.kiint, perusMyyjaPorssi: v.perusM, perusMyyjaKiintea: v.perusK, tuote: tu, sulake: SULAKKEET[v.sulake], tehoKw: v.teho });
     // Prix fixe qui donnerait le même coût annuel que le contrat pörssi (abonnements compris).
     const tasapaino = v.kwh > 0 ? ((t.porssi - v.perusK * 12) / v.kwh) * 100 : 0;
     return { vuosi, t, tasapaino };

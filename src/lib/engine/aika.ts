@@ -17,9 +17,9 @@ export function paikallinen(t: number): Paikallinen {
 }
 /** « 07:15 » : heure locale de début d'un créneau. */
 export const kello = (t: number) => { const l = paikallinen(t); return `${String(l.tunti).padStart(2, '0')}:${String(l.minuutti).padStart(2, '0')}`; };
-/** Jour (07–22) au sens des tarifs aikasiirto / yösiirto. */
+/** Jour 07–22 (valeur par défaut des tarifs aika ; chaque produit peut préciser ses plages, voir verkot.ts). */
 export const onPaiva = (t: number) => { const h = paikallinen(t).tunti; return h >= 7 && h < 22; };
-/** Talviarkipäivä des tarifs kausi : 1.11.–31.3., lundi à samedi, 07–22 (jours fériés non distingués). */
+/** Talviarkipäivä par défaut des tarifs kausi : 1.11.–31.3., lundi à samedi, 07–22, sans tenir compte des jours fériés (la règle propre à chaque produit est dans verkot.ts). */
 export const onTalvipaiva = (t: number) => { const l = paikallinen(t); return (l.kuukausi >= 11 || l.kuukausi <= 3) && l.viikonpaiva !== 0 && l.tunti >= 7 && l.tunti < 22; };
 export const onViikonloppu = (pvm: string) => { const w = new Date(`${pvm}T12:00:00Z`).getUTCDay(); return w === 0 || w === 6; };
 export const lisaaPaivia = (pvm: string, n: number) => { const d = new Date(`${pvm}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };

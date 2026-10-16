@@ -62,7 +62,7 @@ export default function HintaCalc({ lang, methodHref, verkko = 'helen', tuote = 
         <VerkkoKentat lang={l} v={v} set={set as never} idp="h" />
       </>}
       result={<ResultPanel lang={l} head={head} value={value} sub={sub} rows={rows} methodHref={methodHref}
-        hyp={T(l, 'Pörssihinta on Suomen tarjousalueen day-ahead-hinta vartille, alv 25,5 % lisättynä (myös negatiiviseen hintaan). Siirtomaksu on verkkoyhtiön hinnaston mukainen; aika- ja kausisiirron jaksot Suomen aikaa, arkipyhiä ei eroteta. Sähkövero luokka I. Kuukausimaksut eivät sisälly kWh-hintaan.', 'Spot is the FI bidding-zone day-ahead price for the quarter, plus 25.5% VAT (also on negative prices). Transfer fee per the operator’s price list; time-of-day and seasonal windows in Finnish time, public holidays not distinguished. Electricity tax class I. Monthly fees are not in the per-kWh price.')}
+        hyp={T(l, 'Pörssihinta on Suomen tarjousalueen day-ahead-hinta vartille, alv 25,5 % lisättynä (myös negatiiviseen hintaan). Siirtomaksu on verkkoyhtiön hinnaston mukainen; aika- ja kausisiirron jaksot ja arkipyhien käsittely yhtiön hinnaston sanamuodon mukaan, Suomen aikaa. Sähkövero luokka I. Kuukausimaksut eivät sisälly kWh-hintaan.', 'Spot is the FI bidding-zone day-ahead price for the quarter, plus 25.5% VAT (also on negative prices). Transfer fee per the operator’s price list; time-of-day and seasonal windows, and how public holidays count, as worded in the operator’s price list, Finnish time. Electricity tax class I. Monthly fees are not in the per-kWh price.')}
         copyText={`${head}: ${value}`}>
         <Tila s={s} data={data} lang={l} />
       </ResultPanel>}

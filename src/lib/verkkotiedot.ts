@@ -23,11 +23,11 @@ export function verkkoTiedot(id: string) {
   const aika = M.tuote(v, 'aika');
   const kausi = M.tuote(v, 'kausi');
   const vuosi = (tu: M.Tuote, kwh: number, s: M.Sulake, p: M.Profiili) => M.verkkoVuosi(tu, s, kwh, p, kk, 5);
-  const taulu = PROFIILIT.map((p) => ({ p, arvot: v.tuotteet.map((tu) => ({ tu, e: vuosi(tu, p.kwh, p.sulake, p.profiili) })) }));
-  /** Consommation annuelle (3 × 25 A, talvipainotteinen) à partir de laquelle `b` devient moins cher que yleis. */
-  const tasapaino = (b?: M.Tuote) => {
+  const taulu = PROFIILIT.map((p) => ({ p, arvot: v.tuotteet.map((tu) => ({ tu, e: M.sopiiSulakkeelle(tu, p.sulake) ? vuosi(tu, p.kwh, p.sulake, p.profiili) : null })) }));
+  /** Consommation annuelle (3 × 25 A, talvipainotteinen) à partir de laquelle `b` devient moins cher que `a` (yleis par défaut). */
+  const tasapaino = (b?: M.Tuote, a: M.Tuote = yleis) => {
     if (!b) return null;
-    const a0 = vuosi(yleis, 0, '3x25', 'lammitys'), a1 = vuosi(yleis, 10000, '3x25', 'lammitys');
+    const a0 = vuosi(a, 0, '3x25', 'lammitys'), a1 = vuosi(a, 10000, '3x25', 'lammitys');
     const b0 = vuosi(b, 0, '3x25', 'lammitys'), b1 = vuosi(b, 10000, '3x25', 'lammitys');
     const ka = (a1 - a0) / 10000, kb = (b1 - b0) / 10000;
     if (kb >= ka) return null;
@@ -39,7 +39,7 @@ export function verkkoTiedot(id: string) {
   const paiva = M.tilasto(q.map((x) => x.yhteensa));
   const qa = aika ? M.vartit(SARJA, aika, porssi) : null;
   const paivaAika = qa ? M.tilasto(qa.map((x) => x.yhteensa)) : null;
-  return { v, yleis, aika, kausi, taulu, tasapainoAika: tasapaino(aika), tasapainoKausi: tasapaino(kausi), sija5, sija2, n: M.VERKOT.length, paiva, paivaAika, vuosi, arvio: SARJA.tila !== 'toteutunut' };
+  return { v, yleis, aika, kausi, taulu, tasapaino, tasapainoAika: tasapaino(aika), tasapainoKausi: tasapaino(kausi), sija5, sija2, n: M.VERKOT.length, paiva, paivaAika, vuosi, arvio: SARJA.tila !== 'toteutunut' };
 }
 export type VerkkoTiedot = ReturnType<typeof verkkoTiedot>;
 
@@ -48,11 +48,11 @@ export function vuosiTaulukko(h: Helpers, t: VerkkoTiedot) {
   const fi = h.lang === 'fi';
   const nimi = { K: fi ? 'Kerrostalo, 2 000 kWh' : 'Flat, 2,000 kWh', L1: fi ? 'Omakotitalo 3 × 25 A, 5 000 kWh' : 'House 3 × 25 A, 5,000 kWh', L2: fi ? 'Sähkölämmitys 3 × 25 A, 18 000 kWh' : 'Electric heating 3 × 25 A, 18,000 kWh' } as Record<string, string>;
   const rows = t.taulu.map((r) => {
-    const min = Math.min(...r.arvot.map((a) => a.e));
-    return [nimi[r.p.id], ...r.arvot.map((a) => (a.e === min ? `<strong>${h.eur(a.e, 0)}</strong>` : h.eur(a.e, 0)))];
+    const min = Math.min(...r.arvot.filter((a) => a.e !== null).map((a) => a.e!));
+    return [nimi[r.p.id], ...r.arvot.map((a) => (a.e === null ? '–' : a.e === min ? `<strong>${h.eur(a.e, 0)}</strong>` : h.eur(a.e, 0)))];
   });
   return h.table([fi ? 'Käyttäjä' : 'User', ...t.v.tuotteet.map((tu) => tu.nimi)], rows,
-    fi ? `${t.v.lyhyt}: siirron vuosikustannus (siirtomaksu + perusmaksu${t.aika?.teho ? ' + tehomaksu 5 kW huipulla' : ''}), € sis. alv. Lihavoitu on edullisin tuote. Sähkövero ${h.c(h.M.VERO_C, 4)} tulee lisäksi.` : `${t.v.lyhyt}: annual transfer cost (transfer fee + basic fee${t.aika?.teho ? ' + power fee at a 5 kW peak' : ''}), € incl. VAT. Bold is the cheapest product. Electricity tax of ${h.c(h.M.VERO_C, 4)} comes on top.`,
+    fi ? `${t.v.lyhyt}: siirron vuosikustannus (siirtomaksu + perusmaksu${t.v.tuotteet.some((x) => x.teho) ? ' + tehomaksu 5 kW huipulla' : ''}), € sis. alv. Lihavoitu on edullisin tuote.${t.v.tuotteet.some((x) => x.kohde) ? ' Viiva: tuote on hinnaston mukaan tarjolla vain taloyhtiöiden asunnoille; tarkat ehdot ovat tekstissä.' : ''} Sähkövero ${h.c(h.M.VERO_C, 4)} tulee lisäksi.` : `${t.v.lyhyt}: annual transfer cost (transfer fee + basic fee${t.v.tuotteet.some((x) => x.teho) ? ' + power fee at a 5 kW peak' : ''}), € incl. VAT. Bold is the cheapest product.${t.v.tuotteet.some((x) => x.kohde) ? ' A dash: under the price list the product is only for homes in multi-dwelling buildings; the exact conditions are in the text.' : ''} Electricity tax of ${h.c(h.M.VERO_C, 4)} comes on top.`,
     ['l', ...t.v.tuotteet.map(() => 'r' as const)]);
 }
 /** Tableau des prix unitaires du réseau (perusmaksu par calibre, siirtomaksu par période). */
@@ -64,7 +64,7 @@ export function hintaTaulukko(h: Helpers, t: VerkkoTiedot) {
     if (tu.tyyppi === 'kausi') return `${fi ? 'talviarki' : 'winter weekday'} ${h.c(x.talvipaiva!, 3)} · ${fi ? 'muu' : 'other'} ${h.c(x.muu!, 3)}`;
     return h.c(x.kaikki!, 3);
   };
-  const rows = t.v.tuotteet.map((tu) => [tu.nimi, e(tu), h.eur(h.M.perusKk(tu, 'kt')), h.eur(h.M.perusKk(tu, '3x25')), h.eur(h.M.perusKk(tu, '3x35')), tu.teho ? `${h.num(tu.teho.eurKwKk, 2)} €/kW` : '–']);
+  const rows = t.v.tuotteet.map((tu) => [tu.nimi, e(tu), h.eur(h.M.perusKk(tu, 'kt')), tu.kohde ? '–' : h.eur(h.M.perusKk(tu, '3x25')), tu.kohde ? '–' : h.eur(h.M.perusKk(tu, '3x35')), tu.teho ? `${h.num(tu.teho.eurKwKk, 2)} €/kW` : '–']);
   return h.table([fi ? 'Tuote' : 'Product', fi ? 'Siirtomaksu' : 'Transfer fee', fi ? 'Perusmaksu, kerrostalo' : 'Basic fee, flat', fi ? 'Perus 3 × 25 A' : 'Basic 3 × 25 A', fi ? 'Perus 3 × 35 A' : 'Basic 3 × 35 A', fi ? 'Tehomaksu/kk' : 'Power fee/month'], rows,
     fi ? `Hinnasto ${t.v.voimassa ? `voimassa ${h.date(t.v.voimassa)} alkaen` : 'voimassa'}, ${h.src(t.v.id, 'yhtiön oma hinnasto')}, sis. alv 25,5 %, €/kk. Kun kerrostalohintaa ei ole, käytetään lähintä sulaketta.` : `Price list ${t.v.voimassa ? `in force from ${h.date(t.v.voimassa)}` : 'in force'}, ${h.src(t.v.id, 'the operator’s own price list')}, incl. 25.5% VAT, € per month. Where no flat rate exists the nearest fuse size is used.`,
     ['l', 'r', 'r', 'r', 'r', 'r']);

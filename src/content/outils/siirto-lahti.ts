@@ -3,8 +3,13 @@ import type { Helpers } from '../../lib/guide-types';
 import { verkkoTiedot, vuosiTaulukko, hintaTaulukko } from '../../lib/verkkotiedot';
 
 const V = (h: Helpers) => {
-  const t = verkkoTiedot('lahti'); const y = t.yleis, a = t.aika!;
-  return { t, y, a, p: h.M.perusKk(y, '3x25'), pa: h.M.perusKk(a, '3x25') };
+  const t = verkkoTiedot('lahti'); const tt = t.v.tuotteet;
+  const y = tt.find((x) => x.nimi === 'Yleissiirto')!, a = tt.find((x) => x.nimi === 'Yösiirto')!;
+  const yt = tt.find((x) => x.nimi === 'Yleissiirto teho')!, at = tt.find((x) => x.nimi === 'Yösiirto teho')!;
+  const teho = yt.teho!.eurKwKk;
+  /** Tehomaksu, kun huippu on 5 kW tai 10 kW, €/vuosi. */
+  const tehoVuosi = (kw: number) => teho * kw * 12;
+  return { t, y, a, yt, at, teho, tehoVuosi, p: h.M.perusKk(y, 'kt'), pa: h.M.perusKk(a, 'kt'), pyt: h.M.perusKk(yt, '3x25'), pat: h.M.perusKk(at, '3x25'), tasapainoTeho: t.tasapaino(at, yt) };
 };
 
 export default defineGuide({
@@ -13,72 +18,72 @@ export default defineGuide({
   order: 20,
   tool: 'tanaan',
   toolProps: { verkko: 'lahti', sulake: 1 },
-  related: ['siirtohinnat', 'siirto-elenia', 'tehomaksu', 'pyykinpesu', 'porssi-vai-kiintea'],
+  related: ['siirtohinnat', 'tehomaksu', 'siirto-elenia', 'pyykinpesu', 'porssi-vai-kiintea'],
   sources: ['lahti', 'veroTaulukko', 'evPostinumerot'],
   fi: {
     slug: 'siirtohinta-lahti-energia',
     nav: 'Lahti Energia',
-    card: 'Lahti Energian sähköverkon yleis- ja yösiirto sekä pörssisähkön kokonaishinta Lahdessa.',
-    title: 'Lahti Energia siirtohinta 2026: pörssisähkö siirron kanssa',
-    description: 'Lahti Energian sähköverkon siirtohinnat 2026: yleissiirto, yösiirto ja tehomaksulliset vaihtoehdot. Pörssisähkön kokonaishinta Lahdessa vartti vartilta.',
-    h1: 'Lahti Energia: pörssisähkön hinta Lahdessa',
-    intro: 'Lahdessa yleissiirron perusmaksu on sama sulakkeesta riippumatta. Laskuri lisää Lahden siirron ja verot jokaiseen varttiin.',
+    card: 'Lahti Energian teho- ja tehomaksuttomat siirtotuotteet sekä pörssisähkön kokonaishinta Lahdessa.',
+    title: 'Lahti Energia siirtohinta 2026: tehomaksu ja pörssisähkö',
+    description: 'Lahti Energian siirtohinnat 2026: Yleissiirto teho ja Yösiirto teho omakotitaloille, tehomaksuttomat tuotteet kerrostaloille. Kokonaishinta vartti vartilta.',
+    h1: 'Lahti Energia: pörssisähkön hinta Lahdessa tehomaksun kanssa',
+    intro: 'Lahdessa omakotitalon siirtoon kuuluu tehomaksu, rivi- ja kerrostaloasunnossa ei. Laskuri lisää siirron, tehomaksun ja verot jokaiseen varttiin.',
     resume: (h) => {
       const v = V(h);
-      return `Lahti Energian sähköverkko siirtää sähkön Lahden kaupunkialueella. Verkkopalveluhinnasto on voimassa ${h.date(v.t.v.voimassa!)} alkaen. Yleissiirrossa perusmaksu on ${h.eur(v.p)} kuukaudessa ja siirtomaksu ${h.c(v.y.energia.kaikki!)} arvonlisäveron kanssa. Yösiirrossa perusmaksu on ${h.eur(v.pa)}, päiväsiirto kello 7–22 maksaa ${h.c(v.a.energia.paiva!)} ja yösiirto kello 22–7 ${h.c(v.a.energia.yo!)}. Lahti Energia tarjoaa lisäksi yleis- ja yösiirron tehomaksullisina versioina, joissa siirtomaksu on halvempi mutta maksetaan edellisen 12 kuukauden suurimman tunnin tehon mukaan; niitä ei ole laskurissa, koska maksu riippuu oman vuoden huipusta. Omakotitalon 5 000 kilowattitunnin siirto on Lahdessa ${v.t.sija5}. edullisin laskurin ${v.t.n} verkosta. Pörssisähkön kokonaishinta yleissiirrolla on ${v.t.arvio ? 'arvion mukaan' : 'tänään'} keskimäärin ${h.c(v.t.paiva.ka)}. Laskuri on asetettu Lahden yleissiirtoon; vaihda yösiirtoon nähdäksesi kello 22 jälkeisen hinnan. Lahden ympäristön maaseudulla verkkoyhtiö on usein Elenia, jonka hinnat ovat omalla sivullaan. Postinumerohaku varmistaa yhtiön.`;
+      return `Lahti Energia Sähköverkko siirtää sähkön Lahden kaupunkialueella, ja sen hinnasto on voimassa ${h.date(v.t.v.voimassa!)} alkaen. Yhtiön mukaan tehomaksu on käytössä kaikilla liittymillä, joissa on yksi käyttöpaikka, eli tavallisesti omakotitaloissa. Rivi-, pari- ja kerrostaloasunnoissa tehomaksua ei ole, mutta ne voivat halutessaan valita tehotuotteen. Yleissiirto teho maksaa ${h.c(v.yt.energia.kaikki!)}, perusmaksu on ${h.eur(v.pyt)} kuukaudessa ja tehomaksu ${h.eur(v.teho)} kilowatilta kuukaudessa. Tehomaksu perustuu edellisen 12 kuukauden suurimpaan tunnin keskitehoon, joten 5 kilowatin huippu maksaa ${h.eur(v.tehoVuosi(5), 0)} ja 10 kilowatin huippu ${h.eur(v.tehoVuosi(10), 0)} vuodessa. Yösiirto teho maksaa päivällä kello 7–22 ${h.c(v.at.energia.paiva!)} ja yöllä ${h.c(v.at.energia.yo!)}. Kerrostalon tehomaksuton yleissiirto maksaa ${h.c(v.y.energia.kaikki!)} ja ${h.eur(v.p)} kuukaudessa. Omakotitalon 5 000 kilowattitunnin siirto on Lahdessa ${v.t.sija5}. edullisin laskurin ${v.t.n} verkosta, kun huippu on 5 kilowattia. Laskuri on asetettu omakotitalon Yleissiirto tehoon; syötä oma huippusi, niin tehomaksu lasketaan sen mukaan.`;
     },
     faqs: (h) => {
       const v = V(h);
       return [
-        { q: 'Miten Lahti Energian tehomaksu lasketaan?', a: 'Lahti Energian mukaan tehomaksu perustuu tehoon, joka on edellisen 12 kuukauden aikana mitattu suurin tunnin keskiteho. Tehomaksullisissa tuotteissa siirtomaksu on halvempi. Yhtiö suosittelee niitä erityisesti sähkölämmittäjille, joiden kulutus on suurta ja tehon tarve tasaista. Ennen vaihtoa kustannukset kannattaa laskea omilla kulutustiedoilla. Laskurissa nämä tuotteet eivät ole mukana.' },
-        { q: 'Kannattaako Lahdessa yösiirto?', a: `Yösiirron perusmaksu ${h.eur(v.pa)} on kaksinkertainen yleissiirron ${h.eur(v.p)} verrattuna, ja päiväsiirto ${h.c(v.a.energia.paiva!)} on kalliimpi kuin yleissiirto. Yöllä siirto maksaa ${h.c(v.a.energia.yo!)}. Laskelmamme mukaan yösiirto kannattaa talvipainotteisella kulutuksella noin ${v.t.tasapainoAika ? h.num(v.t.tasapainoAika) : '–'} kilowattitunnista alkaen. Varaavassa lämmityksessä raja on alempi, koska suurempi osa kulutuksesta osuu yöhön.` },
-        { q: 'Riippuuko Lahden perusmaksu sulakkeesta?', a: `Yleissiirrossa ei: perusmaksu on ${h.eur(v.p)} kuukaudessa sekä kerrostaloasunnossa että omakotitalossa. Yösiirrossakaan perusmaksu ei vaihtele tavallisilla kotitalouksien sulakkeilla. Liittymän ylläpidon perusmaksu on erikseen niille, joiden sähkönkäyttö on keskeytetty. Siksi suuremman pääsulakkeen hankinta esimerkiksi sähköauton latausta varten ei Lahdessa nosta yleissiirron kuukausimaksua, toisin kuin monessa maaseutuverkossa.` },
-        { q: 'Mistä Lahti Energian hinnat tulevat laskuriin?', a: 'Hinnat on luettu Lahti Energian sähköverkon verkkopalvelumaksujen sivulta, jossa ne on ilmoitettu sekä arvonlisäveron kanssa että ilman. Laskuri käyttää arvonlisäverollisia hintoja. Tarkistusohjelma lataa sivun säännöllisesti ja varmistaa, että jokainen laskurin hinta löytyy sieltä. Jos hinnat muuttuvat, laskuri päivitetään. Lähde näkyy sivun lähdeluettelossa.' },
+        { q: 'Miten Lahti Energian tehomaksu lasketaan?', a: `Lahti Energian mukaan tehomaksu perustuu edellisen 12 kuukauden aikana mitattuun suurimpaan tunnin keskitehoon. Sama huippu ja sen mukainen maksu ovat voimassa seuraavat 12 kuukautta, ellei uusi huippu ylitä sitä. Maksu on ${h.eur(v.teho)} kilowatilta kuukaudessa arvonlisäveron kanssa. Kun pienennät huippua, muutos näkyy laskulla vasta vuoden kuluttua. Oman huippusi näet yhtiön OmaWatti-palvelusta.` },
+        { q: 'Koskeeko tehomaksu kerrostaloasuntoa Lahdessa?', a: `Ei. Yhtiön mukaan tehomaksua ei ole rivitalo-, paritalo- tai kerrostaloasunnoissa, joten niissä voi käyttää tehomaksutonta yleissiirtoa (${h.c(v.y.energia.kaikki!)}, perusmaksu ${h.eur(v.p)}) tai yösiirtoa. Tehotuotteeseen voi halutessaan vaihtaa. Laskurissa tehomaksuttomat tuotteet näkyvät, kun valitset asunnoksi kerrostalon tai 1-vaiheisen liittymän. Omakotitalon valinnalla laskuri näyttää vain tehotuotteet, koska ne ovat hinnaston mukaan siellä käytössä.` },
+        { q: 'Kannattaako Lahdessa Yösiirto teho?', a: `Yösiirto tehon perusmaksu ${h.eur(v.pat)} on suurempi kuin Yleissiirto tehon ${h.eur(v.pyt)}, mutta yösiirto maksaa vain ${h.c(v.at.energia.yo!)}. Laskelmamme mukaan se tulee talvipainotteisella kulutuksella edullisemmaksi noin ${v.tasapainoTeho ? h.num(v.tasapainoTeho) : '–'} kilowattitunnista alkaen. Tehomaksu on molemmissa sama, joten valinta riippuu siitä, kuinka suuri osa kulutuksesta osuu kello 22 ja 7 väliin.` },
+        { q: 'Muuttuuko Lahden tehomaksu vuonna 2029?', a: 'Lahti Energian mukaan Energiaviraston uusi määräys sähkön jakelun hinnoitteluperusteiden yhtenäistämisestä tulee voimaan 1.1.2029, ja yhtiö selvittää tulevaa tuoterakennetta sen mukaisesti. Nykyinen käytäntö on yhtiön käsityksen mukaan voimassa olevien määräysten mukainen. Laskuri päivitetään, kun uusi hinnasto julkaistaan, ja tarkistusohjelma huomaa muutoksen, koska se vertaa jokaista laskurin hintaa yhtiön sivuun.' },
       ];
     },
     body: (h) => {
       const v = V(h);
       return `<h2>Lahden siirtohinnat</h2>
 ${hintaTaulukko(h, v.t)}
-<p>Lahti Energian hinnastossa yleissiirron ja yösiirron perusmaksu ei riipu siitä, onko kyse kerrostaloasunnosta vai omakotitalosta. Tehomaksullisten versioiden lisäksi yhtiöllä on pienjännitteelle ja keskijännitteelle tehosiirtotuotteet yrityksille.</p>
+<p>Tehomaksuttomat Yleissiirto ja Yösiirto koskevat hinnaston mukaan rivi-, pari- ja kerrostaloasuntoja, siksi niiden omakotitalosarakkeissa on viiva. Omakotitalossa valittavana ovat tehotuotteet, joissa siirtomaksu on halvempi ja tehomaksu tulee lisäksi.</p>
 <h2>Vuosikustannus Lahdessa</h2>
 ${vuosiTaulukko(h, v.t)}
-<p>Pienellä kulutuksella yleissiirto on selvästi halvin, koska sen perusmaksu on pieni. Sähkölämmitteisessä talossa yösiirto alkaa kannattaa vasta suurella kulutuksella, sillä myös päiväsiirto on yösiirtotuotteessa kalliimpi kuin yleissiirrossa. Tehomaksulliset tuotteet voivat kannattaa, jos huipputeho pysyy tasaisena.</p>
-<h2>Pörssisähkö Päijät-Hämeessä</h2>
-<p>Lahden ympäristön maaseutualueilla verkkoyhtiö on usein ${h.a('siirto-elenia', 'Elenia')}, jonka perusmaksut ovat selvästi suurempia. Lahdessa siirto on kohtuullinen, joten pörssisähkön ajoituksella on merkitystä. Esimerkiksi ${h.a('pyykinpesu', 'pyykinpesun')} siirtäminen halvalle tunnille näkyy suoraan kokonaishinnassa.</p>`;
+<p>Taulukon tehomaksu on laskettu 5 kilowatin huipulla. Sähkölämmitteisessä talossa huippu on usein suurempi: 10 kilowatin huippu lisää vuosikustannukseen ${h.eur(v.tehoVuosi(10) - v.tehoVuosi(5), 0)}. Huippua voi pienentää porrastamalla esimerkiksi sähköauton latauksen, saunan ja lämminvesivaraajan käyttöä, jolloin ne eivät osu samaan tuntiin.</p>
+<h2>Pörssisähkö ja tehomaksu yhdessä</h2>
+<p>Pörssisähkössä halvat tunnit houkuttelevat käynnistämään monta laitetta yhtä aikaa. Lahdessa se voi nostaa tehohuippua ja koko seuraavan vuoden tehomaksua. Siksi ${h.a('pyykinpesu', 'pyykinpesu')} ja muut joustavat kuormat kannattaa ajoittaa halvoille varteille peräkkäin eikä päällekkäin. Lahden ympäristön maaseudulla verkkoyhtiö on usein ${h.a('siirto-elenia', 'Elenia')}; ${h.a('tehomaksu', 'tehomaksun opas')} kertoo, miten eri verkot tehon laskevat.</p>`;
     },
   },
   en: {
     slug: 'transfer-fee-lahti-energia',
     nav: 'Lahti Energia',
-    card: 'Lahti Energia’s general and night transfer and the all-in spot electricity price in Lahti.',
-    title: 'Lahti Energia Transfer Fee 2026: Spot Price With Transfer',
-    description: 'Lahti Energia network transfer fees 2026: general and night transfer plus power-fee options. See the all-in spot electricity price in Lahti by quarter today.',
-    h1: 'Lahti Energia: the spot electricity price in Lahti',
-    intro: 'In Lahti the general transfer basic fee is the same whatever the fuse. The calculator adds Lahti’s transfer and taxes to every quarter hour.',
+    card: 'Lahti Energia’s power-fee and flat-rate transfer products and the all-in spot price in Lahti.',
+    title: 'Lahti Energia Transfer Fee 2026: Power Fee and Spot Price',
+    description: 'Lahti Energia transfer fees 2026: power-fee general and night transfer for houses, flat-rate products for apartments. All-in spot price by quarter today.',
+    h1: 'Lahti Energia: the spot electricity price in Lahti with the power fee',
+    intro: 'In Lahti a house’s transfer includes a power fee; a flat or terraced home does not. The calculator adds transfer, power fee and taxes to every quarter hour.',
     resume: (h) => {
       const v = V(h);
-      return `Lahti Energia’s network distributes electricity in the city of Lahti. Its price list applies from ${h.date(v.t.v.voimassa!)}. On general transfer the basic fee is ${h.eur(v.p)} a month and the transfer fee ${h.c(v.y.energia.kaikki!)} including VAT. On night transfer the basic fee is ${h.eur(v.pa)}, day transfer (07:00–22:00) costs ${h.c(v.a.energia.paiva!)} and night transfer (22:00–07:00) ${h.c(v.a.energia.yo!)}. Lahti Energia also offers both products in a power-fee version, with a cheaper transfer fee but a charge based on the highest hourly power of the previous 12 months; those are not in the calculator because the fee depends on your own annual peak. For a house using 5,000 kilowatt-hours, Lahti ranks ${v.t.sija5} of the calculator’s ${v.t.n} networks from cheapest. The all-in spot price on general transfer averages ${v.t.arvio ? `an estimated ${h.c(v.t.paiva.ka)}` : `${h.c(v.t.paiva.ka)} today`}. The calculator is preset to Lahti’s general transfer; switch to night transfer to see the price after 22:00.`;
+      return `Lahti Energia Sähköverkko distributes electricity in the city of Lahti; its price list applies from ${h.date(v.t.v.voimassa!)}. According to the company, the power fee applies to every connection with a single metering point, which usually means a detached house. Terraced, semi-detached and apartment homes have no power fee but may opt for a power product. General transfer with power fee costs ${h.c(v.yt.energia.kaikki!)}, with a basic fee of ${h.eur(v.pyt)} a month and a power fee of ${h.eur(v.teho)} per kilowatt per month. The power fee is based on the highest hourly average power of the previous 12 months, so a 5 kW peak costs ${h.eur(v.tehoVuosi(5), 0)} and a 10 kW peak ${h.eur(v.tehoVuosi(10), 0)} a year. Night transfer with power fee costs ${h.c(v.at.energia.paiva!)} by day (07:00–22:00) and ${h.c(v.at.energia.yo!)} at night. The flat-rate general transfer for apartments costs ${h.c(v.y.energia.kaikki!)} and ${h.eur(v.p)} a month. For a house using 5,000 kilowatt-hours with a 5 kW peak, Lahti ranks ${v.t.sija5} of the calculator’s ${v.t.n} networks from cheapest. Enter your own peak and the calculator prices the power fee from it.`;
     },
     faqs: (h) => {
       const v = V(h);
       return [
-        { q: 'How is Lahti Energia’s power fee calculated?', a: 'According to Lahti Energia, the power fee is based on the highest hourly average power measured over the previous 12 months. Power-fee products have a cheaper transfer fee, and the company recommends them especially for electric heating with high and steady demand. Work out the cost with your own consumption data before switching.' },
-        { q: 'Is night transfer worth it in Lahti?', a: `Night transfer’s basic fee of ${h.eur(v.pa)} is double general transfer’s ${h.eur(v.p)}, and its day rate of ${h.c(v.a.energia.paiva!)} is dearer than general transfer. At night it costs ${h.c(v.a.energia.yo!)}. By our calculation night transfer pays from about ${v.t.tasapainoAika ? h.num(v.t.tasapainoAika) : '–'} kilowatt-hours of winter-heavy use.` },
-        { q: 'Does Lahti’s basic fee depend on the fuse?', a: `Not on general transfer: the basic fee is ${h.eur(v.p)} a month for a flat or a house alike. Night transfer’s basic fee does not vary across normal household fuses either. A separate maintenance basic fee applies to connections where use has been suspended.` },
-        { q: 'Where do the calculator’s Lahti Energia prices come from?', a: 'They were read from Lahti Energia’s network service fee page, which lists them with and without VAT. The calculator uses the VAT-inclusive prices. A check script downloads the page regularly and confirms that every price used by the calculator appears on it.' },
+        { q: 'How is Lahti Energia’s power fee calculated?', a: `According to Lahti Energia, the power fee is based on the highest hourly average power measured over the previous 12 months. That peak and its fee stay in force for the next 12 months unless a new peak exceeds it. The fee is ${h.eur(v.teho)} per kilowatt per month including VAT. A lower peak only shows on the bill a year later. Your peak is in the company’s OmaWatti service.` },
+        { q: 'Does the power fee apply to a flat in Lahti?', a: `No. According to the company there is no power fee in terraced, semi-detached or apartment homes, which can use the flat-rate general transfer (${h.c(v.y.energia.kaikki!)}, basic fee ${h.eur(v.p)}) or night transfer. They may switch to a power product if they wish. In the calculator the flat-rate products appear when you choose a flat or single-phase connection.` },
+        { q: 'Is night transfer with power fee worth it in Lahti?', a: `Its basic fee of ${h.eur(v.pat)} is higher than general transfer’s ${h.eur(v.pyt)}, but night-time transfer costs only ${h.c(v.at.energia.yo!)}. By our calculation it becomes cheaper from about ${v.tasapainoTeho ? h.num(v.tasapainoTeho) : '–'} kilowatt-hours of winter-heavy use. The power fee is the same on both, so the choice depends on how much of your use falls between 22:00 and 07:00.` },
+        { q: 'Will Lahti’s power fee change in 2029?', a: 'According to Lahti Energia, the Energy Authority’s new regulation harmonising distribution pricing takes effect on 1 January 2029, and the company is designing its future products to match. In its view the current practice complies with the rules now in force. The calculator will be updated when a new price list is published.' },
       ];
     },
     body: (h) => {
       const v = V(h);
       return `<h2>Lahti’s transfer prices</h2>
 ${hintaTaulukko(h, v.t)}
-<p>On Lahti Energia’s price list the general and night transfer basic fees do not depend on whether the home is a flat or a house. Besides the power-fee versions, the company has low- and medium-voltage power products for businesses.</p>
+<p>Under the price list the flat-rate general and night transfer are for terraced, semi-detached and apartment homes, hence the dashes in the house columns. A house chooses between the power products, which have a cheaper transfer fee plus the power fee.</p>
 <h2>Annual cost in Lahti</h2>
 ${vuosiTaulukko(h, v.t)}
-<p>At low consumption general transfer is clearly cheapest because its basic fee is small. In an electrically heated house night transfer only starts to pay at high consumption, since its day rate is also dearer than general transfer. Power-fee products can pay if the peak stays steady.</p>
-<h2>Spot electricity in Päijät-Häme</h2>
-<p>In the rural areas around Lahti the operator is often ${h.a('siirto-elenia', 'Elenia')}, whose basic fees are clearly higher. In Lahti transfer is moderate, so timing spot-priced use matters. Moving ${h.a('pyykinpesu', 'the washing')} to a cheap hour, for instance, shows directly in the all-in price.</p>`;
+<p>The table prices the power fee at a 5 kW peak. An electrically heated house often peaks higher: a 10 kW peak adds ${h.eur(v.tehoVuosi(10) - v.tehoVuosi(5), 0)} a year. You can lower the peak by staggering the car charger, sauna and water heater so they do not run in the same hour.</p>
+<h2>Spot electricity and the power fee together</h2>
+<p>On a spot contract cheap hours tempt you to start several appliances at once. In Lahti that can raise your power peak and the whole next year’s power fee. Schedule ${h.a('pyykinpesu', 'the washing')} and other flexible loads on cheap quarters one after another rather than together. In the rural areas around Lahti the operator is often ${h.a('siirto-elenia', 'Elenia')}; the ${h.a('tehomaksu', 'power fee guide')} explains how different networks measure power.</p>`;
     },
   },
 });
