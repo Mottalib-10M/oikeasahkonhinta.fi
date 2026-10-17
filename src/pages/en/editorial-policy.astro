@@ -7,7 +7,7 @@ import { P } from '../../lib/engine/params';
 import { displayDate } from '../../lib/format';
 const lang = 'en';
 ---
-<PageLayout title={`Editorial policy – ${SITE_NAMES[lang]}`} description="How Kokosähkö checks exchange prices, transfer fees and taxes: official sources only, a date for every value, automatic tests and open corrections on every page." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+<PageLayout title={`Editorial policy – ${SITE_NAMES[lang]}`} description="How Oikea sähkön hinta checks exchange prices, transfer fees and taxes: official sources only, a date for every value, automatic tests and open corrections on every page." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Editorial policy</h1>
     <h2>Sources</h2><p>We use primary sources only: exchange prices as published by the power exchange and ENTSO-E, transfer fees from each network operator’s own price list, electricity tax and VAT from the Finnish Tax Administration and the Electricity Tax Act, postcode-to-operator data and contract comparisons from the Energy Authority, and consumption and price statistics from Statistics Finland. A blog, a comparison site or an energy company’s campaign page is never a source. Every value sits in the data file with its source and date ({displayDate(P.retrieved_at, 'en-GB')}).</p>

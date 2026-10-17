@@ -6,7 +6,7 @@ import { route } from '../../i18n/routes';
 import { displayDate } from '../../lib/format';
 const lang = 'fi';
 ---
-<PageLayout title={`Käyttöehdot ja julkaisija – ${SITE_NAMES[lang]}`} description="Kokosähkön julkaisija, palvelin, vastuu, tekijänoikeus ja sovellettava laki. Sivusto laskee pörssisähkön hinnan siirtomaksun, sähköveron ja alv:n kanssa." lang={lang} noindex={true} breadcrumbs={[{ label: 'Käyttöehdot' }]} showAuthor={false}>
+<PageLayout title={`Käyttöehdot ja julkaisija – ${SITE_NAMES[lang]}`} description="Oikea sähkön hinta -palvelun julkaisija, palvelin, vastuu, tekijänoikeus ja sovellettava laki. Sivusto laskee pörssisähkön hinnan siirtomaksun, sähköveron ja alv:n kanssa." lang={lang} noindex={true} breadcrumbs={[{ label: 'Käyttöehdot' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Käyttöehdot ja julkaisijan tiedot</h1>
     <h2>Julkaisija</h2>
@@ -15,7 +15,7 @@ const lang = 'fi';
     <h2>Palvelin</h2>
     <LegalIdentity mode="hosting" lang={lang} />
     <h2>Mitä sivusto tekee</h2>
-    <p>Kokosähkö muuntaa Suomen tarjousalueen pörssihinnan kilowattitunnin kokonaishinnaksi: myyjän marginaali tai kiinteä hinta, verkkoyhtiön siirtomaksu sen omasta hinnastosta, sähkövero ja huoltovarmuusmaksu Verohallinnon taulukosta sekä arvonlisävero. Tulokset ovat <strong>arvioita</strong>. Ratkaisevia ovat sähkönmyyjän ja verkkoyhtiön laskut. Sivusto on riippumaton, ei myy sähkösopimuksia eikä sillä ole yhteyttä sähköyhtiöihin, verkkoyhtiöihin, sähköpörssiin tai viranomaisiin. Menetelmä ja rajoitukset: <a href={route('method', lang)}>menetelmä ja lähteet</a>.</p>
+    <p>Oikea sähkön hinta muuntaa Suomen tarjousalueen pörssihinnan kilowattitunnin kokonaishinnaksi: myyjän marginaali tai kiinteä hinta, verkkoyhtiön siirtomaksu sen omasta hinnastosta, sähkövero ja huoltovarmuusmaksu Verohallinnon taulukosta sekä arvonlisävero. Tulokset ovat <strong>arvioita</strong>. Ratkaisevia ovat sähkönmyyjän ja verkkoyhtiön laskut. Sivusto on riippumaton, ei myy sähkösopimuksia eikä sillä ole yhteyttä sähköyhtiöihin, verkkoyhtiöihin, sähköpörssiin tai viranomaisiin. Menetelmä ja rajoitukset: <a href={route('method', lang)}>menetelmä ja lähteet</a>.</p>
     <h2>Vastuu</h2>
     <p>Hinnat ja verot tarkistetaan lähteistä ja moottori testataan automaattisesti, mutta verkkoyhtiöt voivat muuttaa hintojaan kesken vuoden, eikä virheettömyyttä voida taata. Kun päivän pörssihintoja ei ole saatavilla, näytetään merkitty keskihinta-arvio. Julkaisija ei vastaa päätöksistä, jotka tehdään pelkän arvion perusteella. Virheistä voi ilmoittaa <a href={route('contact', lang)}>yhteystietosivun</a> kautta.</p>
     <h2>Tekijänoikeus ja tiedot</h2>

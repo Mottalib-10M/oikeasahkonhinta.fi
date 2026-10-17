@@ -11,14 +11,14 @@
  "volumes": "/private/tmp/claude-501/-Users-mottalib/dee0c9f8-666c-41dc-a337-ed95eb787ee7/scratchpad/volumes-fi-sahko.txt",
  "folder": "porssisahko",
  "outDir": "a-publier/Mottalib-10M",
- "url": "https://kokosahko.fi",
+ "url": "https://oikeasahkonhinta.fi",
  "locales": [
   "fi",
   "en"
  ],
  "names": {
-  "fi": "Kokosähkö",
-  "en": "Kokosähkö"
+  "fi": "Oikea sähkön hinta",
+  "en": "Oikea sähkön hinta"
  },
  "langTags": {
   "fi": "fi-FI",
@@ -41,18 +41,18 @@
   "fi": "Radif Partners laskee pörssisähkön todellisen hinnan Suomessa: Suomen tarjousalueen vartti- ja tuntihinnat, paikallisen verkkoyhtiön siirtomaksu ja perusmaksu verkkoyhtiöiden omista hinnastoista, sähkövero ja huoltovarmuusmaksu Verohallinnon verotaulukosta sekä arvonlisävero 25,5 %. Hinnat päivittyvät joka päivä automaattisesti.",
   "en": "Radif Partners computes the real price of exchange electricity in Finland: quarter-hour and hourly prices for the Finnish bidding zone, the local network operator's transfer and basic fees taken from each operator's own price list, the electricity tax and security-of-supply fee from the Finnish Tax Administration's table, and 25.5% VAT. Prices refresh automatically every day."
  },
- "email": "contact@kokosahko.fi",
+ "email": "contact@oikeasahkonhinta.fi",
  "indexnow": "6c564391933ccbd2a8662a33e411347c",
- "shortName": "Kokosähkö",
+ "shortName": "Oikea sähkön hinta",
  "description": "Pörssisähkön hinta tänään ja huomenna vartin tarkkuudella siirtomaksun, sähköveron ja arvonlisäveron kanssa: todellinen hinta oman verkkoyhtiön mukaan.",
  "port": 5540,
  "og": [
   {
    "file": "og-fi.png",
-   "title": "Kokosähkö",
+   "title": "Oikea sähkön hinta",
    "subtitle": "",
    "badge": "2026",
-   "brand": "Kokosähkö"
+   "brand": "Oikea sähkön hinta"
   }
  ],
  "lastUpdated": "2026-10-15",

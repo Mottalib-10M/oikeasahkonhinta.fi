@@ -7,7 +7,7 @@ import { P } from '../../lib/engine/params';
 import { displayDate } from '../../lib/format';
 const lang = 'fi';
 ---
-<PageLayout title={`Toimituksen periaatteet – ${SITE_NAMES[lang]}`} description="Miten Kokosähkö tarkistaa pörssihinnat, siirtomaksut ja verot: vain viralliset lähteet, päivämäärä jokaiselle luvulle, automaattiset testit ja avoimet korjaukset." lang={lang} noindex={true} breadcrumbs={[{ label: 'Toimituksen periaatteet' }]} showAuthor={false}>
+<PageLayout title={`Toimituksen periaatteet – ${SITE_NAMES[lang]}`} description="Miten Oikea sähkön hinta tarkistaa pörssihinnat, siirtomaksut ja verot: vain viralliset lähteet, päivämäärä jokaiselle luvulle, automaattiset testit ja avoimet korjaukset." lang={lang} noindex={true} breadcrumbs={[{ label: 'Toimituksen periaatteet' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Toimituksen periaatteet</h1>
     <h2>Lähteet</h2><p>Käytämme vain ensisijaisia lähteitä: pörssihinnat sähköpörssin ja ENTSO-E:n julkaisemina, siirtohinnat kunkin verkkoyhtiön omasta hinnastosta, sähköveron ja arvonlisäveron Verohallinnolta ja sähköverolaista, postinumeroiden verkkoyhtiöt ja sopimusten vertailutiedot Energiavirastolta sekä kulutus- ja hintatilastot Tilastokeskukselta. Blogi, vertailusivu tai sähköyhtiön kampanjasivu ei ole koskaan lähde. Jokainen arvo on tietotiedostossa lähteen ja päivämäärän ({displayDate(P.retrieved_at, 'fi-FI')}) kanssa.</p>

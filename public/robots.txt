@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://kokosahko.fi/sitemap-index.xml
+Sitemap: https://oikeasahkonhinta.fi/sitemap-index.xml

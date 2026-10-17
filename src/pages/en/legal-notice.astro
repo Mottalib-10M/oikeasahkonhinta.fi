@@ -6,7 +6,7 @@ import { route } from '../../i18n/routes';
 import { displayDate } from '../../lib/format';
 const lang = 'en';
 ---
-<PageLayout title={`Legal notice and publisher – ${SITE_NAMES[lang]}`} description="Kokosähkö’s publisher, host, liability, copyright and applicable law. The site works out the Finnish spot electricity price with transfer fee, tax and VAT included." lang={lang} noindex={true} breadcrumbs={[{ label: 'Legal notice' }]} showAuthor={false}>
+<PageLayout title={`Legal notice and publisher – ${SITE_NAMES[lang]}`} description="Oikea sähkön hinta’s publisher, host, liability, copyright and applicable law. The site works out the Finnish spot electricity price with transfer fee, tax and VAT included." lang={lang} noindex={true} breadcrumbs={[{ label: 'Legal notice' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Legal notice and publisher details</h1>
     <h2>Publisher</h2>
@@ -15,7 +15,7 @@ const lang = 'en';
     <h2>Host</h2>
     <LegalIdentity mode="hosting" lang={lang} />
     <h2>What the site does</h2>
-    <p>Kokosähkö turns the Finnish bidding-zone exchange price into an all-in price per kilowatt-hour: the retailer’s margin or fixed price, the network operator’s transfer fee from its own price list, electricity tax and the security-of-supply fee from the Tax Administration’s table, and VAT. Results are <strong>estimates</strong>. Your retailer’s and network operator’s bills are what count. The site is independent, sells no contracts and has no link to energy companies, network operators, the power exchange or public authorities. Method and limits: <a href={route('method', lang)}>method and sources</a>.</p>
+    <p>Oikea sähkön hinta turns the Finnish bidding-zone exchange price into an all-in price per kilowatt-hour: the retailer’s margin or fixed price, the network operator’s transfer fee from its own price list, electricity tax and the security-of-supply fee from the Tax Administration’s table, and VAT. Results are <strong>estimates</strong>. Your retailer’s and network operator’s bills are what count. The site is independent, sells no contracts and has no link to energy companies, network operators, the power exchange or public authorities. Method and limits: <a href={route('method', lang)}>method and sources</a>.</p>
     <h2>Liability</h2>
     <p>Prices and taxes are checked against their sources and the engine is tested automatically, but operators may change prices during the year and no guarantee of accuracy can be given. When the day’s exchange prices are unavailable, a marked average-price estimate is shown. The publisher is not liable for decisions made on the basis of an estimate alone. Report errors via the <a href={route('contact', lang)}>contact page</a>.</p>
     <h2>Copyright and data</h2>

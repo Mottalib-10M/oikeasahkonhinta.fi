@@ -4,10 +4,17 @@
  "variants": [
   {
    "file": "og-fi.png",
-   "title": "Kokosähkö",
-   "subtitle": "",
+   "title": "Oikea sähkön hinta",
+   "subtitle": "Pörssisähkö siirron ja verojen kanssa",
    "badge": "2026",
-   "brand": "Kokosähkö"
+   "brand": "Oikea sähkön hinta"
+  },
+  {
+   "file": "og-en.png",
+   "title": "Oikea sähkön hinta",
+   "subtitle": "Finnish spot price with transfer and tax",
+   "badge": "2026",
+   "brand": "Oikea sähkön hinta"
   }
  ]
 }

@@ -1,6 +1,6 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://kokosahko.fi";
-export const SITE_NAMES: Record<string, string> = {"fi": "Kokosähkö", "en": "Kokosähkö"};
+export const SITE_URL = "https://oikeasahkonhinta.fi";
+export const SITE_NAMES: Record<string, string> = {"fi": "Oikea sähkön hinta", "en": "Oikea sähkön hinta"};
 export const LANG_TAGS: Record<string, string> = {"fi": "fi-FI", "en": "en-FI"};
 export const OG_LOCALES: Record<string, string> = {"fi": "fi_FI", "en": "en_GB"};
 export const LOCALE_TAG = 'fi-FI';
@@ -19,7 +19,7 @@ export const AUTHOR_DESC: Record<string, string> = {"fi": "Radif Partners laskee
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"fi": ["Pörssisähkön spot-hinta", "Sähkön varttihinta", "Sähkönsiirron hinnat verkkoyhtiöittäin", "Sähkövero ja huoltovarmuusmaksu", "Pörssisähkö vai kiinteä sopimus", "Sähkölaitteiden käyttökustannus"], "en": ["Finnish exchange electricity spot price", "Quarter-hour electricity prices", "Electricity distribution tariffs by network operator", "Finnish electricity tax", "Spot versus fixed-price contracts", "Running cost of household appliances"]};
-export const CONTACT_EMAIL = "contact@kokosahko.fi";
+export const CONTACT_EMAIL = "contact@oikeasahkonhinta.fi";
 export const THEME_COLOR = '#0B5D4B';
 export const LOGO_SYMBOL = 'eclair';
 export const BING_VERIFY_CODE = '';

@@ -1,6 +1,6 @@
 {
- "name": "Kokosähkö",
- "short_name": "Kokosähkö",
+ "name": "Oikea sähkön hinta",
+ "short_name": "Sähkön hinta",
  "description": "Pörssisähkön hinta tänään ja huomenna vartin tarkkuudella siirtomaksun, sähköveron ja arvonlisäveron kanssa: todellinen hinta oman verkkoyhtiön mukaan.",
  "start_url": "/fi/",
  "display": "standalone",

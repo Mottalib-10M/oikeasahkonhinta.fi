@@ -24,7 +24,7 @@ Recherche web (WebSearch) + lecture des pages par curl. Mesure : présence de mo
 
 Aucun concurrent ne nomme un seul gestionnaire de réseau (0 occurrence de Caruna ou Elenia sur toutes les pages lues).
 
-## Ce que Kokosähkö fait mieux
+## Ce que Oikea sähkön hinta fait mieux
 
 1. **Le prix réel au quart d'heure** : spot + marge (ou prix fixe) + siirtomaksu du réseau local + sähkövero + ALV,
    pour tous les gestionnaires dont le hinnasto est publié et lisible (voir `src/data/verkot-2026.json`, liste `puuttuu`
