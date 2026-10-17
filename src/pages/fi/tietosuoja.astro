@@ -1,23 +1,25 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
-import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { AUTHOR_NAME, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
 import { P } from '../../lib/engine/params';
 import { displayDate } from '../../lib/format';
 const lang = 'fi';
 ---
-<PageLayout title={`Tietosuojaseloste – ${SITE_NAMES[lang]}`} description="Oikea sähkön hinta laskee selaimessasi: postinumeroa, kulutusta tai sopimustietoja ei lähetetä meille. Miten tietoja käsitellään tietosuoja-asetuksen mukaan ja oikeutesi." lang={lang} noindex={true} breadcrumbs={[{ label: 'Tietosuoja' }]} showAuthor={false}>
+<PageLayout title={`Tietosuojaseloste – ${SITE_NAMES[lang]}`} description="Oikea sähkön hinta laskee selaimessasi: syöttämiäsi tietoja ei lähetetä meille. Kävijämittaus Google Analyticsilla evästein, ilman mainoksia; käsittely tietosuoja-asetuksen mukaan ja oikeutesi." lang={lang} noindex={true} breadcrumbs={[{ label: 'Tietosuoja' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Tietosuojaseloste</h1>
     <h2>Rekisterinpitäjä</h2>
     <LegalIdentity lang={lang} />
     <h2>Syöttämäsi tiedot</h2>
     <p>Postinumero, verkkoyhtiö, kulutus, marginaali ja muut syöttämäsi arvot käsitellään vain selaimessasi. Mitään ei lähetetä meille eikä kenellekään muulle. Selain lataa samalta palvelimelta kaksi julkista tiedostoa: päivän pörssihinnat ja postinumeroiden verkkoyhtiöluettelon; niiden lataaminen ei kerro meille, mitä kirjoitit. Jos käytät jakolinkkiä, arvosi näkyvät osoitteessa ja sen vastaanottajalle.</p>
-    <h2>Ei evästeitä</h2>
-    <p>Sivusto ei aseta evästeitä eikä tallenna mitään selaimen paikalliseen tallennustilaan. Katso myös <a href={route('cookies', lang)}>evästeet</a>.</p>
+    <h2>Kävijämittaus (Google Analytics)</h2>
+    <p>Sivusto käyttää Google Analytics 4 -palvelua käyntien laskemiseen ja sen selvittämiseen, mitkä sivut ovat hyödyllisiä: katsotut sivut, viittaava sivu, käynnin kesto, laite- ja selaintyyppi sekä likimääräinen maa ja kaupunki. Tätä varten Google Analytics asettaa laitteellesi kaksi evästettä: <code>_ga</code>, joka erottaa kävijät satunnaisella tunnisteella, ja <code>_ga_{GA4_ID.replace('G-', '')}</code>, joka säilyttää käynnin tilan. Niiden voimassaolo on rajattu enintään 13 kuukauteen (390 päivää), eikä sitä pidennetä jokaisella käynnillä; Googlen oletus on 2 vuotta.</p>
+    <p>IP-osoite anonymisoidaan: Google Analytics 4 ei kirjaa eikä tallenna sitä, vaan käyttää sitä vain keruuhetkellä likimääräisen maan ja kaupungin päättelyyn. Google Analyticsille lähetettävästä sivun osoitteesta poistetaan parametrit, joten jakolinkin arvot eivät lähde mukana. Sivustolla ei ole mainoksia: mainostallennus, mainostiedot, mainosten personointi ja Google-signaalit on kytketty pois, eikä mittaustietoja jaeta yhdellekään mainostajalle.</p>
+    <p>Palveluntarjoaja: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlanti, henkilötietojen käsittelijänä (tietosuoja-asetuksen 28 artikla). Tietoja voidaan siirtää Google LLC:lle Yhdysvaltoihin EU–U.S. Data Privacy Framework -järjestelyn ja Euroopan komission vakiosopimuslausekkeiden perusteella. Säilytys Googlella: 14 kuukautta, minkä jälkeen tiedot poistetaan. Peruste: julkaisijan oikeutettu etu tietää, miten sivustoa käytetään (tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta). Voit vastustaa estämällä tai poistamalla evästeet selaimen asetuksista tai asentamalla <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google Analyticsin käytöstä poistavan selainlaajennuksen</a>; sivusto toimii samoin. Katso myös <a href={route('cookies', lang)}>evästeet</a>.</p>
     <h2>Nimetön toimivuuden seuranta (Microsoft Clarity)</h2>
-    <p>Sivuston toimivuuden tarkistamiseen (virheet, latausajat, toimimattomat napsautukset) voidaan käyttää Microsoft Clarityä evästeettömässä tilassa: evästettä ei aseteta, käynnit eivät yhdisty toisiinsa ja sivun sisältö peitetään. Palveluntarjoaja: Microsoft Ireland Operations Limited. Säilytys 30 päivää, koosteet enintään 13 kuukautta. Peruste: oikeutettu etu toimivaan sivustoon (tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta). Voit vastustaa estämällä clarity.ms-osoitteen selaimessasi tai kirjoittamalla meille.</p>
+    <p>Sivuston toimivuuden tarkistamiseen (virheet, latausajat, toimimattomat napsautukset) voidaan käyttää Microsoft Clarityä evästeettömässä tilassa, jolloin Clarity ei yhdistä käyntejä toisiinsa ja sivun sisältö peitetään. Palveluntarjoaja: Microsoft Ireland Operations Limited. Säilytys 30 päivää, koosteet enintään 13 kuukautta. Peruste: oikeutettu etu toimivaan sivustoon (tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta). Voit vastustaa estämällä clarity.ms-osoitteen selaimessasi tai kirjoittamalla meille.</p>
     <h2>Palvelimen tekniset lokit</h2>
     <p>Kuten mikä tahansa verkkopalvelin, palveluntarjoaja voi tallentaa hetkeksi IP-osoitteen ja ajan sivujen toimittamiseksi ja väärinkäytön estämiseksi. Meillä ei ole pääsyä näihin lokeihin kävijöiden tunnistamiseksi. Palvelimen tiedot: <a href={route('terms', lang)}>käyttöehdot</a>.</p>
     <h2>Sähköposti</h2>

@@ -1,17 +1,26 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
-import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { AUTHOR_NAME, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
 import { displayDate } from '../../lib/format';
 const lang = 'fi';
 ---
-<PageLayout title={`Evästeet – ${SITE_NAMES[lang]}`} description="Oikea sähkön hinta ei aseta evästeitä eikä tallenna mitään laitteellesi. Pörssisähkön hinta, siirtomaksu ja laitteiden käyttökustannus lasketaan selaimessa ilman seurantaa." lang={lang} noindex={true} breadcrumbs={[{ label: 'Evästeet' }]} showAuthor={false}>
+<PageLayout title={`Evästeet – ${SITE_NAMES[lang]}`} description="Oikea sähkön hinta asettaa vain Google Analyticsin kävijämittausevästeet: nimet, tarkoitus, voimassaolo enintään 13 kuukautta, palveluntarjoaja ja vastustaminen. Ei mainoksia." lang={lang} noindex={true} breadcrumbs={[{ label: 'Evästeet' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Evästeet</h1>
-    <p>Sivusto ei aseta evästeitä eikä käytä selaimen paikallista tallennustilaa. Hintalaskuri, siirtohintojen vertailu ja laitelaskurit eivät tarvitse mitään tallennettua: kaikki lasketaan uudelleen, kun muutat arvoa.</p>
-    <h2>Ei seurantaa, ei mainoksia</h2><p>Sivustolla ei ole mainoksia, sosiaalisen median painikkeita eikä seurantaa, joten evästebanneria ei tarvita. Sivujen toimivuuden tarkistamiseen voidaan käyttää Microsoft Clarityä ilman evästeitä ja sivun sisältö peitettynä: laitteellesi ei tallenneta mitään.</p>
-    <h2>Upotettu laskuri</h2><p>Muille sivustoille upotettu laskuri ei myöskään aseta evästeitä. Lisää <a href={route('privacy', lang)}>tietosuojaselosteessa</a>.</p>
+    <p>Sivusto asettaa Google Analyticsin kävijämittausevästeet ja vain ne, pelkkää kävijätilastoa varten. Hintalaskuri, siirtohintojen vertailu ja laitelaskurit eivät tallenna syöttämiäsi arvoja.</p>
+    <h2>Asetetut evästeet</h2>
+    <table><thead><tr><th>Nimi</th><th>Palveluntarjoaja</th><th>Tarkoitus</th><th>Voimassaolo</th></tr></thead><tbody>
+    <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Kävijöiden erottaminen satunnaisella tunnisteella</td><td>enintään 13 kuukautta (390 päivää)</td></tr>
+    <tr><td><code>_ga_{GA4_ID.replace('G-', '')}</code></td><td>Google Analytics</td><td>Käynnissä olevan käynnin tilan säilyttäminen</td><td>enintään 13 kuukautta (390 päivää)</td></tr>
+    </tbody></table>
+    <p>Voimassaoloa ei pidennetä jokaisella käynnillä; Googlen oletus on 2 vuotta, ja sivusto lyhentää sitä. Tarkoitus: kävijämittaus (katsotut sivut, viittaaja, laite, likimääräinen maa). IP-osoite anonymisoidaan: Google Analytics 4 ei kirjaa eikä tallenna sitä. Ei mainoksia eikä mainoskäyttöön jakamista: mainostallennus, mainosten personointi ja Google-signaalit on kytketty pois.</p>
+    <p>Palveluntarjoaja: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlanti. Tietoja voidaan siirtää Google LLC:lle Yhdysvaltoihin EU–U.S. Data Privacy Framework -järjestelyn ja Euroopan komission vakiosopimuslausekkeiden perusteella. Säilytys Googlella: 14 kuukautta. Peruste: julkaisijan oikeutettu etu (tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta).</p>
+    <h2>Evästeiden vastustaminen</h2>
+    <p>Estä tai poista evästeet selaimen asetuksista tai asenna <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google Analyticsin käytöstä poistava selainlaajennus</a>. Sivusto ja laskurit toimivat samoin.</p>
+    <h2>Microsoft Clarity ilman evästeitä</h2><p>Sivujen toimivuuden tarkistamiseen voidaan käyttää Microsoft Clarityä evästeettömässä tilassa ja sivun sisältö peitettynä. Sen voi estää estämällä clarity.ms-osoitteen.</p>
+    <h2>Upotettu laskuri</h2><p>Muille sivustoille upotettu laskuri ei aseta evästeitä eikä lataa Google Analyticsia. Lisää <a href={route('privacy', lang)}>tietosuojaselosteessa</a>.</p>
     <p>Kysymykset: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Päivitetty {displayDate(LAST_UPDATED, 'fi-FI')}.</p>
   </div>
 </PageLayout>
