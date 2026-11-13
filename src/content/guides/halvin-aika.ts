@@ -23,8 +23,8 @@ export default defineGuide({
     card: 'Mihin vuorokauden aikaan pörssisähkö on tyypillisesti halvinta ja miten halvin jakso löytyy.',
     title: 'Halvin aika käyttää sähköä 2026: pörssisähkön halvat tunnit',
     description: 'Halvin aika käyttää sähköä 2026: pörssisähkön tyypillisesti halvimmat ja kalleimmat tunnit arkena ja viikonloppuna sekä tämän päivän halvin jakso kotiin.',
-    h1: 'Milloin sähkö on halvinta?',
-    intro: 'Pörssisähkön hinta noudattaa vuorokausirytmiä, mutta tuuli sekoittaa sen usein. Tässä tyypilliset halvat tunnit ja tämän päivän halvin jakso.',
+    h1: 'Halvin aika käyttää sähköä: milloin sähkö on halvinta?',
+    intro: 'Pörssisähkön hinta noudattaa vuorokausirytmiä, mutta tuuli sekoittaa sen usein. Tässä tyypilliset halvat tunnit ja tämän päivän halvin aika käyttää sähköä.',
     resume: (h) => {
       const v = V(h);
       const a = v.arki, w = v.vkl;
@@ -64,7 +64,7 @@ ${rows.length ? h.table(['Tunti', 'Arki: ero päivän keskiarvoon', 'Viikonloppu
 <h2>Esimerkki: viikon kulutuksen ajoittaminen</h2>
 <p>Oletetaan, että kotitalous lataa sähköautoa kaksi kertaa viikossa, lämmittää lämminvesivaraajan joka yö ja pesee pyykkiä neljä kertaa viikossa. Jos kaikki tämä ajoitetaan päivän halvimpiin jaksoihin, säästö syntyy pörssihinnan erosta ja yösiirrossa myös siirtomaksun erosta. Säästön suuruus riippuu siitä, kuinka paljon hinnat vaihtelevat: hintavaihtelultaan tasaisena päivänä säästö on pieni, voimakkaasti vaihtelevana päivänä suuri. Laitekohtaiset laskurit näyttävät tämän päivän säästön euroina kullekin laitteelle.</p>
 <p>Ajoittamisen ei tarvitse olla työlästä. Monessa sähköautossa, latausasemassa ja kodin automaatiojärjestelmässä on pörssihintaohjaus, joka valitsee halvimmat tunnit automaattisesti. Lämminvesivaraajan ohjaus voi perustua verkkoyhtiön ohjaukseen tai omaan ajastimeen. Kun ajastus on kerran asetettu, säästö kertyy ilman päivittäistä vaivaa.</p>
-<h2>Halvin aika ja oma kulutusprofiili</h2>
+<h2>Halvin aika käyttää sähköä ja oma kulutusprofiili</h2>
 <p>Verkkoyhtiön palvelussa näet oman kulutuksesi tunneittain tai varteittain. Vertaa sitä tämän sivun profiiliin: jos suuri osa kulutuksestasi osuu aamun ja alkuillan kalleimpiin tunteihin, ajoittamisesta on sinulle eniten hyötyä. Jos kulutus on jo valmiiksi painottunut yöhön, esimerkiksi varaavan lämmityksen vuoksi, pörssisopimuksen keskihintasi on todennäköisesti kuukauden keskihintaa matalampi. Kulutuksen seuraaminen kuukauden ajan antaa hyvän kuvan siitä, mitkä laitteet kannattaa ajastaa ensimmäisenä.</p>
 <p>Tämän sivuston laskurit käyttävät samoja virallisia lähteitä: pörssihinnat Suomen tarjousalueelta, siirtohinnat verkkoyhtiöiden omista hinnastoista ja verot Verohallinnon taulukosta. Kaikki laskenta tapahtuu selaimessasi, eikä syöttämiäsi tietoja lähetetä minnekään. Hinnat päivittyvät joka päivä automaattisesti, ja jos päivän pörssihintoja ei ole saatavilla, laskuri näyttää selvästi merkityn keskihinta-arvion. Lisätietoa laskentatavasta, lähteistä ja rajoituksista on menetelmäsivulla.</p>`;
     },
@@ -75,8 +75,8 @@ ${rows.length ? h.table(['Tunti', 'Arki: ero päivän keskiarvoon', 'Viikonloppu
     card: 'When Finnish spot electricity is typically cheapest and how to find the cheapest window.',
     title: 'Cheapest Time to Use Electricity Finland 2026: Cheap Hours',
     description: 'Cheapest time to use electricity in Finland, 2026: the typically cheapest and dearest spot hours on weekdays and weekends, and today’s cheapest window.',
-    h1: 'When is electricity cheapest?',
-    intro: 'The spot price follows a daily rhythm, but wind often reshuffles it. Here are the typical cheap hours and today’s cheapest window.',
+    h1: 'When is electricity cheapest in Finland?',
+    intro: 'The spot price follows a daily rhythm that wind often reshuffles: typical cheap hours and today’s cheapest time to use electricity.',
     resume: (h) => {
       const v = V(h);
       const a = v.arki, w = v.vkl;
@@ -95,7 +95,7 @@ ${rows.length ? h.table(['Tunti', 'Arki: ero päivän keskiarvoon', 'Viikonloppu
       return `<h2>The typical daily rhythm</h2>
 ${rows.length ? h.table(['Hour', 'Weekday: gap to day average', 'Weekend: gap to day average'], rows, `Average deviation of the spot price from the day’s mean, c/kWh incl. VAT. Actual quarter-hour prices from our archive (${h.num(v.arki!.paivia)} weekdays, ${v.vkl ? h.num(v.vkl.paivia) : 0} weekend days).`, ['l', 'r', 'r']) : ''}
 <p>The table shows how far each hour’s spot price has on average deviated from the same day’s mean. Negative hours have been cheaper on average, positive ones dearer. The profile is computed from actual prices in our archive and refreshes daily as the archive grows. The same profile underpins the average-price estimate when the day’s prices are not yet published.</p>
-<h2>Today’s cheapest window</h2>
+<h2>Today’s cheapest time to use electricity</h2>
 <p>The average rhythm is a good rule of thumb, but the day’s real prices can differ a lot. The home page calculator finds the cheapest continuous window for the length you choose on your own operator’s transfer. On Elenia’s night transfer the update day’s cheapest two-hour window started at ${v.el.kello(v.el.ik2.i)}, at an all-in ${h.c(v.el.ik2.ka)}. Tomorrow’s cheapest window appears on the ${h.a('huomenna', 'tomorrow page')} in the afternoon.</p>
 <h2>What to time</h2>
 <ul>

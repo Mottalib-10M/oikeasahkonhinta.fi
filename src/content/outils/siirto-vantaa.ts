@@ -31,7 +31,7 @@ export default defineGuide({
     title: 'Vantaan Energia siirtohinta 2026: aika- ja kausisiirto',
     description: 'Vantaan Energian siirtohinnat 2026: uusi Kerrostalosiirto, yleissiirto sama perusmaksu kaikille 25–63 A sulakkeille, aika- ja kausisiirto. Hinta varteittain.',
     h1: 'Vantaan Energia: pörssisähkön hinta Vantaalla siirron kanssa',
-    intro: 'Vantaalla siirron perusmaksu ei kasva sulakkeen mukana, ja kerrostaloille on huhtikuusta 2026 alkaen oma tuote. Laskuri lisää siirron ja verot jokaiseen varttiin.',
+    intro: 'Vantaan Energian verkossa siirron perusmaksu ei kasva sulakkeen mukana, ja kerrostaloille on huhtikuusta 2026 alkaen oma tuote. Laskuri lisää siirron ja verot jokaiseen varttiin.',
     resume: (h) => {
       const v = V(h);
       return `Vantaan Energia Sähköverkot siirtää sähkön Vantaalla yhtiön mukaan yli ${h.num(v.t.v.asiakkaat!.maara)} asiakkaalle, ja sen verkkopalveluhinnasto on voimassa ${h.date(v.t.v.voimassa!)} alkaen. Hinnaston erikoisuus on perusmaksu, joka ei riipu pääsulakkeesta: yleissiirrossa se on ${h.eur(v.py)} kuukaudessa kaikilla 25–63 ampeerin sulakkeilla, joten 3 × 35 ampeerin talo maksaa saman ${h.eur(v.py35)} kuin 3 × 25 ampeerin talo. Yleissiirron siirtomaksu on ${h.c(v.y.energia.kaikki!)}. Hinnastoon lisättiin samalla uusi Kerrostalosiirto, jonka siirtomaksu on ${h.c(v.kt.energia.kaikki!)} ja perusmaksu ${h.eur(v.pk)}. ${v.a ? `Aikasiirrossa päivähinta ${h.c(v.a.energia.paiva!)} on voimassa kaikkina viikonpäivinä kello 7–22 ja yöhinta ${h.c(v.a.energia.yo!)} muina aikoina. ` : ''}${v.k ? `Kausisiirron talvipäivähinta ${h.c(v.k.energia.talvipaiva!)} koskee marras–maaliskuun maanantaita–lauantaita kello 7–22, muulloin hinta on ${h.c(v.k.energia.muu!)}. ` : ''}Tehosiirto on hinnaston mukaan tarkoitettu yli 3 × 63 ampeerin käyttöpaikoille, joten tavallisen kodin siirrossa ei ole tehomaksua. Omakotitalon 5 000 kilowattitunnin siirto on Vantaalla ${v.t.sija5}. edullisin laskurin ${v.t.n} verkosta, ja kerrostalon 2 000 kilowattitunnin siirto on ${v.t.sija2}. edullisin. Laskuri on asetettu yleissiirtoon; vaihda tuote ja asunto, niin näet jokaisen vartin kokonaishinnan.`;
@@ -80,7 +80,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Vantaan Energia’s network price list</h2>
+      return `<h2>Vantaan Energia’s transfer fee price list</h2>
 ${hintaTaulukko(h, v.t)}
 <p>The basic fees match in the 3 × 25 A and 3 × 35 A columns because the price list charges a single rate for fuses from 25 to 63 A. The apartment tariff shows dashes in the house columns: under the price list it is only for metering points of up to 3 × 25 A in connections with at least ten consumption points.</p>
 <h2>Annual cost in Vantaa</h2>

@@ -23,7 +23,7 @@ export default defineGuide({
     title: 'Kuopion Sähköverkko siirtohinta 2026: pörssisähkö kaikkineen',
     description: 'Kuopion Sähköverkon siirtohinnat 2026: yleissiirto ja aikasiirto tehomaksulla. Näe pörssisähkön kokonaishinta Kuopiossa vartti vartilta siirron ja veron kanssa.',
     h1: 'Kuopion Sähköverkko: pörssisähkön hinta Kuopiossa',
-    intro: 'Kuopiossa aikasiirtoon kuuluu tehomaksu kuukauden suurimman tunnin mukaan. Laskuri näyttää siirron ja veron jokaisessa vartissa.',
+    intro: 'Kuopiossa aikasiirtoon kuuluu tehomaksu kuukauden suurimman tunnin mukaan. Laskuri näyttää Kuopion Sähköverkon siirtohinnan ja veron jokaisessa vartissa.',
     resume: (h) => {
       const v = V(h);
       return `Kuopion Sähköverkko siirtää sähkön Kuopion kaupunkialueella, kun taas ympäröivä Pohjois-Savo kuuluu suurelta osin Savon Voiman verkkoon. Verkkopalvelumaksut ovat voimassa ${h.date(v.t.v.voimassa!)} alkaen. Yleissiirrossa perusmaksu on ${h.eur(v.p)} kuukaudessa enintään 63 ampeerin liittymille ja siirtomaksu ${h.c(v.y.energia.kaikki!)} arvonlisäveron kanssa. Aikasiirrossa perusmaksu on ${h.eur(v.pa)}, päiväsiirto kello 7–22 maksaa ${h.c(v.a.energia.paiva!)} ja yösiirto ${h.c(v.a.energia.yo!)}, ja lisäksi peritään pätötehomaksua ${h.num(v.teho, 2)} euroa kilowatilta kuukaudessa laskutuskuukauden korkeimman tunnin keskitehon mukaan. Pörssisähkön kokonaishinta yleissiirrolla on ${v.t.arvio ? 'arvion mukaan' : 'tänään'} keskimäärin ${h.c(v.t.paiva.ka)}. Laskuri on asetettu Kuopion yleissiirtoon. Vaihda aikasiirtoon ja oma sopimuksesi, niin näet päivän ja yön eron jokaisessa vartissa; tehomaksu riippuu omasta huipustasi ja näkyy alempana vuosivertailussa. Ympäröivän maaseudun Savon Voiman hinnat löydät omalta sivultaan. Kuopion yleissiirto on laskurin verkkojen edullisemmasta päästä, joten pörssihinnan vaihtelu näkyy kokonaishinnassa selvästi.`;
@@ -39,7 +39,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Kuopion hinnat</h2>
+      return `<h2>Kuopion Sähköverkon siirtohinnat</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Kuopion Sähköverkon yleissiirron perusmaksu on sama kaikille enintään 63 ampeerin liittymille, ja aikasiirto on tarkoitettu sähkölämmitteisille rivi- ja omakotitaloille. Sähkövero on hinnastossa erikseen, ja laskuri lisää sen jokaiseen varttiin.</p>
 <h2>Yleissiirto vai aikasiirto</h2>
@@ -55,7 +55,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Kuopion Sähköverkko’s general transfer and time-of-day transfer with a power fee, and the all-in spot price in Kuopio.',
     title: 'Kuopio Transfer Fee 2026: Spot Electricity With All Fees',
     description: 'Kuopion Sähköverkko transfer fees 2026: general transfer and time-of-day transfer with a power fee. See the all-in spot electricity price in Kuopio by quarter.',
-    h1: 'Kuopion Sähköverkko: the spot electricity price in Kuopio',
+    h1: 'Kuopion Sähköverkko transfer fee: the spot electricity price in Kuopio',
     intro: 'In Kuopio time-of-day transfer carries a power fee based on the month’s highest hour. The calculator shows transfer and tax in every quarter hour.',
     resume: (h) => {
       const v = V(h);
@@ -72,7 +72,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Kuopio’s prices</h2>
+      return `<h2>Kuopio’s transfer fees</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Kuopion Sähköverkko’s general transfer basic fee is the same for every connection up to 63 A, and time-of-day transfer is meant for electrically heated terraced and detached houses. Electricity tax is listed separately and the calculator adds it to every quarter hour.</p>
 <h2>General or time-of-day transfer</h2>

@@ -32,7 +32,7 @@ export default defineGuide({
     title: 'Negatiivinen sähkön hinta 2026: mitä silloin oikeasti maksat',
     description: 'Negatiivinen sähkön hinta 2026: miksi pörssihinta painuu alle nollan, kuinka usein niin käy ja mitä kilowattitunti silloin maksaa siirron ja sähköveron kanssa.',
     h1: 'Negatiivinen sähkön hinta: saako sähköä ilmaiseksi?',
-    intro: 'Pörssihinta voi olla negatiivinen, mutta kuluttajan kokonaishinta pysyy lähes aina plussalla. Laskuri kertoo, paljonko.',
+    intro: 'Sähkön pörssihinta voi olla negatiivinen, mutta kuluttajan kokonaishinta pysyy lähes aina plussalla. Laskuri kertoo, paljonko.',
     resume: (h) => {
       const v = V(h);
       return `Pörssisähkön hinta painuu Suomessa ajoittain alle nollan, kun tuulivoimaa on paljon ja kulutus pientä. Arkistomme viimeisten ${h.num(v.n)} päivän aikana negatiivisia hintoja oli ${h.num(v.negPaivat.length)} päivänä, ja alin vartti oli ${h.date(v.min[0])} ${h.num(v.min[2], 2)} euroa megawattitunnilta. Negatiivinen pörssihinta ei kuitenkaan tee sähköstä ilmaista. Siirtomaksu, sähkövero ja myyjän marginaali maksetaan aina. Esimerkiksi pörssihinnalla −10 euroa megawattitunnilta kilowattitunti maksaa Helsingissä Helenin yleissiirrolla kaikkineen ${h.c(v.esim.yhteensa)}. Jotta kokonaishinta menisi Helsingissä nollaan, pörssihinnan pitäisi olla noin ${h.num(v.raja, 0)} euroa megawattitunnilta, ja Järvi-Suomen Energian alueella noin ${h.num(v.rajaJse, 0)} euroa. Negatiivisesta hinnasta hyötyy vain pörssisopimuksen asiakas, ja eniten se, joka pystyy siirtämään kulutusta juuri niille tunneille. Negatiiviset tunnit osuvat tavallisesti tuulisiin öihin ja viikonloppuihin, ja ne näkyvät huomisen hinnoissa jo edellisenä iltapäivänä. Alla olevalla laskurilla voit kokeilla, mitä kilowattitunti maksaa eri negatiivisilla hinnoilla oman verkkoyhtiösi siirrolla.`;
@@ -81,7 +81,7 @@ ${h.table(['Verkkoyhtiö', 'Yleissiirto', 'Kokonaishinta 0, kun pörssihinta on'
     title: 'Negative Electricity Price Finland 2026: What You Really Pay',
     description: 'Negative electricity prices in Finland, 2026: why the spot price drops below zero, how often it happens and what a kWh then costs with transfer and tax.',
     h1: 'Negative electricity prices: is power ever free?',
-    intro: 'The spot price can go negative, but a consumer’s all-in price almost always stays positive. The calculator shows by how much.',
+    intro: 'The spot electricity price can go negative, but a consumer’s all-in price almost always stays positive. The calculator shows by how much.',
     resume: (h) => {
       const v = V(h);
       return `The Finnish spot price occasionally drops below zero when wind output is high and demand low. Over the last ${h.num(v.n)} days in our archive negative prices occurred on ${h.num(v.negPaivat.length)} days, and the lowest quarter was ${h.num(v.min[2], 2)} euros per megawatt-hour on ${h.date(v.min[0])}. A negative spot price does not make electricity free, though. Transfer, electricity tax and the retailer’s margin are always paid. At −10 euros per megawatt-hour, for example, a kilowatt-hour costs ${h.c(v.esim.yhteensa)} all-in in Helsinki on Helen’s general transfer. For the all-in price to reach zero in Helsinki the spot price would have to be about ${h.num(v.raja, 0)} euros per megawatt-hour, and about ${h.num(v.rajaJse, 0)} euros in Järvi-Suomen Energia’s area. Only spot customers benefit from negative prices, and most those who can shift use into exactly those hours.`;
@@ -99,7 +99,7 @@ ${h.table(['Verkkoyhtiö', 'Yleissiirto', 'Kokonaishinta 0, kun pörssihinta on'
     body: (h) => {
       const v = V(h);
       const rajat = h.M.VERKOT.map((vk) => { const c = vk.tuotteet[0].energia.kaikki!; return [h.a(`siirto-${vk.id}`, vk.lyhyt), h.c(c), `${h.num(-((c + h.M.VERO_C + MARG) / (1 + h.M.ALV)) * 10, 0)} €/MWh`]; });
-      return `<h2>How often prices go negative</h2>
+      return `<h2>How often the electricity price goes negative</h2>
 <p>Negative prices have become more common in Finland as wind power grows. They usually fall on windy nights, weekends and the spring flood season, when hydro output is high too. Our archive covers about two months of quarter-hour prices and grows daily. ${v.negPaivat.length ? `Over the last ${h.num(v.n)} days a negative quarter occurred on ${h.num(v.negPaivat.length)} days.` : 'No negative quarters occurred in recent days.'} Daily prices are on the ${h.a('kuukausihinnat', 'monthly prices page')} and the exchange’s own ${h.src('nordpool', 'price service')}.</p>
 <h2>At what spot price the all-in price hits zero</h2>
 ${h.table(['Operator', 'General transfer', 'All-in price 0 when spot is'], rajat, `On general transfer, with electricity tax of ${h.c(h.M.VERO_C, 4)} and a margin of ${h.c(MARG)}, VAT applied to negative spot too.`, ['l', 'r', 'r'])}

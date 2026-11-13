@@ -73,8 +73,8 @@ ${h.table(['Verkkoyhtiö', 'Yleissiirto c/kWh', 'Perusmaksu 3 × 25 A', 'Siirto 
     card: 'What the Finnish electricity transfer fee is, what it is made of and why it varies by network.',
     title: 'Electricity Transfer Fee Finland 2026: What It Pays For',
     description: 'Finnish electricity transfer fee 2026: what transfer and basic fees are made of, why prices vary by operator, and how to pick general, night or seasonal.',
-    h1: 'The transfer fee: what you pay for distribution',
-    intro: 'The transfer fee is often as large a part of the bill as the energy itself. You cannot switch provider, but you can choose the product.',
+    h1: 'The electricity transfer fee in Finland: what you pay for distribution',
+    intro: 'The electricity transfer fee is often as large a part of the bill as the energy itself. You cannot switch provider, but you can choose the product.',
     resume: (h) => {
       const v = V(h);
       return `The electricity transfer fee, now officially the network service fee, pays for carrying power from the national grid to your home. It is billed by the local network operator, which is set by your address. It usually has a monthly basic fee that depends on the main fuse and a consumption-based transfer fee in cents per kilowatt-hour. Across the calculator’s ${h.num(v.n)} operators, general transfer ranges from ${h.c(v.min)} to ${h.c(v.max)} including VAT, and the 3 × 25 A basic fee from ${h.eur(v.pmin)} to ${h.eur(v.pmax)} a month. For a house using 5,000 kilowatt-hours a year, transfer costs ${h.eur(v.o[0].paras.e, 0)} a year in the cheapest network and ${h.eur(v.o.at(-1)!.paras.e, 0)} in the dearest. You cannot change operator, but you can usually switch transfer product, general, time-of-day or seasonal, once a year free of charge. The right product can save an electrically heated house hundreds of euros a year.`;

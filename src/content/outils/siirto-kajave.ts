@@ -58,7 +58,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Kajave’s general, two-time and seasonal-time transfer and the all-in spot price in Kainuu.',
     title: 'Kajave Transfer Fee 2026: Kainuu Transfer and Spot Price',
     description: 'Kajave transfer fees 2026 in Kainuu: general, two-time and seasonal-time transfer, basic fees by fuse size and the all-in spot price for every quarter hour.',
-    h1: 'Kajave: the all-in spot electricity price in Kainuu',
+    h1: 'Kajave transfer fee: the all-in spot electricity price in Kainuu',
     intro: 'Kajave’s household products have no power fee. The price depends on whether your use falls at night or on winter weekdays, and on how many metering points share your connection.',
     resume: (h) => {
       const v = V(h);

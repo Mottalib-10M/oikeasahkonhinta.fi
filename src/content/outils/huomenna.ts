@@ -31,7 +31,7 @@ export default defineGuide({
     title: 'Pörssisähkö huomenna 2026: varttihinnat siirron kanssa',
     description: 'Pörssisähkön hinta huomenna 2026: huomisen varttihinnat julkaistaan noin klo 13:45. Näe kokonaishinta oman verkkoyhtiösi siirrolla ja huomisen halvin jakso.',
     h1: 'Pörssisähkö huomenna: huomisen hinnat kokonaisuudessaan',
-    intro: 'Huomisen pörssihinnat ratkeavat keskipäivän huutokaupassa. Täällä ne muuttuvat hinnaksi, jonka oikeasti maksat.',
+    intro: 'Huomisen pörssisähkön hinnat ratkeavat keskipäivän huutokaupassa. Täällä ne muuttuvat hinnaksi, jonka oikeasti maksat.',
     resume: (h) => {
       const v = V(h);
       return v.julkaistu
@@ -47,7 +47,7 @@ export default defineGuide({
     ],
     body: (h) => {
       const v = V(h);
-      return `<h2>Miten huomisen hinta muodostuu</h2>
+      return `<h2>Miten pörssisähkön hinta huomenna muodostuu</h2>
 <p>Pohjoismaisen sähköpörssin päivähuutokaupassa sähkön tuottajat ja ostajat jättävät tarjouksensa seuraavan vuorokauden jokaiselle vartille. Huutokauppa suljetaan keskipäivällä, ja algoritmi laskee jokaiselle tarjousalueelle hinnan, jolla kysyntä ja tarjonta kohtaavat siirtoyhteyksien rajoissa. Suomi on oma tarjousalueensa, joten Suomen hinta voi poiketa Ruotsin tai Viron hinnasta, kun yhteydet ovat täynnä. Huomisen hinnat ovat lopullisia, kun ne on julkaistu, ja ne ovat samat kaikille pörssisopimuksen asiakkaille, ennen marginaalia, siirtoa ja veroja.</p>
 <h2>Huomisen hinnat oman verkkoyhtiösi mukaan</h2>
 <p>Laskuri on valmiiksi asetettu Elenian yösiirtoon, koska se on yleinen valinta sähkölämmitteisissä omakotitaloissa. Yösiirrossa siirtomaksu vaihtuu kello 22 halvempaan yöhintaan ja kello 7 takaisin päivähintaan. Siksi yön vartit ovat kokonaishinnaltaan halvempia kuin pörssihinta yksin antaisi ymmärtää, ja kello 21:45 ja 22:00 alkavien varttien välillä voi olla selvä hyppäys, vaikka pörssihinta ei muuttuisi lainkaan. Vaihda verkkoyhtiö ja siirtotuote omiksesi; yleissiirrossa siirtomaksu on sama ympäri vuorokauden.</p>
@@ -71,7 +71,7 @@ export default defineGuide({
     title: 'Electricity Price Tomorrow Finland 2026: All-in by Quarter',
     description: 'Finnish spot electricity price tomorrow, 2026: prices appear at about 13:45. See the all-in price with your network’s transfer fee and the cheapest window.',
     h1: 'Spot electricity tomorrow: tomorrow’s prices in full',
-    intro: 'Tomorrow’s exchange prices are set in the noon auction. Here they become the price you actually pay.',
+    intro: 'Tomorrow’s exchange prices are set in the noon auction. Here they become the electricity price you actually pay.',
     resume: (h) => {
       const v = V(h);
       return v.julkaistu
@@ -85,7 +85,7 @@ export default defineGuide({
       { q: 'Why is tomorrow shown as an estimate?', a: `The estimate shows before real prices are published, usually from the morning until about ${h.P.markkina.julkaisu_fi_klo}. It is built from actual prices for the same month and type of day and marked in amber. Real prices replace it automatically as soon as they are available.` },
       { q: 'How much do the dearest and cheapest quarters differ on the bill?', a: 'The difference is the gap between exchange prices with VAT, since the margin and electricity tax are the same at every moment. On general transfer the fee does not change; on time-of-day transfer it is lower at night and widens the gap. Moving ten kilowatt-hours from the dearest quarter to the cheapest saves ten times the gap in cents.' },
     ],
-    body: (h) => `<h2>How tomorrow’s price is formed</h2>
+    body: (h) => `<h2>How tomorrow’s electricity price is formed</h2>
 <p>In the Nordic exchange’s day-ahead auction, producers and buyers submit bids for every quarter hour of the next day. The auction closes at noon and an algorithm finds, for each bidding zone, the price at which supply meets demand within the limits of the interconnectors. Finland is its own bidding zone, so its price can differ from Sweden’s or Estonia’s when the links are full. Tomorrow’s prices are final once published and the same for every spot customer, before margin, transfer and taxes.</p>
 <h2>Tomorrow’s prices for your own network</h2>
 <p>The calculator is preset to Elenia’s night transfer, a common choice in electrically heated houses. On night transfer the fee drops to the night rate at 22:00 and returns to the day rate at 07:00. That makes night quarters cheaper all-in than the exchange price alone suggests, and there can be a clear step between the quarters starting at 21:45 and 22:00 even if the exchange price does not move. Switch the operator and transfer product to your own; on general transfer the fee is the same around the clock.</p>

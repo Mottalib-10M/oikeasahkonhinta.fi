@@ -27,7 +27,7 @@ export default defineGuide({
     title: 'Lahti Energia siirtohinta 2026: tehomaksu ja pörssisähkö',
     description: 'Lahti Energian siirtohinnat 2026: Yleissiirto teho ja Yösiirto teho omakotitaloille, tehomaksuttomat tuotteet kerrostaloille. Kokonaishinta vartti vartilta.',
     h1: 'Lahti Energia: pörssisähkön hinta Lahdessa tehomaksun kanssa',
-    intro: 'Lahdessa omakotitalon siirtoon kuuluu tehomaksu, rivi- ja kerrostaloasunnossa ei. Laskuri lisää siirron, tehomaksun ja verot jokaiseen varttiin.',
+    intro: 'Lahti Energian verkossa omakotitalon siirtoon kuuluu tehomaksu, rivi- ja kerrostaloasunnossa ei. Laskuri lisää siirron, tehomaksun ja verot jokaiseen varttiin.',
     resume: (h) => {
       const v = V(h);
       return `Lahti Energia Sähköverkko siirtää sähkön Lahden kaupunkialueella, ja sen hinnasto on voimassa ${h.date(v.t.v.voimassa!)} alkaen. Yhtiön mukaan tehomaksu on käytössä kaikilla liittymillä, joissa on yksi käyttöpaikka, eli tavallisesti omakotitaloissa. Rivi-, pari- ja kerrostaloasunnoissa tehomaksua ei ole, mutta ne voivat halutessaan valita tehotuotteen. Yleissiirto teho maksaa ${h.c(v.yt.energia.kaikki!)}, perusmaksu on ${h.eur(v.pyt)} kuukaudessa ja tehomaksu ${h.eur(v.teho)} kilowatilta kuukaudessa. Tehomaksu perustuu edellisen 12 kuukauden suurimpaan tunnin keskitehoon, joten 5 kilowatin huippu maksaa ${h.eur(v.tehoVuosi(5), 0)} ja 10 kilowatin huippu ${h.eur(v.tehoVuosi(10), 0)} vuodessa. Yösiirto teho maksaa päivällä kello 7–22 ${h.c(v.at.energia.paiva!)} ja yöllä ${h.c(v.at.energia.yo!)}. Kerrostalon tehomaksuton yleissiirto maksaa ${h.c(v.y.energia.kaikki!)} ja ${h.eur(v.p)} kuukaudessa. Omakotitalon 5 000 kilowattitunnin siirto on Lahdessa ${v.t.sija5}. edullisin laskurin ${v.t.n} verkosta, kun huippu on 5 kilowattia. Laskuri on asetettu omakotitalon Yleissiirto tehoon; syötä oma huippusi, niin tehomaksu lasketaan sen mukaan.`;
@@ -43,7 +43,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Lahden siirtohinnat</h2>
+      return `<h2>Lahti Energian siirtohinnat</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Tehomaksuttomat Yleissiirto ja Yösiirto koskevat hinnaston mukaan rivi-, pari- ja kerrostaloasuntoja, siksi niiden omakotitalosarakkeissa on viiva. Omakotitalossa valittavana ovat tehotuotteet, joissa siirtomaksu on halvempi ja tehomaksu tulee lisäksi.</p>
 <h2>Vuosikustannus Lahdessa</h2>
@@ -76,7 +76,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Lahti’s transfer prices</h2>
+      return `<h2>Lahti Energia’s transfer fees</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Under the price list the flat-rate general and night transfer are for terraced, semi-detached and apartment homes, hence the dashes in the house columns. A house chooses between the power products, which have a cheaper transfer fee plus the power fee.</p>
 <h2>Annual cost in Lahti</h2>

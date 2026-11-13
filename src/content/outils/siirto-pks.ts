@@ -38,7 +38,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Uusi hinnasto ${h.date(v.t.v.voimassa!)}</h2>
+      return `<h2>PKS Sähkönsiirron uusi hinnasto ${h.date(v.t.v.voimassa!)}</h2>
 ${hintaTaulukko(h, v.t)}
 <p>PKS:n kolmella sulakepohjaisella tuotteella on kaksi perusmaksutasoa: yksiaikaisella yleissiirrolla pienempi ja päivä-yö- sekä vuodenaikatuotteella suurempi. Päivä-yötuotteen päiväaika on maanantaista sunnuntaihin kello 7–22, ja ohjauspalvelu kytkee yösähkön päälle kello 22 ja 23 välillä.</p>
 <h2>Kolmen tuotteen vuosivertailu</h2>
@@ -54,8 +54,8 @@ ${vuosiTaulukko(h, v.t)}
     card: 'PKS Sähkönsiirto’s single-rate, day-night and seasonal products and the all-in spot price in North Karelia.',
     title: 'PKS Sähkönsiirto Transfer Fee 2026: Spot Price With Transfer',
     description: 'PKS Sähkönsiirto prices from 1 Aug 2026: single-rate, day-night and seasonal transfer. The all-in spot price in North Karelia by quarter with transfer and tax.',
-    h1: 'PKS Sähkönsiirto: spot electricity in North Karelia',
-    intro: 'PKS Sähkönsiirto’s price list changed in August 2026. The calculator uses the new prices and adds them to every quarter hour.',
+    h1: 'PKS Sähkönsiirto transfer fee: spot electricity in North Karelia',
+    intro: 'PKS Sähkönsiirto changed its transfer fees in August 2026. The calculator uses the new prices and adds them to every quarter hour.',
     resume: (h) => {
       const v = V(h);
       return `PKS Sähkönsiirto distributes electricity across much of North Karelia and nearby areas. Its newest price list took effect on ${h.date(v.t.v.voimassa!)}, the most recent in the calculator. Single-rate general transfer costs ${h.c(v.y.energia.kaikki!)} per kilowatt-hour including VAT, and the basic fee for a 3 × 25 A house is ${h.eur(v.p25)} a month. Single-phase connections of residents in flats and terraced houses, and connections with at least five sites, have their own lower basic fees. PKS quotes transfer prices to three decimals and also shows the sum of transfer and electricity tax. The all-in spot price on single-rate general transfer averages ${v.t.arvio ? `an estimated ${h.c(v.t.paiva.ka)}` : `${h.c(v.t.paiva.ka)} today`}. The calculator is preset to PKS’s single-rate transfer for a house. Switch to the day-night or seasonal product and your own contract to see every quarter hour’s all-in price and the day’s cheapest window.`;
@@ -71,7 +71,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>New price list from ${h.date(v.t.v.voimassa!)}</h2>
+      return `<h2>New PKS Sähkönsiirto transfer fees from ${h.date(v.t.v.voimassa!)}</h2>
 ${hintaTaulukko(h, v.t)}
 <p>PKS’s three fuse-based products have two basic fee levels: a lower one for single-rate general transfer and a higher one for the day-night and seasonal products. Day-night daytime runs Monday to Sunday 07:00–22:00, and the control service switches night power on between 22:00 and 23:00.</p>
 <h2>Annual comparison of the three products</h2>

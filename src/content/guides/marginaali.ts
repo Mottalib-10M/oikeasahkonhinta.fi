@@ -81,8 +81,8 @@ ${h.table(['Myyjä', 'Tuote', 'Marginaali', 'Perusmaksu/kk', 'Vuodessa, 5 000 kW
     card: 'What the spot contract margin is, what it costs a year and how to compare contracts.',
     title: 'Spot Electricity Margin Finland 2026: What the Retailer Adds',
     description: 'Spot electricity margin in Finland, 2026: what the margin and monthly fee are, what they cost a year and how to compare spot contracts using official data.',
-    h1: 'The spot contract margin: the only difference between contracts',
-    intro: 'Every spot contract uses the same exchange price. Retailers differ in margin and monthly fee.',
+    h1: 'The spot electricity margin: the only difference between contracts',
+    intro: 'Every spot electricity contract uses the same exchange price. Retailers differ in margin and monthly fee.',
     resume: (h) => {
       const v = V(h);
       return `On a spot contract the energy price is the exchange price plus a retailer margin in cents per kilowatt-hour, and the retailer also charges a monthly fee. Since the exchange price is the same for everyone, margin and monthly fee are in practice the only price differences between spot contracts. The ${h.num(v.t.length)} consumer spot contracts shown in the ${h.src('evHintavertailu', 'Energy Authority’s price comparison')} on ${h.date(sop.haettu)} had margins of ${h.c(v.mMin)}–${h.c(v.mMax)} and monthly fees of ${h.eur(v.pMin)}–${h.eur(v.pMax)} including VAT. The medians were ${h.c(MARG)} and ${h.eur(PERUS_MYYJA)}, which this site’s calculators use as defaults. For a house using 5,000 kilowatt-hours a year, the median margin and fee cost ${h.eur(v.vuosi(5000, MARG, PERUS_MYYJA))} a year. At the last year’s average spot price, the margin is about ${h.pct(v.osuus, 0)} of the energy price. Work out below what the gap between two contracts costs on your own consumption.`;
@@ -107,7 +107,7 @@ ${h.table(['Retailer', 'Product', 'Margin', 'Monthly fee', 'Per year, 5,000 kWh'
 <li>Check the contract length, notice terms and whether the margin can change.</li>
 <li>Check any add-ons and their prices, such as guarantees of origin, which are not always separated from the margin.</li>
 </ol>
-<h2>The margin within the all-in price</h2>
+<h2>The spot electricity margin within the all-in price</h2>
 <p>Over the last twelve months the average spot price has been ${h.c(v.v12.kaC)} including VAT. The all-in price adds transfer and electricity tax, which are often larger than margin and fee combined. Shopping around on margin therefore usually saves tens of euros a year, while the right ${h.a('siirtomaksu', 'transfer product')} or timing your use can save more. ${h.src('motivaSopimus', 'Motiva')} explains the pros and cons of each contract type.</p>
 <h2>Spot or fixed</h2>
 <p>If you are weighing a fixed contract, compare its price with a spot contract’s total cost on your own consumption. The ${h.a('porssi-vai-kiintea', 'comparison calculator')} uses the last year’s actual prices to show which would have been cheaper and the fixed price at which both would have cost the same.</p>

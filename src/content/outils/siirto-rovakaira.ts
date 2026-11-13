@@ -64,7 +64,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Rovakaira’s general, time-of-day and seasonal transfer and the all-in spot price in Rovaniemi, Kittilä and Sodankylä.',
     title: 'Rovakaira Transfer Fee 2026: Rovaniemi, Kittilä, Sodankylä',
     description: 'Rovakaira transfer fees 2026: general, time-of-day and seasonal transfer in Rovaniemi, Kittilä and Sodankylä. The all-in spot price with transfer and taxes.',
-    h1: 'Rovakaira: the spot electricity price in Rovaniemi, Kittilä and Sodankylä',
+    h1: 'Rovakaira transfer fee: the spot electricity price in Rovaniemi, Kittilä and Sodankylä',
     intro: 'On Rovakaira’s network winter weekdays matter most: on seasonal transfer they are the year’s dearest period. The calculator adds transfer and taxes to every quarter hour.',
     resume: (h) => {
       const v = V(h);

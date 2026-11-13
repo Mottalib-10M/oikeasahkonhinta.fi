@@ -26,7 +26,7 @@ export default defineGuide({
     title: 'Oulun Energia siirtohinta 2026: pörssisähkö siirron kanssa',
     description: 'Oulun Energia Sähköverkon siirtohinnat 2026: yleis-, aika- ja kausisähkö vuosiperusmaksuineen. Näe pörssisähkön kokonaishinta Oulussa vartti vartilta tänään.',
     h1: 'Oulun Energia Sähköverkko: pörssisähkön hinta Oulussa',
-    intro: 'Oulussa perusmaksu ilmoitetaan vuosimaksuna, ja yleissähkön siirtomaksu kuuluu maan edullisimpiin. Laskuri muuntaa molemmat kokonaishinnaksi.',
+    intro: 'Oulun Energian verkossa perusmaksu ilmoitetaan vuosimaksuna, ja yleissähkön siirtomaksu kuuluu maan edullisimpiin. Laskuri muuntaa molemmat kokonaishinnaksi.',
     resume: (h) => {
       const v = V(h);
       return `Oulun Energia Sähköverkko siirtää sähkön Oulun kaupunkialueella. Sen verkkopalveluhinnasto on voimassa ${h.date(v.t.v.voimassa!)} alkaen, ja perusmaksu ilmoitetaan euroina vuodessa: yleissähkössä 3 × 25–63 ampeerin liittymällä ${h.eur(v.vuosi25)} vuodessa eli ${h.eur(v.kk25)} kuukaudessa ja pienemmillä yksivaiheisilla liittymillä ${h.eur(v.vuosiKt)} vuodessa. Yleissähkön siirtomaksu on ${h.c(v.y.energia.kaikki!)} arvonlisäveron kanssa. Aikasähkössä päiväenergia kello 7–22 maksaa ${h.c(v.a.energia.paiva!)} ja yöenergia ${h.c(v.a.energia.yo!)}, perusmaksu on ${h.eur(v.ka25)} kuukaudessa. Kausisähkössä talviarkipäivä 1.11.–31.3. kello 7–22 maksaa ${h.c(v.k.energia.talvipaiva!)} ja muu aika ${h.c(v.k.energia.muu!)}. Yhtiön mukaan talviarkipäivä koskee arkipäiviä lauantait ja aattopäivät mukaan luettuina, joten arkipyhät ovat muuta aikaa: talvella 2026–2027 niitä on ${v.pyhat.length}. Omakotitalon 5 000 kilowattitunnin siirto on Oulussa ${v.t.sija5}. halvin laskurin ${v.t.n} verkosta. Pörssisähkön kokonaishinta yleissähköllä on ${v.t.arvio ? 'arvion mukaan' : 'tänään'} keskimäärin ${h.c(v.t.paiva.ka)}. Laskuri on asetettu omakotitalon yleissähköön; vaihda aika- tai kausisähköön, niin näet yö- ja talvihinnan jokaisessa vartissa. Oulun seudulla toimii myös muita verkkoyhtiöitä, joten tarkista oma yhtiösi postinumerolla.`;
@@ -58,7 +58,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Oulun Energia Sähköverkko’s general, time-of-day and seasonal transfer and the all-in spot price in Oulu.',
     title: 'Oulun Energia Transfer Fee 2026: Spot Price With Transfer',
     description: 'Oulun Energia Sähköverkko transfer fees 2026: general, time-of-day and seasonal products with annual basic fees. See the all-in spot price in Oulu today.',
-    h1: 'Oulun Energia Sähköverkko: the spot electricity price in Oulu',
+    h1: 'Oulun Energia Sähköverkko transfer fee: the spot electricity price in Oulu',
     intro: 'In Oulu the basic fee is quoted per year, and the general transfer fee is among the lowest in Finland. The calculator turns both into an all-in price.',
     resume: (h) => {
       const v = V(h);

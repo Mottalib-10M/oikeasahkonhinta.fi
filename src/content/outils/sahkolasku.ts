@@ -74,7 +74,7 @@ ${h.table(['Koti', 'Energia + myyjän perusmaksu', 'Siirto + verkon perusmaksu',
     title: 'Electricity Bill Calculator Finland 2026: Your Monthly Bill',
     description: 'Electricity bill calculator for Finland, 2026: work out a month’s bill on a spot or fixed contract, with energy, transfer, fees and tax for your network.',
     h1: 'Electricity bill calculator: what a month’s bill is made of',
-    intro: 'Enter the month’s consumption, your operator and your contract. The calculator splits the bill into energy, transfer, fees and tax.',
+    intro: 'Enter the month’s consumption, your operator and your contract. The electricity bill calculator splits the bill into energy, transfer, fees and tax.',
     resume: (h) => {
       const v = V(h);
       return `A Finnish household usually gets two electricity bills: one from the retailer for energy and one from the network operator for transfer and electricity tax. At ${v.viim}’s spot price of ${h.c(v.spot)} including VAT and a ${h.c(MARG)} margin, a Helsinki flat using 170 kilowatt-hours in the month would have paid ${h.eur(v.a.yht)} in total: energy with monthly fee ${h.eur(v.a.energia)}, transfer with basic fee ${h.eur(v.a.siirto)} and electricity tax ${h.eur(v.a.vero)}. A house in Elenia’s area using 400 kilowatt-hours would have paid ${h.eur(v.b.yht)}, and an electrically heated house in PKS’s area using 1,500 kilowatt-hours in a winter month ${h.eur(v.c.yht)}. At low use the fixed fees and transfer are most of the bill; at high use, energy. Choose a month, consumption, operator and contract below and the calculator shows each part of the bill and the average price per kilowatt-hour with every fee.`;
@@ -88,7 +88,7 @@ ${h.table(['Koti', 'Energia + myyjän perusmaksu', 'Siirto + verkon perusmaksu',
     body: (h) => {
       const v = V(h);
       const r = (x: typeof v.a) => [h.eur(x.energia), h.eur(x.siirto), h.eur(x.vero), `<strong>${h.eur(x.yht)}</strong>`];
-      return `<h2>Three example bills</h2>
+      return `<h2>Three example electricity bills in Finland</h2>
 ${h.table(['Home', 'Energy + retailer fee', 'Transfer + network fee', 'Electricity tax', 'Total'], [
         ['Flat, Helen, 170 kWh', ...r(v.a)],
         ['House, Elenia, 400 kWh', ...r(v.b)],

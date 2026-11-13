@@ -39,7 +39,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Kaksi tuotetta, yksi perusmaksu sulakkeesta riippumatta</h2>
+      return `<h2>Helenin kaksi tuotetta, yksi perusmaksu sulakkeesta riippumatta</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Helenin yleissiirto on yksinkertainen: kiinteä perusmaksu ja yksi siirtohinta ympäri vuorokauden. Siksi pörssisähkön käyttäjälle Helsingissä halvin vartti on aina se, jonka pörssihinta on halvin. Aikasiirrossa yön siirtohinta on ${h.c(v.a.energia.paiva! - v.a.energia.yo!)} päivää halvempi, mikä siirtää halvimman jakson painopistettä yöhön.</p>
 <h2>Tehomaksu muuttaa laskelman</h2>
@@ -55,7 +55,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Helsinki’s general transfer and time-of-day transfer with a power fee, and the all-in spot price in Helsinki.',
     title: 'Helen Transfer Fee 2026: Spot Electricity in Helsinki All-in',
     description: 'Helen Sähköverkko transfer fees 2026: general transfer and time-of-day transfer with a power fee. See the all-in spot electricity price in Helsinki by quarter.',
-    h1: 'Helen Sähköverkko: the spot electricity price in Helsinki',
+    h1: 'Helen Sähköverkko transfer fee: the spot electricity price in Helsinki',
     intro: 'In Helsinki you choose between two transfer products, one of them with a power fee. The calculator adds Helen’s transfer and taxes to every quarter hour.',
     resume: (h) => {
       const v = V(h);
@@ -72,7 +72,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Two products, one basic fee whatever the fuse</h2>
+      return `<h2>Helen’s two transfer products, one basic fee whatever the fuse</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Helen’s general transfer is simple: a fixed basic fee and one transfer price around the clock. For a spot customer in Helsinki the cheapest quarter is therefore always the one with the cheapest exchange price. On time-of-day transfer night transfer is ${h.c(v.a.energia.paiva! - v.a.energia.yo!)} cheaper than day, which shifts the cheapest window towards the night.</p>
 <h2>The power fee changes the sums</h2>

@@ -23,7 +23,7 @@ export default defineGuide({
     card: 'Mitä kuivausrummun kuivaus maksaa tänään ja kuinka paljon yösiirto säästää.',
     title: 'Kuivausrumpu sähkön hinta 2026: kuivauksen hinta tänään',
     description: 'Kuivausrummun sähkönkulutus ja kuivauksen hinta 2026: paljonko kuivaus maksaa tänään pörssisähköllä siirron ja verojen kanssa ja paljonko yösiirto säästää.',
-    h1: 'Paljonko kuivausrummun kuivaus maksaa?',
+    h1: 'Kuivausrumpu ja sähkön hinta: paljonko kuivaus maksaa?',
     intro: 'Kuivausrumpu kuluttaa yleensä enemmän sähköä kuin pesukone. Laskuri kertoo kuivauksen hinnan ja halvimman aloitusajan.',
     resume: (h) => {
       const v = V(h);
@@ -40,7 +40,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Kuivauksen hinta tänään</h2>
+      return `<h2>Kuivauksen sähkön hinta tänään</h2>
 ${h.table(['Verkko ja tuote', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloitus'], [
         ['Elenia, yösiirto', `${h.eur(v.el.halvin)} (${v.el.halvinKlo})`, h.eur(v.el.keski), `${h.eur(v.el.kallein)} (${v.el.kalleinKlo})`],
         ['Elenia, yleissiirto', `${h.eur(v.ely.halvin)} (${v.ely.halvinKlo})`, h.eur(v.ely.keski), `${h.eur(v.ely.kallein)} (${v.ely.kalleinKlo})`],
@@ -76,7 +76,7 @@ ${h.table(['Verkko ja tuote', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloitu
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Today’s drying cost</h2>
+      return `<h2>Today’s tumble dryer electricity cost</h2>
 ${h.table(['Network and product', 'Cheapest start', 'At average price', 'Dearest start'], [
         ['Elenia, night transfer', `${h.eur(v.el.halvin)} (${v.el.halvinKlo})`, h.eur(v.el.keski), `${h.eur(v.el.kallein)} (${v.el.kalleinKlo})`],
         ['Elenia, general transfer', `${h.eur(v.ely.halvin)} (${v.ely.halvinKlo})`, h.eur(v.ely.keski), `${h.eur(v.ely.kallein)} (${v.ely.kalleinKlo})`],

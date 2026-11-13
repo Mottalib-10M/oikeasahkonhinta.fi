@@ -26,7 +26,7 @@ export default defineGuide({
     title: 'Saunan lämmityksen hinta 2026: sähkökiuas pörssisähköllä',
     description: 'Saunan lämmityksen hinta 2026: paljonko sähkökiukaan lämmitys maksaa tänään pörssisähköllä siirron ja verojen kanssa, ja mihin aikaan saunominen on halvinta.',
     h1: 'Paljonko saunan lämmitys maksaa pörssisähköllä?',
-    intro: 'Sähkökiuas on kodin suurimpia yksittäisiä sähkönkuluttajia. Laskuri kertoo, mitä saunavuoro maksaa tänään ja milloin se on halvin.',
+    intro: 'Sähkökiuas on kodin suurimpia yksittäisiä sähkönkuluttajia. Laskuri kertoo, mitä saunan lämmitys maksaa tänään ja milloin se on halvin.',
     resume: (h) => {
       const v = V(h);
       return `Motivan mukaan kertalämmitteinen sähkökiuas on kodin ylivoimaisesti eniten kuluttava yksittäinen sähkölaite, ja yli puolet saunan sähköstä kuluu esilämmitykseen. ${h.num(v.s.kw)} kilowatin kiuas kuluttaa puolentoista tunnin lämmityksessä ja saunomisessa noin ${h.num(v.E, 1)} kilowattituntia. Helsingissä Helen Sähköverkon yleissiirrolla ja ${h.c(MARG)} marginaalin pörssisopimuksella tällainen saunavuoro maksaa päivän halvimmalla aloitusajalla, kello ${v.he.halvinKlo}, ${h.eur(v.he.halvin)} ja kalleimmalla, kello ${v.he.kalleinKlo}, ${h.eur(v.he.kallein)}. Päivän keskihinnalla se maksaa ${h.eur(v.he.keski)}. Järvi-Suomen Energian alueella, jossa siirto on kalliimpaa, sama saunavuoro maksaa keskihinnalla ${h.eur(v.js.keski)}. Kaksi saunavuoroa viikossa tekee Helsingissä vuodessa noin ${h.eur(v.vuosi, 0)}. Valitse alta kiukaasi teho, lämmityksen kesto, verkkoyhtiösi ja sopimuksesi, niin laskuri näyttää halvimman ja kalleimman aloitusajan tänään tai huomenna sekä vuosikustannuksen. Laskuri näyttää myös vuosikustannuksen valitsemallasi saunakertojen määrällä viikossa sekä aloituksen hinnan heti nyt, jos lämmität saunan tänään.`;
@@ -84,7 +84,7 @@ ${h.table(['Kiuas', 'Energia', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloit
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>The cost of a sauna with two stoves</h2>
+      return `<h2>The electricity cost of a sauna with two stoves</h2>
 ${h.table(['Stove', 'Energy', 'Cheapest start', 'At average price', 'Dearest start'], [
         [`${h.num(v.s.kw)} kW, ${h.num(v.s.h, 1)} h`, `${h.num(v.E, 1)} kWh`, `${h.eur(v.he.halvin)} (${v.he.halvinKlo})`, h.eur(v.he.keski), `${h.eur(v.he.kallein)} (${v.he.kalleinKlo})`],
         [`9 kW, ${h.num(v.s.h, 1)} h`, `${h.num(9 * v.s.h, 1)} kWh`, `${h.eur(v.iso.halvin)} (${v.iso.halvinKlo})`, h.eur(v.iso.keski), `${h.eur(v.iso.kallein)} (${v.iso.kalleinKlo})`],

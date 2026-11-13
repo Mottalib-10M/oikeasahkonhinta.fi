@@ -39,7 +39,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Tampereen hinnasto</h2>
+      return `<h2>Tampereen Sähköverkon hinnasto</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Tampereen Sähköverkon hinnastossa yksivaiheisilla ja 3 × 25 ampeerin käyttöpaikoilla on sama yleissiirron perusmaksu. Hinnaston mukaan verolliset hinnat on pyöristetty kahteen desimaaliin, ja kaikki asiakkaat kuuluvat sähköveroluokkaan 1, elleivät ole ilmoittaneet toiminnasta, joka oikeuttaa luokkaan 2. Kotitaloudet maksavat aina luokan 1 veroa.</p>
 <h2>Kenelle mikin tuote</h2>
@@ -55,7 +55,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Tampereen Sähköverkko’s general, time-of-day and seasonal transfer and the all-in spot price in Tampere.',
     title: 'Tampere Transfer Fee 2026: Spot Electricity With All Fees',
     description: 'Tampereen Sähköverkko transfer fees 2026: general, time-of-day and seasonal transfer. The all-in spot price in Tampere by quarter with transfer and tax.',
-    h1: 'Tampereen Sähköverkko: the spot electricity price in Tampere',
+    h1: 'Tampereen Sähköverkko transfer fee: the spot electricity price in Tampere',
     intro: 'In central Tampere transfer is cheaper than in the surrounding rural areas. The calculator shows what that means for the all-in price.',
     resume: (h) => {
       const v = V(h);
@@ -72,7 +72,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Tampere’s price list</h2>
+      return `<h2>Tampere’s transfer fee price list</h2>
 ${hintaTaulukko(h, v.t)}
 <p>On Tampereen Sähköverkko’s price list, single-phase and 3 × 25 A sites have the same general transfer basic fee. Tax-inclusive prices are rounded to two decimals, and every customer is in electricity tax class 1 unless they have declared activity qualifying for class 2. Households always pay class 1 tax.</p>
 <h2>Which product for whom</h2>

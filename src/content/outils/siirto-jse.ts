@@ -40,7 +40,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Hinnasto ${h.date(v.t.v.voimassa!)} alkaen</h2>
+      return `<h2>Järvi-Suomen Energian siirtohinnasto ${h.date(v.t.v.voimassa!)} alkaen</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Vuodenaika- ja yösähkön siirrolla on Järvi-Suomen Energialla sama perusmaksu, ja kerros- ja rivitaloille, joissa on vähintään kolme huoneistoa, on yleissähkössä omat alemmat perusmaksut. Hinnoissa on mukana arvonlisävero 25,5 prosenttia, ja sähkövero peritään niiden lisäksi.</p>
 <h2>Siirron vuosikustannus</h2>
@@ -73,7 +73,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Price list from ${h.date(v.t.v.voimassa!)}</h2>
+      return `<h2>Järvi-Suomen Energia transfer fees from ${h.date(v.t.v.voimassa!)}</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Seasonal and night transfer share the same basic fee at Järvi-Suomen Energia, and general transfer has lower basic fees for blocks of flats and terraced houses with at least three dwellings. Prices include 25.5% VAT, and electricity tax is charged on top.</p>
 <h2>Annual transfer cost</h2>

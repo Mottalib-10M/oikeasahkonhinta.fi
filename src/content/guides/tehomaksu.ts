@@ -83,7 +83,7 @@ ${h.table(['Verkko ja tuote', 'Tehomaksu', 'Peruste', '5 kW vuodessa', '10 kW vu
     card: 'What the Finnish electricity power fee is, how different network operators calculate it and how to cut it.',
     title: 'Electricity Power Fee Finland 2026: How It Is Calculated',
     description: 'Finnish electricity power fee 2026: how the fee follows your peak power, what it costs with Helen, Kuopio, Lahti and others, and how to lower your peak.',
-    h1: 'The power fee: when your peak costs money',
+    h1: 'The electricity power fee: when your peak costs money',
     intro: 'A power fee is based on how much electricity you use at the same time. It rewards spreading loads out.',
     resume: (h) => {
       const v = V(h);
@@ -120,7 +120,7 @@ ${h.table(['Network and product', 'Power fee', 'Basis', '5 kW per year', '10 kW 
 <li>Follow your hourly use in the operator’s portal to see which hours set the fee.</li>
 </ol>
 <p>${h.src('motivaJousto', 'Motiva’s demand-flexibility guide')} explains how home automation can steer loads. Note the tension with spot pricing: concentrating use in the cheapest quarter can raise the peak. The best approach spreads the load over several cheap hours.</p>
-<h2>Why power fees are used</h2>
+<h2>Why electricity power fees are used</h2>
 <p>A grid is sized for the largest simultaneous demand, not the year’s energy. A power fee allocates network costs where power is needed and encourages smoothing use. ${h.src('motivaSiirto', 'Motiva’s transfer fee page')} explains the structure of network fees. Compare networks in the ${h.a('siirtohinnat', 'transfer fee comparison')}, where you can enter your own peak power.</p>
 <h2>Example: an ordinary winter evening</h2>
 <p>Picture an electrically heated house on a winter evening. Radiators run, the car goes on charge after work, and the sauna is heated later. If these land in the same hour, the hourly average can be several times a normal hour. With a third-highest-hour basis one such evening may not set the fee, but repeated evenings lift the peak for good. Charging overnight, heating the sauna before plugging in the car and timing the water heater for the early hours shrink the evening peak, and every kilowatt cut saves twelve times the monthly rate a year.</p>

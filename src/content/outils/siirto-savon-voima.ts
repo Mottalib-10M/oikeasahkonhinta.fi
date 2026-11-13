@@ -38,7 +38,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Hinnasto ${h.date(v.t.v.voimassa!)} alkaen</h2>
+      return `<h2>Savon Voiman siirtohinnasto ${h.date(v.t.v.voimassa!)} alkaen</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Savon Voiman yleissähkössä on neljä perusmaksua sulakkeen ja asumismuodon mukaan, ja ero erillisen yksivaiheisen käyttöpaikan ja kerrostalohuoneiston välillä on suuri. Hinnasto kertoo yleissähkön olevan edullisin vaihtoehto asuinkäytössä, kun kulutus jää alle 15 000 kilowattitunnin vuodessa.</p>
 <h2>Yleissähkö vai aikasähkö</h2>
@@ -54,8 +54,8 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Savon Voima Verkko’s general and winter-weekday transfer and the all-in spot price in North Savo.',
     title: 'Savon Voima Transfer Fee 2026: Spot Price With Transfer',
     description: 'Savon Voima Verkko transfer fees from 1 June 2026: general transfer and a product priced by winter weekdays. The all-in spot price in North Savo by quarter.',
-    h1: 'Savon Voima Verkko: spot electricity in North Savo',
-    intro: 'Savon Voima’s “aikasähkö” is not a night product but one priced by winter weekdays. The calculator uses the company’s own time rules.',
+    h1: 'Savon Voima Verkko transfer fee: spot electricity in North Savo',
+    intro: 'Savon Voima’s “aikasähkö” is not a night product but a transfer fee priced by winter weekdays. The calculator uses the company’s own time rules.',
     resume: (h) => {
       const v = V(h);
       return `Savon Voima Verkko distributes electricity over a wide area of North Savo and its surroundings, excluding the city of Kuopio. Its price list applies from ${h.date(v.t.v.voimassa!)}. General transfer costs ${h.c(v.y.energia.kaikki!)} including VAT, with a basic fee of ${h.eur(v.p25)} a month for a 3 × 25 A house and ${h.eur(v.p1)} for a separate single-phase site; flats and terraced homes on a connection with at least three dwellings pay less. Notably, Savon Voima’s “aikasähkö” is priced by winter weekdays: from 1 Nov to 31 Mar, Monday to Saturday 07:00–22:00, transfer costs ${h.c(v.k.energia.talvipaiva!)}, and ${h.c(v.k.energia.muu!)} at other times. The all-in spot price on general transfer averages ${v.t.arvio ? `an estimated ${h.c(v.t.paiva.ka)}` : `${h.c(v.t.paiva.ka)} today`}. The calculator is preset to Savon Voima’s general transfer for a house; switch to aikasähkö and your own contract to see the winter-weekday effect in every quarter hour.`;
@@ -71,7 +71,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Price list from ${h.date(v.t.v.voimassa!)}</h2>
+      return `<h2>Savon Voima transfer fees from ${h.date(v.t.v.voimassa!)}</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Savon Voima’s general transfer has four basic fees by fuse and type of home, and the gap between a separate single-phase site and a flat is large. The price list says general transfer is the cheapest option for homes using less than 15,000 kilowatt-hours a year.</p>
 <h2>General transfer or aikasähkö</h2>

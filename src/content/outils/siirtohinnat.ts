@@ -46,7 +46,7 @@ export default defineGuide({
     body: (h) => {
       const v = V(h);
       const rows = v.o.map((r, i) => [`${i + 1}.`, v.linkki(r.v), r.paras.tu.nimi, h.eur(r.paras.e, 0), h.eur(v.k.find((x) => x.v.id === r.v.id)!.paras.e, 0), h.eur(v.l.find((x) => x.v.id === r.v.id)!.paras.e, 0)]);
-      return `<h2>Järjestys omakotitalolla</h2>
+      return `<h2>Sähkön siirtohinnat järjestyksessä omakotitalolla</h2>
 ${h.table(['#', 'Verkkoyhtiö', 'Edullisin tuote (5 000 kWh)', '5 000 kWh, 3 × 25 A', '2 000 kWh, kerrostalo', '18 000 kWh, sähkölämmitys'], rows, 'Siirron vuosikustannus edullisimmalla tuotteella, € sis. alv: siirtomaksu, perusmaksu ja tehomaksu 5 kW huipulla. Sähkövero ei sisälly.', ['l', 'l', 'l', 'r', 'r', 'r'])}
 <p>Järjestys muuttuu kulutuksen mukaan. Pienellä kulutuksella ratkaisee perusmaksu, suurella siirtomaksu ja yö- tai kausisiirron hinnat. Verkko, jonka perusmaksu on pieni mutta siirtomaksu suuri, on edullinen kerrostaloasunnolle mutta voi olla kallis sähkölämmitteiselle talolle.</p>
 <h2>Siirtotuotteen valinta on oma säästökeinonsa</h2>
@@ -62,7 +62,7 @@ ${h.table(['#', 'Verkkoyhtiö', 'Edullisin tuote (5 000 kWh)', '5 000 kWh, 3 × 
     title: 'Finland Electricity Transfer Fees 2026: Every Network',
     description: 'Finnish electricity transfer fees 2026 by network operator: compare the annual transfer cost across Finland’s grids on your own consumption and fuse. Incl. VAT.',
     h1: 'Electricity transfer fees by network operator',
-    intro: 'The transfer price depends on where you live. The calculator compares the annual transfer cost in every network whose price list can be read, on your own consumption.',
+    intro: 'Electricity transfer fees depend on where you live. The calculator compares the annual transfer cost in every network whose price list can be read, on your own consumption.',
     resume: (h) => {
       const v = V(h);
       return `Electricity transfer pricing in Finland is regional: your network operator is set by your address and cannot be changed. The Energy Authority lists ${v.ev} distribution operators, and the calculator covers ${v.n} of them, those whose price list is published in readable form. The differences are large. For a flat using 2,000 kilowatt-hours a year, transfer costs ${h.eur(v.k[0].paras.e, 0)} a year in the cheapest network (${v.k[0].v.lyhyt}) and ${h.eur(v.k.at(-1)!.paras.e, 0)} in the dearest (${v.k.at(-1)!.v.lyhyt}). For a house using 5,000 kilowatt-hours on a 3 × 25 A fuse the gap between cheapest and dearest is ${h.eur(v.eroO, 0)} a year, and for an electrically heated 18,000 kWh house ${h.eur(v.eroL, 0)}. The general transfer price per kilowatt-hour ranges from ${h.c(v.yleis[0].c)} to ${h.c(v.yleis.at(-1)!.c)} including VAT. For each network the calculator picks its cheapest product and adds the transfer fee, basic fee and any power fee. Enter your consumption, fuse and operator to see where you rank.`;
@@ -76,7 +76,7 @@ ${h.table(['#', 'Verkkoyhtiö', 'Edullisin tuote (5 000 kWh)', '5 000 kWh, 3 × 
     body: (h) => {
       const v = V(h);
       const rows = v.o.map((r, i) => [`${i + 1}.`, v.linkki(r.v), r.paras.tu.nimi, h.eur(r.paras.e, 0), h.eur(v.k.find((x) => x.v.id === r.v.id)!.paras.e, 0), h.eur(v.l.find((x) => x.v.id === r.v.id)!.paras.e, 0)]);
-      return `<h2>Ranking for a house</h2>
+      return `<h2>Electricity transfer fees ranked for a house</h2>
 ${h.table(['#', 'Operator', 'Cheapest product (5,000 kWh)', '5,000 kWh, 3 × 25 A', '2,000 kWh, flat', '18,000 kWh, electric heating'], rows, 'Annual transfer cost on the cheapest product, € incl. VAT: transfer fee, basic fee and power fee at a 5 kW peak. Electricity tax excluded.', ['l', 'l', 'l', 'r', 'r', 'r'])}
 <p>The order changes with consumption. At low use the basic fee decides; at high use the transfer fee and night or seasonal rates. A network with a small basic fee but a high transfer fee is cheap for a flat but can be dear for an electrically heated house.</p>
 <h2>Choosing a transfer product is a saving in itself</h2>

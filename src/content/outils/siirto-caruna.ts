@@ -68,7 +68,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Caruna’s prices at a glance</h2>
+      return `<h2>Caruna’s transfer fees at a glance</h2>
 ${hintaTaulukko(h, v.t)}
 <p>The price list has been unchanged since ${h.date(v.t.v.voimassa!)}, so a Caruna customer’s transfer bill has moved mainly with electricity tax and consumption since then. Electricity tax rose on ${h.date(h.P.vero.voimassa)} when the security-of-supply fee increased, and it appears on the same Caruna bill.</p>
 <h2>Three products, three users</h2>

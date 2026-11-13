@@ -76,7 +76,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Porvoon Sähköverkko’s network price list</h2>
+      return `<h2>Porvoon Sähköverkko’s transfer fee price list</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Under the price list the general transfer basic fee is the same ${h.eur(v.p1)} for 1 × 25 A, 1 × 35 A and 3 × 25 A connections, and only 3 × 35 A raises it to ${h.eur(v.p35)}. The flat rate requires a terraced or apartment building with at least five dwellings; a smaller building pays the basic fee for its fuse.</p>
 <h2>Annual cost in Porvoo</h2>

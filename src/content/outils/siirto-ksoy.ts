@@ -38,7 +38,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Hinnasto pienasiakkaille</h2>
+      return `<h2>Kymenlaakson Sähköverkon siirtohinnasto pienasiakkaille</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Kymenlaakson Sähköverkko ilmoittaa hinnat sekä verottomina että verollisina; verottomat koskevat lähinnä yritysasiakkaita. Laskuri käyttää verollisia hintoja. Yhtiö käyttää myyjän puolesta tehtävissä laskutuksen korjauksissa pohjoismaisen sähköpörssin Suomen spot-hintaa.</p>
 <h2>Vuosikustannus ja yösiirron raja</h2>
@@ -54,7 +54,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Kymenlaakson Sähköverkko’s cheap night transfer and the all-in spot price in Kymenlaakso.',
     title: 'Kymenlaakso Transfer Fee 2026: Night Transfer and Spot Price',
     description: 'Kymenlaakson Sähköverkko transfer fees 2026: general, night and seasonal transfer. The low night rate and the all-in spot electricity price by quarter today.',
-    h1: 'Kymenlaakson Sähköverkko: cheap nights and spot electricity',
+    h1: 'Kymenlaakson Sähköverkko transfer fee: cheap nights and spot electricity',
     intro: 'On Kymenlaakson Sähköverkko’s night transfer the night rate is under one cent. The calculator is preset to night transfer.',
     resume: (h) => {
       const v = V(h);
@@ -71,7 +71,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Small-customer price list</h2>
+      return `<h2>Kymenlaakso transfer fees for small customers</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Kymenlaakson Sähköverkko publishes prices both with and without tax; tax-free prices mainly concern business customers. The calculator uses tax-inclusive prices. When correcting billing on a retailer’s behalf, the company uses the Nordic exchange’s Finnish spot price.</p>
 <h2>Annual cost and the night transfer threshold</h2>

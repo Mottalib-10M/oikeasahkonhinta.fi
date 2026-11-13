@@ -26,7 +26,7 @@ export default defineGuide({
     title: 'Pori Energia siirtohinta 2026: aikasiirto ja kausisiirto',
     description: 'Pori Energian siirtohinnat 2026: yleissiirto, aikasiirto ja kausisiirto ilman tehomaksua. Aikasiirron päivähinta on sama kuin yleissiirron. Hinta tänään.',
     h1: 'Pori Energia: pörssisähkön hinta Porissa siirron ja veron kanssa',
-    intro: 'Porissa siirtotuotteita on kolme eikä yhdessäkään ole tehomaksua. Laskuri lisää siirron ja verot pörssihintaan jokaisessa vartissa.',
+    intro: 'Pori Energian verkossa siirtotuotteita on kolme eikä yhdessäkään ole tehomaksua. Laskuri lisää siirron ja verot pörssihintaan jokaisessa vartissa.',
     resume: (h) => {
       const v = V(h);
       return `Pori Energia Sähköverkot siirtää sähkön Porissa, ja yhtiön mukaan sähkönkäyttöpaikkoja on yli ${h.num(v.t.v.asiakkaat!.maara)}. Verkkopalveluhinnasto on voimassa ${h.date(v.t.v.voimassa!)} alkaen, eikä siinä ole tehomaksua, joten lasku muodostuu vain perusmaksusta ja kilowattitunneista. Yleissiirto maksaa ${h.c(v.y.energia.kaikki!)} vuorokauden ja vuoden ympäri, ja perusmaksu on yksivaiheisessa liittymässä ${h.eur(v.kt)} ja 3 × 25 ampeerilla ${h.eur(v.p25)} kuukaudessa. Porin hinnaston erikoisuus on aikasiirto: sen päiväsiirto kello 7–22 maksaa saman ${h.c(v.a?.energia.paiva ?? 0)} kuin yleissiirto, mutta yöllä siirto on vain ${h.c(v.a?.energia.yo ?? 0)}. Ero tulee siis pelkästä perusmaksusta, joka on 3 × 25 ampeerilla ${v.a25 !== null ? h.eur(v.a25) : '–'} kuukaudessa. Kausisiirrossa talviarkipäivän ${h.c(v.k?.energia.talvipaiva ?? 0)} koskee marras–maaliskuuta maanantaista lauantaihin kello 7–22; muulloin siirto maksaa ${h.c(v.k?.energia.muu ?? 0)}. Omakotitalon 5 000 kilowattitunnin siirto on Porissa ${v.t.sija5}. edullisin laskurin ${v.t.n} verkosta. Laskuri on asetettu Porin yleissiirtoon; valitse oma tuotteesi ja sulakkeesi, niin näet jokaisen vartin kokonaishinnan.`;
@@ -75,7 +75,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Pori’s transfer prices</h2>
+      return `<h2>Pori Energia’s transfer fees</h2>
 ${hintaTaulukko(h, v.t)}
 <p>In the price list the basic fees for time-of-day and seasonal transfer start at 3 × 25 A, so a single-phase connection uses general transfer. Time-of-day and seasonal share the same basic fee and differ only in when the cheaper rate applies: every night on time-of-day; on seasonal, all summer season plus winter nights and Sundays.</p>
 <h2>Annual cost in Pori</h2>

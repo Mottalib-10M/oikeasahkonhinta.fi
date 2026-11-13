@@ -35,7 +35,7 @@ export default defineGuide({
     title: 'Pörssisähkön hinta kuukausittain 2026: keskihinnat alv:llä',
     description: 'Pörssisähkön keskihinta kuukausittain 2025–2026: kuukauden pörssihinta alv:n kanssa ja kokonaishinta siirron ja sähköveron kanssa oman verkkoyhtiösi mukaan.',
     h1: 'Pörssisähkön hinta kuukausittain: keskihinnat ja koko hinta',
-    intro: 'Kuukauden keskihinta kertoo, mitä pörssisähkö on maksanut. Laskuri lisää siihen siirron ja verot oman verkkoyhtiösi mukaan.',
+    intro: 'Kuukauden keskihinta kertoo, mitä pörssisähkö on maksanut. Laskuri lisää kuukausittaiseen hintaan siirron ja verot oman verkkoyhtiösi mukaan.',
     resume: (h) => {
       const v = V(h);
       return `Suomen tarjousalueen pörssisähkön keskihinta oli viimeisimpänä päättyneenä kuukautena, ${v.viim.k}, ${h.c(v.viim.spot)} arvonlisäveron kanssa. Viimeisten kahdentoista kuukauden keskiarvo on ${h.c(v.ka12)}${v.nEd >= 12 ? ` ja sitä edeltäneen vuoden ${h.c(v.kaEd)}` : ''}. Jakson kallein kuukausi oli ${v.max.k}, jolloin keskihinta oli ${h.c(v.max.spot)}, ja halvin ${v.min.k}, ${h.c(v.min.spot)}. Pörssihinta ei kuitenkaan ole se, mitä kuluttaja maksaa: Helen Sähköverkon yleissiirrolla kokonaishintaan tulee lisäksi siirto ${h.c(v.helen)}, sähkövero ${h.c(h.M.VERO_C, 4)} ja myyjän marginaali, joten viimeisimmän kuukauden kokonaishinta oli ${h.c(v.viim.spot + MARG + v.helen + h.M.VERO_C)}. Järvi-Suomen Energian alueella sama pörssihinta johti ${h.c(v.viim.spot + MARG + v.jse + h.M.VERO_C)} kokonaishintaan. Valitse alta oma verkkoyhtiösi ja sopimuksesi, niin taulukko näyttää jokaisen kuukauden kokonaishinnan. Taulukko kertoo myös, onko kuukauden luku laskettu omasta varttiarkistostamme vai Nord Poolin virallisesta kuukausikeskiarvosta. Talvikuukausien ja kesäkuukausien ero on tyypillisesti suuri, ja se näkyy suoraan pörssisopimuksen laskussa. Laskurin taulukko näyttää kaikki kuukaudet uusimmasta alkaen.`;
@@ -51,7 +51,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Kuukausien pörssihinnat</h2>
+      return `<h2>Pörssisähkön hinta kuukausittain</h2>
 ${h.table(['Kuukausi', 'Pörssihinta sis. alv', 'Lähde'], [...v.rivit].reverse().map((r) => [r.k, h.c(r.spot), r.lahde === 'arkisto' ? 'varttiarkisto' : 'Nord Pool, kuukausikeskiarvo']), 'Suomen tarjousalue, kuukauden yksinkertainen keskiarvo, c/kWh alv 25,5 % mukaan lukien.', ['l', 'r', 'l'])}
 <p>Taulukon hinnat ovat pelkkiä pörssihintoja arvonlisäveron kanssa. Yllä oleva laskuri lisää niihin valitsemasi verkkoyhtiön siirtomaksun kuukauden keskiarvona, sähköveron ja marginaalin tai korvaa ne kiinteällä hinnalla, ja näyttää kokonaishinnan sekä kuukausimaksut.</p>
 <h2>Kokonaishinnan ja pörssihinnan ero</h2>

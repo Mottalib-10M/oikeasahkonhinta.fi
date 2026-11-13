@@ -63,7 +63,7 @@ ${vuosiTaulukko(h, v.t)}
     card: 'Herrfors’s Yleistariffi, Yleistariffi B and Aikatariffi and the all-in spot price in the Jakobstad region.',
     title: 'Herrfors Transfer Fee 2026: Jakobstad and General Tariff B',
     description: 'Herrfors Nät-Verkko transfer fees 2026: general tariff, high-use general tariff B and time-of-day tariff in Jakobstad and Ylivieska. Spot price by quarter hour.',
-    h1: 'Herrfors Nät-Verkko: the spot electricity price around Jakobstad',
+    h1: 'Herrfors Nät-Verkko transfer fee: the spot electricity price around Jakobstad',
     intro: 'Herrfors offers two single-rate tariffs: one with a low basic fee, the other with a low transfer fee. The calculator shows what spot electricity costs with each product, one quarter hour at a time.',
     resume: (h) => {
       const v = V(h);
@@ -80,7 +80,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Herrfors’s household network prices</h2>
+      return `<h2>Herrfors’s household transfer fees</h2>
 ${hintaTaulukko(h, v.t)}
 <p>In the flat column, the general tariff row shows the Kerrostalosähkö basic fee, which under the price list applies to flats in terraced houses and blocks. General tariff B and the time-of-day tariff are priced only for three-phase connections, so their flat column shows the 3 × 25 A basic fee.</p>
 <h2>Annual cost in the Jakobstad region</h2>

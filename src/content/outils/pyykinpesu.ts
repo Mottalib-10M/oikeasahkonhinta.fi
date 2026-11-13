@@ -23,8 +23,8 @@ export default defineGuide({
     card: 'Mitä pyykinpesukoneen pesu maksaa tänään ja paljonko ajoittaminen säästää.',
     title: 'Pyykinpesukone sähkön hinta 2026: pesun hinta pörssisähköllä',
     description: 'Pyykinpesukoneen sähkönkulutus ja pesun hinta 2026: paljonko pesu maksaa tänään pörssisähköllä siirron ja verojen kanssa ja milloin kone kannattaa käynnistää.',
-    h1: 'Paljonko pyykinpesu maksaa pörssisähköllä?',
-    intro: 'Yksi pesu maksaa senttejä, mutta vuodessa summa kertyy. Laskuri kertoo pesun hinnan ja halvimman käynnistysajan tänään tai huomenna.',
+    h1: 'Pyykinpesukone ja sähkön hinta: paljonko pesu maksaa pörssisähköllä?',
+    intro: 'Pyykinpesukoneen yksi pesu kuluttaa sähköä vain senttien edestä, mutta vuodessa summa kertyy. Laskuri kertoo pesun hinnan ja halvimman käynnistysajan tänään tai huomenna.',
     resume: (h) => {
       const v = V(h);
       return `Pyykinpesukoneen sähkönkulutus riippuu ohjelmasta ja koneesta. Energiamerkissä ilmoitetaan eco 40–60 -ohjelman kulutus sataa pesua kohden, joten jakamalla luvun sadalla saat yhden pesun kulutuksen. Laskurin oletus on ${h.num(v.p.kwh, 1)} kilowattituntia ja ${h.num(v.p.h)} tunnin ohjelma; vaihda tilalle oman koneesi luvut. Helsingissä Helen Sähköverkon yleissiirrolla ja ${h.c(MARG)} marginaalin pörssisopimuksella pesu maksaa tänään halvimmalla aloitusajalla, kello ${v.he.halvinKlo}, ${h.eur(v.he.halvin)} ja kalleimmalla, kello ${v.he.kalleinKlo}, ${h.eur(v.he.kallein)}. Päivän keskihinnalla pesu maksaa ${h.eur(v.he.keski)}. Neljä pesua viikossa tekee vuodessa noin ${h.eur(v.vuosi, 0)}, ja jos kaikki pestään halvimmalla tunnilla, säästö olisi tämän päivän hinnoilla noin ${h.eur(v.saasto, 0)} vuodessa. Säästö on pieni verrattuna sähköautoon tai saunaan, mutta ajoittaminen ei maksa mitään, jos koneessa on ajastin. Laskuri näyttää myös vuosikustannuksen valitsemallasi pesukertojen määrällä. Täysi koneellinen ja matalampi pesulämpötila pienentävät kulutusta eniten.`;
@@ -40,7 +40,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Pesun hinta kahdessa verkossa</h2>
+      return `<h2>Pyykinpesukoneen pesun hinta kahdessa verkossa</h2>
 ${h.table(['Verkko', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloitus'], [
         ['Helen, yleissiirto', `${h.eur(v.he.halvin)} (${v.he.halvinKlo})`, h.eur(v.he.keski), `${h.eur(v.he.kallein)} (${v.he.kalleinKlo})`],
         ['Caruna, yleissiirto', `${h.eur(v.ca.halvin)} (${v.ca.halvinKlo})`, h.eur(v.ca.keski), `${h.eur(v.ca.kallein)} (${v.ca.kalleinKlo})`],
@@ -59,7 +59,7 @@ ${h.table(['Verkko', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloitus'], [
     title: 'Washing Machine Electricity Cost Finland 2026: Spot Price',
     description: 'Washing machine cost per wash in Finland, 2026: what a wash costs today on spot electricity with transfer and taxes, and the best time to start the machine.',
     h1: 'What does a wash cost on spot electricity?',
-    intro: 'A single wash costs cents, but it adds up over a year. The calculator shows the cost of a wash and the cheapest start today or tomorrow.',
+    intro: 'A single washing machine cycle costs cents in electricity, but it adds up over a year. The calculator shows the cost of a wash and the cheapest start today or tomorrow.',
     resume: (h) => {
       const v = V(h);
       return `A washing machine’s electricity use depends on the programme and the machine. The energy label gives the eco 40–60 programme’s use per 100 cycles, so divide it by 100 for one wash. The calculator’s default is ${h.num(v.p.kwh, 1)} kWh and a ${h.num(v.p.h)}-hour programme; replace them with your machine’s figures. In Helsinki, on Helen Sähköverkko’s general transfer and a spot contract with a ${h.c(MARG)} margin, a wash costs ${h.eur(v.he.halvin)} today at the cheapest start (${v.he.halvinKlo}) and ${h.eur(v.he.kallein)} at the dearest (${v.he.kalleinKlo}). At the day’s average price it costs ${h.eur(v.he.keski)}. Four washes a week come to about ${h.eur(v.vuosi, 0)} a year, and washing every load in the cheapest hour would save about ${h.eur(v.saasto, 0)} a year at today’s prices. The saving is small compared with an electric car or sauna, but timing costs nothing if the machine has a timer.`;
@@ -75,7 +75,7 @@ ${h.table(['Verkko', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloitus'], [
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>The cost of a wash in two networks</h2>
+      return `<h2>Washing machine electricity cost in two networks</h2>
 ${h.table(['Network', 'Cheapest start', 'At average price', 'Dearest start'], [
         ['Helen, general transfer', `${h.eur(v.he.halvin)} (${v.he.halvinKlo})`, h.eur(v.he.keski), `${h.eur(v.he.kallein)} (${v.he.kalleinKlo})`],
         ['Caruna, general transfer', `${h.eur(v.ca.halvin)} (${v.ca.halvinKlo})`, h.eur(v.ca.keski), `${h.eur(v.ca.kallein)} (${v.ca.kalleinKlo})`],

@@ -40,7 +40,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Hinnasto ${h.date(v.t.v.voimassa!)} alkaen</h2>
+      return `<h2>Caruna Espoon siirtohinnasto ${h.date(v.t.v.voimassa!)} alkaen</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Caruna Espoon kolmella siirtotuotteella on vain kaksi perusmaksua: kerros- ja rivitaloasunnoille sekä kaikille muille 25–63 ampeerin liittymille. Tämä tekee Espoon alueesta poikkeuksen, sillä useimmissa verkoissa 3 × 35 ampeerin perusmaksu on selvästi 3 × 25 ampeerin maksua suurempi.</p>
 <h2>Mikä tuote sopii espoolaiseen kotiin</h2>
@@ -73,7 +73,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Price list from ${h.date(v.t.v.voimassa!)}</h2>
+      return `<h2>Caruna Espoo transfer fees from ${h.date(v.t.v.voimassa!)}</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Caruna Espoo’s three transfer products have only two basic fees: one for flats and terraced homes and one for every other connection from 25 to 63 A. That makes the Espoo area an exception, since in most networks the 3 × 35 A basic fee is clearly higher than the 3 × 25 A one.</p>
 <h2>Which product suits a home in Espoo</h2>

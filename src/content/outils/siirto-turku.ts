@@ -26,7 +26,7 @@ export default defineGuide({
     title: 'Turku Energia siirtohinta 2026: yö- ja kausisiirto Turussa',
     description: 'Turku Energian siirtohinnat 2026: yleis-, yö- ja kausisiirto ilman tehomaksua, sama perusmaksu 3 × 25 A asti. Pörssisähkön kokonaishinta Turussa varteittain.',
     h1: 'Turku Energia: pörssisähkön hinta Turussa siirron kanssa',
-    intro: 'Turussa kerrostalo ja 3 × 25 ampeerin omakotitalo maksavat saman perusmaksun, eikä kotitalouksien siirrossa ole tehomaksua. Laskuri lisää siirron ja verot jokaiseen varttiin.',
+    intro: 'Turku Energian verkossa kerrostalo ja 3 × 25 ampeerin omakotitalo maksavat saman perusmaksun, eikä kotitalouksien siirrossa ole tehomaksua. Laskuri lisää siirron ja verot jokaiseen varttiin.',
     resume: (h) => {
       const v = V(h);
       return `Turku Energia Sähköverkot jakaa sähkön Turussa Paattista lukuun ottamatta, ja sillä on yhtiön mukaan yli ${h.num(v.t.v.asiakkaat!.maara)} käyttöpaikkaa. Hinnasto on ollut voimassa ${h.date(v.t.v.voimassa!)} alkaen, eikä sitä ole sen jälkeen muutettu. Turun hinnoittelussa on kaksi erikoisuutta. Ensinnäkin perusmaksu on sama kaikille sulakkeille 1 × 10 ampeerista 3 × 25 ampeeriin: yleissiirrossa ${h.eur(v.p)} kuukaudessa, olipa kyse yksiöstä tai omakotitalosta. Vasta 3 × 35 ampeerin liittymässä se nousee ${h.eur(v.p35)}:oon. Toiseksi kotitalouksien yleis-, yö- ja kausisiirrossa ei ole tehomaksua, joten samanaikainen kulutus ei kasvata siirtolaskua. Yleissiirto maksaa ${h.c(v.y.energia.kaikki!)}.${v.a ? ` Yösiirrossa yöaika on kello 22–7, ja silloin siirto maksaa ${h.c(v.a.energia.yo!)}, päivällä ${h.c(v.a.energia.paiva!)}.` : ''}${v.k ? ` Kausisiirron talviarkipäivä maksaa ${h.c(v.k.energia.talvipaiva!)} ja muu aika ${h.c(v.k.energia.muu!)}; sen perusmaksu on sama kuin yösiirron.` : ''} Omakotitalon 5 000 kilowattitunnin siirto on Turussa ${v.t.sija5}. edullisin laskurin ${v.t.n} verkosta ja kerrostalon 2 000 kilowattituntia ${v.t.sija2}. edullisin. Laskuri on asetettu Turun yleissiirtoon; vaihda tuote, niin näet sen vaikutuksen jokaiseen varttiin.`;
@@ -42,7 +42,7 @@ export default defineGuide({
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Turun siirtohinnat</h2>
+      return `<h2>Turku Energian siirtohinnat</h2>
 ${hintaTaulukko(h, v.t)}
 <p>Taulukossa kerrostalon ja 3 × 25 ampeerin perusmaksu on sama, koska Turku Energia ei porrasta pieniä sulakkeita. Kausisiirrolla ei ole omaa perusmaksua: hinnasto viittaa yösiirron perusmaksuun. Kaikkien kolmen tuotteen suurin sulake on hinnaston mukaan 3 × 160 A.</p>
 <h2>Vuosikustannus Turussa</h2>
@@ -75,7 +75,7 @@ ${vuosiTaulukko(h, v.t)}
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Turku’s transfer prices</h2>
+      return `<h2>Turku Energia’s transfer fees</h2>
 ${hintaTaulukko(h, v.t)}
 <p>The flat and 3 × 25 A basic fees in the table are identical because Turku Energia does not step small fuse sizes. Seasonal transfer has no basic fee of its own: the price list refers to the night transfer basic fee. Under the price list the largest fuse for all three products is 3 × 160 A.</p>
 <h2>Annual cost in Turku</h2>

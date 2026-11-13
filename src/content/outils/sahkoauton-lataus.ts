@@ -76,7 +76,7 @@ ${h.table(['Verkko ja tuote', 'Halvin aloitus', 'Keskihinnalla', 'Kallein aloitu
     },
     body: (h) => {
       const v = V(h);
-      return `<h2>Today’s charging cost</h2>
+      return `<h2>Today’s charging cost at home</h2>
 ${h.table(['Network and product', 'Cheapest start', 'At average price', 'Dearest start'], [
         ['Helen, general transfer', `${h.eur(v.he.halvin)} (${v.he.halvinKlo})`, h.eur(v.he.keski), `${h.eur(v.he.kallein)} (${v.he.kalleinKlo})`],
         ['Kymenlaakson Sähköverkko, night transfer', `${h.eur(v.ksoy.halvin)} (${v.ksoy.halvinKlo})`, h.eur(v.ksoy.keski), `${h.eur(v.ksoy.kallein)} (${v.ksoy.kalleinKlo})`],
