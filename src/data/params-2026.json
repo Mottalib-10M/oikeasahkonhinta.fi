@@ -203,10 +203,10 @@
    }
   },
   "oulu": {
-   "url": "https://production.oulunenergia.fi/globalassets/tiedostot/sahkoverkot/oes_hinnasto_01012026.pdf",
+   "url": "https://www.oulunenergia.fi/sahkoverkko/tuotteet-ja-hinnastot/verkkopalveluhinnasto/",
    "label": {
-    "fi": "Oulun Energia Sähköverkko: verkkopalveluhinnasto 1.1.2026",
-    "en": "Oulun Energia Sähköverkko: network service price list 1 Jan 2026"
+    "fi": "Oulun Energia Sähköverkko: verkkopalveluhinnasto-sivu, hinnat 1.1.2026 alkaen",
+    "en": "Oulun Energia Sähköverkko: network service price list page, prices from 1 Jan 2026"
    }
   },
   "ksoy": {
@@ -231,7 +231,7 @@
    }
   },
   "kuopio": {
-   "url": "https://www.kuopionenergia.fi/wp-content/uploads/2026/08/ke_sahkoverkon_verkkopalveluhinnasto_20260814.pdf",
+   "url": "https://www.kuopionenergia.fi/wp-content/uploads/2026/10/ke_sahkon_verkkopalveluhinnasto_a4_2026_261022.pdf",
    "label": {
     "fi": "Kuopion Sähköverkko: verkkopalvelumaksut 1.7.2026",
     "en": "Kuopion Sähköverkko: network service fees 1 Jul 2026"
