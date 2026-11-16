@@ -1,9 +1,9 @@
 {
  "lahde": "Energiavirasto, sähkön hintavertailu (sahkonhinta.fi), tuotelista",
- "haettu": "2026-11-09",
- "n": 5,
+ "haettu": "2026-11-16",
+ "n": 3,
  "marginaaliMediaani": 0.51,
- "perusmaksuMediaani": 4.78,
+ "perusmaksuMediaani": 4.05,
  "tuotteet": [
   {
    "yhtio": "Keuruun Sähkö Oy",
@@ -18,20 +18,6 @@
    "marginaali": 0.6,
    "perusmaksu": 2.53,
    "alkaen": "2026-08-20"
-  },
-  {
-   "yhtio": "Lankosken Sähkö Oy",
-   "tuote": "Pörssisähkö",
-   "marginaali": 0.47,
-   "perusmaksu": 4.78,
-   "alkaen": "2025-12-01"
-  },
-  {
-   "yhtio": "Lankosken Sähkö Oy",
-   "tuote": "Pörssisähkö",
-   "marginaali": 0.59,
-   "perusmaksu": 6,
-   "alkaen": "2025-12-01"
   },
   {
    "yhtio": "Hehku Energia Oy",
