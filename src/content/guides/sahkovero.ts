@@ -17,13 +17,13 @@ export default defineGuide({
   order: 10,
   mini: 'sahkovero',
   related: ['siirtomaksu', 'sahkolasku', 'siirtohinnat', 'negatiivinen-hinta', 'porssi-vai-kiintea'],
-  sources: ['veroTaulukko', 'veroSahko', 'veroAlv', 'finlexSahkovero'],
+  sources: ['veroTaulukko', 'veroSahko', 'veroAlv', 'finlexSahkovero', 'veroMuutokset2027', 'vmBudjetti2027'],
   fi: {
     slug: 'sahkovero',
     nav: 'Sähkövero',
-    card: 'Sähkövero ja huoltovarmuusmaksu 2026, veroluokat ja paljonko veroa maksat vuodessa.',
-    title: 'Sähkövero 2026: snt/kWh, veroluokat ja huoltovarmuusmaksu',
-    description: 'Sähkövero 2026: veroluokka I 2,24 snt ja huoltovarmuusmaksu 0,085 snt kWh:lta ilman alv:tä 1.4.2026 alkaen. Laske, paljonko maksat sähköveroa vuodessa.',
+    card: 'Sähkövero ja huoltovarmuusmaksu 2026 ja 2027, veroluokat ja paljonko veroa maksat vuodessa.',
+    title: 'Sähkövero 2026 ja 2027: snt/kWh, veroluokat, huoltovarmuus',
+    description: 'Sähkövero 2026 ja 2027: veroluokka I 2,24 snt ja huoltovarmuusmaksu 0,085 snt kWh:lta ilman alv:tä. Vuodelle 2027 ei ole ilmoitettu muutosta. Laske vuoden vero.',
     h1: 'Sähkövero 2026: paljonko maksat ja miksi',
     intro: 'Sähkövero on jokaisessa kilowattitunnissa sopimuksesta riippumatta. Huhtikuun 2026 alusta se nousi, kun huoltovarmuusmaksu kasvoi.',
     resume: (h) => {
@@ -38,6 +38,7 @@ export default defineGuide({
         { q: 'Kuka voi maksaa sähköveroa alemman veroluokan mukaan?', a: `Veroluokka II on Verohallinnon mukaan tarkoitettu muun muassa teollisuudelle, ammattimaiselle kasvihuoneviljelylle sekä lämpöpumpuille, sähkökattiloille ja geotermisten lämpölaitosten kiertovesipumpuille. Datakeskukset kuuluvat luokkaan I ${h.date(h.P.vero.datakeskukset_I_alkaen)} alkaen. Kotitaloudet maksavat aina luokan I veroa, ${h.c(v.nyt, 4)} kilowattitunnilta. Luokkaan II kuuluminen edellyttää kirjallista vakuutusta verkkoyhtiölle.` },
         { q: 'Maksetaanko sähköverosta arvonlisäveroa?', a: `Kyllä. Arvonlisävero 25,5 prosenttia lasketaan myös sähköveron ja huoltovarmuusmaksun päälle. Siksi ${h.num(h.M.VERO_VEROTON, 3)} sentin vero maksaa kuluttajalle ${h.c(v.nyt, 4)}. Verkkoyhtiöiden hinnastoissa näkyy usein molemmat luvut, ja osa yhtiöistä ilmoittaa myös siirtomaksun ja veron yhteenlasketun hinnan. Laskuri käyttää verollista lukua. Vero on sama kaikilla kuluttajilla.` },
         { q: 'Vaikuttaako sähkövero pörssisähkön halvimpaan tuntiin?', a: 'Ei. Sähkövero on sama jokaisena tuntina ja vartissa, joten se ei muuta sitä, mikä tunti on halvin. Se kuitenkin pienentää suhteellista eroa halvan ja kalliin tunnin välillä, koska kiinteä vero lisätään kaikkiin hintoihin. Negatiivisella pörssihinnalla vero pitää kokonaishinnan useimmiten plussalla.' },
+      { q: 'Muuttuuko sähkövero vuonna 2027?', a: `Muutosta ei ole ilmoitettu. Verohallinnon luettelo 1.1.2027 voimaan tulevista valmisteveromuutoksista ei mainitse sähköveroa, ja verotaulukko on voimassa 1.4.2026 alkaen ilman päättymispäivää. Nykyisen lain mukaan kotitalous maksaa siis vuonna 2027 edelleen ${h.c(v.nyt, 4)} kilowattitunnilta arvonlisäveron kanssa. Eduskunta voi muuttaa veroa talousarvion käsittelyssä, ja muutos näkyisi laskureissa heti.` },
       { q: 'Onko sähkövero sama koko Suomessa?', a: 'On. Sähkövero ja huoltovarmuusmaksu ovat samat kaikkialla Suomessa, eikä niihin vaikuta verkkoyhtiö, sähkösopimus tai kellonaika. Kotitalous maksaa aina veroluokan I mukaista veroa. Siirtomaksu sen sijaan vaihtelee verkkoyhtiöittäin, joten sähkölaskun loppusumma eroaa asuinpaikan mukaan, vaikka vero on sama. Vero näkyy siirtolaskulla.' },
       ];
     },
@@ -61,8 +62,13 @@ ${h.table(['Kulutus vuodessa', 'Ennen 1.4.2026', '1.4.2026 alkaen', 'Muutos'], v
 <p>Jos verkkoyhtiösi hinnastossa on sähköverollinen siirtomaksu, se on siirtomaksun ja sähköveron summa. Esimerkiksi Elenian, Tampereen Sähköverkon ja Savon Voiman hinnastoissa tällainen yhdistetty hinta on valmiiksi laskettu. Sähkökatkot tai verkkoyhtiön vaihtuminen eivät vaikuta veron määrään.</p>
 <h2>Sähkövero ja oma sähköntuotanto</h2>
 <p>Verohallinnon mukaan verotonta on muun muassa sähkö, jonka pientuottaja tuottaa ja käyttää itse, kun tuotanto ei ylitä laissa säädettyä rajaa. Aurinkopaneeleilla tuotettu ja omassa taloudessa samalla hetkellä kulutettu sähkö ei siksi kulje verkon kautta, eikä siitä makseta sähköveroa eikä siirtomaksua. Verkkoon myyty ylijäämäsähkö ei myöskään ole kuluttajalle verotettavaa sähkönkäyttöä. Tämän vuoksi oman tuotannon arvo on suurempi kuin pelkkä pörssihinta.</p>
-<h2>Muutokset tulevina vuosina</h2>
-<p>Sähköveron määrä voi muuttua valtion talousarvion yhteydessä. Tarkista voimassa oleva määrä aina ${h.src('veroSahko', 'Verohallinnon sähköverosivulta')}. Tämä sivusto päivittää veron laskureihin heti, kun uusi verotaulukko on julkaistu, ja kaikki sivut käyttävät samaa arvoa. Laske koko sähkölaskusi ${h.a('sahkolasku', 'sähkölaskulaskurilla')} ja katso, miten vero suhteutuu ${h.a('siirtomaksu', 'siirtomaksuun')}.</p>
+<h2>Sähkövero 2027</h2>
+${h.table(['', '2026 (1.4. alkaen)', '2027'], [
+        ['Sähkövero, luokka I', h.c(h.P.vero.sahkovero_I_c, 3), h.c(h.P.vero.sahkovero_I_c, 3)],
+        ['Huoltovarmuusmaksu', h.c(h.P.vero.huoltovarmuus_c, 3), h.c(h.P.vero.huoltovarmuus_c, 3)],
+        ['Yhteensä alv:n kanssa', h.c(v.nyt, 4), h.c(v.nyt, 4)],
+      ], `Vuoden 2027 sarake: voimassa oleva laki ja verotaulukko, tilanne ${h.date(h.P.vero.tarkistettu_2027)}.`, ['l', 'r', 'r'])}
+<p>Vuodelle 2027 ei ole ilmoitettu sähköveron muutosta. Verohallinnon ${h.src('veroMuutokset2027', 'luettelo valmisteverotuksen muutoksista 1.1.2027')} (päivitetty 26.10.2026) mainitsee alkoholi- ja tupakkaveron korotukset, mutta ei sähköveroa eikä huoltovarmuusmaksua, eikä ${h.src('vmBudjetti2027', 'hallituksen talousarvioesitys vuodelle 2027')} (1.9.2026) sisällä sähköveron muutosta. Verohallinnon verotaulukko on voimassa 1.4.2026 alkaen ilman päättymispäivää. Taulukon vuoden 2027 luvut ovat siis nykyisen lain mukaiset, eivät ennuste. Eduskunta voi vielä muuttaa veroa talousarvion käsittelyssä, joten tarkista voimassa oleva määrä aina ${h.src('veroSahko', 'Verohallinnon sähköverosivulta')}. Sivuston laskurit päivittyvät heti, jos uusi verotaulukko julkaistaan. Laske koko sähkölaskusi ${h.a('sahkolasku', 'sähkölaskulaskurilla')} ja katso, miten vero suhteutuu ${h.a('siirtomaksu', 'siirtomaksuun')}.</p>
 <h2>Esimerkki: veron osuus eri päivinä</h2>
 <p>Sähköveron osuus kokonaishinnasta vaihtelee pörssihinnan mukaan. Jos pörssihinta on viisi senttiä kilowattitunnilta arvonlisäveron kanssa ja siirtomaksu neljä senttiä, kokonaishinta marginaaleineen on noin kaksitoista senttiä, josta vero on lähes neljännes. Kun pörssihinta nousee kolmeenkymmeneen senttiin, vero on enää alle kymmenesosa kokonaishinnasta. Siksi vero tuntuu laskussa suhteellisesti eniten kesällä ja halpoina päivinä, vaikka sen määrä kilowattitunnilta pysyy samana.</p>
 <p>Vuoden laskussa veron osuus riippuu kulutuksesta ja siitä, mihin aikaan vuodesta sähköä käytetään. Sähkölämmitteinen talo kuluttaa suurimman osan sähköstään talvella, jolloin pörssihinnat ovat usein korkeampia, joten veron osuus koko vuoden laskusta on pienempi kuin kerrostaloasunnossa, jonka kulutus on tasaisempaa.</p>
@@ -74,9 +80,9 @@ ${h.table(['Kulutus vuodessa', 'Ennen 1.4.2026', '1.4.2026 alkaen', 'Muutos'], v
   en: {
     slug: 'electricity-tax-finland',
     nav: 'Electricity tax',
-    card: 'Finland’s electricity tax and security-of-supply fee in 2026, tax classes and your annual tax.',
-    title: 'Electricity Tax Finland 2026: c/kWh, Classes and Supply Fee',
-    description: 'Finnish electricity tax 2026: class I 2.24 c and supply security fee 0.085 c per kWh before VAT from 1 April 2026. Work out the electricity tax you pay a year.',
+    card: 'Finland’s electricity tax and security-of-supply fee in 2026 and 2027, tax classes and your annual tax.',
+    title: 'Electricity Tax Finland 2026 and 2027: c/kWh and Tax Classes',
+    description: 'Finnish electricity tax 2026 and 2027: class I 2.24 c and supply fee 0.085 c per kWh before VAT, with no change announced for 2027. Work out your yearly tax.',
     h1: 'Electricity tax in Finland 2026: what you pay and why',
     intro: 'Electricity tax is in every kilowatt-hour whatever your contract. From April 2026 it rose when the security-of-supply fee increased.',
     resume: (h) => {
@@ -90,6 +96,7 @@ ${h.table(['Kulutus vuodessa', 'Ennen 1.4.2026', '1.4.2026 alkaen', 'Muutos'], v
         { q: 'Why did electricity tax rise in April 2026?', a: `According to the Tax Administration’s table, the security-of-supply fee rose from ${h.num(h.P.vero.aiempi_huoltovarmuus_c, 3)} to ${h.num(h.P.vero.huoltovarmuus_c, 3)} cents per kilowatt-hour from ${h.date(h.P.vero.voimassa)}, while the electricity tax itself stayed at ${h.num(h.P.vero.sahkovero_I_c, 2)} cents. The fee funds Finland’s security of supply for emergencies. It is billed with transfer.` },
         { q: 'Who can pay the lower tax class?', a: `The Tax Administration says class II covers industry, professional greenhouse growing, and heat pumps, electric boilers and geothermal circulation pumps, among others. Data centres have been in class I since ${h.date(h.P.vero.datakeskukset_I_alkaen)}. Households always pay class I, ${h.c(v.nyt, 4)} per kilowatt-hour.` },
         { q: 'Is VAT charged on electricity tax?', a: `Yes. VAT of 25.5% is also charged on the electricity tax and security-of-supply fee, so ${h.num(h.M.VERO_VEROTON, 3)} cents of tax costs a consumer ${h.c(v.nyt, 4)}. Operators’ price lists often show both figures, and some also show the combined transfer-plus-tax price. The calculators use the VAT-inclusive figure.` },
+        { q: 'Will electricity tax change in 2027?', a: `No change has been announced. The Tax Administration’s list of excise changes from 1 January 2027 does not mention electricity tax, and the tax table runs from 1 April 2026 with no end date. Under current law a household still pays ${h.c(v.nyt, 4)} per kilowatt-hour with VAT in 2027. Parliament could amend it during the budget debate, and the calculators would follow at once.` },
         { q: 'Does electricity tax change the cheapest spot hour?', a: 'No. The tax is the same every hour and quarter, so it does not change which hour is cheapest. It does shrink the relative gap between cheap and expensive hours, because a fixed tax is added to every price. At a negative spot price the tax usually keeps the all-in price positive.' },
       ];
     },
@@ -113,8 +120,13 @@ ${h.table(['Annual consumption', 'Before 1 Apr 2026', 'From 1 Apr 2026', 'Change
 <p>If your operator’s price list shows a tax-inclusive transfer fee, it is the sum of transfer fee and electricity tax. Elenia’s, Tampereen Sähköverkko’s and Savon Voima’s price lists, for instance, give this combined price ready-made. Outages or a change of operator do not affect the tax rate.</p>
 <h2>Electricity tax and your own generation</h2>
 <p>According to the Tax Administration, electricity that a small producer generates and uses itself is tax-free, among other cases, provided generation stays within the legal limit. Solar power produced and used in the same home at the same moment does not pass through the grid, so neither electricity tax nor transfer is paid on it. Surplus sold to the grid is not taxable consumption for the household either. That makes own generation worth more than the spot price alone.</p>
-<h2>Changes in future years</h2>
-<p>The tax rate can change with the state budget. Always check the current rate on the ${h.src('veroSahko', 'Tax Administration’s electricity tax page')}. This site updates the tax in its calculators as soon as a new table is published, and every page uses the same value. Work out your whole bill in the ${h.a('sahkolasku', 'electricity bill calculator')} and see how tax compares with the ${h.a('siirtomaksu', 'transfer fee')}.</p>`;
+<h2>Electricity tax 2027</h2>
+${h.table(['', '2026 (from 1 April)', '2027'], [
+        ['Electricity tax, class I', h.c(h.P.vero.sahkovero_I_c, 3), h.c(h.P.vero.sahkovero_I_c, 3)],
+        ['Security-of-supply fee', h.c(h.P.vero.huoltovarmuus_c, 3), h.c(h.P.vero.huoltovarmuus_c, 3)],
+        ['Total with VAT', h.c(v.nyt, 4), h.c(v.nyt, 4)],
+      ], `2027 column: the law and tax table in force, as of ${h.date(h.P.vero.tarkistettu_2027)}.`, ['l', 'r', 'r'])}
+<p>No change to electricity tax has been announced for 2027. The Tax Administration’s ${h.src('veroMuutokset2027', 'list of excise changes from 1 January 2027')} (updated 26 October 2026) covers higher alcohol and tobacco duty but not electricity tax or the security-of-supply fee, and the ${h.src('vmBudjetti2027', 'government’s 2027 budget proposal')} (1 September 2026) contains no electricity tax change. The current tax table runs from 1 April 2026 with no end date, so the 2027 figures above are the law as it stands, not a forecast. Parliament could still amend the tax while it debates the budget, so always check the current rate on the ${h.src('veroSahko', 'Tax Administration’s electricity tax page')}. The calculators here change as soon as a new table is published. Work out your whole bill in the ${h.a('sahkolasku', 'electricity bill calculator')} and see how tax compares with the ${h.a('siirtomaksu', 'transfer fee')}.</p>`;
     },
   },
 });

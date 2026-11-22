@@ -13,7 +13,8 @@
   "aiempi_I_yhteensa_c": 2.253,
   "aiempi_huoltovarmuus_c": 0.013,
   "aiempi_voimassa": "2026-03-31",
-  "datakeskukset_I_alkaen": "2026-07-01"
+  "datakeskukset_I_alkaen": "2026-07-01",
+  "tarkistettu_2027": "2026-11-22"
  },
  "markkina": {
   "vartti_alkaen": "2025-10-01",
@@ -263,6 +264,20 @@
    "label": {
     "fi": "Pohjoismaiden ministerineuvosto: Suomen pyhäpäivät",
     "en": "Nordic Council of Ministers: public holidays in Finland"
+   }
+  },
+  "veroMuutokset2027": {
+   "url": "https://www.vero.fi/tietoa-verohallinnosta/uutishuone/verotuksen_muutoksia/valmisteverotuksen-muutoksia-1.1.2027",
+   "label": {
+    "fi": "Verohallinto: valmisteverotuksen muutoksia 1.1.2027 (päivitetty 26.10.2026)",
+    "en": "Finnish Tax Administration: excise tax changes from 1 January 2027 (updated 26 October 2026)"
+   }
+  },
+  "vmBudjetti2027": {
+   "url": "https://valtioneuvosto.fi/-/orpon-hallitus-talous-kasvaa-ja-hallitus-vauhdittaa-kasvua-tasmatoimilla",
+   "label": {
+    "fi": "Valtioneuvosto: hallituksen talousarvioesitys vuodelle 2027 (1.9.2026)",
+    "en": "Finnish Government: budget proposal for 2027 (1 September 2026)"
    }
   }
  }
