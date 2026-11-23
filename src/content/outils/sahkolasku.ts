@@ -63,6 +63,8 @@ ${h.table(['Koti', 'Energia + myyjän perusmaksu', 'Siirto + verkon perusmaksu',
 <li><strong>Verkon perusmaksu</strong>: pääsulakkeen mukainen kuukausimaksu, joissakin verkoissa myös tehomaksu.</li>
 <li><strong>Sähkövero ja huoltovarmuusmaksu</strong>: ${h.c(h.M.VERO_C, 4)} kilowattitunnilta arvonlisäveron kanssa; ks. ${h.a('sahkovero', 'sähkövero')}.</li>
 </ul>
+<h2>Sähkölasku vuonna 2027</h2>
+<p>Laskun rivit pysyvät samoina vuonna 2027. Sähkövero ja huoltovarmuusmaksu jatkuvat nykyisellä tasolla, koska Verohallinnon 1.1.2027 voimaan tulevat muutokset eivät koske sähköä. Siirtomaksun muutoksista ilmoittaa oma verkkoyhtiösi, ja laskuri ottaa uudet hinnat käyttöön, kun ne on julkaistu. Energian hinta riippuu sopimuksesta: pörssisopimuksessa kuukauden keskihinta selviää vasta kuukauden päätyttyä.</p>
 <h2>Jos lasku tuntuu liian suurelta</h2>
 <p>Tarkista ensin kulutus: onko se kasvanut edellisestä vuodesta, ja osuuko se kalliisiin tunteihin? Tarkista sitten siirtotuote ja sopimuksen marginaali. Laskun virheistä voi reklamoida sähkönmyyjälle tai verkkoyhtiölle. ${h.src('motivaSiirto', 'Motivan')} sivuilla on lisää tietoa siirtomaksun rakenteesta, ja ${h.src('evHintavertailu', 'Energiaviraston hintavertailusta')} löydät ajantasaiset sähkösopimukset.</p>`;
     },
@@ -103,6 +105,8 @@ ${h.table(['Home', 'Energy + retailer fee', 'Transfer + network fee', 'Electrici
 <li><strong>Network basic fee</strong>: a monthly fee by main fuse, in some networks with a power fee.</li>
 <li><strong>Electricity tax and security-of-supply fee</strong>: ${h.c(h.M.VERO_C, 4)} per kilowatt-hour including VAT; see ${h.a('sahkovero', 'electricity tax')}.</li>
 </ul>
+<h2>Your electricity bill in 2027</h2>
+<p>The bill keeps the same lines in 2027. Electricity tax and the security-of-supply fee continue at today’s level, since the Tax Administration’s changes from 1 January 2027 do not touch electricity. Your own network operator announces any change to its transfer fees, and the calculator uses the new prices once they are published. The energy price depends on your contract: on a spot contract the month’s average is only known once the month is over.</p>
 <h2>If the bill seems too high</h2>
 <p>Check consumption first: has it grown since last year, and does it fall in expensive hours? Then check your transfer product and contract margin. Billing errors can be disputed with the retailer or the network operator. ${h.src('motivaSiirto', 'Motiva')} explains the structure of the transfer fee, and the ${h.src('evHintavertailu', 'Energy Authority’s comparison')} lists current contracts.</p>`;
     },

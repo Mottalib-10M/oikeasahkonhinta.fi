@@ -115,7 +115,7 @@ ${h.table(['Retailer', 'Product', 'Margin', 'Monthly fee', 'Per year, 5,000 kWh'
 <p>How much the margin matters depends on consumption. In a flat using 2,000 kWh a year a gap of a tenth of a cent in margin is only two euros a year, while a one-euro gap in monthly fee is twelve. A low-use home should look at the fee first. In a 5,000 kWh house the same margin gap is five euros; in an electrically heated 18,000 kWh house it is eighteen, so the margin starts to outweigh the fee. Enter two contracts’ margins and your use in the calculator above, then add the fee gap times twelve.</p>
 <h2>Other contract terms</h2>
 <p>Price is not the only difference. A contract may be open-ended or fixed-term, and leaving a fixed-term contract early can cost money. Some contracts are priced by quarter, some by hour and some by monthly average; if you plan to time your use, make sure yours is priced at least by the hour. Some cap a negative spot price at zero, and some bundle guarantees of origin into the margin. Switching retailer is free and the new retailer handles it, and consumer advice services help free of charge in disputes.</p>
-<p>Compare offers regularly, since margins and fees move with the market.</p>`;
+<p>Compare offers regularly, since margins and fees move with the market. A yearly check, for example when your contract renews, is usually enough.</p>`;
     },
   },
 });
