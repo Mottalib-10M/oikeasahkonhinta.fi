@@ -4,7 +4,7 @@
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/fonts/inter-var.woff2') format('woff2'); }
 @theme {
   --color-navy-50: #f8fafc; --color-navy-100: #f1f5f9; --color-navy-200: #e2e8f0; --color-navy-300: #cbd5e1; --color-navy-400: #94a3b8; --color-navy-500: #64748b; --color-navy-600: #475569; --color-navy-700: #334155; --color-navy-800: #1e293b; --color-navy-900: #0f172a; --color-navy-950: #020617;
-  --color-accent-50: #edfdf9; --color-accent-100: #d6faf2; --color-accent-200: #adf5e5; --color-accent-300: #76efd4; --color-accent-400: #3fe8c3; --color-accent-500: #0B5D4B; --color-accent-600: #094f40; --color-accent-700: #084135; --color-accent-800: #06342a; --color-accent-900: #052921;
+  --color-accent-50: #EDF0F5; --color-accent-100: #DBE2EA; --color-accent-200: #B2C1D3; --color-accent-300: #8097B6; --color-accent-400: #406391; --color-accent-500: #002F6C; --color-accent-600: #00295F; --color-accent-700: #002351; --color-accent-800: #001C41; --color-accent-900: #001531;
   --color-success: #15803d; --color-warning: #b45309; --color-error: #dc2626;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
@@ -76,3 +76,62 @@ h1 { font-weight: 700; } h2 { font-weight: 650; } h3 { font-weight: 600; }
 :where(form, div, fieldset):has(> .grid-rows-subgrid) { align-content: start; }
 /* Dans une grille, le cadre du formulaire s'arrête sous ses champs au lieu de s'étirer à la hauteur du résultat. */
 .grid > form:has(> .grid-rows-subgrid) { align-self: start; }
+
+/* === Charte du pays (refonte d'identité validée par l'éditeur, appliquée le 2026-11-25) ===
+   En-tête plein, bandeau héros, simulateur en carte, sections alternées, chiffres-résultats, boutons et pied
+   aux couleurs du pays ; l'échelle --color-accent-* du @theme porte la couleur forte. */
+/* En-tete plein + filet de la 2e couleur */
+header nav[aria-label] { background:#002F6C !important; border-bottom:5px solid #1A6CD1 !important; backdrop-filter:none !important; }
+header nav[aria-label] > div > a, header nav[aria-label] > div > a span, header nav[aria-label] .nav-dropdown-trigger, #mobile-menu-toggle { color:#fff !important; }
+header nav[aria-label] img { background:#fff; border-radius:8px; padding:2px; }
+header nav[aria-label] .nav-dropdown-panel, #mobile-menu { background:#fff !important; }
+header nav[aria-label] .nav-dropdown-panel, #mobile-menu a, header nav[aria-label] .nav-dropdown-panel, #mobile-menu button, header nav[aria-label] .nav-dropdown-panel, #mobile-menu span { color:#0F172A !important; }
+/* Bandeau heros pleine largeur */
+main header:has(> h1) { background:#002F6C !important; box-shadow:0 0 0 100vmax #002F6C; clip-path:inset(-3rem -100vmax 0 -100vmax); margin-bottom:0 !important; padding-top:.25rem !important; padding-bottom:.5rem !important; border:0 !important; }
+main header:has(> h1) h1, main header:has(> h1) h1 *, main header:has(> h1) > p, main header:has(> h1) > div > p, main header:has(> h1) p, main header:has(> h1) li, main header:has(> h1) label, main header:has(> h1) span:not([class*="bg-"]) { color:#fff !important; }
+main header:has(> h1) h1 { letter-spacing:-0.02em; }
+main header:has(> h1) a { color:#fff !important; text-decoration:underline; text-decoration-color:#1A6CD1; text-decoration-thickness:2px; }
+main [data-outil] { background:#002F6C !important; box-shadow:0 0 0 100vmax #002F6C; clip-path:inset(0 -100vmax); padding-bottom:2.25rem !important; margin-bottom:2.25rem !important; border:0 !important; }
+main [data-outil] [data-chrome] { background:#fff !important; border:0 !important; border-top:6px solid #1A6CD1 !important; border-radius:14px !important; box-shadow:0 10px 30px rgba(0,0,0,.18) !important; }
+main [data-outil] [data-chrome], main [data-outil] [data-chrome] p, main [data-outil] [data-chrome] label, main [data-outil] [data-chrome] span, main [data-outil] [data-chrome] h2, main [data-outil] [data-chrome] h3, main [data-outil] [data-chrome] li, main [data-outil] [data-chrome] dt, main [data-outil] [data-chrome] dd, main [data-outil] [data-chrome] td, main [data-outil] [data-chrome] th { color:#0F172A; }
+/* Chiffres-resultats grands, dans l'accent, sur fond teinte */
+main [aria-live] :is([class*="text-2xl"],[class*="text-3xl"],[class*="text-4xl"]), main [data-resultat] :is([class*="text-2xl"],[class*="text-3xl"]), main .prose strong.big { font-size:2.1rem !important; line-height:1.15 !important; color:#002F6C !important; background:#EDF0F5; border-radius:8px; padding:.05em .3em; }
+/* Sections alternees blanc / teinte */
+main [data-outil] ~ :is(div,section):nth-of-type(odd) { background:#DBE2EA; box-shadow:0 0 0 100vmax #DBE2EA; clip-path:inset(0 -100vmax); padding-top:1.5rem; padding-bottom:1.5rem; }
+main .prose h2, main section > h2, main h2.text-2xl { color:#002F6C !important; border-left:8px solid #1A6CD1; padding-left:.6rem; }
+main h3 { color:#002F6C; }
+/* Boutons pleins 2e couleur, liens soulignes colores */
+main button[type="submit"], main a[class*="bg-accent"], main button[class*="bg-accent"], main a[class*="border-accent"], main a[class*="bg-brand"], main button[class*="bg-brand"], main a[class*="bg-primary"], main button[class*="bg-primary"] { background:#1A6CD1 !important; color:#FFFFFF !important; border-color:#1A6CD1 !important; border-radius:10px !important; font-weight:700; }
+main button[type="submit"]:hover, main a[class*="bg-accent"]:hover, main a[class*="border-accent"]:hover, main a[class*="bg-brand"]:hover, main a[class*="bg-primary"]:hover { background:#165BB0 !important; }
+main .prose a, main p > a, main li > a { color:#002F6C !important; text-decoration:underline; text-decoration-color:#1A6CD1; text-decoration-thickness:2px; text-underline-offset:3px; }
+/* Encadres et tableaux */
+main .bg-accent-50 { background:#EDF0F5 !important; border-left:6px solid #1A6CD1; }
+main table thead th { color:#002F6C !important; border-bottom: 0 !important; box-shadow: inset 0 -3px 0 #1A6CD1 !important; background:#EDF0F5; }
+/* Pied de page plein sombre */
+footer { background:#001A3D !important; border-top:6px solid #1A6CD1 !important; }
+footer, footer *:not(svg):not(path) { color:#E5E7EB !important; border-color:rgba(255,255,255,.16) !important; }
+footer a { color:#fff !important; text-decoration:underline; text-decoration-color:#1A6CD1; }
+footer [class*="bg-"] { background:transparent !important; }
+/* --- ajouts apres maquette (v2-lot2) --- */
+header nav[aria-label] a:not(#mobile-menu a):not(.nav-dropdown-panel a) { color:#fff !important; }
+header nav[aria-label] a[class*="border"]:not(#mobile-menu a) { border-color:rgba(255,255,255,.75) !important; }
+main header:has(> h1) ~ :not([data-outil]):has(~ [data-outil]) { background:#002F6C !important; box-shadow:0 0 0 100vmax #002F6C; clip-path:inset(0 -100vmax); margin-top:0 !important; margin-bottom:0 !important; padding-top:.75rem; padding-bottom:.75rem; }
+main header:has(> h1) ~ :not([data-outil]):has(~ [data-outil]), main header:has(> h1) ~ :not([data-outil]):has(~ [data-outil]) :is(p,h2,h3,span,strong,a,li,small,label,summary):not([class*="border"] *) { color:#fff !important; }
+main header:has(> h1) ~ astro-island:has(~ [data-outil]) { display:block; }
+main [data-outil][data-chrome] { background:#fff !important; border:0 !important; border-top:6px solid #1A6CD1 !important; border-radius:14px !important; box-shadow:0 10px 30px rgba(0,0,0,.18) !important; clip-path:none !important; margin-bottom:0 !important; padding-bottom:1.5rem !important; }
+main [data-outil][data-chrome] :is(label,p,span,td,th,a) { text-shadow:none; }
+main :is(astro-island,div):has(> [data-outil][data-chrome]) { display:block; background:#002F6C; box-shadow:0 0 0 100vmax #002F6C; clip-path:inset(0 -100vmax); padding-bottom:2.25rem; margin-bottom:2.25rem; }
+main [data-outil] :is(p,span,small,strong,a,label,li,dt,dd,h2,h3,summary):not([data-chrome] *):not([class*="bg-"] *):not([class*="bg-"]) { color:#fff !important; }
+main a:is([class*="hover:bg-accent"],[class*="hover:border-accent"]):not([class~="bg-accent-500"]):not([class~="bg-accent-600"]):not([class~="bg-accent-700"]):not([class~="border-accent-500"]):not([class~="border-accent-600"]) { background:transparent !important; color:inherit !important; border-color:#CBD5E1 !important; font-weight:inherit; }
+main button.fixed[class*="bg-accent"], main button.fixed { background:#EDF0F5 !important; color:#0F172A !important; border:0 !important; border-top:4px solid #1A6CD1 !important; border-radius:0 !important; }
+/* CORRECTIFS v3 (reprise du 2026-11-25) : contrastes ciblés sur l'élément (§10.4) */
+main header[class^="mb-"] ~ :is([data-outil], astro-island) { position: relative; z-index: 1; }
+main header[class^="mb-"] ~ astro-island > *, main header[class^="mb-"] ~ :not(#x) astro-island > * { position: relative; z-index: 1; }
+main header[class^="mb-"] ~ :not(#x) :is(form, div)[class~="bg-navy-50"] :is(label, p, span) { color: #1F2937 !important; }
+main :not(#x) :not(#y) div.flex.h-9.overflow-hidden > div > span { color: #111 !important; background: #fff !important; border-radius: 3px; padding: 0 3px !important; }
+main :is(.text-navy-500, .text-navy-400, caption) { color: #475569 !important; }
+main header[class^="mb-"] :is(div, p, span, label, small, time) { color: #fff !important; }
+footer [class~="bg-green-50"] { background: transparent !important; border-color: rgba(255,255,255,.4) !important; }
+main :is(p, li, td, .prose) a { text-underline-offset: 5px !important; }
+.skip-link:not(:focus), a[href="#main-content"]:not(:focus), a[href="#main"]:not(:focus) { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; border: 0 !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; white-space: nowrap !important; }
+/* === fin de la charte du pays === */
